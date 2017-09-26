@@ -39,6 +39,7 @@
      - page: wireless/hiddennode/index.md
      - page: wireless/handover/index.md
      - page: wireless/ratecontrol/index.md
+     - page: wireless/crosstalk/index.md
 - name: Back to INET
   link: https://inet.omnetpp.org/
 

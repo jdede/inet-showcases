@@ -23,5 +23,6 @@ IEEE 802.11:
   {%include link.i page='wireless/hiddennode/index.md' %}
   {%include link.i page='wireless/handover/index.md' %}
   {%include link.i page='wireless/ratecontrol/index.md' %}
+  {%include link.i page='wireless/crosstalk/index.md' %}
 </ul>
 
