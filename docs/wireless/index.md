@@ -3,7 +3,7 @@ layout: page
 title: INET Wireless Showcases
 ---
 
-These showcases demonstrate various aspects of performing wireless network 
+These showcases demonstrate various aspects of performing wireless network
 simulations with INET.
 
 General Wireless:
@@ -25,4 +25,3 @@ IEEE 802.11:
   {%include link.i page='wireless/ratecontrol/index.md' %}
   {%include link.i page='wireless/crosstalk/index.md' %}
 </ul>
-
