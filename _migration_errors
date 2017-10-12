@@ -4,6 +4,7 @@ packetdrop.arpresoluationfailed: getContainingNicModule(): nic module not found 
 packetdrop.noroutetodestination: same as above
 hiddennode.wallonrtson: Missing mode -- in module (inet::ieee80211::Dcf) HiddenNodeShowcase.hostB.wlan[0].mac.dcf
 hiddennode.walloffrtson: same as above
-levelofdetail: Cannot serialize IPv4 header without a properly computed CRC -- in module (inet::physicallayer::RadioMedium)
+levelofdetail: Cannot serialize IPv4 header without a properly computed CRC -- in module (inet::physicallayer::RadioMedium)-FIXED by adding **.crcMode = "computed"
+levelofdetail: Crash
 pathloss: Error: Network '' or 'inet.showcases.wireless.pathloss.' not found, check .ini and .ned files
 
