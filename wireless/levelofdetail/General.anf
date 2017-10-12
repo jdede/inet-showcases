@@ -499,13 +499,49 @@
         <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:detail(&quot;\&quot;symbol\&quot;&quot;) AND attr:fecType(&quot;\&quot;\&quot;&quot;) "/>
         <isoDataPattern>modulation(*)</isoDataPattern>
       </items>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot;"/>
+      <items xsi:type="scave:ScatterChart" name="Symbol level, all modulations, no FEC" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;\&quot;&quot;) AND attr:detail(&quot;\&quot;symbol\&quot;&quot;)"/>
+        <properties name="Graph.Title" value="Symbol, no FEC"/>
+        <properties name="X.Axis.Title" value="Distance [m]"/>
+        <properties name="Y.Axis.Title" value="Packet loss [%]"/>
+        <properties name="Legend.Display" value="true"/>
+        <properties name="Legend.Position" value="Inside"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;BPSK&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="blue"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QPSK&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="red"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-16&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="orange"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-64&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="darkgreen"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;BPSK&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="BPSK"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-16&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="QAM-16"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-64&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="QAM-64"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QPSK&quot; fecType=&quot;&quot; detail=&quot;symbol&quot;" value="QPSK"/>
+        <properties name="Symbols.Type" value="Triangle"/>
         <isoDataPattern>modulation(*)</isoDataPattern>
+        <isoDataPattern>fecType(*)</isoDataPattern>
+        <isoDataPattern>detail(*)</isoDataPattern>
+      </items>
+      <items xsi:type="scave:ScatterChart" name="Symbol level, all modulations, FEC" xDataPattern="module(_runattrs_) AND name(distance)">
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;)  AND attr:detail(&quot;\&quot;symbol\&quot;&quot;)"/>
+        <properties name="Graph.Title" value="Symbol, FEC"/>
+        <properties name="X.Axis.Title" value="Distance [m]"/>
+        <properties name="Y.Axis.Title" value="Packet loss [%]"/>
+        <properties name="Legend.Display" value="true"/>
+        <properties name="Legend.Position" value="Inside"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;BPSK&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="blue"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QPSK&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="red"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-16&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="orange"/>
+        <properties name="Line.Color/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-64&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="darkgreen"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;BPSK&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="BPSK"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-16&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="QAM-16"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QAM-64&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="QAM-64"/>
+        <properties name="Line.Name/LevelofDetail.host[1].pingApp[0] ping loss rate (%) - modulation=&quot;QPSK&quot; fecType=&quot;ConvolutionalCoder&quot; detail=&quot;symbol&quot;" value="QPSK"/>
+        <properties name="Symbols.Type" value="Triangle"/>
+        <isoDataPattern>modulation(*)</isoDataPattern>
+        <isoDataPattern>fecType(*)</isoDataPattern>
+        <isoDataPattern>detail(*)</isoDataPattern>
       </items>
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4 //@datasets/@datasets.0/@items.5 //@datasets/@datasets.1/@items.2 //@datasets/@datasets.1/@items.3 //@datasets/@datasets.1/@items.4 //@datasets/@datasets.1/@items.5 //@datasets/@datasets.1/@items.6 //@datasets/@datasets.1/@items.7 //@datasets/@datasets.1/@items.8 //@datasets/@datasets.1/@items.9 //@datasets/@datasets.1/@items.10 //@datasets/@datasets.1/@items.11"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4 //@datasets/@datasets.0/@items.5 //@datasets/@datasets.1/@items.2 //@datasets/@datasets.1/@items.3 //@datasets/@datasets.1/@items.4 //@datasets/@datasets.1/@items.5 //@datasets/@datasets.1/@items.6 //@datasets/@datasets.1/@items.7 //@datasets/@datasets.1/@items.8 //@datasets/@datasets.1/@items.9 //@datasets/@datasets.1/@items.10 //@datasets/@datasets.1/@items.11 //@datasets/@datasets.1/@items.12"/>
   </chartSheets>
 </scave:Analysis>
