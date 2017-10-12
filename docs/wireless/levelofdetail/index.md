@@ -40,7 +40,8 @@ When bit precise modeling is used, the error model calculates erroneous bits, fr
 
 The error model compensates for the use of forward error correction when calculating PER, in case of packet level of detail. If bit or symbol precision is used, the FEC encoding and decoding mechanism is applied to the bits.
 
-Note that the error model can be replaced.
+Note that since the radio is modular, the default error model can be replaced.
+<!--does this mean there are others in INET, or that you can write a new one if you want ?-->
 
 ### Configuration
 
@@ -153,8 +154,14 @@ Generally, the more complex modulations have less range.
 It is apparent from the plots that forward error correction can extend the range of transmissions to some extent.
 When just a few bits get corrupted, the forward error correction can correct those, and the transmission is correctly receivable.
 
+<img src="noFEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-right: 2px"><img src="FEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-left: 2px">
+
 The following image contains all modulations and forward error correction use cases on one plot:
 
+V1
+
 <a href="General2.svg" target="_blank"><img class="screen" src="results2.png">
+
+V2
 
 <img class="screen" src="all1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
