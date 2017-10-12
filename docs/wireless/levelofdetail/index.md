@@ -156,3 +156,5 @@ When just a few bits get corrupted, the forward error correction can correct tho
 The following image contains all modulations and forward error correction use cases on one plot:
 
 <a href="General.svg" target="_blank"><img class="screen" src="results.png">
+
+<img class="screen" src="all1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
