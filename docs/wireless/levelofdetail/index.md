@@ -37,7 +37,7 @@ When using packet and bit level simulation, even though forward error correction
 The `APSKLayeredReceiver` module uses the `APSKLayeredErrorModel` by default. The error model calculates packet error rate (PER), bit error rate (BER) and symbol error rate (SER), depending on the level of detail used. The error rates are calculated from the SNIR, the transmission's modulation, bandwidth, and bitrate.
 
 In case of packet level modeling, the error model computes which packets get corrupted.
-When bit precise modeling is used, the error model calculates erroneous bits, from which the receiver mechanism can decide which packets are corrupt. When symbol level precision is used, the error model computes which symbols get corrupted. The error model replaces a corrupted symbol with another one, which differs from the originally transmitted symbol in just 1 bit. The symbol is then decoded by the receiver, which decides which bits and in turn packets, are corrupt.
+When bit precise modeling is used, the error model calculates erroneous bits, from which the receiver mechanism can decide which packets are corrupt. When symbol level precision is used, the error model computes which symbols get corrupted. The error model replaces a corrupted symbol with another one, which differs from the originally transmitted symbol in just 1 bit. The symbol is then decoded by the receiver, which decides which bits and in turn which packets, are corrupt.
 
 The error model compensates for the use of forward error correction when calculating PER, in case of packet level of detail. If bit or symbol precision is used, the FEC encoding and decoding mechanism is applied to the bits.
 
