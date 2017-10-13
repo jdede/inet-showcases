@@ -10,6 +10,7 @@ INET can model radio transmissions with various levels of detail. The radio mode
 
 This showcase describes the different levels of detail in which INET can simulate radio transmissions. It also demonstrates a hypothetical layered radio, which can simulate transmissions at multiple levels of detail. These are 'packet', 'bit' and 'symbol' level. The example simulation for this showcase is a parameter study that examines packet loss as a function of distance when using various modulations and levels of detail.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/levelofdetail" target="_blank">`inet/showcases/wireless/levelofdetail`</a>
 
 ## The model
@@ -168,3 +169,8 @@ V1
 V2
 
 <img class="screen" src="all1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+## Discussion
+
+Use <a href="TODO" target="_blank">this page</a>
+in the GitHub issue tracker for commenting on this showcase.
