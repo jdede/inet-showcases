@@ -144,10 +144,10 @@ packet:
 packet -> SNIR -> packet error rate -> effect of FEC -> corrupted packets
 
 bit:
-packet -> bits -> FEC -> SNIR -> corrupted bits -> unFEC -> corrupted bits -> corrupted packets
+packet -> bits -> FEC -> SNIR -> gross corrupted bits -> unFEC -> net corrupted bits -> corrupted packets
 
 symbol:
-packet -> bits -> FEC -> symbol coding -> SNIR -> corrupted symbols -> some bits -> unFEC -> corrupted bits -> corrupted packets
+packet -> bits -> FEC -> symbol coding -> SNIR -> corrupted symbols -> symbol decoding -> unFEC -> corrupted bits -> corrupted packets
 -->
 
 
