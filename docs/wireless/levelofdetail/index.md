@@ -150,11 +150,14 @@ symbol:
 packet -> bits -> FEC -> symbol coding -> SNIR -> corrupted symbols -> some bits -> unFEC -> corrupted bits -> corrupted packets
 -->
 
+
+The following images show all modulations on the symbol detail level:
+
+<img src="noFEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-right: 2px"><img src="FEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-left: 2px">
+
 Generally, the more complex modulations have less range.
 Also, it is apparent from the plots that forward error correction can extend the range of transmissions to some extent.
 When just a few bits get corrupted, the forward error correction can correct those, and the transmission is correctly receivable.
-
-<img src="noFEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-right: 2px"><img src="FEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-left: 2px">
 
 The following image contains all modulations and forward error correction use cases on one plot:
 
