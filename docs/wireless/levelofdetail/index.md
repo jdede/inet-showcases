@@ -151,7 +151,7 @@ packet -> bits -> FEC -> symbol coding -> SNIR -> corrupted symbols -> some bits
 -->
 
 Generally, the more complex modulations have less range.
-It is apparent from the plots that forward error correction can extend the range of transmissions to some extent.
+Also, it is apparent from the plots that forward error correction can extend the range of transmissions to some extent.
 When just a few bits get corrupted, the forward error correction can correct those, and the transmission is correctly receivable.
 
 <img src="noFEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-right: 2px"><img src="FEC2.png" width="50%" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="padding-left: 2px">
