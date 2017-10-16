@@ -64,7 +64,7 @@
     <datasets name="PathLoss4">
       <items xsi:type="scave:Add"/>
       <items xsi:type="scave:ScatterChart" name="freespace and 2-ray" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*) AND (attr:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;TwoRayGroundReflection\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;TwoRayInterference\&quot;&quot;))   ) OR name(distance)    "/>
+        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND (itervar:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR itervar:pathlosstype(&quot;\&quot;TwoRayGroundReflection\&quot;&quot;) OR itervar:pathlosstype(&quot;\&quot;TwoRayInterference\&quot;&quot;))   ) OR name(distance)    "/>
         <properties name="X.Axis.Title" value="distance [m]"/>
         <properties name="Y.Axis.Title" value="received signal power [W]"/>
         <properties name="Y.Axis.Log" value="true"/>
@@ -75,14 +75,8 @@
         <properties name="Symbols.Type" value="None"/>
         <isoDataPattern>pathlosstype(*)</isoDataPattern>
       </items>
-      <items xsi:type="scave:ScatterChart" name="freespace and lognormal, rician, rayleigh" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*) AND ( attr:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;LogNormalShadowing\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;RicianFading\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;RayleighFading\&quot;&quot;))   ) OR name(distance)"/>
-        <properties name="Y.Axis.Log" value="true"/>
-        <properties name="Symbols.Type" value="None"/>
-        <isoDataPattern>pathlosstype(*)</isoDataPattern>
-      </items>
       <items xsi:type="scave:ScatterChart" name="freespace and lognormal, rician" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*) AND ( attr:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;LogNormalShadowing\&quot;&quot;) OR attr:pathlosstype(&quot;\&quot;RicianFading\&quot;&quot;))   ) OR name(distance)"/>
+        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND ( itervar:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR itervar:pathlosstype(&quot;\&quot;LogNormalShadowing\&quot;&quot;) OR itervar:pathlosstype(&quot;\&quot;RicianFading\&quot;&quot;))   ) OR name(distance)"/>
         <properties name="X.Axis.Title" value="distance [m]"/>
         <properties name="Y.Axis.Title" value="received signal power [W]"/>
         <properties name="Y.Axis.Log" value="true"/>
@@ -99,6 +93,6 @@
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.1 //@datasets/@datasets.4/@items.2 //@datasets/@datasets.5/@items.1 //@datasets/@datasets.5/@items.2 //@datasets/@datasets.6/@items.1 //@datasets/@datasets.7/@items.1 //@datasets/@datasets.7/@items.2 //@datasets/@datasets.7/@items.3"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.1 //@datasets/@datasets.4/@items.2 //@datasets/@datasets.5/@items.1 //@datasets/@datasets.5/@items.2 //@datasets/@datasets.6/@items.1 //@datasets/@datasets.7/@items.1 //@datasets/@datasets.7/@items.2"/>
   </chartSheets>
 </scave:Analysis>
