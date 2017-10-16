@@ -1,14 +1,17 @@
 package inet.showcases.wireless.pcaprecording;
 
 import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.node.ethernet.Eth100M;
 import inet.node.inet.AdhocHost;
+import inet.node.inet.Router;
+import inet.node.inet.StandardHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
 network PcapRecordingShowcase
 {
-    @display("bgb=400,400");
+    @display("bgb=1214,400");
     submodules:
         configurator: IPv4NetworkConfigurator {
             @display("p=87,57");
@@ -20,9 +23,25 @@ network PcapRecordingShowcase
             @display("p=86,192");
         }
         host1: AdhocHost {
-            @display("p=202,196");
+            @display("p=201,243");
         }
         host2: AdhocHost {
-            @display("p=271,115");
+            @display("p=289,115");
         }
+        ethHost1: StandardHost {
+            @display("p=405,176");
+        }
+        ethHost2: StandardHost {
+            @display("p=1126,176");
+        }
+        router1: Router {
+            @display("p=674,176");
+        }
+        router2: Router {
+            @display("p=891,176");
+        }
+    connections:
+        ethHost1.ethg++ <--> Eth100M <--> router1.ethg++;
+        router2.ethg++ <--> Eth100M <--> ethHost2.ethg++;
+        router1.pppg++ <--> Eth100M <--> router2.pppg++;
 }
