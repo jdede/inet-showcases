@@ -2,6 +2,5 @@ showcases:
 
 levelofdetail: Error: Cannot deserialize frame (in module Ieee80211Mac)
 levelofdetail: opp_run_dbg: ./inet/common/Units.h:390: static V inet::units::internal::convert3<T, inet::units::intscale<U, Num, Den> >::fn(const V&) [with V = long int; T = inet::units::units::b; U = inet::units::units::b; int Num = 1; int Den = 8]: Assertion `t % Den == 0' failed.
-pathloss: Cannot add statistic 'receptionPower' to module PathLossShowcase (NED type: inet.showcases.wireless.pathloss.PathLossShowcase): Error in source=receptionMinSignalPower(radioMedium.receptionStarted): Signal 'receptionStarted' is not declared on type 'inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium' (you can turn off or force this check by setting checkSignals=false/true) -- in module (omnetpp::cModule) PathLossShowcase (id=1), during network setup
 networknode: Error: *.visualizer.*.networkNodeVisualizer.nodeFilter értéke ha eltér a default-tól, akkor elszáll
 physicallinkactivity: Error: Mobile configuration: (inet::Packet)Broadcast-0: Mandatory tag 'inet::InterfaceReq' missing from message or packet -- in module (inet::IPv4) PhysicalLinkVisualizerMobileShowcase.host1.ipv4.ip (id=123), at t=0s, event #4
