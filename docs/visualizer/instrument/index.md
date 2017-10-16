@@ -213,7 +213,7 @@ the range and the granularity of the figures.
 
 This video illustrates what happens when the simulation is run:
 
-<p><video controls autoplay loop src="indicator16.mp4" onclick="this.paused ? this.play() : this.pause();" width="854" height="485"></video></p>
+<p><video controls autoplay loop src="instrument18.mp4" onclick="this.paused ? this.play() : this.pause();" width="854" height="485"></video></p>
 
 The client starts moving away from the server. At the beginning, the
 server transmits with 54 Mbps bit rate. The transmissions are received
