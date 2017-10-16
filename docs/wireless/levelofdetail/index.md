@@ -53,7 +53,7 @@ There are two hosts, and one of them pings the other one once every second. Each
 -   **Forward error correction** (FEC) is either `ConvolutionalCoder` or not using forward error correction
 -   **Modulations** used are 'BPSK', 'QPSK', 'QAM-16' and 'QAM-64'
 
-We record the ping loss rate.
+We record the ping loss rate for all runs.
 
 ### Forward error correction
 
@@ -75,8 +75,8 @@ correction (36 Mbps instead of 18 Mbps).
 <img class="screen" src="QAM64-FEC.png">
 -->
 
-Packet loss vs. distance is displayed on the following plots, for each modulation and forward error correction usage case. Each plot contains three curves pertaining to the three levels of detail. The three detail levels produce similar curves for the same modulation and forward error
-correction, except for two cases (more on these exceptions below). Click on the images to zoom:
+Packet loss vs. distance is displayed on the following plots, for each modulation and forward error correction use case. Each plot contains three curves pertaining to the three levels of detail. The three detail levels produce similar curves for the same modulation and forward error
+correction, except for two cases (more on these exceptions below.) Click on the images to zoom:
 
 ### BPSK
 
@@ -95,11 +95,11 @@ correction, except for two cases (more on these exceptions below). Click on the 
 <img src="qam64-nofec2.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in; padding-right: 1px;" width="50%"><img src="qam64-fec2.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in; border-style: solid; border-width: 2px; border-color: red;" width="50%">
 
 The two exceptions are QAM-16 and QAM-64 with forward error correction
-(the two plots for these cases are indicated above with a red border.)
+(they are indicated above with a red border.)
 QAM-16 and QAM-64 has 4 and 6 bits/symbol. When simulating with symbol detail level, the error model
 computes which symbols get corrupted. Erroneous bits result from the decoding of corrupted symbols.
 Since bits get corrupted in chunks represented by a symbol, the distribution of bit errors is not independent. Also, currently the error model "corrupts" just 1 bit/symbol, when simulating with symbol level precision. These effects lead to the gap between the curves.
-(the gap is present with the QPSK modulation, but it is not as prominent, since QPSK only has 2 bits/symbol).
+(The gap is present with the QPSK modulation, but it is not as prominent, since QPSK only has 2 bits/symbol.)
 
 <!--
 The two exceptions are QAM-16 and QAM-64 with forward error correction
@@ -159,6 +159,8 @@ The following images show all modulations on the symbol detail level:
 Generally, the more complex modulations have less range.
 Also, it is apparent from the plots that forward error correction can extend the range of transmissions to some extent.
 When just a few bits get corrupted, the forward error correction can correct those, and the transmission is correctly receivable.
+
+TODO: the steepness of the curves
 
 The following image contains all modulations and forward error correction use cases on one plot:
 
