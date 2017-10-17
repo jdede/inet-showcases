@@ -40,5 +40,6 @@
      - page: wireless/handover/index.md
      - page: wireless/ratecontrol/index.md
      - page: wireless/crosstalk/index.md
+     - page: wireless/pcaprecording/index.md
 - name: Back to INET
   link: https://inet.omnetpp.org/
