@@ -48,7 +48,7 @@ The simulation uses the following network:
 The network contains two `adhocHost`s named `host1` and `host2`, and two `StandardHost`s named `ethHost1` and `ethHost2`. There are two `Router` modules (`router1` and `router2`), connected by ppp. Each wired host is connected to one of the routers via ethernet.
 The network also contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedVisualizer` module.
 
-Traffic generation is set up the following way: `host1` is configured to send a UDP stream to `host2`, `ethHost1` is configured to open a TCP connection to `ethHost2`, and send a 1Mbyte file via TCP. `ethHost1` is also configured to ping `ethHost2`.
+Traffic generation is set up the following way: `host1` is configured to send a UDP stream to `host2` (via 802.11), `ethHost1` is configured to open a TCP connection to `ethHost2`, and send a 1Mbyte file (via ethernet). `ethHost1` is also configured to ping `ethHost2`.
 
 There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. The keys in the ini file pertaining to pcap recording configuration are the following:
 
@@ -69,6 +69,14 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 *.router1.pcapRecorder[1].pcapFile = "results/router1.eth.pcap"
 *.router1.pcapRecorder[1].moduleNamePatterns = "eth[*]"
 ```
+
+We configure `host1`'s pcap recorder to use the 802.11 link layer headers, and `ethHost1`'s pcap recorder to use ethernet link layer headers. Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: rewrite
+
+## Results
+
+The following video shows the traffic in the network:
+
+<video autoplay loop controls src="pcap1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 
 TODO: dumpProtocols: selects which protocols to dump to the trace
 the same thing can be selected with the moduleNamePatterns
