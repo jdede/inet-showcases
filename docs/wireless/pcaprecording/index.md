@@ -1,6 +1,6 @@
 ---
 layout: page
-title: PCAP Recording
+title: pcap Recording
 hidden: true
 ---
 
@@ -102,8 +102,3 @@ the same thing can be selected with the moduleNamePatterns
 this is important if a node has two different kinds of interfaces (like a router might have eth and ppp interfaces)
 TODO: more than one pcaprecorder can be added. it has to be if you want to record different
 link layer headers
-
-
-Then the config...how to set it
-
-Then, some results. Screenshots of Wireshark, or TCPDump
