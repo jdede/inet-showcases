@@ -77,6 +77,25 @@ We configure `host1`'s pcap recorder to use the 802.11 link layer headers, and `
 The following video shows the traffic in the network:
 
 <video autoplay loop controls src="pcap1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<!--internal video recording, playback speed 1, no animation speed, run until first sendTimer (t=0.002), step, stop at about 10.5 seconds simulation time-->
+
+The following screenshot shows some pcap files open in Wireshark.
+
+### host1.pcap:
+
+<img class="screen" src="wifi.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+### ethHost1.pcap:
+
+<img class="screen" src="ethHost1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+### router1.ppp.pcap:
+
+<img class="screen" src="ppp.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+The following screenshot shows `ethHost1.pcap` opened with TCPDump:
+
+<img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 TODO: dumpProtocols: selects which protocols to dump to the trace
 the same thing can be selected with the moduleNamePatterns
