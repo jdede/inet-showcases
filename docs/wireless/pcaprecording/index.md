@@ -41,14 +41,40 @@ The example simulation for this showcase contains wired and wireless hosts, and 
 The hosts are configured to generate TCP, UDP and ICMP traffic. The hosts connect to routers
 via ethernet, the connection between the routers is ppp. The wireless hosts communicate via 802.11.
 The simulation can be run by choosing the `PcapRecording` configuration from the ini file.
-The simulation uses the following network, which contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedVisualizer` module:
+The simulation uses the following network:
 
 <img class="screen" src="network.png">
+
+The network contains two `adhocHost`s named `host1` and `host2`, and two `StandardHost`s named `ethHost1` and `ethHost2`. There are two `Router` modules (`router1` and `router2`), connected by ppp. Each wired host is connected to one of the routers via ethernet.
+The network also contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedVisualizer` module.
+
+Traffic generation is set up the following way: `host1` is configured to send a UDP stream to `host2`, `ethHost1` is configured to open a TCP connection to `ethHost2`, and send a 1Mbyte file via TCP. `ethHost1` is also configured to ping `ethHost2`.
+
+There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. The keys in the ini file pertaining to pcap recording configuration are the following:
+
+```
+*.host1.numPcapRecorders = 1
+*.host1.pcapRecorder[*].pcapNetwork = 105	# 802.11
+*.host1.pcapRecorder[*].pcapFile = "results/host1.pcap"
+
+*.ethHost1.numPcapRecorders = 1
+*.ethHost1.pcapRecorder[*].pcapNetwork = 1	# ethernet
+*.ethHost1.pcapRecorder[*].pcapFile = "results/ethHost1.pcap"
+
+*.router1.numPcapRecorders = 2
+*.router1.pcapRecorder[0].pcapNetwork = 204	# ppp
+*.router1.pcapRecorder[0].moduleNamePatterns = "ppp[*]"
+*.router1.pcapRecorder[0].pcapFile = "results/router1.ppp.pcap"
+*.router1.pcapRecorder[1].pcapNetwork = 1	# ethernet
+*.router1.pcapRecorder[1].pcapFile = "results/router1.eth.pcap"
+*.router1.pcapRecorder[1].moduleNamePatterns = "eth[*]"
+```
 
 TODO: dumpProtocols: selects which protocols to dump to the trace
 the same thing can be selected with the moduleNamePatterns
 this is important if a node has two different kinds of interfaces (like a router might have eth and ppp interfaces)
-
+TODO: more than one pcaprecorder can be added. it has to be if you want to record different
+link layer headers
 
 
 Then the config...how to set it
