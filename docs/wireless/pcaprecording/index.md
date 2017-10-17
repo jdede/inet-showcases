@@ -30,10 +30,26 @@ The pcap file's link layer header type needs to be set with the `pcapNetwork` pa
 - 802.11: 105
 - ppp: 204
 
-- parameters
-- operation (signals)
+The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
+a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are same level as the pcap recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`.
 
-verbose, pcapFile, pcapNetwork, moduleNamePatterns, dumpProtocols?, alwaysFlush?, dumpBadFrames?
+TODO: dumpProtocols?, alwaysFlush?, dumpBadFrames?
+
+### The configuration
+
+The example simulation for this showcase contains wired and wireless hosts, and routers.
+The hosts are configured to generate TCP, UDP and ICMP traffic. The hosts connect to routers
+via ethernet, the connection between the routers is ppp. The wireless hosts communicate via 802.11.
+The simulation can be run by choosing the `PcapRecording` configuration from the ini file.
+The simulation uses the following network, which contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedVisualizer` module:
+
+<img class="screen" src="network.png">
+
+TODO: dumpProtocols: selects which protocols to dump to the trace
+the same thing can be selected with the moduleNamePatterns
+this is important if a node has two different kinds of interfaces (like a router might have eth and ppp interfaces)
+
+
 
 Then the config...how to set it
 

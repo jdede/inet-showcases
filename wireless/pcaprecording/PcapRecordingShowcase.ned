@@ -1,5 +1,6 @@
 package inet.showcases.wireless.pcaprecording;
 
+import inet.visualizer.integrated.IntegratedMultiVisualizer;
 import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.AdhocHost;
@@ -16,7 +17,7 @@ network PcapRecordingShowcase
         configurator: IPv4NetworkConfigurator {
             @display("p=87,57");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=87,130");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
