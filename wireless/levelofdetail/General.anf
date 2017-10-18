@@ -131,7 +131,7 @@
       <items xsi:type="scave:Add" filterPattern="distance"/>
       <items xsi:type="scave:Add" filterPattern="&quot;ping loss rate (%)&quot;"/>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;\&quot;&quot;) AND attr:modulation(&quot;\&quot;BPSK\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;\&quot;&quot;) AND itervar:modulation(&quot;\&quot;BPSK\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="BPSK, No FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -175,7 +175,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;\&quot;&quot;) AND attr:modulation(&quot;\&quot;QPSK\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;\&quot;&quot;) AND itervar:modulation(&quot;\&quot;QPSK\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="QPSK, No FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -219,7 +219,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;\&quot;&quot;) AND attr:modulation(&quot;\&quot;QAM-16\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;\&quot;&quot;) AND itervar:modulation(&quot;\&quot;QAM-16\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="QAM-16, No FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -266,7 +266,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;\&quot;&quot;) AND attr:modulation(&quot;\&quot;QAM-64\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;\&quot;&quot;) AND itervar:modulation(&quot;\&quot;QAM-64\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="QAM-64, No FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -313,7 +313,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND attr:modulation(&quot;\&quot;BPSK\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND itervar:modulation(&quot;\&quot;BPSK\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="BPSK, FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -359,7 +359,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND attr:modulation(&quot;\&quot;QPSK\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND itervar:modulation(&quot;\&quot;QPSK\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="QPSK, FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -403,7 +403,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND attr:modulation(&quot;\&quot;QAM-16\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND itervar:modulation(&quot;\&quot;QAM-16\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="QAM-16, FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -449,7 +449,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND attr:modulation(&quot;\&quot;QAM-64\&quot;&quot;)  "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;) AND itervar:modulation(&quot;\&quot;QAM-64\&quot;&quot;)  "/>
         <properties name="Graph.Title" value="QAM-64, FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -496,11 +496,11 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Packet loss vs distance" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:detail(&quot;\&quot;symbol\&quot;&quot;) AND attr:fecType(&quot;\&quot;\&quot;&quot;) "/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:detail(&quot;\&quot;symbol\&quot;&quot;) AND itervar:fecType(&quot;\&quot;\&quot;&quot;) "/>
         <isoDataPattern>modulation(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Symbol level, all modulations, no FEC" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;\&quot;&quot;) AND attr:detail(&quot;\&quot;symbol\&quot;&quot;)"/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;\&quot;&quot;) AND itervar:detail(&quot;\&quot;symbol\&quot;&quot;)"/>
         <properties name="Graph.Title" value="Symbol, no FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
@@ -520,7 +520,7 @@
         <isoDataPattern>detail(*)</isoDataPattern>
       </items>
       <items xsi:type="scave:ScatterChart" name="Symbol level, all modulations, FEC" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND attr:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;)  AND attr:detail(&quot;\&quot;symbol\&quot;&quot;)"/>
+        <filters xsi:type="scave:Select" filterPattern="distance OR &quot;ping loss rate (%)&quot; AND itervar:fecType(&quot;\&quot;ConvolutionalCoder\&quot;&quot;)  AND itervar:detail(&quot;\&quot;symbol\&quot;&quot;)"/>
         <properties name="Graph.Title" value="Symbol, FEC"/>
         <properties name="X.Axis.Title" value="Distance [m]"/>
         <properties name="Y.Axis.Title" value="Packet loss [%]"/>
