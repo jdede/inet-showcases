@@ -34,7 +34,7 @@ The modules to record can be specified by the `moduleNamePatterns` parameter, wh
 a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level as the pcap recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`.
 The `dumpProtocols` parameter selects which protocols to include in the capture. The parameter's default is `"ethernet ppp ieee80211"`.
 
-When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the specified link layer header type. It is needed because traffic for all interfaces are included in the trace by default. One pcap recorder module can only record traces with one link layer header type, thus the packets for the other traces will not be recognized by pcap programs.
+When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the specified link layer header type. It is needed because traffic for all interfaces are included in the trace by default. One pcap recorder module can only record traces with one link layer header type, thus the packets for the other traces will not be recognized by pcap programs. Two pcap recorder modules need to be included in the node to properly record packets from both interfaces.
 
 TODO: alwaysFlush?, dumpBadFrames?
 
@@ -73,7 +73,7 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 *.router1.pcapRecorder[1].moduleNamePatterns = "eth[*]"
 ```
 
-We configure `host1`'s pcap recorder to use the 802.11 link layer headers, and `ethHost1`'s pcap recorder to use ethernet link layer headers. Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: rewrite
+We configure `host1`'s pcap recorder to use the 802.11 link layer headers, and `ethHost1`'s pcap recorder to use ethernet link layer headers. <!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: rewrite-->
 
 ## Results
 
@@ -100,8 +100,5 @@ The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
-TODO: dumpProtocols: selects which protocols to dump to the trace
-the same thing can be selected with the moduleNamePatterns
-this is important if a node has two different kinds of interfaces (like a router might have eth and ppp interfaces)
 TODO: more than one pcaprecorder can be added. it has to be if you want to record different
 link layer headers
