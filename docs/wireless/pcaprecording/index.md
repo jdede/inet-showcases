@@ -34,7 +34,8 @@ The modules to record can be specified by the `moduleNamePatterns` parameter, wh
 a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level as the pcap recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`.
 The `dumpProtocols` parameter selects which protocols to include in the capture. The parameter's default is `"ethernet ppp ieee80211"`.
 
-When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the specified link layer header type. It is needed because traffic for all interfaces are included in the trace by default. One pcap recorder module can only record traces with one link layer header type, thus the packets for the other traces will not be recognized by pcap programs. Two pcap recorder modules need to be included in the node to properly record packets from both interfaces.
+When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the specified link layer header type. It is needed because traffic for all interfaces are included in the trace by default. One pcap recorder module can only record traces with one link layer header type, thus the packets for the other traces will not be recognized by pcap programs.
+Multiple pcap recorder modules need to be included in the network to record packets with different link layer headers.
 
 TODO: alwaysFlush?, dumpBadFrames?
 
