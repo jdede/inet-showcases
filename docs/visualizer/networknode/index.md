@@ -22,17 +22,43 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 In INET simulations, `NetworkNodeVisualizer` module (included in the
 network as part of `IntegratedVisualizer`) is responsible for visualizing
-network nodes. By default, all nodes are visualized on a 2D canvas and on a 3D
-osg scene. We can narrow the list of nodes to be displayed by using the
-`nodeFilter` parameter. By using `NetworkNodeVisualizer`
+network nodes. `NetworkNodeVisualizer` can be separated to two components: 
+`NetworkNodeCanvasVisualizer` and `NetworkNodeOsgVisualizer`.
+
+By default, all nodes are visualized on a 2D canvas by `NetworkNodeCanvasVisualizer` 
+and on a 3D osg scene by `NetworkNodeOsgVisualizer`. We can narrow the list of nodes 
+to be displayed by using the `nodeFilter` parameter. By using `NetworkNodeVisualizer`
 module, we also are able to customize the look of nodes and to specify the position
 of annotations.
 
-On 2D canvas, each node is displayed as a 2D icon. Icon can be customized by
-setting the display string of the node. The icon's path, color and the colorization
-can be set by the "i" tag, inside the display string. These attributes can also be set
-in the node's properties.
+By default, the node's name is displayed, but it can be hide by setting the
+`displayModuleName` parameter to `false`.
 
+### 2D Visualization
+
+`NetworkNodeCanvasVisualizer` is responsible for displaying nodes on a 2D canvas. 
+On the 2D canvas, each node is displayed as a 2D icon. The icon of the node can be customized 
+in the `NED` network description file by setting the display string of the node. 
+The display string can be specified by tags. We can customize properties of the icon 
+by setting the `i` tag. It has three arguments:
+- The first argument specifies the icon to be used. The OMNeT++ image path is used to find 
+the image, just like with the `i` display string tag or the `cIconFigure` class. 
+In our case, the `misc/car2` name resolves to the `inet/images/misc/car2.png` file 
+and `misc/person3` name resolves to the `inet/images/misc/person3.png` file.
+- The second argument specifies the color of the icon, and it accepts English color names 
+(more precisely, SVG color names) and HTML-style RGB values.
+- The third argument defines the colorization amount of the icon. It is as a number 
+between zero and one. Number one means full colorization. 
+
+We can set the size of the icon by using the `is` tag. The size can be 
+`vs` (very small), `s` (small), `n` (normal), `l` (large) and `vl` (very large).
+
+(**NOTE:** All supported display string tags are listed in the 
+<a href="https://omnetpp.org/doc/omnetpp/manual/#cha:display-strings" target="_blank">OMNeT++ Simulation Manual</a>.)
+
+### 3D Visualization
+
+<!-- WIP details, details...-->
 On 3D osg scene, each node is displayed as a 2D icon by default. 2D icons can be
 replaced with 3D external models. It can make the simulation more
 understandable, however it does not have any effect on the simulation. The
@@ -52,8 +78,8 @@ These parameters can be combined by writing them after each other. Consider the 
 `*.example.osgModel = "example.osg.10,10,10.trans.90,10,30.rot"`.<br>
 The above code combines translation and rotation.
 
-By default, the module's name is displayed, but it can be hide by setting the
-`displayModuleName` parameter to `false`.
+**NOTE** More information can be found on the <a href="http://www.openscenegraph.org" target="_blank">OpenSceneGraph web site</a> 
+and in dedicated OpenSceneGraph books.
 
 ## Customizing Appearance of Network Nodes
 
@@ -69,14 +95,14 @@ can be modified in the node's *Properties* on the *Appearance* tab.)
 
 ``` {.snippet}
 pedestrian: AdhocHost {
-    @display("p=113,156;<strong>i=device/cellphone2</strong>");
+    @display("p=113,156;i=device/cellphone2");
 }
 ```
 
 On the 2D canvas, two cellphone icons can be seen, representing `car`
 and `pedestrian`.
 
-<img src="VisualizingNodes_v0628.png" class="screen" />
+<img src="VisualizingNodes_v1019.png" class="screen" />
 
 On the 3D osg scene, you can see the same cellphone icons as on the 2D canvas.
 The cellphone icons are automatically rotating towards the camera.
