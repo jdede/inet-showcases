@@ -56,15 +56,21 @@ simulate partially overlapping channels.
 -->
 
 The analog signal representation is implemented by the analog models in INET.
-INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented a power level that is constant in both frequency and time, and it has a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical (partially overlapping signals cause an error.) <!--In most 802.11 simulation, scalar representation is adequate. TODO: is this needed?-->
+INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented by a power level that is constant in both frequency and time, and has a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical (partially overlapping signals cause an error.) <!--In most 802.11 simulation, scalar representation is adequate. TODO: is this needed?-->
 
 <img class="screen" src="scalar.png">
 
-In a dimensional representation, the signal can a power level that is not constant in time and frequency. The dimensional representation can accurately compute signal interference even in the case of signals that partially overlap in frequency and bandwidth. However, dimensional radio models require more processing power.
+In a dimensional representation, the signal can have a power level that is not constant in time and frequency. The dimensional representation can accurately model signal interference even in the case of signals that partially overlap in frequency and bandwidth. However, dimensional analog models require more processing power.
 
 <img class="screen" src="dimensional.png">
 
+TODO: radios and radiomediums and transmitters and all that have a scalar and a dimensional version
+
 ### Completely overlapping frequency bands
+
+TODO: the configurator for the certain simulation and about the scalar/dimensional models
+
+and results
 
 ### Independent frequency bands
 
