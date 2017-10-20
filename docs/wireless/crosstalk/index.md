@@ -10,6 +10,17 @@ By default, 802.11 hosts and access points in INET are configured to use the sam
 
 INET has support for simulating communication on the different wifi channels, both in the 2.4 GHz and 5 GHz frequency range. This showcase demonstrates using both overlapping and non-overlapping wifi channels in simulations, and how transmissions on different channels interfere with each other. It also describes the available analog signal representation models.
 
+This showcase divides the topic of the simulation of different wifi channels into three cases:
+
+- **Completely overlapping frequency bands**: all nodes communicate on the same wifi channel
+- **Independent frequency bands**: nodes communicate on different channels that doesn't affect each other
+- **Partially overlapping frequency bands**: nodes communicate on adjacent channels, which interfere with each other
+
+There is a simulation for each case in omnetpp.ini.
+
+INET version: `4.0`<br>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/crosstalk" target="_blank">`inet/showcases/wireless/crosstalk`</a>
+
 ## The model
 
 - wifi channels
@@ -29,7 +40,7 @@ frequency, the others overlap. The same thing looks like how in 5 GHz.
 5GHz: 20MHz or 40MHz channel bandwidth, many non-overlapping channels.
 -->
 
-The 2.4 GHz Wifi range in 802.11g, for example, can use a limited number of channels (13 in the EU and 12 the US.) The bandwidth of transmissions in 802.11g is 22MHz, and channels are spaced 5MHz apart. Thus adjacent channels can suffer from crosstalk effects. There can be a few independent channels, where there is no cross-channel interference, e.g. channels 1, 6, and 11.
+The 2.4 GHz Wifi range in 802.11g, for example, can use a limited number of channels (13 in the EU and 12 the US.) The bandwidth of transmissions in 802.11g is 22MHz, and channels are spaced 5MHz apart. Thus adjacent channels overlap, and they can suffer from crosstalk effects. There can be a few independent channels, where there is no cross-channel interference, e.g. channels 1, 6, and 11.
 Because the low number of channels, the 2.4 GHz wifi range can be overcrowded.
 
 
@@ -53,11 +64,11 @@ In a dimensional representation, the signal can a power level that is not consta
 
 <img class="screen" src="dimensional.png">
 
-## Completely overlapping frequency bands
+### Completely overlapping frequency bands
 
-## Partially overlapping frequency bands
+### Independent frequency bands
 
-## Independent frequency bands
+### Partially overlapping frequency bands
 
 TODO: this should be done from the angle of wifi channels
 
