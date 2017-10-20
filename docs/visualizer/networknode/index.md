@@ -27,7 +27,7 @@ network nodes. `NetworkNodeVisualizer` can be separated to two components:
 
 By default, all nodes are visualized on a 2D canvas by `NetworkNodeCanvasVisualizer` 
 and on a 3D osg scene by `NetworkNodeOsgVisualizer`. We can narrow the list of nodes 
-to be displayed by using the `nodeFilter` parameter. By using `NetworkNodeVisualizer`
+to be displayed by using the `nodeFilter` parameter. By using these modules
 module, we also are able to customize the look of nodes and to specify the position
 of annotations.
 
@@ -41,14 +41,13 @@ On the 2D canvas, each node is displayed as a 2D icon. The icon of the node can 
 in the `NED` network description file by setting the display string of the node. 
 The display string can be specified by tags. We can customize properties of the icon 
 by setting the `i` tag. It has three arguments:
-- The first argument specifies the icon to be used. The OMNeT++ image path is used to find 
-the image, just like with the `i` display string tag or the `cIconFigure` class. 
-In our case, the `misc/car2` name resolves to the `inet/images/misc/car2.png` file 
+- The first argument specifies the icon to be used. This argument is used to find 
+the image. The `misc/car2` name resolves to the `inet/images/misc/car2.png` file 
 and `misc/person3` name resolves to the `inet/images/misc/person3.png` file.
 - The second argument specifies the color of the icon, and it accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
 - The third argument defines the colorization amount of the icon. It is as a number 
-between zero and one. Number one means full colorization. 
+between zero and one. Number one means full colorization.
 
 We can set the size of the icon by using the `is` tag. The size can be 
 `vs` (very small), `s` (small), `n` (normal), `l` (large) and `vl` (very large).
@@ -58,14 +57,32 @@ We can set the size of the icon by using the `is` tag. The size can be
 
 ### 3D Visualization
 
-<!-- WIP details, details...-->
-On 3D osg scene, each node is displayed as a 2D icon by default. 2D icons can be
-replaced with 3D external models. It can make the simulation more
-understandable, however it does not have any effect on the simulation. The
-external 3D osg model is specified by the node's `osgModel`
-parameter. Color, size and other appearance settings can be changed with
+Nodes are displayed on a 3D osg scene, by default. For 3D visualization, 
+`OMNeT++` basically exposes the `OpenSceneGraph` API. One needs to assemble 
+an osg scene graph in the model, and give it to `OMNeT++` for display. 
+The scene graph can be updated at runtime, and changes will be reflected in the display.
+
+**NOTE:** A scene graph is a tree-like directed graph data structure that 
+describes a 3D scene. The root node represents the whole virtual world.
+The world is then broken down into a hierarchy of nodes representing either 
+spatial groupings of objects, settings of the position of objects, animations of objects, 
+or definitions of logical relationships between objects. The leaves of the graph represent 
+the physical objects themselves, the drawable geometry and their material properties. 
+
+By default, each node is displayed as a 2D icon on the osg scene which is set 
+in the display string of the node. 3D visualizations often need to load external 
+resources from disk, for example images or 3D models. By default, OSG tries to load 
+these files from the current working directory (unless they are given with absolute path).
+The resource we want to load is specified in the `node.osgModel` parameter.
+
+**NOTE:** Here are some supported file formats: geometric file formats: 
+3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg. Image file formats: bmp, gif, 
+jpeg, rgb, tga, tif.
+<!-- WIP -->
+Color, size and other appearance settings can be changed with
 `osgModel` and `osgModelColor` parameters of the node. Here
-are some examples:
+are some examples. We use the `example.osg` external model as the 3D model 
+for the `example` node:
 
 -   `*.example.osgModel = "example.osg.10,10,10.trans"`<br>
     This line of code translates the example.osg by some XYZ offset.
