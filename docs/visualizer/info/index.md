@@ -119,7 +119,7 @@ state. It takes on the following values:
 -   DEFER when the node wants to transmit but the channel is busy
 -   IFS+BKOFF when the node is backing off while the channel is idle
 
-The following animation illustrates as a packet from `source`
+The following video illustrates as a packet from `source`
 makes its way to `destination`:
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="VisualizingSubmoduleInformation0.mp4" width="718" height="480"></video></p>
@@ -127,6 +127,13 @@ makes its way to `destination`:
 <!--internal video recording playback speed 0.43 animation speed none-->
 
 TODO: what is happening on the animation
+
+When `source` starts transmitting the UDP packet, its contention state is IDLE.
+The contention state of `relay` is also IDLE while receiving `source`'s tranmission.
+When `relay` receives the packet, its contention state changes to IFS+BACKOFF for the duration of the backoff period. Then its contention state switches to DEFER as it sends an ACK frame to `source`, because the UDP packet is waiting in the queue to be relayed to `destination`.
+When it finishes sending the ACK, the contention state changes to IDLE as it transmits the UDP packet to `destination`. When it receives the packet, it sends an ACK to `relay`.
+
+Then it starts relaying the packet to `destination`, and its contention state swithces to DEFER, because an ACK
 
 <!--
 When `source` starts transmitting the UDP packet, its state
