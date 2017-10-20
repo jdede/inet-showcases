@@ -4,6 +4,8 @@ title: pcap Recording
 hidden: true
 ---
 
+TODO: this is not wireless...need new category ?
+
 ## Goals
 
 INET has support for recording pcap traces from simulations. The recording
@@ -47,7 +49,7 @@ via ethernet, the connection between the routers is ppp. The wireless hosts comm
 The simulation can be run by choosing the `PcapRecording` configuration from the ini file.
 The simulation uses the following network:
 
-<img class="screen" src="network.png">
+<img class="screen" src="network2.png">
 
 The network contains two `adhocHost`s named `host1` and `host2`, and two `StandardHost`s named `ethHost1` and `ethHost2`. There are two `Router` modules (`router1` and `router2`), which are connected to each other by ppp. Each wired host is connected to one of the routers via ethernet.
 The network also contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedMultiVisualizer` module.
