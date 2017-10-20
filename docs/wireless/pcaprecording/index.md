@@ -77,7 +77,7 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 ```
 
 We configure `host1`'s pcap recorder to use the 802.11 link layer headers, and `ethHost1`'s pcap recorder to use ethernet link layer headers. There are two pcap recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
-<!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: rewrite-->
+<!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: not needed-->
 
 ## Results
 
