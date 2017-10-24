@@ -23,10 +23,6 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## The model
 
-- wifi channels
-- signal representation
-- the three cases
-
 ### Wifi channels
 
 <!--
@@ -68,8 +64,6 @@ In a dimensional representation, the signal can have a power level that is not c
 
 <img class="screen" src="dimensional.png">
 
-TODO: radios and radiomediums and transmitters and all that have a scalar and a dimensional version
-
 ### Example simulations
 
 There are example simulations for the three cases outlined in the Goals section. All simulations use variations of the same network, which is illustrated by the image below:
@@ -80,7 +74,7 @@ The networks contains four `adhocHost`s, named `host1` to `host4`. The networks 
 
 ### Nodes on same wifi channel (completely overlapping frequency bands)
 
-TODO: the configurator for the certain simulation and about the scalar/dimensional models
+TODO: the configuration for the certain simulation and about the scalar/dimensional models
 
 and results
 
