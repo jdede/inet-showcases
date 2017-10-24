@@ -78,7 +78,7 @@ There are example simulations for the three cases outlined in the Goals section.
 
 The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `IPv4NetworkConfigurator` module, radioMedium module(s) (its number and type varies in the networks for the different simulations), and an `IntegratedVisualizer` module. All hosts are within communication range of each other. The hosts are arranged in rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations are defined in the `General` configuration.
 
-### Nodes on same wifi channel, completely overlapping frequency bands
+### Nodes on same wifi channel (completely overlapping frequency bands)
 
 TODO: the configurator for the certain simulation and about the scalar/dimensional models
 
@@ -94,7 +94,7 @@ The collision avoidance mechanism takes effect, and `host3` wins the channel. Bo
 
 TODO: transmissions are "sent" to all nodes
 
-### Nodes on non-overlapping wifi channels, independent frequency bands
+### Nodes on non-overlapping wifi channels (independent frequency bands)
 
 In this case, we are modeling host-pairs that are communicating on different, non-overlapping wifi channels (e.g. channels 1 and 6.)
 Since the channels are independent, it is trivial that there won't be any interference.
@@ -104,7 +104,7 @@ The scalar analog model is sufficient for this case.
 This case is demonstrated by two example simulations. In the first one, the hosts are using one scalar radio medium, and in the second one each pair of hosts is on a different radio medium.
 -->
 
-In the first configuration, the hosts use the same radio medium module. The simulation can be run by choosing the `somethingTODO` configuration from the ini file. The video below shows the hosts communicating:
+In the first configuration, the hosts use the same radio medium module. The simulation can be run by choosing the `IndependentFrequencyBandsOneScalarRadioMediumModule` configuration from the ini file. The video below shows the hosts communicating:
 
 <video autoplay loop controls src="independent2.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recoding, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #159-->
@@ -113,14 +113,16 @@ Since host-pairs communicate on independent channels, there is no interference. 
 
 In the above, it was trivial that `host4` cannot receive `host1`'s transmissions, just as `host2` cannot receive `host3`'s transmissions. Yet the radio medium module sent all transmissions to all hosts, where the radio module decided that some of the transmissions cannot be received because the host's receiver is set to a different channel.
 
-The simulation can be optimized by ommiting these unnecessary message sends by the radio medium, by using two radio medium modules and placing the trivially non-interfering host-pairs on a different radio medium. The second example simulation demonstrates the use of two radio medium modules to optimize the simulation.
+The simulation can be optimized by ommiting these unnecessary message sends by the radio medium, by using two radio medium modules and placing the trivially non-interfering host-pairs on a different radio medium.
 
-TODO: this is scalar radio
+The second example simulation demonstrates the use of two radio medium modules to optimize the simulation. The simulation can be run by choosing the `IndependentFrequencyBandsTwoScalarRadioMediumModules` configuration from the ini file. The following video shows the host-pairs communicating:
 
 <video autoplay loop controls src="independent_2radiomediums1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #129-->
 
-### Nodes on adjacent wifi channels, partially overlapping frequency bands
+Notice that there are only message sends between hosts on the same channel.
+
+### Nodes on adjacent wifi channels (partially overlapping frequency bands)
 
 TODO: this should be done from the angle of wifi channels
 
