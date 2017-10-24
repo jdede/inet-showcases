@@ -7,7 +7,7 @@ import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
-network WifiChannelsShowcaseBaseNetwork
+network CrosstalkShowcaseBaseNetwork
 {
     @display("bgb=661,400");
     submodules:
@@ -31,15 +31,15 @@ network WifiChannelsShowcaseBaseNetwork
         }
 }
 
-network WifiChannelsShowcaseOneScalarRadioMediumModule extends WifiChannelsShowcaseBaseNetwork
+network CrosstalkShowcaseOneScalarRadioMediumModule extends CrosstalkShowcaseBaseNetwork
 {
     submodules:
-        radioMedium[2]: Ieee80211ScalarRadioMedium {
+        radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=74,191");
         }
 }
 
-network WifiChannelsShowcaseTwoScalarRadioMediumModules extends WifiChannelsShowcaseBaseNetwork
+network CrosstalkShowcaseTwoScalarRadioMediumModules extends CrosstalkShowcaseBaseNetwork
 {
     submodules:
         radioMedium1: Ieee80211ScalarRadioMedium {
@@ -50,7 +50,7 @@ network WifiChannelsShowcaseTwoScalarRadioMediumModules extends WifiChannelsShow
         }
 }
 
-network WifiChannelsShowcasePartiallyOverlappingFrequencyBands extends WifiChannelsShowcaseBaseNetwork
+network CrosstalkShowcasePartiallyOverlappingFrequencyBands extends CrosstalkShowcaseBaseNetwork
 {
     submodules:
         radioMedium: Ieee80211DimensionalRadioMedium {

@@ -40,7 +40,7 @@ frequency, the others overlap. The same thing looks like how in 5 GHz.
 5GHz: 20MHz or 40MHz channel bandwidth, many non-overlapping channels.
 -->
 
-The 2.4 GHz Wifi range in 802.11g, for example, can use a limited number of channels (13 in the EU and 12 the US.) The bandwidth of transmissions in 802.11g is 22MHz, and channels are spaced 5MHz apart. Thus adjacent channels overlap, and they can suffer from crosstalk effects. There can be a few independent channels, where there is no cross-channel interference, e.g. channels 1, 6, and 11.
+The 2.4 GHz Wifi range in 802.11g, for example, can use a limited number of channels (13 in the EU.) The bandwidth of transmissions in 802.11g is 20MHz, and channels are spaced 5MHz apart. Thus adjacent channels overlap, and they can suffer from crosstalk effects. There can be a few independent channels, where there is no cross-channel interference, e.g. channels 1, 6, and 11.
 Because the low number of channels, the 2.4 GHz wifi range can be overcrowded.
 
 
@@ -56,25 +56,34 @@ simulate partially overlapping channels.
 -->
 
 The analog signal representation is implemented by the analog models in INET.
-INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented by a power level that is constant in both frequency and time, and has a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical (partially overlapping signals cause an error.) <!--In most 802.11 simulation, scalar representation is adequate. TODO: is this needed?-->
+INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented by a power level that is constant in both frequency and time, and is described by two values: a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical. Partially overlapping signals cause an error, completely non-overlapping signals are allowed by the scalar model.) <!--In most 802.11 simulation, scalar representation is adequate. TODO: is this needed?-->
 
 <img class="screen" src="scalar.png">
 
-In a dimensional representation, the signal can have a power level that is not constant in time and frequency. The dimensional representation can accurately model signal interference even in the case of signals that partially overlap in frequency and bandwidth. However, dimensional analog models require more processing power.
+In a dimensional representation, the signal can have a power level that is not constant in time and frequency. The "shape" of the signal can be specified in both time and frequency with parameters of the analog model. The dimensional representation can accurately model signal interference even in the case of signals that partially overlap in frequency and bandwidth. However, dimensional analog models require more processing power.
 
 <img class="screen" src="dimensional.png">
 
 TODO: radios and radiomediums and transmitters and all that have a scalar and a dimensional version
 
-### Completely overlapping frequency bands
+### Nodes on same wifi channel, completely overlapping frequency bands
 
 TODO: the configurator for the certain simulation and about the scalar/dimensional models
 
 and results
 
-### Independent frequency bands
+<video autoplay loop controls src="overlapping1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<!--internal video recording, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #141-->
 
-### Partially overlapping frequency bands
+### Nodes on non-overlapping wifi channels, independent frequency bands
+
+<video autoplay loop controls src="independent2.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<!--internal video recoding, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #159-->
+
+<video autoplay loop controls src="independent_2radiomediums1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<!--internal video recording, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #129-->
+
+### Nodes on adjacent wifi channels, partially overlapping frequency bands
 
 TODO: this should be done from the angle of wifi channels
 
