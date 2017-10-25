@@ -95,8 +95,8 @@ and in dedicated `OpenSceneGraph` books.
 
 ## Customizing Appearance of Network Nodes
 
-This example shows how the nodes' look can be customized. For this example, a
-simulation is created. It can be run by selecting the `VisualizingNodes`
+This example shows how the nodes' look can be customized. A simulation is created
+for this example, it can be run by selecting the `VisualizingNodes`
 configuration from the ini file.
 
 The network contains two `AdhocHosts`, `pedestrian` and
@@ -106,18 +106,22 @@ modifying its display string in the
 can be modified in the node's *Properties* on the *Appearance* tab.)
 
 ``` {.snippet}
+car: AdhocHost {
+    @display("p=168,117;i=misc/car2");
+    }
 pedestrian: AdhocHost {
-    @display("p=113,156;i=device/cellphone2");
+    @display("p=113,156;i=misc/person3");
+    }
 }
 ```
 
-On the 2D canvas, two cellphone icons can be seen, representing `car`
-and `pedestrian`.
+On the 2D canvas, a car and a person with a smartphone can be seen, 
+representing `car` and `pedestrian`.
 
 <img src="VisualizingNodes_v1019.png" class="screen" />
 
-On the 3D osg scene, you can see the same cellphone icons as on the 2D canvas.
-The cellphone icons are automatically rotating towards the camera.
+On the 3D osg scene, you can see the same icons as on the 2D canvas.
+The icons are automatically rotating towards the camera.
 
 <img src="WithoutCustomize3D_transparent_bg.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
 
@@ -138,14 +142,14 @@ how the nodes look like after we have replaced their icon.
 
 The `pedestrian` node is represented by an animated walking
 boxman and `car` is represented by a car model instead of 2D
-cellphone icons. The 3D models make the nodes recognizable even without
+icons. The 3D models make the nodes recognizable even without
 displaying the module's name.
 
 ## More Information
 
 This example only demonstrated the key features of network node visualization.
-For more information, refer to the `NetworkNodeVisualizer` NED
-documentation.
+For more information, refer to the `NetworkNodeVisualizer`, `NetworkNodeCanvasVisualizer` 
+and `NetworkNodeOsgVisualizer` NED documentations.
 
 <!--
 ## Discussion
