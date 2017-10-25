@@ -36,7 +36,7 @@ frequency, the others overlap. The same thing looks like how in 5 GHz.
 5GHz: 20MHz or 40MHz channel bandwidth, many non-overlapping channels.
 -->
 
-The 2.4 GHz Wifi range in 802.11g, for example, can use a limited number of channels (13 in the EU.) The bandwidth of transmissions in 802.11g is 20MHz, and channels are spaced 5MHz apart. Thus adjacent channels overlap, and they can suffer from crosstalk effects. There can be a few independent channels, where there is no cross-channel interference, e.g. channels 1, 6, and 11.
+The 2.4 GHz frequency range in 802.11g, for example, can use a limited number of channels (13 in the EU.) The bandwidth of transmissions in 802.11g is 20MHz, and channels are spaced 5MHz apart. Thus adjacent channels overlap, and they can suffer from crosstalk effects. There can be a few independent channels, where there is no cross-channel interference, e.g. channels 1, 6, and 11.
 Because the low number of channels, the 2.4 GHz wifi range can be overcrowded.
 
 
@@ -50,10 +50,13 @@ There are two analog signal representation models in INET. when using scalar, th
 bands either completely overlap, or not at all. The dimensional is more detailed, and it can
 simulate partially overlapping channels.
 -->
-
+```
+TODO: what is it ?
+TODO: it is not just part of the radio medium but transmitters and receivers...they need to be compatible
+```
 The analog signal representation is implemented by the analog models in INET.
 The analog model is part of the radio medium module.
-INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented by a power level that is constant in both frequency and time, and is described by two values: a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical. Partially overlapping signals cause an error, completely non-overlapping signals are allowed by the scalar model.)
+INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented by a power level that is constant in both frequency and time, and is described by two values: a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical. Partially overlapping signals cause an error, but completely non-overlapping signals are allowed by the scalar model.)
 
 For example, `Ieee80211ScalarRadioMedium` and `Ieee80211DimensionalRadioMedium` are radio medium modules which use a scalar and a dimensional analog model by default. These two radio medium modules are to be used with `Ieee80211ScalarRadio` and `Ieee80211DimensionalRadio` in hosts.
 (Generally, the name hints as to which kind of analog model is used by radio medium and radio modules.) <!--In most 802.11 simulation, scalar representation is adequate. TODO: is this needed?-->
@@ -70,7 +73,7 @@ There are example simulations for the three cases outlined in the Goals section.
 
 <img class="screen" src="basenetwork.png">
 
-The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `IPv4NetworkConfigurator` module, radioMedium module(s) (its number and type varies in the networks for the different simulations), and an `IntegratedVisualizer` module. All hosts are within communication range of each other. The hosts are arranged in rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations are defined in the `General` configuration.
+The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `IPv4NetworkConfigurator` module, an `IntegratedVisualizer` module, and radioMedium module(s). The number and type of the radio medium modules varies in the networks for the different simulations, either containing one or two. All hosts are within communication range of each other. The hosts are arranged in rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations are defined in the `General` configuration.
 
 ### Nodes on same wifi channel (completely overlapping frequency bands)
 
@@ -78,13 +81,13 @@ TODO: the configuration for the certain simulation and about the scalar/dimensio
 
 and results
 
-The simulation for this case demonstrates the hosts communicating on the same wifi channel, the default channel. The simulation can be run by selecting the `CompletelyOverlappingFrequencyBands ` configuration from the ini file. Since the frequency and bandwidth of transmissions for all hosts is exactly the same, inferring which transmissions interfere is trivial (all of them). In this case a scalar analog model is sufficient. The following video shows the node-pairs communicating:
+The simulation for this case demonstrates the hosts communicating on the same wifi channel, the default channel 1. The simulation can be run by selecting the `CompletelyOverlappingFrequencyBands ` configuration from the ini file. Since the frequency and bandwidth of transmissions for all hosts is exactly the same, inferring which transmissions interfere is trivial (all of them). In this case a scalar analog model is sufficient. The following video shows the node-pairs communicating:
 
 <video autoplay loop controls src="overlapping1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #141-->
 
 At first the two source nodes, `host1` and `host3`, start transmitting at the same time. The transmissions collide, and neither destination host is able to receive any of them correctly.
-The collision avoidance mechanism takes effect, and `host3` wins the channel. Both nodes can transmit their data succesfully after one another.
+The collision avoidance mechanism takes effect, and `host3` wins channel access. Both nodes can transmit their data succesfully after one another.
 
 TODO: transmissions are "sent" to all nodes
 
@@ -98,9 +101,9 @@ The scalar analog model is sufficient for this case.
 This case is demonstrated by two example simulations. In the first one, the hosts are using one scalar radio medium, and in the second one each pair of hosts is on a different radio medium.
 -->
 
-In the first configuration, the hosts use the same radio medium module. The simulation can be run by choosing the `IndependentFrequencyBandsOneScalarRadioMediumModule` configuration from the ini file. The video below shows the hosts communicating:
+In the first configuration for this case, the hosts use the same radio medium module. The simulation can be run by choosing the `IndependentFrequencyBandsOneScalarRadioMediumModule` configuration from the ini file. The video below shows the hosts communicating:
 
-<video autoplay loop controls src="independent2.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<p><video autoplay loop controls src="independent2.mp4" onclick="this.paused ? this.play() : this.pause();"></video></p>
 <!--internal video recoding, animation speed none, playback speed 0.59, zoom 1.69, display message name and message class off, run until #159-->
 
 Since host-pairs communicate on independent channels, there is no interference. `host1` and `host3` can transmit simultaneously, and their transmissions are correctly receivable by both destination hosts. Note that all transmissions are sent to all hosts by the radio medium module.
