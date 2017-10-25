@@ -22,15 +22,12 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 In INET simulations, `NetworkNodeVisualizer` module (included in the
 network as part of `IntegratedVisualizer`) is responsible for visualizing
-network nodes. `NetworkNodeVisualizer` can be separated to two components: 
+network nodes. `NetworkNodeVisualizer` includes two components: 
 `NetworkNodeCanvasVisualizer` and `NetworkNodeOsgVisualizer`.
 
 By default, all nodes are visualized on a 2D canvas by `NetworkNodeCanvasVisualizer` 
 and on a 3D osg scene by `NetworkNodeOsgVisualizer`. We can narrow the list of nodes 
-to be displayed by using the `nodeFilter` parameter. By using these modules
-module, we also are able to customize the look of nodes and to specify the position
-of annotations.
-
+to be displayed by using the `nodeFilter` parameter.
 By default, the node's name is displayed, but it can be hide by setting the
 `displayModuleName` parameter to `false`.
 
@@ -39,11 +36,10 @@ By default, the node's name is displayed, but it can be hide by setting the
 `NetworkNodeCanvasVisualizer` is responsible for displaying nodes on a 2D canvas. 
 On the 2D canvas, each node is displayed as a 2D icon. The icon of the node can be customized 
 in the `NED` network description file by setting the display string of the node. 
-The display string can be specified by tags. We can customize properties of the icon 
+The display string can be set by tags. We can customize properties of the icon 
 by setting the `i` tag. It has three arguments:
 - The first argument specifies the icon to be used. This argument is used to find 
-the image. The `misc/car2` name resolves to the `inet/images/misc/car2.png` file 
-and `misc/person3` name resolves to the `inet/images/misc/person3.png` file.
+the image. For example, the `misc/car2` name resolves to the `inet/images/misc/car2.png` file.
 - The second argument specifies the color of the icon, and it accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
 - The third argument defines the colorization amount of the icon. It is as a number 
@@ -57,12 +53,12 @@ We can set the size of the icon by using the `is` tag. The size can be
 
 ### 3D Visualization
 
-Nodes are displayed on a 3D osg scene, by default. For 3D visualization, 
-`OMNeT++` basically exposes the `OpenSceneGraph` API. One needs to assemble 
-an osg scene graph in the model, and give it to `OMNeT++` for display. 
+`NetworkNodeOsgVisualizer` is responsible for displaying nodes on a 3D osg scene.
+For 3D visualization, `OMNeT++` basically exposes the `OpenSceneGraph` API. 
+One needs to assemble an osg **scene graph** in the model, and give it to `OMNeT++` for display. 
 The scene graph can be updated at runtime, and changes will be reflected in the display.
 
-**NOTE:** A scene graph is a tree-like directed graph data structure that 
+**NOTE:** A **scene graph** is a tree-like directed graph data structure that 
 describes a 3D scene. The root node represents the whole virtual world.
 The world is then broken down into a hierarchy of nodes representing either 
 spatial groupings of objects, settings of the position of objects, animations of objects, 
@@ -78,25 +74,24 @@ The resource we want to load is specified in the `node.osgModel` parameter.
 **NOTE:** Here are some supported file formats: geometric file formats: 
 3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg. Image file formats: bmp, gif, 
 jpeg, rgb, tga, tif.
-<!-- WIP -->
-Color, size and other appearance settings can be changed with
-`osgModel` and `osgModelColor` parameters of the node. Here
-are some examples. We use the `example.osg` external model as the 3D model 
-for the `example` node:
 
--   `*.example.osgModel = "example.osg.10,10,10.trans"`<br>
-    This line of code translates the example.osg by some XYZ offset.
--   `*.example.osgModel = "example.osg.90,10,30.rot"`<br>
-    This line of code rotates the example.osg about the XYZ axes.
--   `*.example.osgModel = "example.osg.5.scale"`<br>
-    This line of code scales the example.osg.
+By using `node.osgModel`, we can scale, rotate and translate the 3D model.
+Here is the format of `node.osgModel`:
 
-These parameters can be combined by writing them after each other. Consider the following example:<br>
-`*.example.osgModel = "example.osg.10,10,10.trans.90,10,30.rot"`.<br>
-The above code combines translation and rotation.
+`*.example.osgModel = "example.osg.2.scale.0,0,10.trans.90,0,0.rot"`.<br>
+
+The above line is explained below.
+- `example.osg` is the name of the external model that represents the `example` network node
+- `.2.scale` scales `example.osg` to 200%
+- `.0.0.10.trans` translates `example.osg` 10 units upwards
+- `.90.0.0.rot` rotates `example.osg` 90 degrees around the Z axis
+
+Color of the 3D model also can be changed by using the `osgModelColor` parameter.
+This parameter accepts English color names (more precisely, SVG color names) 
+and HTML-style RGB values.
 
 **NOTE** More information can be found on the <a href="http://www.openscenegraph.org" target="_blank">OpenSceneGraph web site</a> 
-and in dedicated OpenSceneGraph books.
+and in dedicated `OpenSceneGraph` books.
 
 ## Customizing Appearance of Network Nodes
 
