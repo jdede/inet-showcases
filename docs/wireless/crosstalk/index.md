@@ -112,6 +112,8 @@ In the above, it was trivial that `host4` cannot receive `host1`'s transmissions
 
 The simulation can be optimized by ommiting these unnecessary message sends by the radio medium, by using two radio medium modules and placing the trivially non-interfering host-pairs on a different radio medium.
 
+TODO: it scales better
+
 The second example simulation demonstrates the use of two radio medium modules to optimize the simulation. The simulation can be run by choosing the `IndependentFrequencyBandsTwoScalarRadioMediumModules` configuration from the ini file. The following video shows the host-pairs communicating:
 
 <video autoplay loop controls src="independent_2radiomediums1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
@@ -120,6 +122,9 @@ The second example simulation demonstrates the use of two radio medium modules t
 Notice that there are only message sends between hosts on the same channel.
 
 ### Nodes on adjacent wifi channels (partially overlapping frequency bands)
+
+TODO: by default, the dimensional signal shapes are the same as the scalar
+but it is more accurately simulated -> partially overlapping transmissions can be simulated
 
 TODO: this should be done from the angle of wifi channels
 
