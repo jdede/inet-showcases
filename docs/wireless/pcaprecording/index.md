@@ -1,6 +1,6 @@
 ---
 layout: page
-title: pcap Recording
+title: PCAP Recording
 hidden: true
 ---
 
@@ -8,11 +8,11 @@ TODO: this is not wireless...need new category ?
 
 ## Goals
 
-INET has support for recording pcap traces from simulations. The recording
-process produces pcap files that are similar to real world pcap traces,
-so one can use the same tools and techniques for analyzing simulated traffic as used on real traffic, such as Wireshark and TCPDump. Knowledge of pcap can be reused in the context of simulations.
+INET has support for recording PCAP traces from simulations. The recording
+process produces PCAP files that are similar to real world PCAP traces,
+so one can use the same tools and techniques for analyzing simulated traffic as used on real traffic, such as Wireshark and TCPDump. Knowledge of PCAP can be reused in the context of simulations.
 
-This showcase contains an example simulation, which generates and records pcap traces of TCP, UDP, and ICMP
+This showcase contains an example simulation, which generates and records PCAP traces of TCP, UDP, and ICMP
 traffic, using various physical layer protocols like ethernet and 802.11.
 
 INET version: `4.0`<br>
@@ -20,24 +20,24 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## The model
 
-In order to record pcap traces in a node, a `PcapRecorder` module needs to be included in the node.
+In order to record PCAP traces in a node, a `PcapRecorder` module needs to be included in the node.
 Pcap recorder modules can be easily included in hosts and routers by specifying their `numPcapRecorders` parameter (available in modules that extend `LinkLayerNodeBase`, such as  `StandardHost` and derivatives, and router modules.)
 
-The pcap recorder module records L2 frames sent to and from modules that are in the same host as the pcap recorder module.
-The module only records packets that contain IPv4 packets (those not containing IPv4 are discarded.) It writes traces in a pcap file, which has to be specified by the `pcapFile` parameter.
+The PCAP recorder module records L2 frames sent to and from modules that are in the same host as the PCAP recorder module.
+The module only records packets that contain IPv4 packets (those not containing IPv4 are discarded.) It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
 This parameter acts as the main switch for recording, thus specifying this parameter enables packet capture. <!--The pcap recorder module also creates TCPDump-like output on the module log, if the `verbose` parameter is set to `true`. TODO: enable when its working-->
-The pcap file's link layer header type needs to be set with the `pcapNetwork` parameter, so pcap programs interpret the traces correctly. The most important type codes are the following:
+The PCAP file's link layer header type needs to be set with the `pcapNetwork` parameter, so PCAP programs interpret the traces correctly. The most important type codes are the following:
 
 - ethernet: 1
 - 802.11: 105
 - ppp: 204
 
 The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
-a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level as the pcap recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces.
+a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces.
 The `dumpProtocols` parameter selects which protocols to include in the capture. The parameter's default is `"ethernet ppp ieee80211"`.
 
 When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the link layer header type specified by the `pcapNetwork` parameter. It is needed because traffic for all interfaces are included in the trace by default.
-Multiple pcap recorder modules need to be included in the network to record packets with different link layer headers. One pcap recorder module can only record traces with one link layer header type, thus the packets with the other header types would not be recognized by pcap programs.
+Multiple PCAP recorder modules need to be included in the network to record packets with different link layer headers. One PCAP recorder module can only record traces with one link layer header type, thus the packets with the other header types would not be recognized by PCAP programs.
 
 TODO: dumpBadFrames?
 
@@ -56,7 +56,7 @@ The network also contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadio
 
 Traffic generation is set up the following way: `host1` is configured to send a UDP stream to `host2` (via 802.11), `ethHost1` is configured to open a TCP connection to `ethHost2`, and send a 1Mbyte file (via ethernet). Additionally, `ethHost1` is configured to ping `ethHost2`.
 
-There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. The keys in the ini file pertaining to pcap recording configuration are the following:
+There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. The keys in the ini file pertaining to PCAP recording configuration are the following:
 
 ```
 *.host1.numPcapRecorders = 1
@@ -76,7 +76,7 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 *.router1.pcapRecorder[1].moduleNamePatterns = "eth[*]"
 ```
 
-We configure `host1`'s pcap recorder to use the 802.11 link layer headers, and `ethHost1`'s pcap recorder to use ethernet link layer headers. There are two pcap recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
+We configure `host1`'s PCAP recorder to use the 802.11 link layer headers, and `ethHost1`'s PCAP recorder to use ethernet link layer headers. There are two PCAP recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
 <!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: not needed-->
 
 ## Results
@@ -86,7 +86,7 @@ The following video shows the traffic in the network:
 <video autoplay loop controls src="pcap1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, playback speed 1, no animation speed, run until first sendTimer (t=0.002), step, stop at about 10.5 seconds simulation time-->
 
-The following screenshot shows some pcap files open in Wireshark.
+The following screenshot shows some PCAP files open in Wireshark.
 
 ### host1.pcap:
 
