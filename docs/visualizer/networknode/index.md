@@ -54,6 +54,8 @@ We can set the size of the icon by using the `is` display string tag. The size c
 
 ### Visualization on a 3D scene
 
+TODO: in OSG view mode Y axis starts in the opposite direction
+
 `NetworkNodeOsgVisualizer` is responsible for displaying nodes on a 3D scene.
 (In this version of INET, `IntegratedVisualizer.osgVisualizerType` must be set 
 to `IntegratedOsgVisualizer` for visualizing nodes in 3D, because this parameter 
@@ -61,7 +63,9 @@ is empty by default.)
 `OMNeT++`'s 3D visualization is based on the open-source `OpenSceneGraph` (osg) and 
 `osgEarth` libraries. These libraries offer high-level functionality, 
 such as the ability of using 3D model files directly, accessing and rendering 
-online map and satellite imagery data sources, and so on. 
+online map and satellite imagery data sources, and so on. In this showcase, we deal
+only with 3D models and we do not deal with maps. You can learn about osg maps 
+in the <a href="https://inet.omnetpp.org/inet-showcases//visualizer/earth/" target="_blank">Visualizing Terrain and Urban Environment</a> showcase.
 
 By default, each node is represented by a 2D icon on the osg scene which is set 
 in the display string of the node. If we want to replace the 2D icon to a 3D model, 
@@ -75,8 +79,6 @@ By default, the `OMNeT++` image path is used to find the image.
 
 By using the `osgModel` parameter, we can scale, rotate and translate the 3D model.
 The `osgModel` parameter is used as follows:
-
-<!-- TODO: altalanosabban, hogy a trans rot scale mit csinal -->
 
 Firstly, we have to set the 3D model's file name that will represent the network node.
 After this, we can use the `scale`, `trans` and `rot` keywords to transform the model.
@@ -99,14 +101,6 @@ the `exampleNode` network node
 - `180,0,90.rot.rot` rotates `example.osg` 180 degrees around the X axis 
 and 90 degrees around the Z axis
 - The parts of the parameter string are separated by dots.
-
-<!-- / -->
-
-<!-- TODO: Hogy kell iranyba allitani a modelt, mozgas kozben merre fordul -->
-
-
-
-<!-- / -->
 
 Color of the 3D model also can be changed by using the `osgModelColor` parameter.
 This parameter accepts English color names (more precisely, SVG color names) 
@@ -139,7 +133,9 @@ pedestrian: AdhocHost {
 ```
 
 On the 2D canvas, a car and a person with a smartphone can be seen, 
-representing `car` and `pedestrian`.
+representing `car` and `pedestrian`. The `p` display string tag defines 
+the position of the nodes. The (0,0) position is in the upper left corner 
+of the playground.
 
 <img src="VisualizingNodes_v1019.png" class="screen" />
 
@@ -167,6 +163,12 @@ The `pedestrian` node is represented by an animated walking
 boxman and `car` is represented by a car model instead of 2D
 icons. The 3D models make the nodes recognizable even without
 displaying the module's name.
+
+<!-- TODO: Hogy kell iranyba allitani a modelt, mozgas kozben merre fordul -->
+
+
+
+<!-- / -->
 
 ## More Information
 
