@@ -54,6 +54,8 @@ simulate partially overlapping channels.
 TODO: what is it ?
 TODO: it is not just part of the radio medium but transmitters and receivers...they need to be compatible
 ```
+
+The analog signal representation refers to how signal power is represented physically in the time and frequency domains.
 The analog signal representation is implemented by the analog models in INET.
 The analog model is part of the radio medium module.
 INET has various analog signal representation model types. The two main types are **scalar** and **dimensional**. In a scalar representation, the signal is represented by a power level that is constant in both frequency and time, and is described by two values: a center frequency and a bandwidth. Two scalar transmissions can only interfere if the frequency and bandwidth of two transmission are exactly identical. Partially overlapping signals cause an error, but completely non-overlapping signals are allowed by the scalar model.)
@@ -73,7 +75,7 @@ There are example simulations for the three cases outlined in the Goals section.
 
 <img class="screen" src="basenetwork.png">
 
-The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `IPv4NetworkConfigurator` module, an `IntegratedVisualizer` module, and radioMedium module(s). The number and type of the radio medium modules varies in the networks for the different simulations, either containing one or two. All hosts are within communication range of each other. The hosts are arranged in rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations are defined in the `General` configuration.
+The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `IPv4NetworkConfigurator` module, an `IntegratedVisualizer` module, and radioMedium module(s). The number and type of the radio medium modules varies in the networks for the different simulations, either containing one or two. All hosts are within communication range of each other. The hosts are arranged in a rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations, specifying e.g. traffic generation and visualization, are defined in the `General` configuration.
 
 ### Nodes on same wifi channel (completely overlapping frequency bands)
 
