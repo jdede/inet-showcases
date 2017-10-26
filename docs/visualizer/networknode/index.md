@@ -39,7 +39,7 @@ customized  by setting the display string of the node in the network description
 The display string can be set by tags. We can customize the icon 
 by specifying the `i` display string tag. It has three arguments:
 - The first argument specifies the icon to be used. The `OMNeT++` image path is used 
-to find the image. 
+to find the image. <!-- TODO -->
 For example, the `misc/car2` name resolves to the `inet/images/misc/car2.png` file.
 - The second argument specifies the color of the icon, and it accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
@@ -66,29 +66,47 @@ online map and satellite imagery data sources, and so on.
 By default, each node is represented by a 2D icon on the osg scene which is set 
 in the display string of the node. If we want to replace the 2D icon to a 3D model, 
 we need to load external resources, for example images or 3D models. 
-By default, OSG tries to load these files from the current working directory 
-(unless they are given with absolute path).
 The resource we want to load is specified in the `osgModel` parameter of the node.
+By default, the `OMNeT++` image path is used to find the image.
 
 **NOTE:** Here are some supported file formats:
 - geometric file formats: 3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg, osgb,
 - image file formats: bmp, gif, jpeg, rgb, tga, tif.
 
 By using the `osgModel` parameter, we can scale, rotate and translate the 3D model.
-Here is the format of the `osgModel` parameter:
+The `osgModel` parameter is used as follows:
 
-<!-- WIP: altalanosabban, hogy a trans rot scale mit csinal -->
+<!-- TODO: altalanosabban, hogy a trans rot scale mit csinal -->
 
-`*.example.osgModel = "example.osg.2.scale.0,0,10.trans.90,0,0.rot"`.<br>
+Firstly, we have to set the 3D model's file name that will represent the network node.
+After this, we can use the `scale`, `trans` and `rot` keywords to transform the model.
+These arguments can be used in any order and separated by dots. The model's size 
+will be multiplied with the number before the `scale` keyword. If we want to use 
+decimal fraction like *0.8*, it must be written between parentheses, e.g `(0.8).scale`.
+By using `trans` keyword, the model can be translated by a certain value along 
+the X, Y and Z axes. The values separated by commas. The format is `X,Y,Z.trans`.
+Using `rot` keyword is similar to using `trans` but it will rotate the model 
+around the X, Y and Z axes, e.g `X,Y,Z.rot`.
 
-The above line is explained below.
-- `example.osg` is the name of the external model that represents the `example` network node
-- `2.scale` scales `example.osg` to 200%. 
+Examine the following example.
+
+`*.exampleNode.osgModel = "example.osg.2.scale.0,0,10.trans.180,0,90.rot"`.<br>
+
+- `example.osg` is the file name of the external 3D model that represents 
+the `exampleNode` network node
+- `2.scale` scales `example.osg` to 200%
 - `0,0,10.trans` translates `example.osg` 10 units upwards
-- `90,0,0.rot` rotates `example.osg` 90 degrees around the Z axis
+- `180,0,90.rot.rot` rotates `example.osg` 180 degrees around the X axis 
+and 90 degrees around the Z axis
 - The parts of the parameter string are separated by dots.
 
-<!-- WIP -->
+<!-- / -->
+
+<!-- TODO: Hogy kell iranyba allitani a modelt, mozgas kozben merre fordul -->
+
+
+
+<!-- / -->
 
 Color of the 3D model also can be changed by using the `osgModelColor` parameter.
 This parameter accepts English color names (more precisely, SVG color names) 
