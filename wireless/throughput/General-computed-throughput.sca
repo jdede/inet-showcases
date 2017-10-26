@@ -115,7 +115,7 @@ param *.sourceHost.udpApp[0].typename "\"UDPBasicApp\""
 
 scalar _runattrs_ 	bitrate 	36
 
-scalar Throughput "computedthroughput" 19925280.1993
+scalar Throughput "computedthroughput" 19728729.963
 attr unit  Byte
 
 version 2
@@ -195,7 +195,7 @@ param *.sourceHost.udpApp[0].typename "\"UDPBasicApp\""
 
 scalar _runattrs_ 	bitrate 	18
 
-scalar Throughput "computedthroughput" 12470771.629
+scalar Throughput "computedthroughput" 12393493.416
 attr unit  Byte
 
 version 2
@@ -235,7 +235,7 @@ param *.sourceHost.udpApp[0].typename "\"UDPBasicApp\""
 
 scalar _runattrs_ 	bitrate 	12
 
-scalar Throughput "computedthroughput" 9116809.1168
+scalar Throughput "computedthroughput" 9075439.592
 attr unit  Byte
 
 version 2
@@ -275,7 +275,7 @@ param *.sourceHost.udpApp[0].typename "\"UDPBasicApp\""
 
 scalar _runattrs_ 	bitrate 	9
 
-scalar Throughput "computedthroughput" 7107952.0213
+scalar Throughput "computedthroughput" 7057785.62
 attr unit  Byte
 
 version 2
@@ -315,5 +315,5 @@ param *.sourceHost.udpApp[0].typename "\"UDPBasicApp\""
 
 scalar _runattrs_ 	bitrate 	6
 
-scalar Throughput "computedthroughput" 5020395.3561
+scalar Throughput "computedthroughput" 4982871.38
 attr unit  Byte
