@@ -1,0 +1,5 @@
+Ieee80211LevelOfDetail:
+
+symbol level when distance is 180 meters or below: Missing mode -- in module (inet::ieee80211::Dcf) Ieee80211LevelofDetailShowcase.host[0].wlan[0].mac.dcf (id=57), at t=0.783880822625s, event #15
+packet level: not implemented in error model
+bit level when out of communication range: The calculated data field length = 4032 is greater then the actual bitvector length = 1392 -- in module (inet::physicallayer::Ieee80211OFDMRadio) Ieee80211LevelofDetailShowcase.host[0].wlan[0].radio
