@@ -25,9 +25,10 @@ throughput is measured.
 
 The network contains two `WirelessHosts`, at a distance of 1 meter,
 one of them acting as traffic source, the other one as traffic sink. The source host
-sends a UDP stream of 1000-byte packets to the destination host in ad-hoc mode.
+sends a UDP stream to the destination host in ad-hoc mode. The simulation is run with a small UDP packet size of 100 bytes, and the default maximum unfragmented packet size in 802.11, 2236 bytes.
+(The maximum transfer unit in 802.11 by default is 2304 bytes, which corresponds with 2236 bytes or application data.)
 The simulation will be run several times, with different bitrates. The UDP
-application in the source host is configured to saturate the channel at all bitrates.
+application in the source host is configured to saturate the channel at all bitrates and packet sizes.
 There will be no packets lost in the physical layer, because the hosts are close to
 each other, and background noise is configured to be very low.
 
@@ -36,20 +37,32 @@ The parameter study iterates over the following 802.11g bitrates: 6, 9, 12, 18, 
 is averaged for this interval.
 
 ## Results
-
+<!--
 Measured throughput is compared to analytically obtained values. The frame
 exchange duration can be calculated from the nominal bitrate and the payload
-size, for example using this <a href="https://sarwiki.informatik.hu-
-berlin.de/Packet_transmission_time_in_802.11" target="_blank">frame exchange
+size, for example using this <a href="https://sarwiki.informatik.hu-berlin.de/Packet_transmission_time_in_802.11" target="_blank">frame exchange
 duration calculation formula</a>. It takes the DIFS, data frame duration, SIFS and
 ACK duration into account (but not the backoff period.) By assuming an average
 backoff time that is half of the minimal contention window, the theoretical
 throughput can be calculated.
+-->
+
+Throughput measured in the simulation is compared to analytically obtained values.
+The application level throughput can be calculated from the nominal bitrate and the payload size,
+for example using this <a href="https://github.com/inet-framework/inet-showcases/blob/master/docs/wireless/throughput/80211_TransmissionTime_g.xls" target="_blank">throughput calculation formula</a>.
+It takes the DIFS, data frame duration, SIFS and
+ACK duration into account (but not the backoff period.) By assuming an average
+backoff time that is half of the minimal contention window, the theoretical
+throughput can be calculated:
+
+`throughput` = 1 / (`frameExchangeDuration` + `minCW` / 2 * `slotTime`) * `payloadBytes` * 8 [bps]
 
 The following plot compares the computed throughput to the results of the
 simulation for all bitrates.
 
-<img src="throughput2.png" class="screen" />
+<img src="throughput3.png" class="screen" />
+
+<a href="throughput3.svg" target="_blank"><img src="throughput3.png" class="screen" /></a>
 
 The two curves match almost exactly. The curve is not linear: throughput doesn't
 increase in a linear way with the bitrate, especially at higher bitrates. The reason
