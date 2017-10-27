@@ -34,7 +34,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 0.413330
+scalar Throughput "analyticalThroughput" 1.972873
 attr unit  Mbit
 
 version 2
@@ -73,7 +73,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 0.775570
+scalar Throughput "analyticalThroughput" 2.398801
 attr unit  Mbit
 
 version 2
@@ -112,7 +112,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 1.381584
+scalar Throughput "analyticalThroughput" 2.841918
 attr unit  Mbit
 
 version 2
@@ -151,7 +151,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 1.778676
+scalar Throughput "analyticalThroughput" 3.258656
 attr unit  Mbit
 
 version 2
@@ -190,7 +190,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 1.972873
+scalar Throughput "analyticalThroughput" 3.611738
 attr unit  Mbit
 
 version 2
@@ -229,7 +229,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 2.398801
+scalar Throughput "analyticalThroughput" 3.892944
 attr unit  Mbit
 
 version 2
@@ -268,7 +268,7 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 2.841918
+scalar Throughput "analyticalThroughput" 4.134367
 attr unit  Mbit
 
 version 2
@@ -307,5 +307,5 @@ param *.destinationHost.numApps 1
 param *.destinationHost.app[0].typename "\"UDPSink\""
 param *.destinationHost.app[*].localPort 5000
 
-scalar Throughput "analyticalThroughput" 3.258656
+scalar Throughput "analyticalThroughput" 4.134367
 attr unit  Mbit
