@@ -8,7 +8,7 @@ title: IEEE 802.11 Throughput
 This example analyzes how application-level throughput changes as a function of
 nominal bitrate in a 802.11g network.
 
-INET version: `3.6`<br>
+INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/throughput" target="_blank">`inet/showcases/wireless/throughput`</a>
 
 ## The model
@@ -74,7 +74,7 @@ header, interframe spaces and backoff stay the same, thus the overhead gets
 larger as the bitrate increases.
 
 The following sequence chart excerpt illustrates overhead increasing with bitrate.
-It shows frame exchanges with bitrates of 6, 18, and 54 Mbps, on the same linear
+It shows frame exchanges for 1000-byte UDP packets, with bitrates of 6, 18, and 54 Mbps, on the same linear
 timescale. One can see how the proportion of data parts shrinks compared to the
 duration of the frame exchange as bitrates increase.
 
