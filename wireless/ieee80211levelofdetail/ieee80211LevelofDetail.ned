@@ -17,10 +17,9 @@
 
 package inet.showcases.wireless.ieee80211levelofdetail;
 
-import inet.physicallayer.ieee80211.bitlevel.Ieee80211LayeredDimensionalRadioMedium;
 import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
-import inet.physicallayer.apskradio.bitlevel.APSKLayeredScalarRadioMedium;
+import inet.physicallayer.ieee80211.bitlevel.Ieee80211LayeredScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 
 network Ieee80211LevelofDetailShowcase
@@ -38,7 +37,7 @@ network Ieee80211LevelofDetailShowcase
             parameters:
                 @display("p=100,150");
         }
-        radioMedium: Ieee80211LayeredDimensionalRadioMedium {
+        radioMedium: Ieee80211LayeredScalarRadioMedium {
             parameters:
                 @display("p=100,50");
         }
