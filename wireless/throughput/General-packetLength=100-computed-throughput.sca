@@ -904,6 +904,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 0.413330
+attr unit  MByte
+
 version 2
 run General-2-20171027-11:40:36-11660
 attr configname General
@@ -1809,6 +1812,9 @@ scalar Throughput.radioMedium "reception decision cache hit" 0
 attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
+
+scalar Throughput "computedthroughput" 0.775570
+attr unit  MByte
 
 version 2
 run General-4-20171027-11:40:36-11654
@@ -2716,6 +2722,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 1.381584
+attr unit  MByte
+
 version 2
 run General-6-20171027-11:40:36-11664
 attr configname General
@@ -3621,6 +3630,9 @@ scalar Throughput.radioMedium "reception decision cache hit" 0
 attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
+
+scalar Throughput "computedthroughput" 1.778676
+attr unit  MByte
 
 version 2
 run General-8-20171027-11:40:36-11668
@@ -4528,6 +4540,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 1.972873
+attr unit  MByte
+
 version 2
 run General-10-20171027-11:40:36-11662
 attr configname General
@@ -5433,6 +5448,9 @@ scalar Throughput.radioMedium "reception decision cache hit" 0
 attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
+
+scalar Throughput "computedthroughput" 2.398801
+attr unit  MByte
 
 version 2
 run General-12-20171027-11:40:36-11667
@@ -6340,6 +6358,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 2.841918
+attr unit  MByte
+
 version 2
 run General-14-20171027-11:40:36-11666
 attr configname General
@@ -7246,3 +7267,5 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 3.258656
+attr unit  MByte

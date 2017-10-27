@@ -904,6 +904,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 5.502350
+attr unit  MByte
+
 version 2
 run General-3-20171027-11:40:41-11660
 attr configname General
@@ -1809,6 +1812,9 @@ scalar Throughput.radioMedium "reception decision cache hit" 0
 attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
+
+scalar Throughput "computedthroughput" 8.037209
+attr unit  MByte
 
 version 2
 run General-5-20171027-11:40:42-11654
@@ -2716,6 +2722,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 10.490893
+attr unit  MByte
+
 version 2
 run General-7-20171027-11:40:43-11664
 attr configname General
@@ -3621,6 +3630,9 @@ scalar Throughput.radioMedium "reception decision cache hit" 0
 attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
+
+scalar Throughput "computedthroughput" 15.001240
+attr unit  MByte
 
 version 2
 run General-9-20171027-11:40:44-11668
@@ -4528,6 +4540,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 19.189847
+attr unit  MByte
+
 version 2
 run General-11-20171027-11:40:45-11662
 attr configname General
@@ -5433,6 +5448,9 @@ scalar Throughput.radioMedium "reception decision cache hit" 0
 attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
+
+scalar Throughput "computedthroughput" 26.468271
+attr unit  MByte
 
 version 2
 run General-13-20171027-11:40:45-11667
@@ -6340,6 +6358,9 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 32.545291
+attr unit  MByte
+
 version 2
 run General-15-20171027-11:40:46-11666
 attr configname General
@@ -7246,3 +7267,5 @@ attr unit %
 scalar Throughput.radioMedium "reception result cache hit" 0
 attr unit %
 
+scalar Throughput "computedthroughput" 35.333982
+attr unit  MByte
