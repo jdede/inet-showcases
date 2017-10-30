@@ -38,12 +38,12 @@ On the 2D canvas, each node is represented by an icon. The icon of the node can 
 customized  by setting the display string of the node in the network description file (NED). 
 The display string can be set by tags. We can customize the icon 
 by specifying the `i` display string tag. It has three arguments:
-- The first argument specifies the icon to be used. The `i` display string tag is used 
+- The first argument specifies the icon to be used. It is used 
 to find the image, just like with the OMNeT++ image path or the `cIconFigure` class.
-- The second argument specifies the color of the icon, and it accepts English color names 
+- The second argument specifies the color of the icon. It accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
 - The third argument defines the colorization amount of the icon. It is as a number 
-between zero and one. Number one means full colorization.
+between zero and one. If the parameter value is one, it means full colorization.
 
 We can set the size of the icon by using the `is` display string tag. The size can be 
 `vs` (very small), `s` (small), `n` (normal), `l` (large) and `vl` (very large).
@@ -53,21 +53,18 @@ We can set the size of the icon by using the `is` display string tag. The size c
 
 ### Visualization on a 3D scene
 
-TODO: in OSG view mode Y axis starts in the opposite direction
-
 `NetworkNodeOsgVisualizer` is responsible for displaying nodes on a 3D scene.
-(In this version of INET, `IntegratedVisualizer.osgVisualizerType` must be set 
-to `IntegratedOsgVisualizer` for visualizing nodes in 3D, because this parameter 
-is empty by default.)
+(In this version of INET, `IntegratedVisualizer.osgVisualizerType = "IntegratedOsgVisualizer"` 
+must be set for visualizing nodes in 3D.)
 `OMNeT++`'s 3D visualization is based on the open-source `OpenSceneGraph` (osg) and 
 `osgEarth` libraries. These libraries offer high-level functionality, 
 such as the ability of using 3D model files directly, accessing and rendering 
 online map and satellite imagery data sources, and so on. In this showcase, we deal
-only with 3D models and we do not deal with maps. You can learn about osg maps 
+only with 3D models and we do not deal with maps. You can learn about maps 
 in the <a href="https://inet.omnetpp.org/inet-showcases//visualizer/earth/" target="_blank">Visualizing Terrain and Urban Environment</a> showcase.
 
-By default, each node is represented by a 2D icon on the osg scene which is set 
-in the display string of the node. If we want to replace the 2D icon to a 3D model, 
+By default, each node is represented by a 2D icon on the 3D osg scene which is set 
+in the display string of the node. If we want to replace the 2D icon with a 3D model, 
 we need to load external resources, for example images or 3D models. 
 The resource we want to load is specified in the `osgModel` parameter of the node.
 By default, the `OMNeT++` image path is used to find the image.
@@ -81,24 +78,27 @@ The `osgModel` parameter is used as follows:
 
 Firstly, we have to set the 3D model's file name that will represent the network node.
 After this, we can use the `scale`, `trans` and `rot` keywords to transform the model.
-These arguments can be used in any order and separated by dots. The model's size 
+These keywords can be used in any order and separated by dots. The model's size 
 will be multiplied with the number before the `scale` keyword. If we want to use 
-decimal fraction like *0.8*, it must be written between parentheses, e.g `(0.8).scale`.
+decimal fraction, it must be written between parentheses, e.g `(0.8).scale`.
 By using `trans` keyword, the model can be translated by a certain value along 
-the X, Y and Z axes. The values separated by commas. The format is `X,Y,Z.trans`.
-Using `rot` keyword is similar to using `trans` but it will rotate the model 
-around the X, Y and Z axes, e.g `X,Y,Z.rot`.
+the X, Y and Z axes. The values of the axes are separated by commas.
+The format of the `trans` keyword is `X,Y,Z.trans`. 
+By using the `rot` keyword the model can be rotated by a certain degree
+around the X, Y and Z axes. The format of the `rot` keyword is `X,Y,Z.rot`.
+However, note, that X and Z axes are the same in 2D canvas and 3D osg scene but 
+the Y axis is mirrored in 3D osg scene.
 
 Examine the following example.
 
 `*.exampleNode.osgModel = "example.osg.2.scale.0,0,10.trans.180,0,90.rot"`.<br>
 
 - `example.osg` is the file name of the external 3D model that represents 
-the `exampleNode` network node
-- `2.scale` scales `example.osg` to 200%
-- `0,0,10.trans` translates `example.osg` 10 units upwards
+the `exampleNode` network node,
+- `2.scale` scales `example.osg` to 200%,
+- `0,0,10.trans` translates `example.osg` 10 units upwards,
 - `180,0,90.rot.rot` rotates `example.osg` 180 degrees around the X axis 
-and 90 degrees around the Z axis
+and 90 degrees around the Z axis,
 - The parts of the parameter string are separated by dots.
 
 Color of the 3D model also can be changed by using the `osgModelColor` parameter.
