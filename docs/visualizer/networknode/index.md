@@ -28,7 +28,7 @@ network nodes. `NetworkNodeVisualizer` includes two submodules:
 All nodes can be visualized on a 2D canvas by `NetworkNodeCanvasVisualizer` 
 and on a 3D scene by `NetworkNodeOsgVisualizer`. We can narrow the list of nodes 
 to be displayed by using the `nodeFilter` parameter.
-The node's name is displayed by default, but it can be hide by setting the
+The name of the node is displayed by default, but it can be hide by setting the
 `displayModuleName` parameter to `false`.
 
 ### Visualization on a 2D canvas
@@ -38,9 +38,8 @@ On the 2D canvas, each node is represented by an icon. The icon of the node can 
 customized  by setting the display string of the node in the network description file (NED). 
 The display string can be set by tags. We can customize the icon 
 by specifying the `i` display string tag. It has three arguments:
-- The first argument specifies the icon to be used. The `OMNeT++` image path is used 
-to find the image. <!-- TODO -->
-For example, the `misc/car2` name resolves to the `inet/images/misc/car2.png` file.
+- The first argument specifies the icon to be used. The `i` display string tag is used 
+to find the image, just like with the OMNeT++ image path or the `cIconFigure` class.
 - The second argument specifies the color of the icon, and it accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
 - The third argument defines the colorization amount of the icon. It is as a number 
