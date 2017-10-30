@@ -25,8 +25,8 @@ throughput is measured.
 
 The network contains two `WirelessHosts`, at a distance of 1 meter,
 one of them acting as traffic source, the other one as traffic sink. The source host
-sends a UDP stream to the destination host in ad-hoc mode. The simulation is run with a small UDP packet size of 100 bytes, and the default maximum unfragmented packet size in 802.11, 2236 bytes.
-(The maximum transfer unit in 802.11 by default is 2304 bytes, which corresponds with 2236 bytes or application data.)
+sends a UDP stream to the destination host in ad-hoc mode. The simulation is run with a small packet size of 100 bytes, and the default maximum unfragmented packet size in 802.11, 2236 bytes.
+(The maximum transfer unit in 802.11 by default is 2304 bytes, which corresponds to 2236 bytes of application data.)
 The simulation will be run several times, with different bitrates. The UDP
 application in the source host is configured to saturate the channel at all bitrates and packet sizes.
 There will be no packets lost in the physical layer, because the hosts are close to
@@ -49,16 +49,15 @@ throughput can be calculated.
 
 Throughput measured in the simulation is compared to analytically obtained values.
 The application level throughput can be calculated from the nominal bitrate and the payload size,
-for example using this <a href="https://github.com/inet-framework/inet-showcases/blob/master/docs/wireless/throughput/80211_TransmissionTime_g.xls" target="_blank">throughput calculation formula</a>.
-It takes the DIFS, data frame duration, SIFS and
-ACK duration into account (but not the backoff period.) By assuming an average
-backoff time that is half of the minimal contention window, the theoretical
-throughput can be calculated:
+for example using our <a href="https://github.com/inet-framework/inet-showcases/blob/master/docs/wireless/throughput/80211_TransmissionTime_g.xls" target="_blank">throughput calculation formula</a>. (This is based on an excel sheet found <a href="https://sarwiki.informatik.hu-berlin.de/Packet_transmission_time_in_802.11" target="_blank">here</a>.)
+It takes the DIFS, data frame duration, SIFS, ACK duration, and backoff period into account. It assumes an average
+backoff time that is half of the minimal contention window to calculate the theoretical
+throughput:
 
-`throughput` = 1 / (`frameExchangeDuration` + `minCW` / 2 * `slotTime`) * `payloadBytes` * 8 [bps]
+`throughput` = 1 / (`frameExchangeDuration` + `minContentionWindow` / 2 * `slotTime`) * `payloadBytes` * 8 [bps]
 
 The following plot compares the computed throughput to the results of the
-simulation for all bitrates.
+simulation for all bitrates and both packet sizes:
 
 <img src="throughput3.png" class="screen" />
 
@@ -72,6 +71,8 @@ only about 24.5 Mbps (54% overhead). Faster modes only transmit the MAC
 header and content part of frames at higher bitrates, the preamble, physical
 header, interframe spaces and backoff stay the same, thus the overhead gets
 larger as the bitrate increases.
+
+TODO: compare the two packet sizes
 
 The following sequence chart excerpt illustrates overhead increasing with bitrate.
 It shows frame exchanges for 1000-byte UDP packets, with bitrates of 6, 18, and 54 Mbps, on the same linear
