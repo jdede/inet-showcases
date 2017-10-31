@@ -63,16 +63,19 @@ simulation for all bitrates and both packet sizes:
 
 <a href="throughput3.svg" target="_blank"><img src="throughput3.png" class="screen" /></a>
 
-The two curves match almost exactly. The curve is not linear: throughput doesn't
-increase in a linear way with the bitrate, especially at higher bitrates. The reason
-is that faster bitrates have more overhead. For example, at 6 Mbps the
+The two curves match almost exactly. The curves are not linear: throughput doesn't
+increase in a linear way with the bitrate, especially at higher bitrates.
+The curve for the 2268-byte packets is nearly linear, while the curve for the 100-byte
+packets is not linear, because the 100-byte packets have relatively more overhead due to various
+protocol headers, such as UDP header and 802.11 MAC header.
+Also, faster bitrates have more overhead. For example, at 6 Mbps the
 application-level throughput is 5 Mbps (16% overhead), whereas at 54 Mbps it is
 only about 24.5 Mbps (54% overhead). Faster modes only transmit the MAC
 header and content part of frames at higher bitrates, the preamble, physical
 header, interframe spaces and backoff stay the same, thus the overhead gets
 larger as the bitrate increases.
 
-TODO: compare the two packet sizes
+TODO: compare the two packet sizes (rewrite)
 
 The following sequence chart excerpt illustrates overhead increasing with bitrate.
 It shows frame exchanges for 1000-byte UDP packets, with bitrates of 6, 18, and 54 Mbps, on the same linear
