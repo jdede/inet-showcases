@@ -97,7 +97,7 @@ Examine the following example.
 the `exampleNode` network node,
 - `2.scale` scales `example.osg` to 200%,
 - `0,0,10.trans` translates `example.osg` 10 units upwards,
-- `180,0,90.rot.rot` rotates `example.osg` 180 degrees around the X axis 
+- `180,0,90.rot` rotates `example.osg` 180 degrees around the X axis 
 and 90 degrees around the Z axis,
 - The parts of the parameter string are separated by dots.
 
@@ -134,7 +134,8 @@ pedestrian: AdhocHost {
 On the 2D canvas, a car and a person with a smartphone can be seen, 
 representing `car` and `pedestrian`. The `p` display string tag defines 
 the position of the nodes. The (0,0) position is in the upper left corner 
-of the playground.
+of the playground in the 2D canvas and the lower left corner of the playground
+in the 3D osg scene.
 
 <img src="VisualizingNodes_v1019.png" class="screen" />
 
@@ -147,10 +148,8 @@ In our next experiment, we replace the nodes' icon with external 3D models by
 using the following configuration.
 
 ``` {.snippet}
-*.pedestrian.osgModel = "boxman.osgb.(0.3).scale.0,0,45.rot"
-
-*.car.osgModel = "car.osgb.200.scale.0,0,45.rot"
-*.car.osgModelColor = "red"
+*.pedestrian.osgModel = "boxman.osgb.(0.3).scale"
+*.car.osgModel = "car.osgb.50.scale"
 ```
 
 This configuration affects only 3D visualization. The following animation shows
