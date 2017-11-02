@@ -49,7 +49,7 @@ throughput can be calculated.
 
 Throughput measured in the simulation is compared to analytically obtained values.
 The application level throughput can be calculated from the nominal bitrate and the payload size,
-for example using our <a href="https://github.com/inet-framework/inet-showcases/blob/master/docs/wireless/throughput/80211_TransmissionTime_g.xls" target="_blank">throughput calculation formula</a>. (This is based on an excel sheet found <a href="https://sarwiki.informatik.hu-berlin.de/Packet_transmission_time_in_802.11" target="_blank">here</a>.)
+for example using our <a href="https://github.com/inet-framework/inet-showcases/raw/master/docs/wireless/throughput/80211_TransmissionTime_g.xls" target="_blank">throughput calculation formula</a>. (This is based on an excel sheet found <a href="https://sarwiki.informatik.hu-berlin.de/Packet_transmission_time_in_802.11" target="_blank">here</a>.)
 It takes the DIFS, data frame duration, SIFS, ACK duration, and backoff period into account. It assumes an average
 backoff time that is half of the minimal contention window to calculate the theoretical
 throughput:
