@@ -7,7 +7,3 @@ bit level when out of communication range: The calculated data field length = 40
 examples/wireless/dynamic:
 
 crash, error in MobilityCanvasVisualizer
-
-Infrastructure:
-
-Transmission mode is undefined -- in module (inet::IPv4NetworkConfigurator) - in commit a9028da ("infrastructure: initial commit", 2017-11-06)
