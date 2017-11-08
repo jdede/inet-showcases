@@ -6,62 +6,6 @@
   </inputs>
   <datasets>
     <datasets name="PathLossShowcase">
-      <items xsi:type="scave:Add" filterPattern="all" type="VECTOR"/>
-      <items xsi:type="scave:ScatterChart">
-        <filters xsi:type="scave:Select" filterPattern="name(throughput:vector) AND module(*.destination.*)  " type="VECTOR"/>
-      </items>
-      <items xsi:type="scave:ScatterChart">
-        <filters xsi:type="scave:Select"/>
-      </items>
-    </datasets>
-    <datasets name="PathLoss">
-      <items xsi:type="scave:Add" filterPattern="name(receptionPower:vector) " type="VECTOR"/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)">
-        <filters xsi:type="scave:Select" filterPattern="module(*.destination.*)" type="VECTOR"/>
-        <isoDataPattern>pathlosstype(*)</isoDataPattern>
-      </items>
-    </datasets>
-    <datasets name="PathLoss2">
-      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)"/>
-    </datasets>
-    <datasets name="receptionPower:vector PathLossShowcase.destination.wlan[0].radio.receiver">
-      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
-      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
-      <items xsi:type="scave:Add" filterPattern="module(PathLossShowcase.destination.wlan[0].radio.receiver) AND name(receptionPower:vector)" type="VECTOR"/>
-      <items xsi:type="scave:LineChart" name="receptionPower:vector PathLossShowcase.destination.wlan[0].radio.receiver" lineNameFormat="">
-        <properties name="Y.Axis.Log" value="true"/>
-        <properties name="Symbols.Type" value="None"/>
-      </items>
-    </datasets>
-    <datasets name="PathLossUDPPosition">
-      <items xsi:type="scave:Add" filterPattern="attr:distance(*)  AND attr:configname(UDPPosition) AND name(receptionPower:last) "/>
-      <items xsi:type="scave:ComputeScalar" scalarName="ReceivedPower" valueExpr="mean('receptionPower:vector') " moduleExpr="*" groupByExpr=""/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select"/>
-        <properties name="Y.Axis.Log" value="true"/>
-        <isoDataPattern>pathlosstype(*)</isoDataPattern>
-      </items>
-    </datasets>
-    <datasets>
-      <items xsi:type="scave:Add" filterPattern="attr:distance(*)  AND attr:configname(UDPPosition)"/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern=" attr:distance(*) AND name(receptionPower:last)"/>
-        <properties name="Y.Axis.Log" value="true"/>
-        <isoDataPattern>pathlosstype(*)</isoDataPattern>
-      </items>
-      <items xsi:type="scave:LineChart"/>
-    </datasets>
-    <datasets name="PathLoss3">
-      <items xsi:type="scave:Add"/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(distance)">
-        <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND module(*.destination.*)) OR name(distance)"/>
-        <properties name="Y.Axis.Log" value="true"/>
-        <properties name="Symbols.Type" value="None"/>
-        <isoDataPattern>pathlosstype(*)</isoDataPattern>
-      </items>
-    </datasets>
-    <datasets name="PathLoss4">
       <items xsi:type="scave:Add"/>
       <items xsi:type="scave:ScatterChart" name="freespace and 2-ray" xDataPattern="module(_runattrs_) AND name(distance)">
         <filters xsi:type="scave:Select" filterPattern="(name(receptionPower:last) AND (itervar:pathlosstype(&quot;\&quot;FreeSpacePathLoss\&quot;&quot;) OR itervar:pathlosstype(&quot;\&quot;TwoRayGroundReflection\&quot;&quot;) OR itervar:pathlosstype(&quot;\&quot;TwoRayInterference\&quot;&quot;))   ) OR name(distance)    "/>
@@ -93,6 +37,6 @@
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.1 //@datasets/@datasets.4/@items.2 //@datasets/@datasets.5/@items.1 //@datasets/@datasets.5/@items.2 //@datasets/@datasets.6/@items.1 //@datasets/@datasets.7/@items.1 //@datasets/@datasets.7/@items.2"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.1 //@datasets/@datasets.0/@items.2"/>
   </chartSheets>
 </scave:Analysis>
