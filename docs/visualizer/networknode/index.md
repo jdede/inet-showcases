@@ -36,13 +36,13 @@ The name of the node is displayed by default, but it can be hide by setting the
 `NetworkNodeCanvasVisualizer` is responsible for displaying nodes on a 2D canvas. 
 On the 2D canvas, each node is represented by an icon. The icon of the node can be 
 customized  by setting the display string of the node in the network description file (NED). 
-The display string can be set by tags. We can customize the icon 
+The display string can be set by tags. The icon can be customized
 by specifying the `i` display string tag. It has three arguments:
 - The first argument specifies the icon to be used. It is used 
-to find the image, just like with the OMNeT++ image path or the `cIconFigure` class.
+to find the image, just like the OMNeT++ image path or the `cIconFigure` class.
 - The second argument specifies the color of the icon. It accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
-- The third argument defines the colorization amount of the icon. It is as a number 
+- The third argument defines the colorization amount of the icon. It can be set 
 between zero and one. If the parameter value is one, it means full colorization.
 
 We can set the size of the icon by using the `is` display string tag. The size can be 
@@ -86,8 +86,6 @@ the X, Y and Z axes. The values of the axes are separated by commas.
 The format of the `trans` keyword is `X,Y,Z.trans`. 
 By using the `rot` keyword the model can be rotated by a certain degree
 around the X, Y and Z axes. The format of the `rot` keyword is `X,Y,Z.rot`.
-However, note, that X and Z axes are the same in 2D canvas and 3D osg scene but 
-the Y axis is mirrored in 3D osg scene.
 
 Examine the following example.
 
@@ -105,7 +103,7 @@ Color of the 3D model also can be changed by using the `osgModelColor` parameter
 This parameter accepts English color names (more precisely, SVG color names) 
 and HTML-style RGB values.
 
-**NOTE** More information about `OpenSceneGraph` can be found on the 
+**NOTE:** More information about `OpenSceneGraph` can be found on the 
 <a href="http://www.openscenegraph.org" target="_blank">OpenSceneGraph web site</a> 
 and in dedicated `OpenSceneGraph` books.
 
@@ -115,11 +113,13 @@ This example shows how the nodes' look can be customized. A simulation is create
 for this example, it can be run by selecting the `VisualizingNodes`
 configuration from the ini file.
 
-The network contains two `AdhocHosts`, `pedestrian` and
-`car`. We change the default icon of `pedestrian` by
-modifying its display string in the
-`NetworkNodeVisualizerShowcase.ned` file. (Note that the default icon also
+The network contains two `AdhocHost` nodes, `pedestrian` and
+`car`. We change the default icon of nodes by
+modifying their display string in the
+`NetworkNodeVisualizerShowcase.ned` file. (Note, that the default icon also
 can be modified in the node's *Properties* on the *Appearance* tab.)
+
+**NOTE:** You can find new icons in the *inet/images/misc/* folder.
 
 ``` {.snippet}
 car: AdhocHost {
@@ -134,39 +134,48 @@ pedestrian: AdhocHost {
 On the 2D canvas, a car and a person with a smartphone can be seen, 
 representing `car` and `pedestrian`. The `p` display string tag defines 
 the position of the nodes. The (0,0) position is in the upper left corner 
-of the playground in the 2D canvas and the lower left corner of the playground
-in the 3D osg scene.
+of the playground in the 2D canvas.
 
 <img src="VisualizingNodes_v1019.png" class="screen" />
 
 On the 3D osg scene, you can see the same icons as on the 2D canvas.
-The icons are automatically rotating towards the camera.
+The icons are automatically rotating towards the camera. The (0,0) position
+of the playground is the top corner of the green field.
 
-<img src="WithoutCustomize3D_transparent_bg.png" class="screen" width="900" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" />
+<img src="Icons_on_osgscene.png" class="screen" />
 
-In our next experiment, we replace the nodes' icon with external 3D models by
-using the following configuration.
+In our next experiment, we replace the nodes' icon with external 3D models. 
+The following configuration is used to replace 2D icons with 3D models.
+The models are scaled in order to have the right size.
 
 ``` {.snippet}
 *.pedestrian.osgModel = "boxman.osgb.(0.3).scale"
 *.car.osgModel = "car.osgb.50.scale"
 ```
 
+The `boxman.osgb` and the `car.osgb` files are loaded and scaled.
 This configuration affects only 3D visualization. The following animation shows
 how the nodes look like after we have replaced their icon.
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="774" height="490" src="CustomizedRotateCam_v2.mp4"></video></p>
+<img src="Models_Loaded.png" class="screen" />
 
 The `pedestrian` node is represented by an animated walking
 boxman and `car` is represented by a car model instead of 2D
-icons. The 3D models make the nodes recognizable even without
-displaying the module's name.
+icons.
 
-<!-- TODO: Hogy kell iranyba allitani a modelt, mozgas kozben merre fordul -->
+The orientation of nodes is defined by the mobility submodule of nodes.
+It is possible that orientation of the 3D model does not match 
+with the orientation of the node, i.e. the `pedestrian` node is moving sideways.
 
+PedestrianMovesSidewaysAnimation
 
+The orientation of the 3D model can be initialized by the `rot` keyword.
+If the node is a mobile node, then the mobility submodule of the node
+will manage future rotations of the node during the simulation.
 
-<!-- / -->
+NodesOrientationIsRightAnimation
+
+<!-- <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="774" height="490" src="CustomizedRotateCam_v2.mp4"></video></p> -->
 
 ## More Information
 
