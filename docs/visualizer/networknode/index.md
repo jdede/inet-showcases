@@ -172,6 +172,11 @@ PedestrianMovesSidewaysAnimation
 The orientation of the 3D model can be initialized by the `rot` keyword.
 If the node is a mobile node, then the mobility submodule of the node
 will manage future rotations of the node during the simulation.
+Here is, how the boxman is rotated in this configuration.
+
+``` {.snippet}
+*.pedestrian.osgModel = "boxman.osgb.(0.3).scale.0,0,90.rot"
+```
 
 NodesOrientationIsRightAnimation
 
