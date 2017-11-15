@@ -128,7 +128,6 @@ car: AdhocHost {
 pedestrian: AdhocHost {
     @display("p=113,156;i=misc/person3");
     }
-}
 ```
 
 On the 2D canvas, a car and a person with a smartphone can be seen, 
@@ -144,7 +143,7 @@ of the playground is the top corner of the green field.
 
 <img src="Icons_on_osgscene.png" class="screen" />
 
-In our next experiment, we replace the nodes' icon with external 3D models. 
+In our next experiment, we replace the icon of the nodes with external 3D models. 
 The following configuration is used to replace 2D icons with 3D models.
 The models are scaled in order to have the right size.
 
@@ -157,30 +156,33 @@ The `boxman.osgb` and the `car.osgb` files are loaded and scaled.
 This configuration affects only 3D visualization. The following animation shows
 how the nodes look like after we have replaced their icon.
 
-<img src="Models_Loaded.png" class="screen" />
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="656" height="404" src="ModelsLoaded.mp4"> </video></p>
 
 The `pedestrian` node is represented by an animated walking
-boxman and `car` is represented by a car model instead of 2D
+boxman and the `car` node is represented by a car model instead of 2D
 icons.
 
-The orientation of nodes is defined by the mobility submodule of nodes.
+The orientation of network nodes is updated by the mobility submodule of nodes.
 It is possible that orientation of the 3D model does not match 
-with the orientation of the node, i.e. the `pedestrian` node is moving sideways.
+with the orientation of the node, i.e. the `pedestrian` 3D model is moving sideways.
 
-PedestrianMovesSidewaysAnimation
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="626" height="390" src="PedestrianMovesSideways.mp4"> </video></p>
 
 The orientation of the 3D model can be initialized by the `rot` keyword.
 If the node is a mobile node, then the mobility submodule of the node
 will manage future rotations of the node during the simulation.
-Here is, how the boxman is rotated in this configuration.
+To achieve the correct orientation, the pedestrian 3D model should be rotated 
+90 degrees counterclockwise around the Z axis.
 
 ``` {.snippet}
 *.pedestrian.osgModel = "boxman.osgb.(0.3).scale.0,0,90.rot"
 ```
 
-NodesOrientationIsRightAnimation
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="626" height="390" src="NodesOrientationIsRight.mp4"> </video></p>
 
-<!-- <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="774" height="490" src="CustomizedRotateCam_v2.mp4"></video></p> -->
+The above animation shows that both 3D model's orientation is correct.
+They are initialized by the `osgModel` parameter and updated
+by the mobility model of the network node.
 
 ## More Information
 
