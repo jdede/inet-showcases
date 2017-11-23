@@ -108,11 +108,9 @@ their addresses.
 We would like to hide the display of loopback addresses and of the
 unspecified address, so we set the following filter for the visualizer:
 
-<p>
-<div class="snippet">
+``` {.snippet}
 *.visualizer.*.interfaceTableVisualizer.interfaceFilter="not lo*  and not ipv4Address(< unspec >)"
-</div>
-</p>
+```
 
 Initially, the addresses of the wired interfaces of `host1`,
 `host2` and the router are visualized. The wireless hosts have
@@ -136,4 +134,3 @@ NED documentation.
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/3" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-
