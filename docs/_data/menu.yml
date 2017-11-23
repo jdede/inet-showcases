@@ -1,7 +1,7 @@
 - name: Visualization Showcases
   link: /inet-showcases/visualizer
   submenu:
-     - page: visualizer/packetdrop/index.md
+     - page: docs/visualizer/packetdrop/index.md
      - page: visualizer/transportpathactivity/index.md
      - page: visualizer/networkpathactivity/index.md
      - page: visualizer/datalinkactivity/index.md

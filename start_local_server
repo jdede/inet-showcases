@@ -1,4 +1,16 @@
-#!/bin/sh
+#!/bin/bash
+
+if [[ $# == 0 ]]; then
+  echo "Missing port number"
+  exit 1
+elif [[ $# == 1 ]]; then
+  PORT_NUMBER=$1
+#  echo "port number is "
+#  echo $PORT_NUMBER
+else
+  echo "Too many arguments"
+  exit 1
+fi
 
 cd $(dirname $0)
-docker run --rm -it -p 4000:4000 -v $(pwd)/docs:/site madduci/docker-github-pages serve --watch --host 0.0.0.0 --destination=/tmp/_site --incremental
+docker run --rm -it -p $PORT_NUMBER:$PORT_NUMBER -v $(pwd)/docs:/site madduci/docker-github-pages serve --watch --host 0.0.0.0 --destination=/tmp/_site --port $PORT_NUMBER --incremental
