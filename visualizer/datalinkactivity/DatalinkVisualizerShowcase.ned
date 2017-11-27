@@ -22,6 +22,7 @@ import inet.node.ethernet.EtherSwitch;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.StandardHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.visualizer.integrated.IntegratedMultiVisualizer;
 import inet.visualizer.integrated.IntegratedVisualizer;
 import inet.visualizer.linklayer.DataLinkVisualizer;
 
@@ -79,6 +80,32 @@ network DataLinkVisualizerEnablingWirelessShowcase
         }
 }
 
+//
+// TODO documentation
+//
+network DataLinkVisualizerActivityLevelShowcase
+{
+    @display("bgb=700,250");
+    submodules:
+        visualizer: IntegratedMultiVisualizer {
+            parameters:
+                @display("p=100,50");
+        }
+        configurator: IPv4NetworkConfigurator {
+            parameters:
+                @display("p=100,120");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            parameters:
+                @display("p=100,190");
+        }
+        videoClient: AdhocHost {
+            @display("p=300,110");
+        }
+        videoServer: AdhocHost {
+            @display("p=600,110");
+        }
+}
 
 //
 // TODO documentation
@@ -152,12 +179,12 @@ network DataLinkVisualizerMobileShowcase
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=70,250");
         }
-//        RREQVisualizer: DataLinkVisualizer {
-//            @display("p=70,350");
-//        }
-//        RREPVisualizer: DataLinkVisualizer {
-//            @display("p=70,450");
-//        }
+        //        RREQVisualizer: DataLinkVisualizer {
+        //            @display("p=70,350");
+        //        }
+        //        RREPVisualizer: DataLinkVisualizer {
+        //            @display("p=70,450");
+        //        }
         destination: AODVRouter {
             @display("p=512.272,249.796");
         }

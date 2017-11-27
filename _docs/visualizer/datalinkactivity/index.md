@@ -28,12 +28,23 @@ In INET, data link activity can be visualized by including a
 default, it can be enabled by setting the visualizer's `displayLinks`
 parameter to true.
 
+`DataLinkVisualizer`can observe packets at *service*, *peer* and *protocol* level.
+The observed level can be set by the `activityLevel` parameter.
+At *service* level, that packets are displayed which pass through the data link layer 
+(i.e. carry data from/to higher layers). At *peer* level, the visualization 
+is triggered by the packets which are internal to the operation of the 
+data link layer protocol.At *protocol* level, `DataLinkVisualizer` displays the packets 
+which starts from the data link layer in the source node and enter the data link layer 
+in the destination node.
+
+<!--
 `DataLinkVisualizer` currently observes packets that pass through the
 data link layer (i.e. carry data from/to higher layers), but not those that are
 internal to the operation of the data link layer protocol. That is, frames such as
 ACK, RTS/CTS, Beacon or Authentication/Association frames of IEEE 802.11,
 although potentially useful, will not trigger the visualization. Visualizing such
 frames may be implemented in future INET revisions.
+-->
 
 The activity between two nodes is represented visually by an arrow that points
 from the sender node to the receiver node. The arrow appears after the first
@@ -97,6 +108,29 @@ This animation is similar to the video of the wired example (apart from an extra
 blue dotted line which can be ignored, as it is also part of the standard OMNeT++
 packet animation.) Note, however, that the ACK frame does not activate the
 visualization, because ACK frames do not pass through data link layer.
+
+## Displaying Data Link Activity at Service, Peer and Protocol Level
+
+It is often useful to be able to display traffic at the level of the 
+network stack we are interested in.
+The following example shows how to set activity level in `DataLinkVisualizer`.
+This simulation can be run by selecting the `ActivityLevel` configuration 
+from the ini file.
+
+We use the following network for this example.
+
+<!-- NETWORK IMG -->
+
+The network consists two wireless hosts, `videoClient` and `videoServer`.
+`videoServer` is continuously sending video stream packets to `videoClient`.
+
+The type of the visualizer is `IntegratedMultiVisualizer`. By using this, 
+we are able to use multiple visualizers as a vector of visualizers.
+One visualizer will show data link activity at peer level and the other 
+one will show data link activity at service level.
+
+<!-- SIMULATION VIDEO -->
+
 
 ## Filtering Data Link Activity
 
