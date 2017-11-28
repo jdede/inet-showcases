@@ -41,5 +41,6 @@
      - page: _docs/wireless/ratecontrol/index.md
      - page: _docs/wireless/crosstalk/index.md
      - page: _docs/wireless/pcaprecording/index.md
+     - page: _docs/wireless/infrastructure/index.md
 - name: Back to INET
   link: https://inet.omnetpp.org/
