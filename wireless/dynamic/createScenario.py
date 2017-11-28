@@ -9,13 +9,13 @@ elif(len(sys.argv) == 5):
     period = int(sys.argv[3])
     lifetime = int(sys.argv[4])
 
-    def createElement(create, time, submodule="sourceNode", type="inet.examples.wireless.dynamic.DynamicHost", parent="."):
+    def createElement(create, time, index, submodule="sourceNode", type="inet.examples.wireless.dynamic.DynamicHost", parent="."):
         atTagStart = '<at t="' + str(time) + '">'
         atTagEnd = '</at>'
         if(create == True):
             createTag = '    <create-module type="' + type + '" parent="' + parent + '" submodule="' + submodule + '"/>'
         elif(create == False):
-            createTag = '    <delete-module module="' + submodule + '"/>'
+            createTag = '    <delete-module module="' + submodule + '[' + str(index) + ']' + '"/>'
         else:
             print("some kind of error")
             return 0;
@@ -28,12 +28,13 @@ elif(len(sys.argv) == 5):
 
     def createScenario(numberOfElements, period, lifetime):
         i = 0;
-        scenario = ""
+        scenario = "<scenario>\n"
         period = random.expovariate(1.0/period)
         while i < numberOfElements:
-            scenario += createElement(True, i * period)
-            scenario += createElement(False, i * period + lifetime)
+            scenario += createElement(True, i * period, i)
+            scenario += createElement(False, i * period + lifetime, str(i))
             i += 1
+        scenario += '</scenario>'
         return scenario
 
     with open(filename, 'w') as f:
