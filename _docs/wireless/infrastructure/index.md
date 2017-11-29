@@ -41,6 +41,16 @@ The topology of connected modules in `Ieee80211Nic` is displayed on the followin
 Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSTA`, and `AccessPoint` uses `Ieee80211MgmtAP`.
 `AdhocHost` is suitable to adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
 
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure1.mp4"></video>
+</p>
+
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure2.mp4"></video>
+</p>
+
+second one seems better
+
 <pre>
 Hosts in infrastructure mode will connect to the access point
 Where to configure SSID
