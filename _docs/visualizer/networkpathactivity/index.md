@@ -134,7 +134,7 @@ The following example shows how visualization can help you to follow dynamically
 changing network path activity in a wireless environment. The simulation 
 can be run by choosing the `Mobile` configuration from the ini file.
 
-Nodes are of the type `AODVRouter`, and are placed randomly on the
+Nodes are of the type `AodvRouter`, and are placed randomly on the
 playground. One of the nodes is the `source` node which will be
 pinging the `destination` node. The communication ranges of the
 nodes have been chosen so that the network is connected but nodes can typically only

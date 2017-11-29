@@ -5,7 +5,7 @@
 package inet.showcases.visualizer.radiomediumactivity;
 
 import inet.environment.common.PhysicalEnvironment;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
@@ -21,7 +21,7 @@ network MediumActivityDisplayingSignalsTransmissionsReceptionsShowcase
         host2: WirelessHost {
             @display("p=645.645,270.27");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=853.545,46.2");
         }
         visualizer: IntegratedVisualizer {
@@ -42,7 +42,7 @@ network MediumActivityDisplayingPropagationTransmissionsReceptionsShowcaseV2
         host2: WirelessHost {
             @display("p=645.645,270.27");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=853.545,46.2");
         }
         visualizer: IntegratedVisualizer {
@@ -65,7 +65,7 @@ network MediumActivityMultipleNodesShowcase
             parameters:
                 @display("p=100,100");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,200");
         }
@@ -96,7 +96,7 @@ network MediumActivityInterferingSignalsShowcase
             parameters:
                 @display("p=100,100");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,200");
         }
@@ -131,7 +131,7 @@ network PropagationD
         accessPoint: AccessPoint {
             @display("p=118801.39,166802.22");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=234003.11,38400.51");
         }
         visualizer: IntegratedVisualizer {
@@ -155,7 +155,7 @@ network PropagationE
         accessPoint: AccessPoint {
             @display("p=5001.39,5668.22");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=2000.11,3840.51");
         }
         visualizer: IntegratedVisualizer {

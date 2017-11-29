@@ -169,7 +169,7 @@ We use the following network for this simulation:
 
 <img src="DataLinkVisualizerDynamic.png" class="screen" />
 
-Nodes are of the type `AODVRouter`, and are placed randomly on the
+Nodes are of the type `AodvRouter`, and are placed randomly on the
 playground. The communication range of the nodes is chosen so that the network
 is connected, but nodes can typically only communicate by using multi-hop paths.
 The nodes will also randomly roam within predefined borders. The routing

@@ -15,12 +15,12 @@
 
 package inet.showcases.wireless.coexistence;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.common.packetlevel.RadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
-import inet.physicallayer.ieee802154.bitlevel.Ieee802154UWBIRRadioMedium;
+import inet.physicallayer.ieee802154.bitlevel.Ieee802154UwbIrRadioMedium;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 
 
@@ -30,7 +30,7 @@ network CoexistenceShowcase
         visualizer: IntegratedCanvasVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         radioMedium: RadioMedium {
@@ -56,7 +56,7 @@ network CoexistenceShowcase2
         visualizer: IntegratedCanvasVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
@@ -88,7 +88,7 @@ network CoexistenceShowcase3
         visualizer: IntegratedCanvasVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         wifiHost1: AdhocHost {
@@ -117,7 +117,7 @@ network CoexistenceShowcase4
         visualizer: IntegratedCanvasVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         wifiHost1: AdhocHost {
@@ -146,10 +146,10 @@ network CoexistenceShowcase5
         visualizer: IntegratedCanvasVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
-        radioMedium: Ieee802154UWBIRRadioMedium {
+        radioMedium: Ieee802154UwbIrRadioMedium {
             @display("p=50,150");
         }
         wifiHost1: AdhocHost {
@@ -172,7 +172,7 @@ network CoexistenceShowcase6
         visualizer: IntegratedCanvasVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         radioMedium: RadioMedium {

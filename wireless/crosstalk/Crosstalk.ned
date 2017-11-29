@@ -1,6 +1,6 @@
 package inet.showcases.wireless.crosstalk;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211DimensionalRadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
@@ -23,7 +23,7 @@ network CrosstalkShowcaseBaseNetwork
         host4: AdhocHost {
             @display("p=346,306");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=75,55");
         }
         visualizer: IntegratedVisualizer {

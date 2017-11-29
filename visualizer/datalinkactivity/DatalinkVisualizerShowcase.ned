@@ -15,8 +15,8 @@
 
 package inet.showcases.visualizer.datalinkactivity;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
-import inet.node.aodv.AODVRouter;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+import inet.node.aodv.AodvRouter;
 import inet.node.ethernet.Eth100M;
 import inet.node.ethernet.EtherSwitch;
 import inet.node.inet.AdhocHost;
@@ -37,7 +37,7 @@ network DataLinkVisualizerEnablingWiredShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }
@@ -63,7 +63,7 @@ network DataLinkVisualizerEnablingWirelessShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,120");
         }
@@ -90,7 +90,7 @@ network DataLinkVisualizerFilteringShowcase
         visualizer: IntegratedVisualizer {
             @display("p=80,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=80,120");
         }
@@ -146,7 +146,7 @@ network DataLinkVisualizerMobileShowcase
         visualizer: IntegratedVisualizer {
             @display("p=70,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=70,150");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
@@ -158,31 +158,31 @@ network DataLinkVisualizerMobileShowcase
 //        RREPVisualizer: DataLinkVisualizer {
 //            @display("p=70,450");
 //        }
-        destination: AODVRouter {
+        destination: AodvRouter {
             @display("p=512.272,249.796");
         }
-        source: AODVRouter {
+        source: AodvRouter {
             @display("p=187.664,207.952");
         }
-        aodvRouter1: AODVRouter {
+        aodvRouter1: AodvRouter {
             @display("p=201.612,311.928");
         }
-        aodvRouter2: AODVRouter {
+        aodvRouter2: AodvRouter {
             @display("p=465.356,158.5");
         }
-        aodvRouter3: AODVRouter {
+        aodvRouter3: AodvRouter {
             @display("p=426.048,311.928");
         }
-        aodvRouter4: AODVRouter {
+        aodvRouter4: AodvRouter {
             @display("p=400.688,88.76");
         }
-        aodvRouter5: AODVRouter {
+        aodvRouter5: AodvRouter {
             @display("p=333.484,177.52");
         }
-        aodvRouter6: AODVRouter {
+        aodvRouter6: AodvRouter {
             @display("p=323.34,262.476");
         }
-        aodvRouter7: AODVRouter {
+        aodvRouter7: AodvRouter {
             @display("p=265.012,109.048");
         }
 }

@@ -48,8 +48,8 @@ loss. When too many packets are lost (ie. the ACK for them doesn't arrive) the
 transmission rate is lowered. When a number of packets are sent without loss, the
 rate is increased.
 
-INET has different rate control models, such as `ARFRateControl`,
-`AARFRateControl` and `OnoeRateControl`.
+INET has different rate control models, such as `ArfRateControl`,
+`AarfRateControl` and `OnoeRateControl`.
 
 ### The network
 
@@ -79,7 +79,7 @@ of rate control affects application level throughput.
 
 Below are two animations showing the hosts going around the obstacle. In the first
 video, the hosts don't use rate control, and always transmit with 54 Mbps. In the
-second video, hosts use `AARFRateControl`. The transmissions
+second video, hosts use `AarfRateControl`. The transmissions
 intersect the obstacle during the simulation. The path the transmission takes
 through the obstacle varies in length as the hosts are moving. When using rate
 control, `sinkHost` manages to receive more transmission
@@ -112,7 +112,7 @@ compared on the following plots.
 <img src="throughput2.png" class="screen" width="850" /> <img src="bitrate2.png" class="screen" width="850" />
 
 The received packet count at `sinkHost` is 18366 for 'No rate control',
-and 35966 for 'AARFRateControl'.
+and 35966 for 'AarfRateControl'.
 
 ### Conclusion
 

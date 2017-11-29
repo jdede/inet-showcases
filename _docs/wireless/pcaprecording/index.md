@@ -52,7 +52,7 @@ The simulation uses the following network:
 <img class="screen" src="network2.png">
 
 The network contains two `adhocHost`s named `host1` and `host2`, and two `StandardHost`s named `ethHost1` and `ethHost2`. There are two `Router` modules (`router1` and `router2`), which are connected to each other by ppp. Each wired host is connected to one of the routers via ethernet.
-The network also contains an `IPv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedMultiVisualizer` module.
+The network also contains an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and an `IntegratedMultiVisualizer` module.
 
 Traffic generation is set up the following way: `host1` is configured to send a UDP stream to `host2` (via 802.11), `ethHost1` is configured to open a TCP connection to `ethHost2`, and send a 1Mbyte file (via ethernet). Additionally, `ethHost1` is configured to ping `ethHost2`.
 

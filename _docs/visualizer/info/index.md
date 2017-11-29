@@ -77,7 +77,7 @@ following:
 <img class="screen" src="infonetwork.png">
 
 It contains three `AdhocHosts` arranged in a simple chain. It
-also contains an `IPv4NetworkConfigurator`, an
+also contains an `Ipv4NetworkConfigurator`, an
 `Ieee80211ScalarRadioMedium`, and an
 `IntegratedVisualizer` module. The communication ranges of
 hosts is determined by their radio transmitter power, which is

@@ -8,7 +8,7 @@ title: Displaying IP Addresses and Other Interface Information
 In the simulation of complex networks, it is often useful to be able to
 display node IP addresses, interface names, etc. above the node icons or
 on the links. For example, when automatic address assignment is used in
-a hierarchical network (e.g. using `IPv4NetworkConfigurator`),
+a hierarchical network (e.g. using `Ipv4NetworkConfigurator`),
 visual inspection can help to verify that the result matches the
 expectations. While it is true that addresses and other interface data
 can also be accessed in the GUI by diving into the interface tables of
@@ -73,7 +73,7 @@ The simulation uses the following network:
 <img class="screen" src="simplenetwork.png">
 
 The network contains two connected `StandardHosts`. IP
-addresses are auto-assigned by an `IPv4NetworkConfigurator`
+addresses are auto-assigned by an `Ipv4NetworkConfigurator`
 module.
 
 We enable visualization by the following configuration line:

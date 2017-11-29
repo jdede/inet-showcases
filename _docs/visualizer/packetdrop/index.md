@@ -159,7 +159,7 @@ the following:
 <img class="screen" src="noroutenetwork.png">
 
 It contains two connected `StandardHosts`. The
-`IPv4NetworkConfigurator` is instructed not to add any static routes, and
+`Ipv4NetworkConfigurator` is instructed not to add any static routes, and
 `host1` is configured to ping `host2`.
 
 The ping packets can't be routed, thus the IP module drops them. This is

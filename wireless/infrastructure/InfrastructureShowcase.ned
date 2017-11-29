@@ -1,6 +1,6 @@
 package inet.showcases.wireless.infrastructure;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
@@ -11,7 +11,7 @@ network InfrastructureShowcaseBase
 {
     @display("bgb=1199.5619,696.449");
     submodules:
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=52,45");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
@@ -38,7 +38,7 @@ network InfrastructureShowcaseBase
 //{
 //    @display("bgb=1199.5619,696.449");
 //    submodules:
-//        configurator: IPv4NetworkConfigurator {
+//        configurator: Ipv4NetworkConfigurator {
 //            @display("p=52,45");
 //        }
 //        radioMedium: Ieee80211ScalarRadioMedium {

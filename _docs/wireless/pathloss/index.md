@@ -48,7 +48,7 @@ Here is a list of those featured in this showcase example:
   by objects such as trees.
 
 Other path loss models in INET include `RayleighFading`, `NakagamiFading`,
-`UWBIRStochasticPathLoss`, `BreakpointPathLoss`, and `SUIPathLoss`.
+`UwbIrStochasticPathLoss`, `BreakpointPathLoss`, and `SuiPathLoss`.
 
 The various path loss models each have sets of parameters to fine-tune their
 behavior. In this showcase we leave the parameters at their defaults.
@@ -61,7 +61,7 @@ distance. For each distance and path loss model, a probe packet will be sent
 from one host to the other, and the signal's received power will be recorded.
 
 In addition to the two hosts named named `source` and `destination`, the network
-also contains a `PhysicalEnvironment` module, an `IPv4NetworkConfigurator`, and
+also contains a `PhysicalEnvironment` module, an `Ipv4NetworkConfigurator`, and
 a `Ieee80211ScalarRadioMedium`:
 
 <img src="network.png" class="screen" />
