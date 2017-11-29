@@ -141,7 +141,7 @@ We configure the visualizer as follows.
 The following video shows what happens when we start the simulation. 
 The video starts from that point when `videoClient` requests the video stream.
 
-<!-- SIMULATION VIDEO -->
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1129.mp4"></video></p>
 
 The video clearly shows peer level and service level data link activity between the nodes.
 Peer level data link activity is represented by blue arrows and service level 
