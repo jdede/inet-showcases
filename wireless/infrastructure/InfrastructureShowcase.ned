@@ -24,13 +24,7 @@ network InfrastructureShowcaseBase
             @display("p=347.12598,311.97397");
         }
         host2: WirelessHost {
-            @display("p=547.053,224.094");
-        }
-        host3: WirelessHost {
-            @display("p=714.02496,355.91397");
-        }
-        host4: WirelessHost {
-            @display("p=935.92194,303.18597");
+            @display("p=771.42377,311.27625");
         }
 }
 
@@ -65,7 +59,7 @@ network InfrastructureShowcaseA extends InfrastructureShowcaseBase
 {
     submodules:
         accessPoint: AccessPoint {
-            @display("p=577.44,461.65128");
+            @display("p=569.92126,461.65128");
         }
 }
 

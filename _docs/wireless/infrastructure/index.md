@@ -6,7 +6,7 @@ hidden: true
 
 ## Goals
 
-802.11 devices can operate in two basic modes. In infrastructure mode, nodes connect to wireless networks created by access points, which provide services, such as internet access. In adhoc mode, nodes create an adhoc wireless network, which they can use to transfer data between each other.
+802.11 devices can operate in two basic modes. In infrastructure mode, nodes connect to wireless networks created by access points, which provide services, such as internet access. In adhoc mode, nodes create an adhoc wireless network, without using additional network infrastructure. <!--which they can use to transfer data between each other.-->
 
 INET has support for simulating both operating modes. This showcase demonstrates how to configure 802.11 networks in infrastructure and adhoc mode, and how to check if they are configured correctly. The showcase contains two example simulations defined in omnetpp.ini.
 
