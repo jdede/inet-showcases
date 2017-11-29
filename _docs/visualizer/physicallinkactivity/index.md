@@ -136,9 +136,9 @@ nodes.
 
 <img src="PhysicalLinkVisualizerDynamic.png" class="screen" />
 
-The nodes send UDP packets in every second by using an `UDPBasicApp`
+The nodes send UDP packets in every second by using an `UdpBasicApp`
 application. The packets' names are set to `Broadcast-nnn`. The nodes
-manage the received `Broadcast` packets using an `UDPSink` application.
+manage the received `Broadcast` packets using an `UdpSink` application.
 
 The visualizer's `packetFilter` parameter is set to display only
 `Broadcast` traffic.

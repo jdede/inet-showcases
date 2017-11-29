@@ -29,8 +29,8 @@ The management module type can be set from the ini or NED files, or by choosing 
 
 In INET, the management module is a submodule of `Ieee80211Nic`. It connects to the MAC module, and it is responsible for handling management frames, such as beacon frames, probe request and response frames, and association and authentication frames. The management module is also responsible for scanning channels and switching between them. Several types of management modules are available:
 
-- `Ieee80211MgmtSTA`: for stations (nodes that join wireless networks) in infrastructure mode
-- `Ieee80211MgmtAP`: for access points in infrastructure mode
+- `Ieee80211MgmtSta`: for stations (nodes that join wireless networks) in infrastructure mode
+- `Ieee80211MgmtAp`: for access points in infrastructure mode
 - `Ieee80211MgmtAdhoc`: for nodes in adhoc mode
 
 <!--
@@ -44,19 +44,19 @@ TODO: the simplified versions dont implement beacons, probes, association, authe
 they only send and receive data frames and treats all stations as if they were associated
 -->
 
-There are also simplified versions of the infrastructure mode management modules: `Ieee80211MgmtSTASimplified` and `Ieee80211MgmtAPSimplified`.
+There are also simplified versions of the infrastructure mode management modules: `Ieee80211MgmtStaSimplified` and `Ieee80211MgmtApSimplified`.
 They only send and receive data frames, and they don't simulate the association and authentication process, but assume that stations are always associated with the access point. They also cannot simulate handovers.
 
-The agent module (`Ieee80211AgentSTA`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSTA` management module types.) It connects to the management module. It is responsible for initiating channel scanning, associations and handovers. It controls these by sending commands to the management module.
+The agent module (`Ieee80211AgentSta`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSta` management module types.) It connects to the management module. It is responsible for initiating channel scanning, associations and handovers. It controls these by sending commands to the management module.
 It basically simulates user actions, such as the user instructing the device to connect to a Wifi network.
 The topology of connected modules in `Ieee80211Nic` is displayed on the following image:
 
 <img class="screen" src="submodules.png">
 
-Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSTA`, and `AccessPoint` uses `Ieee80211MgmtAP`.
+Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSta`, and `AccessPoint` uses `Ieee80211MgmtAp`.
 `AdhocHost` is suitable for simulating adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
 
-In infrastructure mode, the SSID of the network created by an access point is a parameter of `Ieee80211MgmtAP`, and it is "SSID" by default. In stations, the agent module has an SSID parameter, which sets which network the node should join. When the simulation is run, the access points automatically create the wireless networks, and agent module in station nodes cause the nodes to automatically join the appropriate network.
+In infrastructure mode, the SSID of the network created by an access point is a parameter of `Ieee80211MgmtAp`, and it is "SSID" by default. In stations, the agent module has an SSID parameter, which sets which network the node should join. When the simulation is run, the access points automatically create the wireless networks, and agent module in station nodes cause the nodes to automatically join the appropriate network.
 
 TODO: about the adhoc management module
 
@@ -96,7 +96,7 @@ some of these might belong to the next section (the configuration)
 </pre>
 
 In both simulations, `host1` is configured to send UDP packets to `host2`.
-`WirelessHost` has `Ieee80211MgmtSTA` by default, thus no configuration is needed in the infrastructure mode simulation. In the other one, it is replaced with ieee80211mgmtadhoc. the same could be achieved by using adhoc host instead of wirelesshost. it is done like this: include key
+`WirelessHost` has `Ieee80211MgmtSta` by default, thus no configuration is needed in the infrastructure mode simulation. In the other one, it is replaced with ieee80211mgmtadhoc. the same could be achieved by using adhoc host instead of wirelesshost. it is done like this: include key
 
 Results
 

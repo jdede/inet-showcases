@@ -1,7 +1,7 @@
 package inet.showcases.wireless.pcaprecording;
 
 import inet.visualizer.integrated.IntegratedMultiVisualizer;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.Router;
@@ -14,7 +14,7 @@ network PcapRecordingShowcase
 {
     @display("bgb=1214,400");
     submodules:
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=87,57");
         }
         visualizer: IntegratedMultiVisualizer {

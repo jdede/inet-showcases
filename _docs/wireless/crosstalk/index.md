@@ -75,7 +75,7 @@ There are example simulations for the three cases outlined in the Goals section.
 
 <img class="screen" src="basenetwork.png">
 
-The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `IPv4NetworkConfigurator` module, an `IntegratedVisualizer` module, and radioMedium module(s). The number and type of the radio medium modules varies in the networks for the different simulations, either containing one or two. All hosts are within communication range of each other. The hosts are arranged in a rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations, specifying e.g. traffic generation and visualization, are defined in the `General` configuration.
+The networks contains four `adhocHost`s, named `host1` to `host4`. The networks also contains an `Ipv4NetworkConfigurator` module, an `IntegratedVisualizer` module, and radioMedium module(s). The number and type of the radio medium modules varies in the networks for the different simulations, either containing one or two. All hosts are within communication range of each other. The hosts are arranged in a rectangle, and each host is configured to send UDP packets to the host on the far side of the rectangle (i.e. `host1` to `host2`, and `host3` to `host4`.) The configuration keys common to all simulations, specifying e.g. traffic generation and visualization, are defined in the `General` configuration.
 
 ### Nodes on same wifi channel (completely overlapping frequency bands)
 

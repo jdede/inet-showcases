@@ -164,7 +164,7 @@ instrument figures:
 
 The client is configured to move horiztontally back and forth, initially
 moving away from the server. The hosts are configured to use
-`AARFRateControl`, so the wifi speed and the application level
+`AarfRateControl`, so the wifi speed and the application level
 throughput are expected to gradually drop as the client moves away from
 the server.
 

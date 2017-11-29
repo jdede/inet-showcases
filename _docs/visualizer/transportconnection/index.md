@@ -59,7 +59,7 @@ the following network:
 
 The network contains two `StandardHosts` connected to each
 other, each containing a TCP application. IP addresses and routing
-tables are configured by a `IPv4NetworkConfigurator` module.
+tables are configured by a `Ipv4NetworkConfigurator` module.
 The visualizer module is a `TransportConnectionVisualizer`. The
 application in `host1` is configured to open a TCP connection
 to `host2`, and send data to it. The visualization of transport
@@ -88,7 +88,7 @@ file. It uses the following network:
 There are two `StandardHosts` connected to a switch, which is
 connected via a router to the server, another `StandardHost`.
 IP addresses and routing tables are configured by a
-`IPv4NetworkConfigurator` module. The visualizer module is an
+`Ipv4NetworkConfigurator` module. The visualizer module is an
 `IntegratedVisualizer`.
 
 The hosts are configured to open TCP connections to the server:

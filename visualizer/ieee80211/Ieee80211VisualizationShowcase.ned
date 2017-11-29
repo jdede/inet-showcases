@@ -1,7 +1,7 @@
 package inet.showcases.visualizer.ieee80211;
 
 import inet.environment.common.PhysicalEnvironment;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
@@ -18,7 +18,7 @@ network Ieee80211VisualizationDisplayingAssociationsShowcase
         wirelessHost: WirelessHost {
             @display("p=127,157");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=409,32");
         }
         visualizer: IntegratedVisualizer {
@@ -41,7 +41,7 @@ network Ieee80211VisualizationAdvancedFeaturesShowcase
             parameters:
                 @display("p=99,111");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,178");
         }
@@ -87,7 +87,7 @@ network Ieee80211VisualizationVisualizingHandoverShowcase
         accessPointB: AccessPoint {
             @display("p=450,250");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=100,344");
         }
         visualizer: IntegratedVisualizer {

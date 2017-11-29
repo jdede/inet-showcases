@@ -1,10 +1,10 @@
 package inet.showcases.wireless.sensornetwork;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.StandardHost;
 import inet.node.inet.WirelessHost;
-import inet.physicallayer.apskradio.packetlevel.APSKScalarRadioMedium;
+import inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
@@ -13,13 +13,13 @@ network SensorNetworkShowcase
 {
     @display("bgb=40,40");
     submodules:
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=4.0722203,4.0722203");
         }
         visualizer: IntegratedVisualizer {
             @display("p=4.0722203,9.346079");
         }
-        radioMedium: APSKScalarRadioMedium {
+        radioMedium: ApskScalarRadioMedium {
             @display("p=4.0054626,14.219392");
         }
         sensor4: WirelessHost {
@@ -120,7 +120,7 @@ network testingIcons2
         wirelessHost10: WirelessHost {
             @display("p=115,274;i=misc/securitycamera");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=42,57");
         }
         radioMedium: Ieee80211ScalarRadioMedium {

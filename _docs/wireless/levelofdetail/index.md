@@ -17,8 +17,8 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ### Layered radio
 
-The model uses `APSKScalarRadio` with
-`APSKLayeredTransmitter` and `APSKLayeredReceiver`. The
+The model uses `ApskScalarRadio` with
+`ApskLayeredTransmitter` and `ApskLayeredReceiver`. The
 latter two implements the layered radio features. When operating in 'packet'
 domain, the error model computes packet errors, bits are not computed. In 'bit'
 domain, the error model computes erroneous bits. In the 'symbol' domain, the
@@ -34,7 +34,7 @@ When using packet and bit level simulation, even though forward error correction
 
 ### Calculating error rates
 
-The `APSKLayeredReceiver` module uses the `APSKLayeredErrorModel` by default. The error model calculates packet error rate (PER), bit error rate (BER) and symbol error rate (SER), depending on the level of detail used. The error rates are calculated from the SNIR, the transmission's modulation, bandwidth, and bitrate.
+The `ApskLayeredReceiver` module uses the `ApskLayeredErrorModel` by default. The error model calculates packet error rate (PER), bit error rate (BER) and symbol error rate (SER), depending on the level of detail used. The error rates are calculated from the SNIR, the transmission's modulation, bandwidth, and bitrate.
 
 In case of packet level modeling, the error model computes which packets get corrupted.
 When bit precise modeling is used, the error model calculates erroneous bits, from which the receiver mechanism can decide which packets are corrupt. When symbol level precision is used, the error model computes which symbols get corrupted. The error model replaces a corrupted symbol with another one, which differs from the originally transmitted symbol in just 1 bit. The symbol is then decoded by the receiver, which decides which bits and in turn which packets, are corrupt.

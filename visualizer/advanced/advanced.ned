@@ -18,7 +18,7 @@ package inet.showcases.visualizer.advanced;
 import inet.visualizer.integrated.IntegratedMultiCanvasVisualizer;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.WirelessHost;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.ethernet.Eth10G;
 import inet.node.ethernet.EtherSwitch;
@@ -74,7 +74,7 @@ network UsingMultipleVisualizerModulesShowcaseA
         server: StandardHost {
             @display("p=110.5,375.0625;i=device/server");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=60,60");
         }
         visualizer: IntegratedMultiCanvasVisualizer {
@@ -135,7 +135,7 @@ network UsingMultipleVisualizerModulesShowcaseB
         server: StandardHost {
             @display("p=110.5,375.0625;i=device/server");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=60,60");
         }
         visualizer: IntegratedMultiCanvasVisualizer {

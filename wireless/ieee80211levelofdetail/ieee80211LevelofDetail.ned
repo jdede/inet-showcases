@@ -17,7 +17,7 @@
 
 package inet.showcases.wireless.ieee80211levelofdetail;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.bitlevel.Ieee80211LayeredScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
@@ -33,7 +33,7 @@ network Ieee80211LevelofDetailShowcase
             parameters:
                 @display("p=100,250");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,150");
         }

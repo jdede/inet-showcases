@@ -16,7 +16,7 @@
 package inet.showcases.visualizer.styling;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.WirelessHost;
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth10M;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.StandardHost;
@@ -42,7 +42,7 @@ network StylingShowcase
         visualizer: IntegratedVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
@@ -66,7 +66,7 @@ network AnnotationShowcase
         visualizer: IntegratedVisualizer {
             @display("p=50,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             @display("p=50,100");
         }
         radioMedium: Ieee80211ScalarRadioMedium {

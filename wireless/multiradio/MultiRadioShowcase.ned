@@ -4,7 +4,7 @@
 
 package inet.showcases.wireless.multiradio;
 
-import inet.networklayer.configurator.ipv4.IPv4NetworkConfigurator;
+import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.Router;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
@@ -24,7 +24,7 @@ network MultiRadioShowcase
             parameters:
                 @display("p=39.053257,68.63906");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=39.644974,27.218937");
         }
