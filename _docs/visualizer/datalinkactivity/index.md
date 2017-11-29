@@ -33,7 +33,7 @@ The observed level can be set by the `activityLevel` parameter.
 At *service* level, that packets are displayed which pass through the data link layer 
 (i.e. carry data from/to higher layers). At *peer* level, the visualization 
 is triggered by the packets which are internal to the operation of the 
-data link layer protocol.At *protocol* level, `DataLinkVisualizer` displays the packets 
+data link layer protocol. At *protocol* level, `DataLinkVisualizer` displays the packets 
 which starts from the data link layer in the source node and enter the data link layer 
 in the destination node.
 
@@ -119,18 +119,38 @@ from the ini file.
 
 We use the following network for this example.
 
-<!-- NETWORK IMG -->
+<img src="ActivityLevelNetwork_v1129.png" class="screen" />
 
 The network consists two wireless hosts, `videoClient` and `videoServer`.
-`videoServer` is continuously sending video stream packets to `videoClient`.
+The `VideoServer` node will send video stream packets to `videoClient`.
 
-The type of the visualizer is `IntegratedMultiVisualizer`. By using this, 
-we are able to use multiple visualizers as a vector of visualizers.
-One visualizer will show data link activity at peer level and the other 
-one will show data link activity at service level.
+The type of the visualizer is `IntegratedMultiVisualizer`.
+Multi-visualizers are compound visualizer modules containing submodule vectors 
+of visualizer simple modules. This visualizer is useful for this example, because
+multiple visualizers of `DataLinkVisualizer` are required for displaying 
+data link activity at certain levels. By default, the multi visualizers 
+contain one submodule of each visualizer simple module.
+The number of submodules can be specified for each visualizer submodule with parameters.
+
+We configure the visualizer as follows.
+
+``` {.snippet}
+
+```
+
+The following video shows what happens when we start the simulation. 
+The video starts from that point when `videoClient` requests the video stream.
 
 <!-- SIMULATION VIDEO -->
 
+The video clearly shows peer level and service level data link activity between the nodes.
+Peer level data link activity is represented by blue arrows and service level 
+data link activity is represented by green arrows.
+
+
+The video stream packet size is bigger than the MTU, so each packet is sent as fragments.
+The fragments pass through data link layer only when all fragments are arrived and the 
+packet is assembled.
 
 ## Filtering Data Link Activity
 
