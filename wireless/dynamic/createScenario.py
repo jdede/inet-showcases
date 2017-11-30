@@ -13,18 +13,15 @@ elif(len(sys.argv) == 5):
         atTagStart = '<at t="' + str(time) + '">'
         atTagEnd = '</at>'
         if(create == True):
-            createTag = '    <create-module type="' + type + '" parent="' + parent + '" submodule="' + submodule + '"/>'
+            createTag = '    <create-module type="' + type + '" parent="' + parent + '" submodule="' + submodule + str(index) + '"/>'
         elif(create == False):
-            createTag = '    <delete-module module="' + submodule + '[' + str(index) + ']' + '"/>'
+            createTag = '    <delete-module module="' + submodule + str(index) + '[0]' + '"/>'
         else:
             print("some kind of error")
             return 0;
 
         element = atTagStart + '\n' + createTag + '\n' + atTagEnd + '\n'
         return element
-
-    # so create nth element at x time, destroy it at x+y time
-    # so we need the number of elements to create, the period of creation, and the lifetime
 
     def createScenario(numberOfElements, period, lifetime):
         i = 0;
@@ -40,6 +37,5 @@ elif(len(sys.argv) == 5):
     with open(filename, 'w') as f:
         f.write(createScenario(numberOfElements, period, lifetime))
 
-    # when the script is run, we need a file, the number of elements, the period, and the lifetime
 else:
     print("argument error")
