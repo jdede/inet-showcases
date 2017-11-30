@@ -9,7 +9,7 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 
 network InfrastructureShowcaseBase
 {
-    @display("bgb=1199.5619,696.449");
+    @display("bgb=1054,696");
     submodules:
         configurator: IPv4NetworkConfigurator {
             @display("p=52,45");

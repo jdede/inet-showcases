@@ -49,6 +49,10 @@ In infrastructure mode, the SSID of the network created by an access point is a 
 
 TODO: about the adhoc management module
 
+## The configuration
+
+The showcase contains two example simulations, with one of them demonstrating infrastructure mode and the other adhoc mode (the configurations in omnetpp.ini are named `Infrastructure` and `Adhoc`.) Two nodes communicate wirelessly in both of them, the difference being that in the first case they communicate through an access point in infrastructure mode, and in the second directly between each other in adhoc mode. The two simulations use similar networks, the difference being the presence of an access point in the network for the infrastructure mode configuration.
+
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure1.mp4"></video>
 </p>
