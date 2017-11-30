@@ -9,7 +9,7 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 
 network InfrastructureShowcaseBase
 {
-    @display("bgb=1054,696");
+    @display("bgb=678,294");
     submodules:
         configurator: IPv4NetworkConfigurator {
             @display("p=52,45");
@@ -21,10 +21,10 @@ network InfrastructureShowcaseBase
             @display("p=52,164");
         }
         host1: WirelessHost {
-            @display("p=347.12598,311.97397");
+            @display("p=212,112");
         }
         host2: WirelessHost {
-            @display("p=771.42377,311.27625");
+            @display("p=525,112");
         }
 }
 
@@ -59,7 +59,7 @@ network InfrastructureShowcaseA extends InfrastructureShowcaseBase
 {
     submodules:
         accessPoint: AccessPoint {
-            @display("p=569.92126,461.65128");
+            @display("p=374,200");
         }
 }
 

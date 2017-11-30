@@ -51,7 +51,14 @@ TODO: about the adhoc management module
 
 ## The configuration
 
-The showcase contains two example simulations, with one of them demonstrating infrastructure mode and the other adhoc mode (the configurations in omnetpp.ini are named `Infrastructure` and `Adhoc`.) Two nodes communicate wirelessly in both of them, the difference being that in the first case they communicate through an access point in infrastructure mode, and in the second directly between each other in adhoc mode. The two simulations use similar networks, the difference being the presence of an access point in the network for the infrastructure mode configuration.
+The showcase contains two example simulations, with one of them demonstrating infrastructure mode and the other adhoc mode (the configurations in omnetpp.ini are named `Infrastructure` and `Adhoc`.) Two nodes communicate wirelessly in both of them, the difference being that in the first case they communicate through an access point in infrastructure mode, and in the second directly between each other in adhoc mode. The two simulations use similar networks, the only difference is that there is an access point in the network for the infrastructure mode configuration. The networks look like the following:
+
+<img class="screen" src="network.png">
+
+The networks contain two `WirelessHosts` named `host1` and `host2`.
+They also contain an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium` and an `IntegratedVisualizer` module. The network for the infrastructure mode configuration also contains an `AccessPoint`.
+
+TODO: the configuration
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure1.mp4"></video>
