@@ -34,6 +34,9 @@ Which hosts have them
 The role of agent modules
 -->
 
+TODO: the simplified versions dont implement beacons, probes, association, authentication
+they only send and receive data frames and treats all stations as if they were associated
+
 There are also simplified versions of the infrastructure mode management modules, `Ieee80211MgmtSTASimplified` and `Ieee80211MgmtAPSimplified`. These modules don't simulate the association and authentication process, but assume that stations are already associated with the access point. They also cannot simulate handovers.
 
 The agent module (`Ieee80211AgentSTA`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSTA` management module types, connecting to wireless networks). It connects to the management module. It is responsible for initiating channel scanning, associations and handovers. It control these by sending commands to the management module.
