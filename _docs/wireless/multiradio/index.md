@@ -7,7 +7,7 @@ hidden: true
 ## Goals
 
 In reality, devices often have more than one wireless interface (for example, a dual band wireless router has two radios.) Wireless nodes in INET can have multiple interfaces as well.
-This showcase contains example simulation, in which nodes communicate via a router, which has two wireless interfaces.
+This showcase contains example an simulation, in which nodes communicate via a router, which has two wireless interfaces.
 
 INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/infrastructure" target="_blank">`inet/showcases/wireless/infrastructure`</a>
@@ -26,7 +26,8 @@ INET's wireless host types have one wlan interface by default.
 The number of wlan interfaces in a host is specified by the host's `numWlanInterfaces` parameter. The parameter's default value is 1 for wireless hosts, such as `WirelessHost` and `AdhocHost`, and 0 for `StandardHost`.
 -->
 
-The number of wlan interfaces in INET's host types is specified by the host's `numWlanInterfaces` parameter. The parameter's default value is 1 for wireless hosts, such as `WirelessHost` and `AdhocHost`, and 0 for `StandardHost`. (`numWlanInterfaces` is actually the parameter of `LinkLayerNodeBase`, from which the these host types are built on.) However, one can specify a custom host type with arbitrary number of radio interfaces in the NED file.
+The number of wlan interfaces in INET's host types is specified by the host's `numWlanInterfaces` parameter. The parameter's default value is 1 for wireless hosts, such as `WirelessHost` and `AdhocHost`, and 0 for `StandardHost`. (`numWlanInterfaces` is actually the parameter of `LinkLayerNodeBase`, on which these host types are built.) However, one can specify a custom host type with arbitrary number of radio interfaces in the NED file.
+However, one can build a custom host type from scratch with arbitrary number of radio interfaces in the NED file.
 
 ### The configuration
 
@@ -41,6 +42,7 @@ The network also contains an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadio
 By default, INET's wireless host types (such as `WirelessHost` and `AdhocHost`) have one wlan interface.
 -->
 
+- TODO: using 802.11
 - the router has two radios operating on different channels
 - the hosts are configured to ping each other
 - the scenario is that each host uses a different channel
@@ -50,3 +52,7 @@ By default, INET's wireless host types (such as `WirelessHost` and `AdhocHost`) 
 - the managementtype is set to simplified
 - the routes are configured
 - the visualizers are configured -> is this needed?
+
+The two access points will create wireless networks on different channels. `host1` will be associated with `accessPoint1`, and `host2` with `accessPoint2`. The router will connect to both networks, using one of its radio interfaces for each network. `host1` is configured to ping `host2`. The ping packets will go through the router.
+
+- config
