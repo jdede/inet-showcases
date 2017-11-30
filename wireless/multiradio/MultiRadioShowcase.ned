@@ -10,9 +10,8 @@ import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.contract.IIntegratedVisualizer;
-import ned.DatarateChannel;
 
-network MultiRadio
+network MultiRadioShowcase
 {
     parameters:
         @display("bgb=500,300");
