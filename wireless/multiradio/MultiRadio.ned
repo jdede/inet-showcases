@@ -16,8 +16,6 @@ network MultiRadio
 {
     parameters:
         @display("bgb=500,300");
-        bool useEthernetSwitching = default(true);
-        bool useRouting = default(false);
     submodules:
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
             parameters:
@@ -47,10 +45,8 @@ network MultiRadio
             parameters:
                 @display("p=354,99");
         }
-        router: Router if useRouting {
+        router: Router {
             parameters:
                 @display("p=255,168");
         }
-    connections:
-        accessPoint1.ethg++ <--> DatarateChannel {  datarate = 100Mbps; } <--> accessPoint2.ethg++ if useEthernetSwitching;
 }
