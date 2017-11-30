@@ -18,15 +18,15 @@ network MultiRadioShowcase
     submodules:
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
             parameters:
-                @display("p=100,50");
+                @display("p=39.644974,101.18344");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
             parameters:
-                @display("p=100,150");
+                @display("p=39.053257,68.63906");
         }
         configurator: IPv4NetworkConfigurator {
             parameters:
-                @display("p=100,250");
+                @display("p=39.644974,27.218937");
         }
         host1: WirelessHost {
             parameters:
