@@ -18,21 +18,25 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 - you need to use the correct management module
 - there is simple and normal management modules
 
+The operating mode of a node is determined by the type of management module the node has.
+The management module type can be set from ini or ned, or by using a host type which has the proper
+management module type by default.
+
 In INET, the management module is a submodule of `Ieee80211Nic`. It connects to the MAC module, and it is responsible for handling management frames, such as beacon frames, probe request and response frames, and association and authentication frames. The management module is also responsible for scanning channels and switching between them. Several types of management modules are available:
 
 - `Ieee80211MgmtSTA`: for stations (nodes that join wireless networks) in infrastructure mode
 - `Ieee80211MgmtAP`: for access points in infrastructure mode
 - `Ieee80211MgmtAdhoc`: for nodes in adhoc mode
 
-<pre>
+<!--
 There is the simplified versions of all of these except the adhoc
 Which hosts have them
 The role of agent modules
-</pre>
+-->
 
 There are also simplified versions of the infrastructure mode management modules, `Ieee80211MgmtSTASimplified` and `Ieee80211MgmtAPSimplified`. These modules don't simulate the association and authentication process, but assume that stations are already associated with the access point. They also cannot simulate handovers.
 
-The agent module (`Ieee80211AgentSTA`) connects to the management module. It is responsible for initiating channel scanning, associations and handovers. It control these by sending commands to the management module.
+The agent module (`Ieee80211AgentSTA`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSTA` management module types, connecting to wireless networks). It connects to the management module. It is responsible for initiating channel scanning, associations and handovers. It control these by sending commands to the management module.
 It basically simulates user actions, such as the user instructing the device to connect to a Wifi network.
 The topology of connected modules in `Ieee80211Nic` is displayed on the following image:
 
@@ -40,6 +44,10 @@ The topology of connected modules in `Ieee80211Nic` is displayed on the followin
 
 Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSTA`, and `AccessPoint` uses `Ieee80211MgmtAP`.
 `AdhocHost` is suitable to adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
+
+In infrastructure mode, the SSID of the network created by an access point is a parameter of `Ieee80211MgmtAP`, and it is "SSID" by default. In stations, the agent module has an SSID parameter, which sets which network the node should join. When the simulation is run, the access points automatically create the wireless network, and the agent module in station nodes cause them to automatically join the appropriate network.
+
+TODO: about the adhoc management module
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure1.mp4"></video>
