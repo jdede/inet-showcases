@@ -68,3 +68,5 @@ All nodes configured to use simplifies management modules, thus all hosts are as
 The number of radios in `router` is set to two, and each radio is configured to connect to the appropriate wireless network. TODO: the access point mac address and the channel needs to be set because of the simplified management
 
 <pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="001111111111" until="simplified" comment="#"/>
+
+TODO: also, host1 pings host2
