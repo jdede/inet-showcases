@@ -99,11 +99,14 @@ network DataLinkVisualizerActivityLevelShowcase
             parameters:
                 @display("p=100,190");
         }
-        videoClient: AdhocHost {
-            @display("p=300,110");
+        person1: AdhocHost {
+            @display("p=269,42;i=misc/person3");
         }
         videoServer: AdhocHost {
-            @display("p=600,110");
+            @display("p=636,41;i=misc/desktoppc2");
+        }
+        person2: AdhocHost {
+            @display("p=452,180;i=misc/person4");
         }
 }
 

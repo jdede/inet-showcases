@@ -28,23 +28,14 @@ In INET, data link activity can be visualized by including a
 default, it can be enabled by setting the visualizer's `displayLinks`
 parameter to true.
 
-`DataLinkVisualizer`can observe packets at *service*, *peer* and *protocol* level.
+`DataLinkVisualizer` is able to observe packets at *service*, *peer* and *protocol* level.
 The observed level can be set by the `activityLevel` parameter.
-At *service* level, that packets are displayed which pass through the data link layer 
+At *service* level, all packets are displayed which pass through the data link layer 
 (i.e. carry data from/to higher layers). At *peer* level, the visualization 
-is triggered by the packets which are internal to the operation of the 
-data link layer protocol. At *protocol* level, `DataLinkVisualizer` displays the packets 
-which starts from the data link layer in the source node and enter the data link layer 
+is triggered by those packets which are internal to the operation of the 
+data link layer protocol. At *protocol* level, `DataLinkVisualizer` visualizes all packets 
+which leaves the data link layer in the source node and enter the data link layer 
 in the destination node.
-
-<!--
-`DataLinkVisualizer` currently observes packets that pass through the
-data link layer (i.e. carry data from/to higher layers), but not those that are
-internal to the operation of the data link layer protocol. That is, frames such as
-ACK, RTS/CTS, Beacon or Authentication/Association frames of IEEE 802.11,
-although potentially useful, will not trigger the visualization. Visualizing such
-frames may be implemented in future INET revisions.
--->
 
 The activity between two nodes is represented visually by an arrow that points
 from the sender node to the receiver node. The arrow appears after the first
@@ -111,8 +102,8 @@ visualization, because ACK frames do not pass through data link layer.
 
 ## Displaying Data Link Activity at Service, Peer and Protocol Level
 
-It is often useful to be able to display traffic at the level of the 
-network stack we are interested in.
+It is often useful to be able to display traffic only at a certain level, 
+we are interested in.
 The following example shows how to set activity level in `DataLinkVisualizer`.
 This simulation can be run by selecting the `ActivityLevel` configuration 
 from the ini file.
@@ -121,8 +112,9 @@ We use the following network for this example.
 
 <img src="ActivityLevelNetwork_v1129.png" class="screen" />
 
-The network consists two wireless hosts, `videoClient` and `videoServer`.
-The `VideoServer` node will send video stream packets to `videoClient`.
+The network consists three wireless hosts, `person1`, `person2` and `videoServer`.
+The `videoServer` node will send a video stream to `person1`.
+`Person2` does not generate any traffic in this example.
 
 The type of the visualizer is `IntegratedMultiVisualizer`.
 Multi-visualizers are compound visualizer modules containing submodule vectors 
@@ -135,22 +127,41 @@ The number of submodules can be specified for each visualizer submodule with par
 We configure the visualizer as follows.
 
 ``` {.snippet}
-
+*.visualizer.*.numDataLinkVisualizers = 3
+*.visualizer.*.dataLinkVisualizer[*].displayLinks = true
+*.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
+*.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
+*.visualizer.*.dataLinkVisualizer[0].activityLevel = "service"
+*.visualizer.*.dataLinkVisualizer[0].lineColor = "green"
+*.visualizer.*.dataLinkVisualizer[0].labelColor = "green"
+*.visualizer.*.dataLinkVisualizer[1].activityLevel = "peer"
+*.visualizer.*.dataLinkVisualizer[1].lineColor = "blue"
+*.visualizer.*.dataLinkVisualizer[1].labelColor = "blue"
+*.visualizer.*.dataLinkVisualizer[2].activityLevel = "protocol"
+*.visualizer.*.dataLinkVisualizer[2].lineColor = "purple"
+*.visualizer.*.dataLinkVisualizer[2].labelColor = "purple"
 ```
+
+Three `DataLinkVisualizer` are configured, observing packets at 
+*service*, *peer* and *protocol* level. They are marked with different colors.
 
 The following video shows what happens when we start the simulation. 
 The video starts from that point when `videoClient` requests the video stream.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1129.mp4"></video></p>
 
-The video clearly shows peer level and service level data link activity between the nodes.
-Peer level data link activity is represented by blue arrows and service level 
-data link activity is represented by green arrows.
+The video clearly shows data link activity between the nodes 
+at *protocol*, *peer* and *service* level.
+Purple arrow represents data link activity at *protocol* level.
+*Peer* level data link activity is represented by blue arrow and *service* level 
+data link activity is represented by green arrow.
 
-
-The video stream packet size is bigger than the MTU, so each packet is sent as fragments.
-The fragments pass through data link layer only when all fragments are arrived and the 
-packet is assembled.
+The video stream packets are fragmented, because their size is greater 
+than the Maximum Transmission Unit (MTU). Each packet fragment is visualized 
+as a blue arrow at *peer* level by `DataLinkVisualizer`. When all fragments 
+of a packet is arrived in the data link layer, the packet is assembled and 
+is sent to the upper layers. As a result of this, a green arrow is displayed 
+on the screen, representing *service* level data link activity.
 
 ## Filtering Data Link Activity
 
