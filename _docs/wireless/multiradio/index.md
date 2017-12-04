@@ -53,7 +53,7 @@ By default, INET's wireless host types (such as `WirelessHost` and `AdhocHost`) 
 - the routes are configured
 - the visualizers are configured -> is this needed?
 
-The access points will create wireless networks on different channels. Each host will associate with the nearby access point. The router will have two wireless interfaces, and will connect to both access point with one of its interfaces. The two wireless networks will be connected via the router, and `host1` will ping `host2`.
+The access points will create wireless networks on different channels. Each host will associate with the nearby access point. The router will have two wireless interfaces, and will connect to both access point with one of its interfaces. The router will connect the two wireless networks by relaying packets between them. `host1` will ping `host2`.
 
 <!--
 The two access points will create wireless networks on different channels. `host1` will be associated with `accessPoint1`, and `host2` with `accessPoint2`. The router will connect to both networks, using one of its radio interfaces for each network. `host1` is configured to ping `host2`. The ping packets will go through the router.
@@ -61,12 +61,14 @@ The two access points will create wireless networks on different channels. `host
 
 - config
 
-All nodes configured to use simplifies management modules, thus all hosts are assumed to be already connected to the wireless network at the start of the simulation.
+All nodes are configured to use simplifies management modules, thus all hosts are assumed to be already connected to the wireless network at the start of the simulation.
 
 `accessPoint1` is configured to create the wireless network on channel 0, and `accessPoint2` on channel 1.
 `host1` is configured to be connected to `accessPoint1`, and `host2` to `accessPoint2`.
-The number of radios in `router` is set to two, and each radio is configured to connect to the appropriate wireless network. TODO: the access point mac address and the channel needs to be set because of the simplified management
+The number of radios in `router` is set to two, and each radio is configured to connect to one of the wireless networks. TODO: the access point mac address and the channel needs to be set because of the simplified management
 
-<pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="001111111111" until="simplified" comment="#"/>
+Because of the simplified management, the MAC addresses of the access points need to be set in hosts' management modules in order for them to be associated with the specified access point. The following keys from the ini file shows the configuration of the wireless networks:
 
-TODO: also, host1 pings host2
+<p><pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="001111111111" until="simplified" comment="#"></pre></p>
+
+<a srcfile="wireless/multiradio/omnetpp.ini"/>
