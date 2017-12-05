@@ -61,6 +61,6 @@ network DynamicRadioNetwork
         }
         scenarioManager: ScenarioManager {
             parameters:
-                @display("p=100,250");
+                @display("p=100,350");
         }
 }

@@ -15,7 +15,7 @@ elif(len(sys.argv) == 5):
         if(create == True):
             createTag = '    <create-module type="' + type + '" parent="' + parent + '" submodule="' + submodule + str(index) + '"/>'
         elif(create == False):
-            createTag = '    <delete-module module="' + submodule + str(index) + '[0]' + '"/>'
+            createTag = '    <delete-module module="' + submodule + str(index) + '"/>'
         else:
             print("some kind of error")
             return 0;
@@ -24,12 +24,25 @@ elif(len(sys.argv) == 5):
         return element
 
     def createScenario(numberOfElements, period, lifetime):
+        # randomize period only once
         i = 0;
         scenario = "<scenario>\n"
         period = random.expovariate(1.0/period)
         while i < numberOfElements:
             scenario += createElement(True, i * period, i)
             scenario += createElement(False, i * period + lifetime, str(i))
+            i += 1
+        scenario += '</scenario>'
+        return scenario
+
+    def createScenario2(numberOfElements, period, lifetime):
+        # randomize period at each creation/destruction
+        i = 0;
+        scenario = "<scenario>\n"
+        while i < numberOfElements:
+            randomPeriod = random.expovariate(1.0/period)
+            scenario += createElement(True, i * randomPeriod, i)
+            scenario += createElement(False, i * randomPeriod + lifetime, str(i))
             i += 1
         scenario += '</scenario>'
         return scenario
