@@ -6,4 +6,4 @@
 - End-to-end-delay: needs byte-tags in the packet API. Fragmentation and packet timestamps are conflicting
 - Crosstalk: partially overlapping config: channels 1-2 doesn't cause interference between packets being transmitted at the same time
 - Advanced: number of UDP packets are not visualized anymore
-- Dynamic: commit e338e68 ("dynamic", 2017-12-04): scenarioManager creates node with already existing name
+- Dynamic: commit 9f39f72 ("dynamic", 2017-12-05): crash in LinkVisualizerBase
