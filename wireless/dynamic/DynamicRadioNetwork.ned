@@ -37,6 +37,7 @@ module DynamicHost extends AdhocHost
 
 network DynamicRadioNetwork
 {
+    @display("bgb=815,450");
     submodules:
         visualizer: <default("IntegratedCanvasVisualizer")> like IIntegratedVisualizer if hasVisualizer() {
             parameters:
