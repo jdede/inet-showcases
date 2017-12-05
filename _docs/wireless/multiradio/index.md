@@ -53,7 +53,7 @@ By default, INET's wireless host types (such as `WirelessHost` and `AdhocHost`) 
 - the routes are configured
 - the visualizers are configured -> is this needed?
 
-The access points will create wireless networks on different channels. Each host will associate with the nearby access point. The router will have two wireless interfaces, and will connect to both access point with one of its interfaces. The router will connect the two wireless networks by relaying packets between them. `host1` will ping `host2`.
+The access points are configured to create wireless networks on different channels. Each host is configured to associate with the nearby access point. The router will have two wireless interfaces, and will connect to both access point with one of its interfaces. The router will connect the two wireless networks by relaying packets between them. `host1` will ping `host2`.
 
 <!--
 The two access points will create wireless networks on different channels. `host1` will be associated with `accessPoint1`, and `host2` with `accessPoint2`. The router will connect to both networks, using one of its radio interfaces for each network. `host1` is configured to ping `host2`. The ping packets will go through the router.
