@@ -29,6 +29,7 @@ module DynamicHost extends AdhocHost
 {
     parameters:
         ipv4.configurator.networkConfiguratorModule = "";
+    @display("i=misc/smartphone");
     submodules:
         autoConfigurator: HostAutoConfigurator {
             @display("p=171,335");

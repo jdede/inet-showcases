@@ -9,7 +9,7 @@ elif(len(sys.argv) == 5):
     period = int(sys.argv[3])
     lifetime = int(sys.argv[4])
 
-    def createElement(create, time, index, submodule="sourceNode", type="inet.examples.wireless.dynamic.DynamicHost", parent="."):
+    def createElement(create, time, index, submodule="sourceNode", type="inet.showcases.wireless.dynamic.DynamicHost", parent="."):
         atTagStart = '<at t="' + str(time) + '">'
         atTagEnd = '</at>'
         if(create == True):
@@ -30,7 +30,7 @@ elif(len(sys.argv) == 5):
         period = random.expovariate(1.0/period)
         while i < numberOfElements:
             scenario += createElement(True, i * period, i)
-            scenario += createElement(False, i * period + lifetime, str(i))
+            scenario += createElement(False, i * period + lifetime, i)
             i += 1
         scenario += '</scenario>'
         return scenario
