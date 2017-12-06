@@ -91,7 +91,7 @@ network DataLinkVisualizerActivityLevelShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: IPv4NetworkConfigurator {
+        configurator: Ipv4NetworkConfigurator {
             parameters:
                 @display("p=100,120");
         }
