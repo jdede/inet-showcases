@@ -145,22 +145,24 @@ We configure the visualizer module as follows.
 ```
 
 The following video shows what happens when we start the simulation. 
-The video is captured from that point, when `videoClient` requests the video stream.
+The video is captured from that point, when `person1` requests the video stream.
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1129.mp4"></video></p>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1206.mp4"></video></p>
 
-The video clearly shows data link activity between the nodes 
-at *protocol*, *peer* and *service* level.
-Purple arrow represents data link activity at *protocol* level.
-*Peer* level data link activity is represented by blue arrow and *service* level 
-data link activity is represented by green arrow.
+The video shows data link activity between the nodes at *protocol* level (purple arrow),
+*peer* level (blue arrow) and *service* level (green arrow).
 
-The video stream packets are fragmented, because their size is greater 
-than the Maximum Transmission Unit (MTU). Each packet fragment is visualized 
-as a blue arrow at *peer* level by `DataLinkVisualizer`. When all fragments 
-of a packet is arrived in the data link layer, the packet is assembled and 
+Let's have a look at the communication between `videoServer` and `person1`.
+The video stream is fragmented because the size of the packets is greater 
+than the Maximum Transmission Unit (MTU). The fragments are visualized 
+at *protocol* and at *peer* level by `DataLinkVisualizer`. When all packet fragments 
+is received by `person1` in data link layer, the packet is assembled and 
 is sent to the upper layers. As a result of this, a green arrow is displayed 
-on the screen, representing *service* level data link activity.
+on the screen, representing data link activity at *service* level.
+
+Note that, video stream is received by `person2` at physical layer level,
+but `person2` is not the destination of the video stream, so there is only *protocol* 
+level data link activity between `videoServer` and `person2`.
 
 ## Filtering Data Link Activity
 
