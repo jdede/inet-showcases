@@ -79,7 +79,12 @@ TODO: the configuration
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure2.mp4"></video>
 </p>
 
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure3.mp4"></video>
+</p>
+
 second one seems better
+the third one too
 
 <pre>
 How does it work? In infrastructure mode, the agent module initiates connecting to the wireless network.
