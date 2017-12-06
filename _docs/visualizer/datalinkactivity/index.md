@@ -102,29 +102,31 @@ visualization, because ACK frames do not pass through data link layer.
 
 ## Displaying Data Link Activity at Service, Peer and Protocol Level
 
-It is often useful to be able to display traffic only at a certain level, 
-we are interested in.
-The following example shows how to set activity level in `DataLinkVisualizer`.
+It is often useful to be able to display network traffic only at the level, 
+we are interested in. The following example shows how to set the level 
+of the displayed data link activity.
 This simulation can be run by selecting the `ActivityLevel` configuration 
 from the ini file.
 
 We use the following network for this example.
 
-<img src="ActivityLevelNetwork_v1129.png" class="screen" />
+<img src="ActivityLevel_v1206.png" class="screen" />
 
-The network consists three wireless hosts, `person1`, `person2` and `videoServer`.
+The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
 The `videoServer` node will send a video stream to `person1`.
 `Person2` does not generate any traffic in this example.
 
 The type of the visualizer is `IntegratedMultiVisualizer`.
 Multi-visualizers are compound visualizer modules containing submodule vectors 
-of visualizer simple modules. This visualizer is useful for this example, because
+of visualizer simple modules. `IntegratedMultiVisualizer` is useful for this example, because
 multiple visualizers of `DataLinkVisualizer` are required for displaying 
 data link activity at certain levels. By default, the multi visualizers 
 contain one submodule of each visualizer simple module.
 The number of submodules can be specified for each visualizer submodule with parameters.
+Three `DataLinkVisualizer` will be configured, observing packets at 
+*service*, *peer* and *protocol* level. They are marked with different colors.
 
-We configure the visualizer as follows.
+We configure the visualizer module as follows.
 
 ``` {.snippet}
 *.visualizer.*.numDataLinkVisualizers = 3
@@ -142,11 +144,8 @@ We configure the visualizer as follows.
 *.visualizer.*.dataLinkVisualizer[2].labelColor = "purple"
 ```
 
-Three `DataLinkVisualizer` are configured, observing packets at 
-*service*, *peer* and *protocol* level. They are marked with different colors.
-
 The following video shows what happens when we start the simulation. 
-The video starts from that point when `videoClient` requests the video stream.
+The video is captured from that point, when `videoClient` requests the video stream.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1129.mp4"></video></p>
 
