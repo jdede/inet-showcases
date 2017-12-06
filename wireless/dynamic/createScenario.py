@@ -26,8 +26,10 @@ elif(len(sys.argv) == 5):
     def createScenario(numberOfElements, period, lifetime):
         # randomize period only once
         i = 0;
-        scenario = "<scenario>\n"
         period = random.expovariate(1.0/period)
+        scenario = "<!-- period: " + str(period) + "s -->\n"
+        scenario += "<scenario>\n"
+        print("period: " + str(period) + "s")
         while i < numberOfElements:
             scenario += createElement(True, i * period, i)
             scenario += createElement(False, i * period + lifetime, i)
