@@ -56,11 +56,6 @@ network DynamicRadioNetwork
             parameters:
                 @display("p=250,50");
         }
-        sourceNode[0]: DynamicHost {
-            parameters:
-                @dynamic(true);
-                @display("p=250,150");
-        }
         scenarioManager: ScenarioManager {
             parameters:
                 @display("p=100,350");
