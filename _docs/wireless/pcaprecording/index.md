@@ -103,3 +103,5 @@ The following screenshot shows some PCAP files open in Wireshark.
 The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+<img class="screen" src="ethHost7.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
