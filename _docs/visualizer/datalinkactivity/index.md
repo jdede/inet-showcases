@@ -13,7 +13,7 @@ levels of the network stack. In this showcase, we examine
 `DataLinkVisualizer` that can provide graphical feedback about data link
 level traffic.
 
-The showcase consists of four simulation models, each demonstrating different
+The showcase consists of five simulation models, each demonstrating different
 features of the data link activity visualizer.
 
 INET version: `3.6`<br>
@@ -29,7 +29,7 @@ default, it can be enabled by setting the visualizer's `displayLinks`
 parameter to true.
 
 `DataLinkVisualizer` is able to observe packets at *service*, *peer* and *protocol* level.
-The observed level can be set by the `activityLevel` parameter.
+The level where packets are observed can be set by the `activityLevel` parameter.
 At *service* level, all packets are displayed which pass through the data link layer 
 (i.e. carry data from/to higher layers). At *peer* level, the visualization 
 is triggered by those packets which are internal to the operation of the 
@@ -153,6 +153,7 @@ The video shows data link activity between the nodes at *protocol* level (purple
 *peer* level (blue arrow) and *service* level (green arrow).
 
 Let's have a look at the communication between `videoServer` and `person1`.
+The `videoServer` node sends `VideoStrmPk-frag` frames to `person1`.
 The video stream is fragmented because the size of the packets is greater 
 than the Maximum Transmission Unit (MTU). The fragments are visualized 
 at *protocol* and at *peer* level by `DataLinkVisualizer`. When all packet fragments 
@@ -160,9 +161,9 @@ is received by `person1` in data link layer, the packet is assembled and
 is sent to the upper layers. As a result of this, a green arrow is displayed 
 on the screen, representing data link activity at *service* level.
 
-Note that, video stream is received by `person2` at physical layer level,
-but `person2` is not the destination of the video stream, so there is only *protocol* 
-level data link activity between `videoServer` and `person2`.
+Note that video stream is received by `person2` at physical layer level,
+but `person2` is not the destination of any frames, so there is only *protocol* 
+level data link activity between `person2` and the other nodes.
 
 ## Filtering Data Link Activity
 
