@@ -103,15 +103,25 @@ TODO: The forwarding is not needed here because hosts can directly reach each ot
 
 ## Results
 
-When the simulation is run...
+### Infrastructure mode
+
+When the infrastructure mode simulation is run, the hosts get associated with the access point, and `host1` starts sending UDP packets to `host2`. The packets are relayed by the access point.
+The following video depicts the UDP traffic:
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure3.mp4"></video>
 </p>
+<!--internal video recording, animation speed none, zoom 1.3x-->
+TODO: rerecord with smaller configurator icon
+
+TODO: the same for adhoc mode
 
 <p>
 <video autoplay loop controls src="Adhoc2.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<!--internal video recording, animation speed none, zoom 1.3x-->
 </p>
+
+TODO: The fact that its configured properly can be checked out in the wlan module
 
 
 
