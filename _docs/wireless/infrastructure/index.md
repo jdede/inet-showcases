@@ -109,7 +109,7 @@ When the infrastructure mode simulation is run, the hosts get associated with th
 The following video depicts the UDP traffic:
 
 <p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure3.mp4"></video>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure4.mp4"></video>
 </p>
 <!--internal video recording, animation speed none, zoom 1.3x-->
 TODO: rerecord with smaller configurator icon
@@ -117,7 +117,7 @@ TODO: rerecord with smaller configurator icon
 TODO: the same for adhoc mode
 
 <p>
-<video autoplay loop controls src="Adhoc2.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<video autoplay loop controls src="Adhoc3.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, animation speed none, zoom 1.3x-->
 </p>
 
