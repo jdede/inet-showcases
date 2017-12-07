@@ -79,10 +79,6 @@ TODO: the configuration
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure2.mp4"></video>
 </p>
 
-<p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure3.mp4"></video>
-</p>
-
 second one seems better
 the third one too
 
@@ -108,6 +104,15 @@ TODO: The forwarding is not needed here because hosts can directly reach each ot
 ## Results
 
 When the simulation is run...
+
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure3.mp4"></video>
+</p>
+
+<p>
+<video autoplay loop controls src="Adhoc2.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+</p>
+
 
 
 Results
