@@ -96,7 +96,19 @@ some of these might belong to the next section (the configuration)
 </pre>
 
 In both simulations, `host1` is configured to send UDP packets to `host2`.
-`WirelessHost` has `Ieee80211MgmtSta` by default, thus no configuration is needed in the infrastructure mode simulation. In the other one, it is replaced with ieee80211mgmtadhoc. the same could be achieved by using adhoc host instead of wirelesshost. it is done like this: include key
+`WirelessHost` has `Ieee80211MgmtSta` by default, thus no configuration of the management module is needed in the infrastructure mode simulation. <!--In the other one, it is replaced with ieee80211mgmtadhoc. the same could be achieved by using adhoc host instead of wirelesshost. it is done like this: include key-->
+In the adhoc mode simulation, the default management module in hosts is replaced with `Ieee80211MgmtAdhoc`. (The same effect could be achieved by using the `AdhocHost` host type instead of `WirelessHost`, as the former has the ad hoc management module by default.) The configuration key for the management module type in omnetpp.ini is the following:
+
+``` {.include}
+*.*.wlan[*].mgmtType = "Ieee80211MgmtAdhoc"
+```
+
+TODO: The forwarding is not needed here because hosts can directly reach each other (packets doent need to be forwarded). It would be needed if some hosts were only reachable in multiple hops.
+
+## Results
+
+When the simulation is run...
+
 
 Results
 
