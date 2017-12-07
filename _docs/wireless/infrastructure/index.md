@@ -115,11 +115,13 @@ The following video depicts the UDP traffic:
 </p>
 <!--internal video recording, animation speed none, zoom 1.3x-->
 
-To verify that the correct management type is configured, go into a host's wlan module. The `mib` module displays information about the node's status in the network, e.g. MAC address, association state, weather or not it's using QoS, etc. It also displays information about the mode, i.e. infrastructure or adhoc, station or access point. The wlan module of `host1` and `accessPoint` is displayed on the following images:
+To verify that the correct management type is configured, go into a host's wlan module. The `mib` module displays information about the node's status in the network, e.g. MAC address, association state, weather or not it's using QoS, etc. It also displays information about the mode, i.e. infrastructure or adhoc, station or access point. The wlan module of `host1` and `accessPoint` is displayed on the following image:
 
+<!--
 <img class="screen" src="inf_host1mib.png">
 
 <img class="screen" src="inf_APmib.png">
+-->
 
 <img class="screen" src="mib_infrastructure.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
@@ -138,6 +140,8 @@ When the adhoc mode simulation is run, the hosts can communicate directly with e
 <video autoplay loop controls src="Adhoc3.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, animation speed none, zoom 1.3x-->
 </p>
+
+The wlan module of `host1` is displayed on the following image, showing the mib and the host's network status:
 
 <img class="screen" src="adhocmib.png">
 
