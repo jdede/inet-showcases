@@ -53,6 +53,8 @@ The topology of connected modules in `Ieee80211Nic` is displayed on the followin
 
 <img class="screen" src="submodules.png">
 
+TODO: note that you can see if the correct management type is configured at the mib.
+
 Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSta`, and `AccessPoint` uses `Ieee80211MgmtAp`.
 `AdhocHost` is suitable for simulating adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
 
@@ -112,14 +114,32 @@ The following video depicts the UDP traffic:
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Infrastructure4.mp4"></video>
 </p>
 <!--internal video recording, animation speed none, zoom 1.3x-->
-TODO: rerecord with smaller configurator icon
 
-TODO: the same for adhoc mode
+To verify that the correct management type is configured, go into a host's wlan module. The `mib` module displays information about the node's status in the network, e.g. MAC address, association state, weather or not it's using QoS, etc. It also displays information about the mode, i.e. infrastructure or adhoc, station or access point. The wlan module of `host1` and `accessPoint` is displayed on the following images:
+
+<img class="screen" src="inf_host1mib.png">
+
+<img class="screen" src="inf_APmib.png">
+
+<img class="screen" src="mib_infrastructure.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+<!--
+TODO: this might not be needed because it should be mentioned earlier
+or the earlier image should be cropped to show only the topology
+there should be a screenshot showing the mib in both cases
+and even for the AP and after association for host1
+-->
+
+### Adhoc mode
+
+When the adhoc mode simulation is run, the hosts can communicate directly with each other. There is no association and authentication, `host1` starts to send UDP data at the start of the simulation. `host1` is sending UDP packets to `host2` in the following video:
 
 <p>
 <video autoplay loop controls src="Adhoc3.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, animation speed none, zoom 1.3x-->
 </p>
+
+<img class="screen" src="adhocmib.png">
 
 TODO: The fact that its configured properly can be checked out in the wlan module
 
