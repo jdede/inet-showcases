@@ -43,5 +43,6 @@
      - page: _docs/wireless/pcaprecording/index.md
      - page: _docs/wireless/infrastructure/index.md
      - page: _docs/wireless/multiradio/index.md
+     - page: _docs/wireless/dynamic/index.md
 - name: Back to INET
   link: https://inet.omnetpp.org/

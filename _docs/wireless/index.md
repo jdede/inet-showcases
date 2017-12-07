@@ -27,4 +27,5 @@ IEEE 802.11:
   {%include link.i page='_docs/wireless/pcaprecording/index.md' %}
   {%include link.i page='_docs/wireless/infrastructure/index.md' %}
   {%include link.i page='_docs/wireless/multiradio/index.md' %}
+  {%include link.i page='_docs/wireless/dynamic/index.md' %}
 </ul>
