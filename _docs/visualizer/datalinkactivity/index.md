@@ -100,11 +100,10 @@ blue dotted line which can be ignored, as it is also part of the standard OMNeT+
 packet animation.) Note, however, that the ACK frame does not activate the
 visualization, because ACK frames do not pass through data link layer.
 
-## Displaying Data Link Activity at Service, Peer and Protocol Level
+## Displaying Data Link Activity at Protocol, Peer and Service Level
 
-It is often useful to be able to display network traffic only at the level, 
-we are interested in. The following example shows how to set the level 
-of the displayed data link activity.
+The following example shows, how the visualization can help you to 
+separate the level of the data link activity.
 This simulation can be run by selecting the `ActivityLevel` configuration 
 from the ini file.
 
@@ -114,19 +113,18 @@ We use the following network for this example.
 
 The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
 The `videoServer` node will send a video stream to `person1`.
-`Person2` does not generate any traffic in this example.
+`Person2` will be inactive for this example.
 
 The type of the visualizer is `IntegratedMultiVisualizer`.
 Multi-visualizers are compound visualizer modules containing submodule vectors 
-of visualizer simple modules. `IntegratedMultiVisualizer` is useful for this example, because
-multiple visualizers of `DataLinkVisualizer` are required for displaying 
-data link activity at certain levels. By default, the multi visualizers 
-contain one submodule of each visualizer simple module.
+of visualizer simple modules. In this example multiple visualizers of 
+`DataLinkVisualizer` are required for displaying data link activity at certain levels.
+By default, the multi visualizers contain one submodule of each visualizer simple module.
 The number of submodules can be specified for each visualizer submodule with parameters.
-Three `DataLinkVisualizer` will be configured, observing packets at 
+Three `DataLinkVisualizer` are configured, observing packets at 
 *service*, *peer* and *protocol* level. They are marked with different colors.
 
-We configure the visualizer module as follows.
+We configure the `visualizer` module as follows.
 
 ``` {.snippet}
 *.visualizer.*.numDataLinkVisualizers = 3
@@ -149,21 +147,23 @@ The video is captured from that point, when `person1` requests the video stream.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1206.mp4"></video></p>
 
-The video shows data link activity between the nodes at *protocol* level (purple arrow),
-*peer* level (blue arrow) and *service* level (green arrow).
+In the video data link activity is displayed at *protocol* (purple arrow),
+*peer* (blue arrow) and *service* level (green arrow).
 
-Let's have a look at the communication between `videoServer` and `person1`.
+Examine the communication between `videoServer` and `person1`.
 The `videoServer` node sends `VideoStrmPk-frag` frames to `person1`.
-The video stream is fragmented because the size of the packets is greater 
+The video stream is fragmented because the size of the frames is greater 
 than the Maximum Transmission Unit (MTU). The fragments are visualized 
 at *protocol* and at *peer* level by `DataLinkVisualizer`. When all packet fragments 
-is received by `person1` in data link layer, the packet is assembled and 
+are received by `person1` in data link layer, the video stream packet is assembled and 
 is sent to the upper layers. As a result of this, a green arrow is displayed 
-on the screen, representing data link activity at *service* level.
+between `videoServer` and `person1`, representing data link activity at *service* level.
 
-Note that video stream is received by `person2` at physical layer level,
-but `person2` is not the destination of any frames, so there is only *protocol* 
-level data link activity between `person2` and the other nodes.
+An other phenomenon can also be observed in the video.
+We can see protocol level data link activity between `person2` and the other nodes.
+This is, because frames also are received in the physical layer of `person2`
+and they are sent to the data link layer. But data link layer drops the frames
+because they are not addressed to `person2`.
 
 ## Filtering Data Link Activity
 
