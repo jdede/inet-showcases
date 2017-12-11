@@ -6,3 +6,6 @@
 - End-to-end-delay: needs byte-tags in the packet API. Fragmentation and packet timestamps are conflicting
 - Crosstalk: partially overlapping config: channels 1-2 doesn't cause interference between packets being transmitted at the same time
 - Advanced: number of UDP packets are not visualized anymore
+- Ieee80211Visualizer doesn't work with simplified mgmt
+- RadioMedium: When signal power is 0, the medium shouldn't send the signal (for example when behind a wall + simple obstacle loss)
+- PcapRecorder: The timestamp in the pcap file (in wireshark) is not the same as the timestamp in the GUI
