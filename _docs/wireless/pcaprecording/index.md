@@ -105,3 +105,5 @@ The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 <img class="screen" src="ethHost9.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+<img class="screen" src="routerEth1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
