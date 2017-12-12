@@ -72,11 +72,13 @@ The number of radios in `router` is set to two, and each radio is configured to 
 <!--
 Because of the simplified management, the MAC addresses of the access points need to be set in hosts' management modules in order for them to be associated with the specified access point.--> The following keys from the ini file shows the configuration of the wireless networks:
 
-<p><pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="001111111111" until="simplified" comment="#"></pre></p>
+<p><pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="access point" until="application level"></pre></p>
 
 <a srcfile="wireless/multiradio/omnetpp.ini"/>
 
 TODO: remove unnecessary keys because not using simplified managment anymore
+
+TODO: the numchannels parameter is essential
 
 TODO: configurator config
 TODO: visualizer config ? -> or just at the results section
