@@ -69,24 +69,27 @@ Modules can be created with the `<create-module>` element. This has three attrib
 - `submodule`: specifies the name of the module (this name can be used to delete modules)
 - `parent`: specifies the parent of the module (submodules of existing modules can be created as well)
 
-For example:
+Modules can be deleted with the `<delete-module>` element. It has just one attribute, `module`, which is the name of the module to be deleted.
+
+An example script:
 
 ``` {.snippet}
-<at t="10">
-    <create-module type="inet.node.inet.WirelessHost" parent="." submodule="someHost"/>
-</at>
+<scenario>
+    <at t="10">
+        <create-module type="inet.node.inet.WirelessHost" parent="." submodule="someHost"/>
+    </at>
+    <at t="20">
+        <delete-module module="someHost"/>
+    </at>
+</scenario>
 ```
 
-This command will create a `WirelessHost` in the network at 10 seconds simulation-time.
+<p>
+<pre class="include" src="test.xml"></pre>
+</p>
 
-Modules can be deleted with the `<delete-module>` element. It has just one attribute, `module`, which is the name of the module to be deleted. For example:
+TODO: the second one looks better
 
-``` {.snippet}
-<at t="20">
-    <delete-module module="someHost"/>
-</at>
-```
-
-This command will delete the module named `someHost` at 20 seconds simulation-time.
+This XML script will create a `WirelessHost` named `someHost` in the network at 10 seconds simulation-time, and delete it at 20 seconds simulation-time.
 
 Note that these elements don't have `t` attributes, thus they have to be placed under an `<at>` element.
