@@ -15,8 +15,10 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## The model
 
+<!--
 - you need to use the correct management module
 - there is simple and normal management modules
+-->
 
 <!--
 The operating mode of a node is determined by the type of management module the node has.
@@ -29,9 +31,9 @@ The management module type can be set from the ini or NED files, or by choosing 
 
 In INET, the management module is a submodule of `Ieee80211Nic`. It connects to the MAC module, and it is responsible for handling management frames, such as beacon frames, probe request and response frames, and association and authentication frames. The management module is also responsible for scanning channels and switching between them. Several types of management modules are available:
 
-- `Ieee80211MgmtSta`: for stations (nodes that join wireless networks) in infrastructure mode
-- `Ieee80211MgmtAp`: for access points in infrastructure mode
-- `Ieee80211MgmtAdhoc`: for nodes in adhoc mode
+- `Ieee80211MgmtSta`: management module for stations (nodes that join wireless networks) in infrastructure mode
+- `Ieee80211MgmtAp`: management module for access points in infrastructure mode
+- `Ieee80211MgmtAdhoc`: management module for nodes in adhoc mode
 
 <!--
 There is the simplified versions of all of these except the adhoc
@@ -47,20 +49,20 @@ they only send and receive data frames and treats all stations as if they were a
 There are also simplified versions of the infrastructure mode management modules: `Ieee80211MgmtStaSimplified` and `Ieee80211MgmtApSimplified`.
 They only send and receive data frames, and they don't simulate the association and authentication process, but assume that stations are always associated with the access point. They also cannot simulate handovers.
 
-The agent module (`Ieee80211AgentSta`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSta` management module types.) It connects to the management module. It is responsible for initiating channel scanning, associations and handovers. It controls these by sending commands to the management module.
+The agent module (`Ieee80211AgentSta`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSta` management module types.) It connects to the management module, and it is responsible for initiating channel scanning, associations and handovers. It controls these by sending commands to the management module (which turn sends commands to the MAC.) TODO: is this correct?
 It basically simulates user actions, such as the user instructing the device to connect to a Wifi network.
 The topology of connected modules in `Ieee80211Nic` is displayed on the following image:
 
 <img class="screen" src="submodules.png">
 
-TODO: note that you can see if the correct management type is configured at the mib.
+TODO: note that you can see if the correct management type is configured at the mib. -> not needed
 
 Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSta`, and `AccessPoint` uses `Ieee80211MgmtAp`.
-`AdhocHost` is suitable for simulating adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
+Additionally, `AdhocHost` is suitable for simulating adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
 
-In infrastructure mode, the SSID of the network created by an access point is a parameter of `Ieee80211MgmtAp`, and it is "SSID" by default. In stations, the agent module has an SSID parameter, which sets which network the node should join. When the simulation is run, the access points automatically create the wireless networks, and agent module in station nodes cause the nodes to automatically join the appropriate network.
+In infrastructure mode, the SSID of the network created by an access point is a parameter of `Ieee80211MgmtAp`, and it is "SSID" by default. In stations, the agent module has an SSID parameter, which sets which network should the node join. When the simulation is run, the access points automatically create the wireless networks, and agent modules in station nodes cause the nodes to automatically join the appropriate network.
 
-TODO: about the adhoc management module
+TODO: about the adhoc management module...what it does and what it doesnt
 
 ## The configuration
 
@@ -68,9 +70,12 @@ The showcase contains two example simulations, with one of them demonstrating in
 
 <img class="screen" src="network.png">
 
+TODO: write the mode on the playground in a figure ?
+
 The networks contain two `WirelessHosts` named `host1` and `host2`.
 They also contain an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium` and an `IntegratedVisualizer` module. The network for the infrastructure mode configuration also contains an `AccessPoint`.
 
+<!--
 TODO: the configuration
 
 <p>
@@ -92,6 +97,7 @@ In adhoc mode, they are assumed to be connected.
 <pre>
 some of these might belong to the next section (the configuration)
 </pre>
+-->
 
 In both simulations, `host1` is configured to send UDP packets to `host2`.
 `WirelessHost` has `Ieee80211MgmtSta` by default, thus no configuration of the management module is needed in the infrastructure mode simulation. <!--In the other one, it is replaced with ieee80211mgmtadhoc. the same could be achieved by using adhoc host instead of wirelesshost. it is done like this: include key-->
@@ -115,7 +121,7 @@ The following video depicts the UDP traffic:
 </p>
 <!--internal video recording, animation speed none, zoom 1.3x-->
 
-To verify that the correct management type is configured, go into a host's wlan module. The `mib` module displays information about the node's status in the network, e.g. MAC address, association state, weather or not it's using QoS, etc. It also displays information about the mode, i.e. infrastructure or adhoc, station or access point. The wlan module of `host1` and `accessPoint` is displayed on the following image:
+To verify that the correct management type is configured, go into a host's wlan module. The `mib` module (management information base) displays information about the node's status in the network, e.g. MAC address, association state, weather or not it's using QoS, etc. It also displays information about the mode, i.e. infrastructure or adhoc, station or access point. The wlan module of `host1` and `accessPoint` is displayed on the following image:
 
 <!--
 <img class="screen" src="inf_host1mib.png">
