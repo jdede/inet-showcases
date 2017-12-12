@@ -96,7 +96,7 @@ This XML script will create a `WirelessHost` named `someHost` in the network at 
 
 Note that these elements don't have `t` attributes, thus they have to be placed under an `<at>` element.
 
-TODO: the newly created nodes can be configured from the ini file. the configuration will take effect when the node is created.
+The parameters of the dynamically created modules can be set from the ini file, just as with other modules. The configuration of the dynamically created modules will take effect when they are spawn.
 
 TODO: Ipv4NetworkConfigurator cant be used
 
@@ -104,13 +104,20 @@ TODO: Ipv4NetworkConfigurator cant be used
 
 TODO: In the example simulation, this and that will happen.
 
-The example simulation for this showcase uses the following network:
+In the example simulation, there will be a static wireless node acting as a destination for ping requests.
+Other wireless nodes will be created periodically, will send ping requests to the destination node, and will be deleted after some time. The example simulation for this showcase uses the following network:
 
-<img class="screen" src="network.png">
+<img class="screen" src="network2.png">
 
-The network contains an `IntegratedVisualizer`, an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationHost`, whose type is `DynamicHost`.
+The network contains an `IntegratedCanvasVisualizer`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationHost`, whose type is `DynamicHost`.
 
-TODO: about dynamicHost
+The `DynamicHost` type is defined in the NED file, <a srcfile="wireless/dynamic/DynamicShowcase.ned"/>. It is basically an `AdhocHost`, but it is configured to use a per-host `HostAutoConfigurator` instead of the global `IPv4NetworkConfigurator`. The reason for this is that `Ipv4NetworkConfigurator` doesn't support IP address assignment in dynamic scenarios. Here is the NED definition of `DynamicHost`:
+
+<p>
+<pre class="snippet" src="DynamicShowcase.ned" from="DynamicHost" until="DynamicShowcase"></pre>
+</p>
+
+The nodes are created at a random position, constrained by the mobility settings
 
 - the scenario
 - results

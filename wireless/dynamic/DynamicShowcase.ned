@@ -44,13 +44,9 @@ network DynamicShowcase
             parameters:
                 @display("p=100,50");
         }
-        configurator: Ipv4NetworkConfigurator {
-            parameters:
-                @display("p=100,150");
-        }
         radioMedium: Ieee80211ScalarRadioMedium {
             parameters:
-                @display("p=100,250");
+                @display("p=100,150");
         }
         destinationNode: DynamicHost {
             parameters:
@@ -58,6 +54,6 @@ network DynamicShowcase
         }
         scenarioManager: ScenarioManager {
             parameters:
-                @display("p=100,350");
+                @display("p=100,250");
         }
 }
