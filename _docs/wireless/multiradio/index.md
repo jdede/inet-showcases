@@ -61,17 +61,22 @@ The two access points will create wireless networks on different channels. `host
 
 - config
 
+<!--
 All nodes are configured to use simplifies management modules, thus all hosts are assumed to be already connected to the wireless network at the start of the simulation.
+-->
 
 `accessPoint1` is configured to create the wireless network on channel 0, and `accessPoint2` on channel 1.
 `host1` is configured to be connected to `accessPoint1`, and `host2` to `accessPoint2`.
-The number of radios in `router` is set to two, and each radio is configured to connect to one of the wireless networks. TODO: the access point mac address and the channel needs to be set because of the simplified management
+The number of radios in `router` is set to two, and each radio is configured to connect to one of the wireless networks. <!--TODO: the access point mac address and the channel needs to be set because of the simplified management-->
 
-Because of the simplified management, the MAC addresses of the access points need to be set in hosts' management modules in order for them to be associated with the specified access point. The following keys from the ini file shows the configuration of the wireless networks:
+<!--
+Because of the simplified management, the MAC addresses of the access points need to be set in hosts' management modules in order for them to be associated with the specified access point.--> The following keys from the ini file shows the configuration of the wireless networks:
 
 <p><pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="001111111111" until="simplified" comment="#"></pre></p>
 
 <a srcfile="wireless/multiradio/omnetpp.ini"/>
+
+TODO: remove unnecessary keys because not using simplified managment anymore
 
 TODO: configurator config
 TODO: visualizer config ? -> or just at the results section
