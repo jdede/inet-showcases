@@ -31,6 +31,7 @@ The `ScenarioManager` module can be used to create and destroy nodes during simu
 - the config
 - the results
 
+<!--
 TODO:
 
 The ScenarioManager takes an XML config file. This has a <scenario> tag
@@ -57,6 +58,7 @@ script here
 
 - then about the script used for this configuration
 - it creates nodes periodically and destroys them after some time
+-->
 
 
 The `ScenarioManager` module executes an XML script. The script specifies commands to be executed at certain times during the simulation. The commands can change module parameters, add or remove connections,
@@ -85,7 +87,7 @@ An example script:
 ```
 
 <p>
-<pre class="include" src="test.xml"></pre>
+<pre class="include" src="example.xml"></pre>
 </p>
 
 TODO: the second one looks better
@@ -93,3 +95,22 @@ TODO: the second one looks better
 This XML script will create a `WirelessHost` named `someHost` in the network at 10 seconds simulation-time, and delete it at 20 seconds simulation-time.
 
 Note that these elements don't have `t` attributes, thus they have to be placed under an `<at>` element.
+
+TODO: the newly created nodes can be configured from the ini file. the configuration will take effect when the node is created.
+
+TODO: Ipv4NetworkConfigurator cant be used
+
+### The configuration
+
+TODO: In the example simulation, this and that will happen.
+
+The example simulation for this showcase uses the following network:
+
+<img class="screen" src="network.png">
+
+The network contains an `IntegratedVisualizer`, an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationHost`, whose type is `DynamicHost`.
+
+TODO: about dynamicHost
+
+- the scenario
+- results
