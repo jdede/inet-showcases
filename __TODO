@@ -9,3 +9,4 @@
 - Ieee80211Visualizer doesn't work with simplified mgmt
 - RadioMedium: When signal power is 0, the medium shouldn't send the signal (for example when behind a wall + simple obstacle loss)
 - PcapRecorder: The timestamp in the pcap file (in wireshark) is not the same as the timestamp in the GUI
+- Ieee80211Visualizer should indicate channel number
