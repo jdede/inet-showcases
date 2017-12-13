@@ -1,13 +1,12 @@
-package inet.showcases.wireless.pcaprecording;
+package inet.showcases.general.pcaprecording;
 
-import inet.visualizer.integrated.IntegratedMultiVisualizer;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.Router;
 import inet.node.inet.StandardHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
-import inet.visualizer.integrated.IntegratedVisualizer;
+import inet.visualizer.integrated.IntegratedMultiVisualizer;
 
 
 network PcapRecordingShowcase
