@@ -74,19 +74,18 @@ Because of the simplified management, the MAC addresses of the access points nee
 
 <p><pre class="include" src="../../wireless/multiradio/omnetpp.ini" from="access point" until="application level"></pre></p>
 
+Setting the `numChannels` parameter is essential for the station nodes, because it tells the management module the number of channels to scan, starting for channel 0. We're using two channels here, 0 and 1.
+
 <a srcfile="wireless/multiradio/omnetpp.ini"/>
 
-TODO: remove unnecessary keys because not using simplified managment anymore
-
-TODO: the numchannels parameter is essential
-
-TODO: configurator config
 TODO: visualizer config ? -> or just at the results section
 
+<!--
 the router acts as a gateway between the two wireless networks
 host one has a route: for all destinations, the router should be the gateway
 so host1 wants to send a packet to host2, the gateway is the router
 which is connected to the same accesspoint
+-->
 
 Routing is set up by the `Ipv4NetworkConfigurator` module. The routing tables of both hosts are configured to use on of the router's interfaces as gateway for reaching all destinations. The routing table of the router is configured to use its appropriate interface for reaching each wireless network.
 TODO: is this needed? doesn't seem useful
