@@ -259,16 +259,16 @@ As AODV operates with two message types, we'll use two
 `DataLinkVisualizer` modules configured to use two different colors.
 
 ``` {.snippet}
-*.RREQVisualizer.*.displayLinks = true
-*.RREQVisualizer.*.packetFilter = "AODV-RREQ"
-*.RREQVisualizer.*.fadeOutMode = "simulationTime"
-*.RREQVisualizer.*.fadeOutTime = 0.002s
-*.RREPVisualizer.*.displayLinks = true
-*.RREPVisualizer.*.packetFilter = "AODV-RREP"
-*.RREPVisualizer.*.fadeOutMode = "simulationTime"
-*.RREPVisualizer.*.fadeOutTime = 5s
-*.RREPVisualizer.*.lineColor = "blue"
-*.RREPVisualizer.*.labelColor = "blue"
+*.rreqVisualizer.*.displayLinks = true
+*.rreqVisualizer.*.packetFilter = "AodvRreq"
+*.rreqVisualizer.*.fadeOutMode = "simulationTime"
+*.rreqVisualizer.*.fadeOutTime = 0.002s
+*.rrepVisualizer.*.displayLinks = true
+*.rrepVisualizer.*.packetFilter = "AodvRrep"
+*.rrepVisualizer.*.fadeOutMode = "simulationTime"
+*.rrepVisualizer.*.fadeOutTime = 5s
+*.rrepVisualizer.*.lineColor = "blue"
+*.rrepVisualizer.*.labelColor = "blue"
 ```
 
 The following video has been captured from the simulation, and allows us to
