@@ -121,3 +121,7 @@ TODO: include packet list in on of the screenshot -> so you can click on a packe
 TCP ACK, router(ppp) (from ethHost1 to ethHost2):
 
 <img class="screen" src="routerPPP2.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+TODO: remove overlap
+
+TODO: wifi screenshot
