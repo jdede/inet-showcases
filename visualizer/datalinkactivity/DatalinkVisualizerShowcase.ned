@@ -182,12 +182,12 @@ network DataLinkVisualizerMobileShowcase
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=70,250");
         }
-	        rreqVisualizer: DataLinkVisualizer {
-	            @display("p=70,350");
-	        }
-	        rrepVisualizer: DataLinkVisualizer {
-	            @display("p=70,450");
-	        }
+//        rreqVisualizer: DataLinkVisualizer {
+//        	@display("p=70,350");
+//        }
+//        rrepVisualizer: DataLinkVisualizer {
+//            @display("p=70,450");
+//        }
         destination: AodvRouter {
             @display("p=512.272,249.796");
         }

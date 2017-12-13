@@ -103,7 +103,7 @@ visualization, because ACK frames do not pass through data link layer.
 ## Displaying Data Link Activity at Protocol, Peer and Service Level
 
 The following example shows, how the visualization can help you to 
-separate the level of the data link activity.
+separate the levels of the data link activity.
 This simulation can be run by selecting the `ActivityLevel` configuration 
 from the ini file.
 
@@ -112,7 +112,7 @@ We use the following network for this example.
 <img src="ActivityLevel_v1206.png" class="screen" />
 
 The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
-The `videoServer` node will send a video stream to `person1`.
+The `videoServer` node will stream a video to `person1`.
 `Person2` will be inactive for this example.
 
 The type of the visualizer is `IntegratedMultiVisualizer`.
@@ -142,22 +142,22 @@ We configure the `visualizer` module as follows.
 *.visualizer.*.dataLinkVisualizer[2].labelColor = "purple"
 ```
 
-The following video shows what happens when we start the simulation. 
-The video is captured from that point, when `person1` requests the video stream.
+The following video shows what happens when we start the simulation.
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1206.mp4"></video></p>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1213.mp4"></video></p>
 
-In the video data link activity is displayed at *protocol* (purple arrow),
+In this video, data link activity is displayed at *protocol* (purple arrow), 
 *peer* (blue arrow) and *service* level (green arrow).
 
 Examine the communication between `videoServer` and `person1`.
-The `videoServer` node sends `VideoStrmPk-frag` frames to `person1`.
-The video stream is fragmented because the size of the frames is greater 
-than the Maximum Transmission Unit (MTU). The fragments are visualized 
-at *protocol* and at *peer* level by `DataLinkVisualizer`. When all packet fragments 
-are received by `person1` in data link layer, the video stream packet is assembled and 
-is sent to the upper layers. As a result of this, a green arrow is displayed 
-between `videoServer` and `person1`, representing data link activity at *service* level.
+`VideoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
+(The video stream is fragmented because the size of the packets is greater 
+than the Maximum Transmission Unit.) All fragments are visualized 
+at *protocol* level by a purple arrow and at *peer* level by a blue arrow.
+When all packet fragments are received by `person1` in data link layer, 
+the video stream packet is assembled and is sent to the upper layers. 
+As a result of this, a green arrow is displayed between `videoServer` and `person1`, 
+representing data link activity at *service* level.
 
 An other phenomenon can also be observed in the video.
 We can see protocol level data link activity between `person2` and the other nodes.
