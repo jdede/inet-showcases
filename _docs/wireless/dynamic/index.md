@@ -71,6 +71,14 @@ Modules can be created with the `<create-module>` element. This has three attrib
 - `submodule`: specifies the name of the module (this name can be used to delete modules)
 - `parent`: specifies the parent of the module (submodules of existing modules can be created as well)
 
+The created modules will have a random position inside the parent module (or the playground if the parent module is `"."`). <!--However, the scenario can include entries which position the modules.
+TODO: is this correct? it doesnt seems so...cant set the position after its created.-->
+
+TODO: the mobility constraints need to be set, otherwise error
+why is it need to be set? what happens if a standardHost is created which doesn't have a mobility module by default?
+i guess its an error, because if a host has a mobility module but the contraints are not set its an error, and if it doesnt have a mobility module,
+the contraints cannot be set.
+
 Modules can be deleted with the `<delete-module>` element. It has just one attribute, `module`, which is the name of the module to be deleted.
 
 An example script:
@@ -117,7 +125,24 @@ The `DynamicHost` type is defined in the NED file, <a srcfile="wireless/dynamic/
 <pre class="snippet" src="DynamicShowcase.ned" from="DynamicHost" until="DynamicShowcase"></pre>
 </p>
 
+The `contraintArea` parameters in all hosts' mobility modules are set to confine the position of the newly created nodes to the playground:
+
+<p>
+<pre class="snippet" src="omnetpp.ini" from="MinX" upto="MaxZ"></pre>
+</p>
+
 The nodes are created at a random position, constrained by the mobility settings
+
+TODO: autoconfigurator settings
+TODO: script xmldoc
+
+TODO: what if there isnt any mobility modules? actually, the wirelesshost and derivatives
+
+The created node's mobility settings
 
 - the scenario
 - results
+
+## Results
+
+<video autoplay loop controls src="General1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
