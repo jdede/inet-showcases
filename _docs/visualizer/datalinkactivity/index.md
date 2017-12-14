@@ -117,11 +117,11 @@ The `videoServer` node will stream a video to `person1`.
 
 The type of the visualizer is `IntegratedMultiVisualizer`.
 Multi-visualizers are compound visualizer modules containing submodule vectors 
-of visualizer simple modules. In this example multiple visualizers of 
-`DataLinkVisualizer` are required for displaying data link activity at certain levels.
+of visualizer simple modules. In this example, multiple visualizers of 
+`DataLinkVisualizer` are required for displaying data link activity at various levels.
 By default, the multi visualizers contain one submodule of each visualizer simple module.
 The number of submodules can be specified for each visualizer submodule with parameters.
-Three `DataLinkVisualizer` are configured, observing packets at 
+For this example, three `DataLinkVisualizer` are configured, observing packets at 
 *service*, *peer* and *protocol* level. They are marked with different colors.
 
 We configure the `visualizer` module as follows.
@@ -146,16 +146,18 @@ The following video shows what happens when we start the simulation.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1213.mp4"></video></p>
 
-In this video, data link activity is displayed at *protocol* (purple arrow), 
-*peer* (blue arrow) and *service* level (green arrow).
+In this video, data link activity is displayed at <span style="color:purple">*protocol*</span>, 
+<span style="color:blue">*peer*</span> and <span style="color:green">*service*</span> level.
 
-Examine the communication between `videoServer` and `person1`.
-`VideoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
+In the beginning of the video, `Person1` requests the video stream from `videoServer`.
+In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
 (The video stream is fragmented because the size of the packets is greater 
-than the Maximum Transmission Unit.) All fragments are visualized 
-at *protocol* level by a purple arrow and at *peer* level by a blue arrow.
-When all packet fragments are received by `person1` in data link layer, 
-the video stream packet is assembled and is sent to the upper layers. 
+than the Maximum Transmission Unit.) The first fragment (`VideoStrmPk-frag0`) 
+causes data link activity only at *protocol* level (purple arrow) and at *peer* level (blue arrow).
+
+<!-- WIP -->
+When all fragments of a packet are received by `person1` in data link layer,
+the packet is assembled and is sent to the upper layers. 
 As a result of this, a green arrow is displayed between `videoServer` and `person1`, 
 representing data link activity at *service* level.
 
