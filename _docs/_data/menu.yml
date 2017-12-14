@@ -40,7 +40,6 @@
      - page: _docs/wireless/handover/index.md
      - page: _docs/wireless/ratecontrol/index.md
      - page: _docs/wireless/crosstalk/index.md
-     - page: _docs/wireless/pcaprecording/index.md
      - page: _docs/wireless/infrastructure/index.md
      - page: _docs/wireless/multiradio/index.md
      - page: _docs/wireless/dynamic/index.md
