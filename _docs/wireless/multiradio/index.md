@@ -94,5 +94,9 @@ TODO: is this needed? doesn't seem useful
 
 `host1` is pinging `host2` through the accessPoints and the router in the following video. Success transmissions between nodes' data link layers are visualized. The transmissions for the two different networks are colored differently.
 
+<p>
 <video autplay loop controls src="Multiradio1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, animation speed none, run until 1.8s-->
+</p>
+
+Sources: <a srcfile="wireless/multiradio/omnetpp.ini"/>, <a srcfile="wireless/multiradio/MultiRadioShowcase.ned"/>
