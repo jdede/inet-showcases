@@ -4,8 +4,6 @@ title: PCAP Recording
 hidden: true
 ---
 
-TODO: this is not wireless...need new category ?
-
 ## Goals
 
 INET has support for recording PCAP traces from simulations. The recording
@@ -20,7 +18,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## The model
 
-In order to record PCAP traces in a node, a `PcapRecorder` module needs to be included in the node.
+In order to record PCAP traces in a node, a `PcapRecorder` module needs to be included in it.
 Pcap recorder modules can be easily included in hosts and routers by specifying their `numPcapRecorders` parameter (available in modules that extend `LinkLayerNodeBase`, such as  `StandardHost` and derivatives, and router modules.)
 
 The PCAP recorder module records L2 frames sent to and from modules that are in the same host as the PCAP recorder module.
@@ -32,14 +30,14 @@ The PCAP file's link layer header type needs to be set with the `pcapNetwork` pa
 - 802.11: 105
 - ppp: 204
 
+TODO: where to check other ones
+
 The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
-a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces.
+a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces.
 The `dumpProtocols` parameter selects which protocols to include in the capture. The parameter's default is `"ethernet ppp ieee80211"`.
 
 When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the link layer header type specified by the `pcapNetwork` parameter. It is needed because traffic for all interfaces are included in the trace by default.
 Multiple PCAP recorder modules need to be included in the network to record packets with different link layer headers. One PCAP recorder module can only record traces with one link layer header type, thus the packets with the other header types would not be recognized by PCAP programs.
-
-TODO: dumpBadFrames?
 
 ### The configuration
 
@@ -125,3 +123,5 @@ TCP ACK, router(ppp) (from ethHost1 to ethHost2):
 TODO: remove overlap
 
 TODO: wifi screenshot
+
+<img class="screen" src="wifi4.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
