@@ -91,3 +91,6 @@ Routing is set up by the `Ipv4NetworkConfigurator` module. The routing tables of
 TODO: is this needed? doesn't seem useful
 
 ## Results
+
+<video autplay loop controls src="Multiradio1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+<!--internal video recording, animation speed none, run until 1.8s-->
