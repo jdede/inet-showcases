@@ -21,8 +21,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 In order to record PCAP traces in a node, a `PcapRecorder` module needs to be included in it.
 Pcap recorder modules can be easily included in hosts and routers by specifying their `numPcapRecorders` parameter (available in modules that extend `LinkLayerNodeBase`, such as  `StandardHost` and derivatives, and router modules.)
 
-The PCAP recorder module records L2 frames sent to and from modules that are in the same host as the PCAP recorder module.
-The module only records packets that contain IPv4 packets (those not containing IPv4 are discarded.) It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
+The PCAP recorder module records sent to and from modules that are in the same host as the PCAP recorder module. By default, it records L1 (physical layer) frames, but can be set to record frames at any level. It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
 This parameter acts as the main switch for recording, thus specifying this parameter enables packet capture. <!--The pcap recorder module also creates TCPDump-like output on the module log, if the `verbose` parameter is set to `true`. TODO: enable when its working-->
 The PCAP file's link layer header type needs to be set with the `pcapNetwork` parameter, so PCAP programs interpret the traces correctly. The most important type codes are the following:
 
@@ -31,6 +30,8 @@ The PCAP file's link layer header type needs to be set with the `pcapNetwork` pa
 - ppp: 204
 
 TODO: where to check other ones
+
+TODO: how to record other level frames, like IPv4
 
 The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
 a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces.
