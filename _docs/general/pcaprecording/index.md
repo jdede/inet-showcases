@@ -56,6 +56,7 @@ Traffic generation is set up the following way: `host1` is configured to send a 
 
 There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. The keys in the ini file pertaining to PCAP recording configuration are the following:
 
+<!--
 ```
 *.host1.numPcapRecorders = 1
 *.host1.pcapRecorder[*].pcapNetwork = 105	# 802.11
@@ -73,6 +74,11 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 *.router1.pcapRecorder[1].pcapFile = "results/router1.eth.pcap"
 *.router1.pcapRecorder[1].moduleNamePatterns = "eth[*]"
 ```
+-->
+
+<p>
+<pre class="include" src="omnetpp.ini" from="host1.numPcapRecorders" until="verbose"></pre>
+</p>
 
 We configure `host1`'s PCAP recorder to use the 802.11 link layer headers, and `ethHost1`'s PCAP recorder to use ethernet link layer headers. There are two PCAP recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
 <!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: not needed-->
