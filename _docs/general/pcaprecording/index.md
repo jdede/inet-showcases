@@ -90,9 +90,6 @@ The following video shows the traffic in the network:
 <video autoplay loop controls src="pcap1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, playback speed 1, no animation speed, run until first sendTimer (t=0.002), step, stop at about 10.5 seconds simulation time-->
 
-The following screenshot shows `ethHost1.pcap` opened with TCPDump:
-
-<img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 TCP data, ethHost1 (from ethHost1 to ethHost2):
 
@@ -113,3 +110,7 @@ UDP data packet, host1 (from host1 to host2):
 <img class="screen" src="wifi4.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 TODO: you can use the packet view
+
+The following screenshot shows `ethHost1.pcap` opened with TCPDump:
+
+<img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
