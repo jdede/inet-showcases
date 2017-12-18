@@ -21,7 +21,7 @@ created, exist for some time, and then they are deleted. While in existence, the
 messages.
 
 INET version: `4.0`<br>
-Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/dynamic" target="_blank">`inet/showcases/wireless/dynamic`</a>
+Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/general/dynamic" target="_blank">`inet/showcases/general/dynamic`</a>
 
 ## The model
 

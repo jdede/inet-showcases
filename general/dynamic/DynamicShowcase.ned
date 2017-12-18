@@ -16,20 +16,20 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 //
 
-package inet.showcases.wireless.dynamic;
+package inet.showcases.general.dynamic;
 
 import inet.common.scenario.ScenarioManager;
 import inet.networklayer.configurator.ipv4.HostAutoConfigurator;
-import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.contract.IIntegratedVisualizer;
+
 
 module DynamicHost extends AdhocHost
 {
     parameters:
         ipv4.configurator.networkConfiguratorModule = "";
-    @display("i=misc/smartphone");
+        @display("i=misc/smartphone");
     submodules:
         autoConfigurator: HostAutoConfigurator {
             @display("p=171,335");
