@@ -84,20 +84,6 @@ The following video shows the traffic in the network:
 <video autoplay loop controls src="pcap1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
 <!--internal video recording, playback speed 1, no animation speed, run until first sendTimer (t=0.002), step, stop at about 10.5 seconds simulation time-->
 
-The following screenshot shows some PCAP files open in Wireshark.
-
-### host1.pcap:
-
-<img class="screen" src="wifi.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
-
-### ethHost1.pcap:
-
-<img class="screen" src="ethHost1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
-
-### router1.ppp.pcap:
-
-<img class="screen" src="ppp.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
-
 The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
@@ -106,22 +92,18 @@ TCP data, ethHost1 (from ethHost1 to ethHost2):
 
 <img class="screen" src="ethHost9.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
-Ping request, router1 eth (from ethHost1 to router1): TODO redo this
-
-<img class="screen" src="routerEth1.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
-
 Ping request, router1 eth (from ethHost1 to router1):
 
 <img class="screen" src="routerEth2_2.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
-TODO: include packet list in on of the screenshot -> so you can click on a packet to see the details
+<!--TODO: include packet list in on of the screenshot -> so you can click on a packet to see the details-->
 
 TCP ACK, router(ppp) (from ethHost1 to ethHost2):
 
 <img class="screen" src="routerPPP3.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
-TODO: remove overlap
-
-TODO: wifi screenshot
+UDP data packet, host1 (from host1 to host2):
 
 <img class="screen" src="wifi4.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+
+TODO: you can use the packet view
