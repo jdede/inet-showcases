@@ -9,14 +9,15 @@ import inet.node.inet.Router;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
-import inet.visualizer.integrated.IntegratedCanvasVisualizer;
+import inet.visualizer.integrated.IntegratedMultiCanvasVisualizer;
+
 
 network MultiRadioShowcase
 {
     parameters:
         @display("bgb=500,300");
     submodules:
-        visualizer: IntegratedCanvasVisualizer {
+        visualizer: IntegratedMultiCanvasVisualizer {
             parameters:
                 @display("p=39.644974,101.18344");
         }
