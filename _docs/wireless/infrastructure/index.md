@@ -101,13 +101,16 @@ some of these might belong to the next section (the configuration)
 
 In both simulations, `host1` is configured to send UDP packets to `host2`.
 `WirelessHost` has `Ieee80211MgmtSta` by default, thus no configuration of the management module is needed in the infrastructure mode simulation. <!--In the other one, it is replaced with ieee80211mgmtadhoc. the same could be achieved by using adhoc host instead of wirelesshost. it is done like this: include key-->
-In the adhoc mode simulation, the default management module in hosts is replaced with `Ieee80211MgmtAdhoc`. (The same effect could be achieved by using the `AdhocHost` host type instead of `WirelessHost`, as the former has the ad hoc management module by default.) The configuration key for the management module type in omnetpp.ini is the following:
+In the adhoc mode simulation, the default management module in hosts is replaced with `Ieee80211MgmtAdhoc`. (The same effect could have been achieved by using the `AdhocHost` host type instead of `WirelessHost`, as the former has the ad hoc management module by default.) The configuration key for the management module type in omnetpp.ini is the following:
 
 ``` {.include}
 *.*.wlan[*].mgmtType = "Ieee80211MgmtAdhoc"
 ```
-
+<!--
 TODO: The forwarding is not needed here because hosts can directly reach each other (packets doent need to be forwarded). It would be needed if some hosts were only reachable in multiple hops.
+-->
+
+Note that in the `AdhocHost` type, forwarding is enabled. However, forwarding is not required in this simulation, because the hosts can reach each other in one hop, and packet don't need to be forwarded (forwarding is required for multihop networks.)
 
 ## Results
 
@@ -150,15 +153,3 @@ When the adhoc mode simulation is run, the hosts can communicate directly with e
 The wlan module of `host1` is displayed on the following image, showing the mib and the host's network status:
 
 <img class="screen" src="adhocmib.png">
-
-TODO: The fact that its configured properly can be checked out in the wlan module
-
-
-
-Results
-
-hosts work in adhoc mode
-
-hosts work in infrastructure mode
-
-here is how you verify everything's configured properly
