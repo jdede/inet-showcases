@@ -153,18 +153,16 @@ In the beginning of the video, `Person1` requests the video stream from `videoSe
 In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
 (The video stream is fragmented because the size of the packets is greater 
 than the Maximum Transmission Unit.) The first fragment (`VideoStrmPk-frag0`) 
-causes data link activity only at *protocol* level (purple arrow) and at *peer* level (blue arrow).
-
-<!-- WIP -->
-When all fragments of a packet are received by `person1` in data link layer,
-the packet is assembled and is sent to the upper layers. 
-As a result of this, a green arrow is displayed between `videoServer` and `person1`, 
-representing data link activity at *service* level.
+causes data link activity only at *protocol* level (purple arrow) 
+and at *peer* level (blue arrow).
+When `VideoStrmPk-frag1` is received by `person1`, the packet is assembled 
+and is sent to the upper layers. As a result of this, a green arrow is displayed 
+between `videoServer` and `person1`, representing data link activity at *service* level.
 
 An other phenomenon can also be observed in the video.
-We can see protocol level data link activity between `person2` and the other nodes.
-This is, because frames also are received in the physical layer of `person2`
-and they are sent to the data link layer. But data link layer drops the frames
+We can see *protocol* level data link activity between `person2` and the other nodes.
+This is, because frames are also received in the physical layer of `person2`
+and they are forwarded to data link layer. Frames are dropped at data link layer level
 because they are not addressed to `person2`.
 
 ## Filtering Data Link Activity
