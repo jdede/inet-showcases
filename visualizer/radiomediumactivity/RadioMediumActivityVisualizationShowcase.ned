@@ -9,8 +9,8 @@ import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.node.inet.WirelessHost;
 import inet.node.wireless.AccessPoint;
-import inet.physicallayer.idealradio.IdealRadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.physicallayer.unitdisk.UnitDiskRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
@@ -48,7 +48,7 @@ network MediumActivityDisplayingPropagationTransmissionsReceptionsShowcaseV2
         visualizer: IntegratedVisualizer {
             @display("p=853.545,123.585");
         }
-        radioMedium: IdealRadioMedium {
+        radioMedium: UnitDiskRadioMedium {
             @display("p=852.39,204.435");
         }
         host1: WirelessHost {

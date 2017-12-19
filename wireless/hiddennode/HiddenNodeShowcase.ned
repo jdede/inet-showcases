@@ -21,7 +21,7 @@ package inet.showcases.wireless.hiddennode;
 import inet.environment.common.PhysicalEnvironment;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
-import inet.physicallayer.idealradio.IdealRadioMedium;
+import inet.physicallayer.unitdisk.UnitDiskRadioMedium;
 import inet.visualizer.integrated.IntegratedCanvasVisualizer;
 
 
@@ -42,7 +42,7 @@ network HiddenNodeShowcase
         hostC: WirelessHost {
             @display("p=600,272");
         }
-        radioMedium: IdealRadioMedium {
+        radioMedium: UnitDiskRadioMedium {
             @display("p=100,100");
         }
         configurator: Ipv4NetworkConfigurator {
