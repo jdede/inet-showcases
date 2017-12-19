@@ -75,10 +75,12 @@ Modules can be created with the `<create-module>` element. This has three attrib
 The created modules will have a random position inside the parent module (or the playground if the parent module is `"."`). <!--However, the scenario can include entries which position the modules.
 TODO: is this correct? it doesnt seems so...cant set the position after its created.-->
 
-TODO: the mobility constraints need to be set, otherwise error
+<!-- TODO: the mobility constraints need to be set, otherwise error
 why is it need to be set? what happens if a standardHost is created which doesn't have a mobility module by default?
 i guess its an error, because if a host has a mobility module but the contraints are not set its an error, and if it doesnt have a mobility module,
-the contraints cannot be set.
+the contraints cannot be set. -->
+
+The created modules need to have a mobility module (`WirelessHost` and derivatives have one by default, but other modules might not, e.g. `StandardHost`. A mobility module type needs to be specified for these hosts.) Also, mobility constraints need to be set to limit the random position of the created nodes (otherwise an error occurs.)
 
 Modules can be deleted with the `<delete-module>` element. It has just one attribute, `module`, which is the name of the module to be deleted.
 
@@ -133,9 +135,6 @@ The `contraintArea` parameters in all hosts' mobility modules are set to confine
 The nodes are created at a random position, constrained by the mobility settings
 
 TODO: autoconfigurator settings
-TODO: script xmldoc
-
-TODO: what if there isnt any mobility modules? actually, the wirelesshost and derivatives
 
 The created node's mobility settings
 
