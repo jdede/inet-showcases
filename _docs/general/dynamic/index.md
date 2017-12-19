@@ -111,6 +111,8 @@ The parameters of the dynamically created modules can be set from the ini file, 
 
 TODO: Ipv4NetworkConfigurator cant be used
 
+Note that `Ipv4NetworkConfigurator` is not compatible with dynamically created nodes. More on this in the configuration section.
+
 ### The configuration
 
 In the example simulation, there will be a static wireless node acting as a destination for ping requests.
@@ -118,7 +120,7 @@ Other wireless nodes will be created periodically, will send ping requests to th
 
 <img class="screen" src="network2.png">
 
-The network contains an `IntegratedCanvasVisualizer`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationHost`, whose type is `DynamicHost`.
+The network contains an `IntegratedCanvasVisualizer`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationNode`, whose type is `DynamicHost`.
 
 The `DynamicHost` type is defined in the NED file, <a srcfile="wireless/dynamic/DynamicShowcase.ned"/>. It is basically an `AdhocHost`, but it is configured to use a per-host `HostAutoConfigurator` module instead of the global `IPv4NetworkConfigurator`. The reason for this is that `Ipv4NetworkConfigurator` doesn't support IP address assignment in dynamic scenarios. Here is the NED definition of `DynamicHost`:
 
@@ -134,13 +136,28 @@ The `contraintArea` parameters in all hosts' mobility modules are set to confine
 
 The nodes are created at a random position, constrained by the mobility settings
 
-TODO: autoconfigurator settings
+The `HostAutoConfigurator`'s `interfaces` parameter needs to be set to the hosts' wlan interface:
 
-The created node's mobility settings
+<p>
+<pre class="snippet" src="omnetpp.ini" from="autoConfigurator.interfaces" until=" "></pre>
+</p>
 
-- the scenario
-- results
+<!-- The created node's mobility settings -->
+The nodes are configured to move around randomly...actually, linearmobility, random angle, same speed
+
+The destination host is configured to be stationary, and the source hosts are configured to have `LinearMobility`, and move around in random directions:
+
+<p>
+<pre class="snippet" src="omnetpp.ini" from="destinationNode.mobilityType" upto="initFromDisplayString"></pre>
+</p>
+
+The XML scenario used for this simulation is defined in <a srcfile="general/dynamic/scenario6.xml"/>.
+The scenario creates 10 `DynamicHost`s named `sourceNodeX` (where is X is the index) periodically, with a period of 2.71 seconds. Each host is deleted 4 seconds after creation.
 
 ## Results
 
+What happens when the simulation is run is shown in the following video:
+
 <video autoplay loop controls src="General1.mp4" onclick="this.paused ? this.play() : this.pause();"></video>
+
+The hosts are being created, move in random directions, ping `destinationNode`, and eventually get deleted.
