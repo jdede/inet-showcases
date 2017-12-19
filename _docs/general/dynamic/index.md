@@ -25,7 +25,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 ## The model
 
-The `ScenarioManager` module can be used to create and destroy nodes during simulations (it can also change many aspects of the configuration while the simulation is running, but those features are out of scope for this showcase.) The scenario manager module takes an XML script input. The XML script describes the actions to be taken during the course of the simulation, i.e. which parameter should be changed and when, what nodes should be created or deleted and when, etc. (For a more comprehensive description, refer to the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html?p=inet.common.scenario.ScenarioManager.html" target="_blank">ScenarioManager NED documentation</a> in the INET Reference.)
+The `ScenarioManager` module can be used to create and destroy nodes during simulations (it can also change many aspects of the configuration while the simulation is running, but those features are out of scope for this showcase.) The scenario manager module takes an XML script input. The XML script describes the actions to be taken during the course of the simulation, i.e. which parameter should be changed and when, what nodes should be created or deleted and when, etc.
 
 - creating and destroying nodes
 - the config
@@ -61,14 +61,14 @@ script here
 -->
 
 
-The `ScenarioManager` module executes an XML script. The script specifies commands to be executed at certain times during the simulation. The commands can change module parameters, add or remove connections,
+The `ScenarioManager` module executes an XML script. The XML script can be specified inline with the `xml()` function, or as an external XML file with the `xmldoc()` function. The script specifies commands to be executed at certain times during the simulation. The commands can change module parameters, add or remove connections,
 set connection parameters, create or destroy modules, etc. The XML script contains a `<scenario>` element.
-Under this element, there can be multiple elements, which specify the commands. These have attributes. Each command has to specify a time value, at which the command should be executed. Some element have a `t` attribute to specify the time. Also, under the `<at>` element, there can be multiple other elements which will be executed at the time specified by the `<at>` element. TODO: for more details check this and that
+Under this element, there can be multiple elements, which specify the commands. These have attributes. Each command has to specify a time value, at which the command should be executed. Some elements have a `t` attribute to specify the time. The time can be also specified with the `<at>` element. Under the `<at>` element, there can be multiple other elements which will be executed at the time specified by the `<at>` element. (For a more comprehensive description of the `ScenarioManager` and the available commands, refer to the <a href="https://omnetpp.org/doc/inet/api-current/neddoc/index.html?p=inet.common.scenario.ScenarioManager.html" target="_blank">ScenarioManager NED documentation</a> in the INET Reference.)
 
 Modules can be created with the `<create-module>` element. This has three attributes:
 
 - `type`: specifies the NED type of the module to be created, in the WHAT notation?
-- `submodule`: specifies the name of the module (this name can be used to delete modules)
+- `submodule`: specifies the name of the module (this name can be used to delete module)
 - `parent`: specifies the parent of the module (submodules of existing modules can be created as well)
 
 The created modules will have a random position inside the parent module (or the playground if the parent module is `"."`). <!--However, the scenario can include entries which position the modules.
@@ -81,9 +81,9 @@ the contraints cannot be set.
 
 Modules can be deleted with the `<delete-module>` element. It has just one attribute, `module`, which is the name of the module to be deleted.
 
-An example script:
+Here is an example script:
 
-``` {.snippet}
+<!-- ``` {.snippet}
 <scenario>
     <at t="10">
         <create-module type="inet.node.inet.WirelessHost" parent="." submodule="someHost"/>
@@ -92,17 +92,17 @@ An example script:
         <delete-module module="someHost"/>
     </at>
 </scenario>
-```
+``` -->
 
 <p>
 <pre class="include" src="example.xml"></pre>
 </p>
 
-TODO: the second one looks better
-
 This XML script will create a `WirelessHost` named `someHost` in the network at 10 seconds simulation-time, and delete it at 20 seconds simulation-time.
 
-Note that these elements don't have `t` attributes, thus they have to be placed under an `<at>` element.
+<!-- Note that these elements don't have `t` attributes, thus they have to be placed under an `<at>` element. -->
+
+Note that neither the `<create-module>` nor the `<delete-module>` element has a `t` attribute, thus they have to be placed under an `<at>` element.
 
 The parameters of the dynamically created modules can be set from the ini file, just as with other modules. The configuration of the dynamically created modules will take effect when they are spawn.
 
