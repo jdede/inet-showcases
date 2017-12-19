@@ -27,9 +27,9 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 The `ScenarioManager` module can be used to create and destroy nodes during simulations (it can also change many aspects of the configuration while the simulation is running, but those features are out of scope for this showcase.) The scenario manager module takes an XML script input. The XML script describes the actions to be taken during the course of the simulation, i.e. which parameter should be changed and when, what nodes should be created or deleted and when, etc.
 
-- creating and destroying nodes
+<!-- - creating and destroying nodes
 - the config
-- the results
+- the results -->
 
 <!--
 TODO:
@@ -60,6 +60,7 @@ script here
 - it creates nodes periodically and destroys them after some time
 -->
 
+### The `ScenarioManager` module
 
 The `ScenarioManager` module executes an XML script. The XML script can be specified inline with the `xml()` function, or as an external XML file with the `xmldoc()` function. The script specifies commands to be executed at certain times during the simulation. The commands can change module parameters, add or remove connections,
 set connection parameters, create or destroy modules, etc. The XML script contains a `<scenario>` element.
@@ -110,8 +111,6 @@ TODO: Ipv4NetworkConfigurator cant be used
 
 ### The configuration
 
-TODO: In the example simulation, this and that will happen.
-
 In the example simulation, there will be a static wireless node acting as a destination for ping requests.
 Other wireless nodes will be created periodically, will send ping requests to the destination node, and will be deleted after some time. The example simulation for this showcase uses the following network:
 
@@ -119,7 +118,7 @@ Other wireless nodes will be created periodically, will send ping requests to th
 
 The network contains an `IntegratedCanvasVisualizer`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationHost`, whose type is `DynamicHost`.
 
-The `DynamicHost` type is defined in the NED file, <a srcfile="wireless/dynamic/DynamicShowcase.ned"/>. It is basically an `AdhocHost`, but it is configured to use a per-host `HostAutoConfigurator` instead of the global `IPv4NetworkConfigurator`. The reason for this is that `Ipv4NetworkConfigurator` doesn't support IP address assignment in dynamic scenarios. Here is the NED definition of `DynamicHost`:
+The `DynamicHost` type is defined in the NED file, <a srcfile="wireless/dynamic/DynamicShowcase.ned"/>. It is basically an `AdhocHost`, but it is configured to use a per-host `HostAutoConfigurator` module instead of the global `IPv4NetworkConfigurator`. The reason for this is that `Ipv4NetworkConfigurator` doesn't support IP address assignment in dynamic scenarios. Here is the NED definition of `DynamicHost`:
 
 <p>
 <pre class="snippet" src="DynamicShowcase.ned" from="DynamicHost" until="DynamicShowcase"></pre>
