@@ -229,7 +229,7 @@ The network contains two `IntegratedVisualizer` modules, named
 `visualizer1` and `visualizer2`.
 
 The `server` runs an UDP video stream server
-(`UdpVideoStreamSvr`), and two `TCPSessionApps`. These
+(`UdpVideoStreamServer`), and two `TCPSessionApps`. These
 applications are configured to send UDP and TCP streams to certain
 hosts:
 
