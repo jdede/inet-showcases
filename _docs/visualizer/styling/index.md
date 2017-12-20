@@ -72,7 +72,6 @@ the ini file. The network is the same as in the previous example: two hosts
 communicating wirelessly. We customize the font used in labels on data link
 activity arrows.
 
-<!-- Question: all labels can be disabled? -->
 To customize the fonts used in labels,
 we configure `DataLinkVisualizer` in the following way:
 
