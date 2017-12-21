@@ -1,6 +1,7 @@
 package inet.showcases.general.manetprotocols;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
+import inet.node.aodv.AodvRouter;
 import inet.node.gpsr.GpsrRouter;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
@@ -207,7 +208,7 @@ network ManetProtocolsShowcaseF
     @figure[forest](type=image; image="forest"; pos=0,0; transform=scale(0.7),translate(1100,450));
     @figure[tree1](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1000,350));
     @figure[tree2](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1065,260));
-//    @figure[tree3](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1150,320));
+    //    @figure[tree3](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1150,320));
     @figure[tree3](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1140,380));
     @figure[tree4](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1080,470));
     @figure[tree5](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(990,530));
@@ -264,5 +265,44 @@ network ManetProtocolsShowcaseF
         }
         node12: GpsrRouter {
             @display("p=529,286;i=misc/solarpanel");
+        }
+}
+
+network AODVNetworkA
+{
+    @display("bgb=400,400");
+    submodules:
+        source: AodvRouter {
+            @display("p=104,335");
+        }
+        node1: AodvRouter {
+            @display("p=104,226");
+        }
+        node2: AodvRouter {
+            @display("p=175,140");
+        }
+        node3: AodvRouter {
+            @display("p=238,276");
+        }
+        node4: AodvRouter {
+            @display("p=312,196");
+        }
+        node6: AodvRouter {
+            @display("p=147,67");
+        }
+        node7: AodvRouter {
+            @display("p=60,125");
+        }
+        destination: AodvRouter {
+            @display("p=292,80");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=38,28");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=33,78");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=28,127");
         }
 }
