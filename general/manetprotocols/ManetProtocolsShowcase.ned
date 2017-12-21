@@ -122,3 +122,147 @@ network ManetProtocolsShowcaseC
             @display("p=291.6,312.255");
         }
 }
+
+network ManetProtocolsShowcaseD
+{
+    @display("bgb=1000,500;bgl=2");
+    submodules:
+        source: GpsrRouter {
+            @display("p=85,84;i=misc/solarpanel");
+        }
+        destination: GpsrRouter {
+            @display("p=947.6923,244.61539;i=misc/sensorgateway");
+        }
+        node6: GpsrRouter {
+            @display("p=867.6923,79.230774;i=misc/solarpanel");
+        }
+        node5: GpsrRouter {
+            @display("p=647.6923,118.46154;i=misc/solarpanel");
+        }
+        node4: GpsrRouter {
+            @display("p=647.6923,389.23077;i=misc/solarpanel");
+        }
+        node1: GpsrRouter {
+            @display("p=303.07693,118.46154;i=misc/solarpanel");
+        }
+        node3: GpsrRouter {
+            @display("p=647.6923,258.46155;i=misc/solarpanel");
+        }
+        node2: GpsrRouter {
+            @display("p=475.38464,176.15385;i=misc/solarpanel");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=92,312");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=204,312");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=291.6,312.255");
+        }
+}
+
+network ManetProtocolsShowcaseE
+{
+    @display("bgb=1000,500;bgl=2");
+    submodules:
+        source: GpsrRouter {
+            @display("p=556.9231,19.23077;i=misc/solarpanel");
+        }
+        destination: GpsrRouter {
+            @display("p=947.6923,244.61539;i=misc/sensorgateway");
+        }
+        node6: GpsrRouter {
+            @display("p=577.6923,299.23077;i=misc/solarpanel");
+        }
+        node5: GpsrRouter {
+            @display("p=630.7692,391.53848;i=misc/solarpanel");
+        }
+        node4: GpsrRouter {
+            @display("p=875.38464,343.84616;i=misc/solarpanel");
+        }
+        node1: GpsrRouter {
+            @display("p=722.30774,98.46154;i=misc/solarpanel");
+        }
+        node3: GpsrRouter {
+            @display("p=760.7693,422.3077;i=misc/solarpanel");
+        }
+        node2: GpsrRouter {
+            @display("p=647.6923,190;i=misc/solarpanel");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=92,312");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=204,312");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=291.6,312.255");
+        }
+}
+
+network ManetProtocolsShowcaseF
+{
+    @display("bgb=1500,1000;bgl=2");
+    @figure[forest](type=image; image="forest"; pos=0,0; transform=scale(0.7),translate(1100,450));
+    @figure[tree1](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1000,350));
+    @figure[tree2](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1065,260));
+//    @figure[tree3](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1150,320));
+    @figure[tree3](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1140,380));
+    @figure[tree4](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1080,470));
+    @figure[tree5](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(990,530));
+    @figure[tree6](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1050,600));
+    @figure[tree7](type=image; image="tree"; pos=0,0; transform=scale(0.1),translate(1170,620));
+    submodules:
+        source: GpsrRouter {
+            @display("p=394,189;i=misc/solarpanel");
+        }
+        destination: GpsrRouter {
+            @display("p=1230,492;i=misc/sensorgateway");
+        }
+        node6: GpsrRouter {
+            @display("p=851,573;i=misc/solarpanel");
+        }
+        node5: GpsrRouter {
+            @display("p=890,430;i=misc/solarpanel");
+        }
+        node4: GpsrRouter {
+            @display("p=1331,391;i=misc/solarpanel");
+        }
+        node1: GpsrRouter {
+            @display("p=1124,763;i=misc/solarpanel");
+        }
+        node3: GpsrRouter {
+            @display("p=1304,253;i=misc/solarpanel");
+        }
+        node2: GpsrRouter {
+            @display("p=940,718;i=misc/solarpanel");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=92,312");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=204,312");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=291.6,312.255");
+        }
+        node7: GpsrRouter {
+            @display("p=1046,112;i=misc/solarpanel");
+        }
+        node8: GpsrRouter {
+            @display("p=901,157;i=misc/solarpanel");
+        }
+        node9: GpsrRouter {
+            @display("p=862,286;i=misc/solarpanel");
+        }
+        node10: GpsrRouter {
+            @display("p=1200,156;i=misc/solarpanel");
+        }
+        node11: GpsrRouter {
+            @display("p=701,373;i=misc/solarpanel");
+        }
+        node12: GpsrRouter {
+            @display("p=529,286;i=misc/solarpanel");
+        }
+}
