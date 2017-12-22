@@ -3,6 +3,7 @@ package inet.showcases.general.manetprotocols;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.aodv.AodvRouter;
 import inet.node.gpsr.GpsrRouter;
+import inet.node.rip.RipRouter;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
@@ -304,5 +305,35 @@ network AODVNetworkA
         }
         visualizer: IntegratedVisualizer {
             @display("p=28,127");
+        }
+}
+
+network RipNetwork
+{
+    @display("bgb=400,400");
+    submodules:
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=46,54");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=47,120");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=47,189");
+        }
+        source: RipRouter {
+            @display("p=68,336");
+        }
+        node1: RipRouter {
+            @display("p=197,291");
+        }
+        node2: RipRouter {
+            @display("p=143,211");
+        }
+        node3: RipRouter {
+            @display("p=243,140");
+        }
+        destination: RipRouter {
+            @display("p=322,54");
         }
 }
