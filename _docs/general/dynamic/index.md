@@ -69,10 +69,10 @@ Under this element, there can be multiple elements, which specify the commands. 
 Modules can be created with the `<create-module>` element. This has three attributes:
 
 - `type`: specifies the NED type of the module to be created, in the WHAT notation?
-- `submodule`: specifies the name of the module (this name can be used to delete module)
+- `submodule`: specifies the name of the module (this name can be used to delete the module)
 - `parent`: specifies the parent of the module (submodules of existing modules can be created as well)
 
-The created modules will have a random position inside the parent module (or the playground if the parent module is `"."`). <!--However, the scenario can include entries which position the modules.
+The created modules will have a random position inside the parent module (or on the playground if the parent module is `"."`). <!--However, the scenario can include entries which position the modules.
 TODO: is this correct? it doesnt seems so...cant set the position after its created.-->
 
 <!-- TODO: the mobility constraints need to be set, otherwise error
@@ -122,7 +122,7 @@ Other wireless nodes will be created periodically, will send ping requests to th
 
 The network contains an `IntegratedCanvasVisualizer`, an `Ieee80211ScalarRadioMedium`, and a `ScenarioManager` module. It also contains a host named `destinationNode`, whose type is `DynamicHost`.
 
-The `DynamicHost` type is defined in the NED file, <a srcfile="wireless/dynamic/DynamicShowcase.ned"/>. It is basically an `AdhocHost`, but it is configured to use a per-host `HostAutoConfigurator` module instead of the global `IPv4NetworkConfigurator`. The reason for this is that `Ipv4NetworkConfigurator` doesn't support IP address assignment in dynamic scenarios. Here is the NED definition of `DynamicHost`:
+The `DynamicHost` type is defined in the NED file, <a srcfile="general/dynamic/DynamicShowcase.ned"/>. It is basically an `AdhocHost`, but it is configured to use a per-host `HostAutoConfigurator` module instead of the global `IPv4NetworkConfigurator`. The reason for this is that `Ipv4NetworkConfigurator` doesn't support IP address assignment in dynamic scenarios. Here is the NED definition of `DynamicHost`:
 
 <p>
 <pre class="snippet" src="DynamicShowcase.ned" from="DynamicHost" until="DynamicShowcase"></pre>
@@ -134,7 +134,7 @@ The `contraintArea` parameters in all hosts' mobility modules are set to confine
 <pre class="snippet" src="omnetpp.ini" from="MinX" upto="MaxZ"></pre>
 </p>
 
-The nodes are created at a random position, constrained by the mobility settings
+<!-- The nodes are created at a random position, constrained by the mobility settings -->
 
 The `HostAutoConfigurator`'s `interfaces` parameter needs to be set to the hosts' wlan interface:
 
@@ -143,7 +143,7 @@ The `HostAutoConfigurator`'s `interfaces` parameter needs to be set to the hosts
 </p>
 
 <!-- The created node's mobility settings -->
-The nodes are configured to move around randomly...actually, linearmobility, random angle, same speed
+<!-- The nodes are configured to move around randomly...actually, linearmobility, random angle, same speed -->
 
 The destination host is configured to be stationary, and the source hosts are configured to have `LinearMobility`, and move around in random directions:
 
@@ -153,6 +153,8 @@ The destination host is configured to be stationary, and the source hosts are co
 
 The XML scenario used for this simulation is defined in <a srcfile="general/dynamic/scenario6.xml"/>.
 The scenario creates 10 `DynamicHost`s named `sourceNodeX` (where is X is the index) periodically, with a period of 2.71 seconds. Each host is deleted 4 seconds after creation.
+
+TODO: it should be just scenario.xml
 
 ## Results
 
