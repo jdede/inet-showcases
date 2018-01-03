@@ -30,10 +30,10 @@ parameter to true.
 
 `DataLinkVisualizer` is able to observe packets at *service*, *peer* and *protocol* level.
 The level where packets are observed can be set by the `activityLevel` parameter.
-At *service* level, all packets are displayed which pass through the data link layer 
+At *service* level, those packets are displayed which pass through the data link layer 
 (i.e. carry data from/to higher layers). At *peer* level, the visualization 
 is triggered by those packets which are internal to the operation of the 
-data link layer protocol. At *protocol* level, `DataLinkVisualizer` visualizes all packets 
+data link layer protocol. At *protocol* level, `DataLinkVisualizer` visualizes those packets 
 which leaves the data link layer in the source node and enter the data link layer 
 in the destination node.
 
@@ -143,27 +143,24 @@ We configure the `visualizer` module as follows.
 ```
 
 The following video shows what happens when we start the simulation.
+In the video, data link activity is displayed at <span style="color:purple">*protocol*</span>, 
+<span style="color:blue">*peer*</span> and <span style="color:green">*service*</span> level.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1213.mp4"></video></p>
 
-In this video, data link activity is displayed at <span style="color:purple">*protocol*</span>, 
-<span style="color:blue">*peer*</span> and <span style="color:green">*service*</span> level.
-
-In the beginning of the video, `Person1` requests the video stream from `videoServer`.
+At the beginning of the video, `person1` requests a video stream.
 In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
-(The video stream is fragmented because the size of the packets is greater 
-than the Maximum Transmission Unit.) The first fragment (`VideoStrmPk-frag0`) 
-causes data link activity only at *protocol* level (purple arrow) 
-and at *peer* level (blue arrow).
+The video stream is fragmented because the size of the packets is greater 
+than the Maximum Transmission Unit (MTU). The first fragment (`VideoStrmPk-frag0`) 
+causes data link activity only at *protocol* level and at *peer* level.
 When `VideoStrmPk-frag1` is received by `person1`, the packet is assembled 
 and is sent to the upper layers. As a result of this, a green arrow is displayed 
 between `videoServer` and `person1`, representing data link activity at *service* level.
 
 An other phenomenon can also be observed in the video.
 We can see *protocol* level data link activity between `person2` and the other nodes.
-This is, because frames are also received in the physical layer of `person2`
-and they are forwarded to data link layer. Frames are dropped at data link layer level
-because they are not addressed to `person2`.
+This is, because frames are also received in the physical layer of `person2`, 
+but they are dropped at data link layer level because they are not addressed to `person2`.
 
 ## Filtering Data Link Activity
 
