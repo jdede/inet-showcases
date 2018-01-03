@@ -29,12 +29,14 @@ The PCAP file's link layer header type needs to be set with the `pcapNetwork` pa
 - 802.11: 105
 - ppp: 204
 
-TODO: where to check other ones
+<!-- TODO: where to check other ones -->
 
-TODO: how to record other level frames, like IPv4
+The complete list of link layer header type codes can be found <a href="http://www.tcpdump.org/linktypes.html" target="_blank">here</a>.
+
+<!-- TODO: how to record other level frames, like IPv4 -->
 
 The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
-a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces.
+a space separated list of module names. For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces. Thus by default it records L1 frames, but setting the `moduleNamePatterns` to `Ipv4`, for example, lets one record L3 frames.
 The `dumpProtocols` parameter selects which protocols to include in the capture. The parameter's default is `"ethernet ppp ieee80211"`.
 
 When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the link layer header type specified by the `pcapNetwork` parameter. It is needed because traffic for all interfaces are included in the trace by default.
