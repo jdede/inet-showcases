@@ -109,7 +109,7 @@ Note that neither the `<create-module>` nor the `<delete-module>` element has a 
 
 The parameters of the dynamically created modules can be set from the ini file, just as with other modules. The configuration of the dynamically created modules will take effect when they are spawn.
 
-TODO: Ipv4NetworkConfigurator cant be used
+<!-- TODO: Ipv4NetworkConfigurator cant be used -->
 
 Note that `Ipv4NetworkConfigurator` is not compatible with dynamically created nodes. More on this in the configuration section.
 
