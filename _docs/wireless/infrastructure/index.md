@@ -55,7 +55,7 @@ The topology of connected modules in `Ieee80211Nic` is displayed on the followin
 
 <img class="screen" src="submodules.png">
 
-TODO: note that you can see if the correct management type is configured at the mib. -> not needed
+<!-- TODO: note that you can see if the correct management type is configured at the mib. -> not needed -->
 
 Hosts can be configured to use infrastructure or adhoc mode by specifying the corresponding management module type. By default, `WirelessHost` uses `Ieee80211MgmtSta`, and `AccessPoint` uses `Ieee80211MgmtAp`.
 Additionally, `AdhocHost` is suitable for simulating adhoc wireless networks. It is derived from `WirelessHost` by changing management module to `Ieee80211MgmtAdhoc` (and also turning on IPv4 forwarding.)
