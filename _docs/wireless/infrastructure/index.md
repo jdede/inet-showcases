@@ -62,7 +62,9 @@ Additionally, `AdhocHost` is suitable for simulating adhoc wireless networks. It
 
 In infrastructure mode, the SSID of the network created by an access point is a parameter of `Ieee80211MgmtAp`, and it is "SSID" by default. In stations, the agent module has an SSID parameter, which sets which network should the node join. When the simulation is run, the access points automatically create the wireless networks, and agent modules in station nodes cause the nodes to automatically join the appropriate network.
 
-TODO: about the adhoc management module...what it does and what it doesnt
+<!-- TODO: about the adhoc management module...what it does and what it doesnt -->
+
+The `Ieee80211MgmtAdhoc` module only sends data frames, and discards all other frame types like control and management frames. Also, it doesn't switch channels, just operates on the channel configured in the radio.
 
 ## The configuration
 
