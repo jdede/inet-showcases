@@ -4,6 +4,7 @@ import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.aodv.AodvRouter;
 import inet.node.gpsr.GpsrRouter;
 import inet.node.rip.RipRouter;
+import inet.node.dsdv.DsdvRouter;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
@@ -334,6 +335,36 @@ network RipNetwork
             @display("p=243,140");
         }
         destination: RipRouter {
+            @display("p=322,54");
+        }
+}
+
+network DsdvNetwork
+{
+    @display("bgb=400,400");
+    submodules:
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=46,54");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=47,120");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=47,189");
+        }
+        source: DsdvRouter {
+            @display("p=68,336");
+        }
+        node1: DsdvRouter {
+            @display("p=197,291");
+        }
+        node2: DsdvRouter {
+            @display("p=143,211");
+        }
+        node3: DsdvRouter {
+            @display("p=243,140");
+        }
+        destination: DsdvRouter {
             @display("p=322,54");
         }
 }
