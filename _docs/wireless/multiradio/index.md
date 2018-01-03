@@ -90,7 +90,7 @@ so host1 wants to send a packet to host2, the gateway is the router
 which is connected to the same accesspoint
 -->
 
-Routing is set up by the `Ipv4NetworkConfigurator` module. The routing tables of both hosts are configured to use on of the router's interfaces as gateway for reaching all destinations. The routing table of the router is configured to use its appropriate interface for reaching each wireless network.
+Routing is set up by the `Ipv4NetworkConfigurator` module. The routing tables of both hosts are configured to use one of the router's interfaces as gateway for reaching all destinations. The routing table of the router is configured to use its appropriate interface for reaching each wireless network.
 <!--TODO: is this needed? doesn't seem useful-->
 
 The routes are shown on the following image. Note that the routing arrows don't go through the access points because they are only L2 devices, but the packets will go through them.
