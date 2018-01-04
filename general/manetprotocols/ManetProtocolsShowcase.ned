@@ -7,7 +7,7 @@ import inet.node.gpsr.GpsrRouter;
 import inet.node.inet.INetworkNode;
 import inet.node.rip.RipRouter;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
-import inet.visualizer.integrated.IntegratedVisualizer;
+import inet.visualizer.integrated.IntegratedMultiVisualizer;
 
 
 network ManetProtocolsShowcase
@@ -41,7 +41,7 @@ network ManetProtocolsShowcase
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=92,312");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=204,312");
         }
         configurator: Ipv4NetworkConfigurator {
@@ -80,7 +80,7 @@ network ManetProtocolsShowcaseB
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=92,312");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=204,312");
         }
         configurator: Ipv4NetworkConfigurator {
@@ -119,7 +119,7 @@ network ManetProtocolsShowcaseC
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=92,312");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=204,312");
         }
         configurator: Ipv4NetworkConfigurator {
@@ -158,7 +158,7 @@ network ManetProtocolsShowcaseD
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=92,312");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=204,312");
         }
         configurator: Ipv4NetworkConfigurator {
@@ -197,7 +197,7 @@ network ManetProtocolsShowcaseE
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=92,312");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=204,312");
         }
         configurator: Ipv4NetworkConfigurator {
@@ -245,7 +245,7 @@ network ManetProtocolsShowcaseF
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=92,312");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=204,312");
         }
         configurator: Ipv4NetworkConfigurator {
@@ -305,7 +305,7 @@ network AODVNetworkA
         configurator: Ipv4NetworkConfigurator {
             @display("p=33,78");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=28,127");
         }
 }
@@ -320,7 +320,7 @@ network RipNetwork
         configurator: Ipv4NetworkConfigurator {
             @display("p=47,120");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=47,189");
         }
         source: RipRouter {
@@ -350,7 +350,7 @@ network DsdvNetwork
         configurator: Ipv4NetworkConfigurator {
             @display("p=47,120");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=47,189");
         }
         source: DsdvRouter {
@@ -406,7 +406,7 @@ network AODVDSDVNetwork
         configurator: Ipv4NetworkConfigurator {
             @display("p=33,78");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=28,127");
         }
 }
