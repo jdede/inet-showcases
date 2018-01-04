@@ -2,9 +2,10 @@ package inet.showcases.general.manetprotocols;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.aodv.AodvRouter;
-import inet.node.gpsr.GpsrRouter;
-import inet.node.rip.RipRouter;
 import inet.node.dsdv.DsdvRouter;
+import inet.node.gpsr.GpsrRouter;
+import inet.node.inet.INetworkNode;
+import inet.node.rip.RipRouter;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
@@ -366,5 +367,46 @@ network DsdvNetwork
         }
         destination: DsdvRouter {
             @display("p=322,54");
+        }
+}
+
+network AODVDSDVNetwork
+{
+    parameters:
+        string hostType;
+        @display("bgb=400,400");
+    submodules:
+        source: <hostType> like INetworkNode {
+            @display("p=104,335");
+        }
+        node1: <hostType> like INetworkNode {
+            @display("p=104,226");
+        }
+        node2: <hostType> like INetworkNode {
+            @display("p=175,140");
+        }
+        node3: <hostType> like INetworkNode {
+            @display("p=238,276");
+        }
+        node4: <hostType> like INetworkNode {
+            @display("p=312,196");
+        }
+        node6: <hostType> like INetworkNode {
+            @display("p=147,67");
+        }
+        node7: <hostType> like INetworkNode {
+            @display("p=60,125");
+        }
+        destination: <hostType> like INetworkNode {
+            @display("p=292,80");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=38,28");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=33,78");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=28,127");
         }
 }
