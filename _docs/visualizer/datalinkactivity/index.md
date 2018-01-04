@@ -100,35 +100,34 @@ blue dotted line which can be ignored, as it is also part of the standard OMNeT+
 packet animation.) Note, however, that the ACK frame does not activate the
 visualization, because ACK frames do not pass through data link layer.
 
-## Displaying Data Link Activity at Protocol, Peer and Service Level
+## Displaying Data Link Activity at Different Levels
 
-The following example shows, how the visualization can help you to 
-separate the levels of the data link activity.
-This simulation can be run by selecting the `ActivityLevel` configuration 
-from the ini file.
+The following example demonstrates, how to visualize data link activity at protocol,
+peer and service level.
+This simulation can be run by selecting the `ActivityLevel` configuration from the ini file.
 
-We use the following network for this example.
+We use the following wireless network for this example.
 
 <img src="ActivityLevel_v1206.png" class="screen" />
 
 The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
-The `videoServer` node will stream a video to `person1`.
-`Person2` will be inactive for this example.
+`VideoServer` will stream a video to `person1`, the third node, `person2`,
+will be inactive in this simulation.
 
-The type of the visualizer is `IntegratedMultiVisualizer`.
+The type of the visualizer module is `IntegratedMultiVisualizer`.
 Multi-visualizers are compound visualizer modules containing submodule vectors 
-of visualizer simple modules. In this example, multiple visualizers of 
-`DataLinkVisualizer` are required for displaying data link activity at various levels.
-By default, the multi visualizers contain one submodule of each visualizer simple module.
-The number of submodules can be specified for each visualizer submodule with parameters.
-For this example, three `DataLinkVisualizer` are configured, observing packets at 
-*service*, *peer* and *protocol* level. They are marked with different colors.
+of visualizer simple modules. By default, the multi visualizers contain 
+one submodule of each visualizer simple module.
+The number of submodules can be specified with parameters for each visualizer submodule.
 
-We configure the `visualizer` module as follows.
+In this example, we will display data link activity at three different levels.
+To achieve this, three `DataLinkVisualizer` will be configured, observing packets at *service*, 
+*peer* and *protocol* level. They are marked with different colors.
 
 ``` {.snippet}
 *.visualizer.*.numDataLinkVisualizers = 3
 *.visualizer.*.dataLinkVisualizer[*].displayLinks = true
+*.visualizer.*.dataLinkVisualizer[*].packetFilter = "*Video*"
 *.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
 *.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
 *.visualizer.*.dataLinkVisualizer[0].activityLevel = "service"
@@ -142,11 +141,19 @@ We configure the `visualizer` module as follows.
 *.visualizer.*.dataLinkVisualizer[2].labelColor = "purple"
 ```
 
+By using the `numDataLinkVisualizers` parameter, we set three `DataLinkVisualizer` modules.
+In this example, we are interested in *video* packets. We can highlight them easily 
+by using the `packetFilter` parameter.
+The `fadeOutMode` and `holdAnimationTime` parameters delay the fading of 
+data link activity arrows.
+The `activityLevel`, `lineColor` and `labelColor` parameters are different
+at each `DataLinkVisualizer` to make the levels easy to distinguish.
+
 The following video shows what happens when we start the simulation.
 In the video, data link activity is displayed at <span style="color:purple">*protocol*</span>, 
 <span style="color:blue">*peer*</span> and <span style="color:green">*service*</span> level.
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v1213.mp4"></video></p>
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v0104.mp4"></video></p>
 
 At the beginning of the video, `person1` requests a video stream.
 In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
