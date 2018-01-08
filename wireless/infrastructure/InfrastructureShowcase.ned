@@ -57,6 +57,8 @@ network InfrastructureShowcaseBase
 
 network InfrastructureShowcaseA extends InfrastructureShowcaseBase
 {
+    parameters:
+        @figure[title](type=label; text="Infrastructure mode"; pos=525,25; anchor=sw; color=darkblue);
     submodules:
         accessPoint: AccessPoint {
             @display("p=374,200");
@@ -65,4 +67,6 @@ network InfrastructureShowcaseA extends InfrastructureShowcaseBase
 
 network InfrastructureShowcaseB extends InfrastructureShowcaseBase
 {
+    parameters:
+        @figure[title](type=label; text="Adhoc mode"; pos=525,25; anchor=sw; color=darkblue);
 }
