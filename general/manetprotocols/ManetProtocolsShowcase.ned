@@ -36,7 +36,7 @@ network ManetprotocolsShowcaseA
             @display("p=1331,391;i=misc/solarpanel");
         }
         node1: ManetRouter {
-            @display("p=1124,763;i=misc/solarpanel");
+            @display("p=1064.24,824.82465;i=misc/solarpanel");
         }
         node3: ManetRouter {
             @display("p=1304,253;i=misc/solarpanel");
