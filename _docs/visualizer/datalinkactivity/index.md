@@ -133,30 +133,34 @@ The `visualizer` module is configured as follows.
 *.visualizer.*.dataLinkVisualizer[*].packetFilter = "*Video*"
 *.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
 *.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
-*.visualizer.*.dataLinkVisualizer[0].activityLevel = "service"
-*.visualizer.*.dataLinkVisualizer[0].lineColor = "green"
-*.visualizer.*.dataLinkVisualizer[0].labelColor = "green"
+*.visualizer.*.dataLinkVisualizer[0].activityLevel = "protocol"
+*.visualizer.*.dataLinkVisualizer[0].lineColor = "purple"
+*.visualizer.*.dataLinkVisualizer[0].labelColor = "purple"
 *.visualizer.*.dataLinkVisualizer[1].activityLevel = "peer"
 *.visualizer.*.dataLinkVisualizer[1].lineColor = "blue"
 *.visualizer.*.dataLinkVisualizer[1].labelColor = "blue"
-*.visualizer.*.dataLinkVisualizer[2].activityLevel = "protocol"
-*.visualizer.*.dataLinkVisualizer[2].lineColor = "purple"
-*.visualizer.*.dataLinkVisualizer[2].labelColor = "purple"
+*.visualizer.*.dataLinkVisualizer[2].activityLevel = "service"
+*.visualizer.*.dataLinkVisualizer[2].lineColor = "green"
+*.visualizer.*.dataLinkVisualizer[2].labelColor = "green"
 ```
 
 By using the `numDataLinkVisualizers` parameter, we set three `DataLinkVisualizer` modules.
-In this example, we are interested in *video* packets, to highlight that packets 
-we use the `packetFilter` parameter.
+In this example, we are interested in *video* packets. We use the `packetFilter` parameter 
+to highlight that packets.
 The `fadeOutMode` parameter specifies that inactive links fade out in animation time.
 The `holdAnimationTime` parameter stops the animation for a while,
 delaying the fading of the data link activity arrows.
-
-
 The `activityLevel`, `lineColor` and `labelColor` parameters are different
-at each `DataLinkVisualizer` to make the levels easy to distinguish.
+at each `DataLinkVisualizer` to make data link activity levels easy to distinguish.
 
-In the following video, data link activity is displayed at <span style="color:purple">*protocol*</span>, 
-<span style="color:blue">*peer*</span> and <span style="color:green">*service*</span> level.
+- `dataLinkVisualizer[0]` is configured to display 
+<span style="color:purple">*protocol* level activity</span> with purple arrows.
+- `dataLinkVisualizer[1]` is configured to display 
+<span style="color:blue">*peer* level activity</span> with blue arrows,
+- `dataLinkVisualizer[2]` is configured to display 
+<span style="color:green">*service* level activity</span> with green arrows,
+
+The following animation shows what happens when we start the simulation.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v0104.mp4"></video></p>
 
@@ -164,8 +168,10 @@ At the beginning of the video, `person1` sends a `VideoStrmReq` packet,
 requesting the video stream.
 In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
 The video stream is fragmented because the size of the packets is greater 
-than the Maximum Transmission Unit (MTU). The first fragment (`VideoStrmPk-frag0`) 
-causes data link activity only at *protocol* level and at *peer* level.
+than the Maximum Transmission Unit. 
+The first packet fragment, `VideoStrmPk-frag0` causes data link activity only 
+at *protocol* level and at *peer* level, because other packet fragments are required
+to allow the packet to be forwarded to higher layers.
 When `VideoStrmPk-frag1` is received by `person1`, the packet is reassembled 
 and is sent to the upper layers. As a result of this, a green arrow is displayed 
 between `videoServer` and `person1`, representing data link activity at *service* level.
