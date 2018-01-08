@@ -111,7 +111,7 @@ We use the following wireless network for this example.
 <img src="ActivityLevel_v1206.png" class="screen" />
 
 The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
-`VideoServer` will stream a video to `person1`, the third node, `person2`,
+`VideoServer` will stream a video to `person1`, `person2`
 will be inactive in this simulation.
 
 The type of the visualizer module is `IntegratedMultiVisualizer`.
@@ -165,7 +165,7 @@ and is sent to the upper layers. As a result of this, a green arrow is displayed
 between `videoServer` and `person1`, representing data link activity at *service* level.
 
 An other phenomenon can also be observed in the video.
-We can see *protocol* level data link activity between `person2` and the other nodes.
+There is *protocol* level data link activity between `person2` and the other nodes.
 This is, because frames are also received in the physical layer of `person2`, 
 but they are dropped at data link layer level because they are not addressed to `person2`.
 
