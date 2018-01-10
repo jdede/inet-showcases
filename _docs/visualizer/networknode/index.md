@@ -64,8 +64,8 @@ only with 3D models and we do not deal with maps. You can learn about maps
 in the <a href="https://inet.omnetpp.org/inet-showcases//visualizer/earth/" target="_blank">Visualizing Terrain and Urban Environment</a> showcase.
 
 By default, each node is represented by a 2D icon on the 3D osg scene which is set 
-in the display string of the node. If we want to replace the 2D icon with a 3D model, 
-we need to load external resources, for example images or 3D models. 
+in the display string of the node. If we want to replace the 2D icon, 
+we need to load external resources, for example images or 3D models.
 The resource we want to load is specified in the `osgModel` parameter of the node.
 By default, the `OMNeT++` image path is used to find the image.
 
@@ -73,14 +73,14 @@ By default, the `OMNeT++` image path is used to find the image.
 - geometric file formats: 3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg, osgb,
 - image file formats: bmp, gif, jpeg, rgb, tga, tif.
 
-By using the `osgModel` parameter, we can scale, rotate and translate the 3D model.
+By using the `osgModel` parameter, we can scale, rotate and translate the external model.
 The `osgModel` parameter is used as follows:
 
-Firstly, we have to set the 3D model's file name that will represent the network node.
-After this, we can use the `scale`, `trans` and `rot` keywords to transform the model.
-These keywords can be used in any order and separated by dots. The model's size 
-will be multiplied with the number before the `scale` keyword. If we want to use 
-decimal fraction, it must be written between parentheses, e.g `(0.8).scale`.
+We have to set the external model's file name that will represent the network node.
+After the model's name, we can use the `scale`, `trans` and `rot` keywords to transform the model.
+These keywords can be used in any order and they must be separated by dots. The model's size 
+will be multiplied with the number before the `scale` keyword. If a decimal fraction is used,
+it must be written in parentheses, e.g `(0.8).scale`.
 By using `trans` keyword, the model can be translated by a certain value along 
 the X, Y and Z axes. The values of the axes are separated by commas.
 The format of the `trans` keyword is `X,Y,Z.trans`. 
@@ -99,11 +99,11 @@ the `exampleNode` network node,
 and 90 degrees around the Z axis,
 - The parts of the parameter string are separated by dots.
 
-Color of the 3D model also can be changed by using the `osgModelColor` parameter.
+The color of the model also can be changed by using the `osgModelColor` parameter.
 This parameter accepts English color names (more precisely, SVG color names) 
 and HTML-style RGB values.
 
-**NOTE:** More information about `OpenSceneGraph` can be found on the 
+**NOTE:** Further information about `OpenSceneGraph` can be found on the 
 <a href="http://www.openscenegraph.org" target="_blank">OpenSceneGraph web site</a> 
 and in dedicated `OpenSceneGraph` books.
 
@@ -138,13 +138,12 @@ of the playground in the 2D canvas.
 <img src="VisualizingNodes_v1019.png" class="screen" />
 
 On the 3D osg scene, you can see the same icons as on the 2D canvas.
-The icons are automatically rotating towards the camera. The (0,0) position
-of the playground is the top corner of the green field.
+The icons are automatically rotating towards the camera. The playground axes
+are also displayed.
 
-<img src="Icons_on_osgscene.png" class="screen" />
+<img src="IconsOnOsgscene_v0110.png" class="screen" />
 
 In our next experiment, we replace the icon of the nodes with external 3D models. 
-The following configuration is used to replace 2D icons with 3D models.
 The models are scaled in order to have the right size.
 
 ``` {.snippet}
