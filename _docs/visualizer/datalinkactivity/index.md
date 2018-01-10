@@ -47,8 +47,7 @@ be changed with parameters of the visualizer.
 
 By default, all packets, interfaces and nodes are considered for the visualization.
 This selection can be narrowed to certain packets and/or nodes with the
-visualizer's `packetFilter`, `interfaceFilter`, and
-`nodeFilter` parameters.
+visualizer's `packetFilter`, `interfaceFilter`, and `nodeFilter` parameters.
 
 ## Enabling Visualization of Data Link Activity
 
@@ -166,7 +165,7 @@ The following animation shows what happens when we start the simulation.
 
 At the beginning of the video, `person1` sends a `VideoStrmReq` packet, 
 requesting the video stream.
-In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
+In response to this, `videoServer` starts to send video stream packet fragments to `person1`.
 The packets are fragmented because their size is greater than the Maximum Transmission Unit. 
 The first packet fragment, `VideoStrmPk-frag0` causes data link activity only 
 at *protocol* level and at *peer* level, because other packet fragments are required
