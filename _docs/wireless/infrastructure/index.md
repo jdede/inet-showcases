@@ -72,7 +72,7 @@ The showcase contains two example simulations, with one of them demonstrating in
 
 <img class="screen" src="network.png">
 
-TODO: write the mode on the playground in a figure ?
+TODO: write the mode on the playground in a figure ? -> obvious its infrastructure or not -> not needed
 
 The networks contain two `WirelessHosts` named `host1` and `host2`.
 They also contain an `Ipv4NetworkConfigurator`, an `Ieee80211ScalarRadioMedium` and an `IntegratedVisualizer` module. The network for the infrastructure mode configuration also contains an `AccessPoint`.
