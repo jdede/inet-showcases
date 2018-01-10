@@ -151,7 +151,7 @@ The `fadeOutMode` parameter specifies that inactive links fade out in animation 
 The `holdAnimationTime` parameter stops the animation for a while,
 delaying the fading of the data link activity arrows.
 The `activityLevel`, `lineColor` and `labelColor` parameters are different
-at each `DataLinkVisualizer` to make data link activity levels easy to distinguish.
+at each `DataLinkVisualizer` to make data link activity levels easy to distinguish:
 
 - `dataLinkVisualizer[0]` is configured to display 
 <span style="color:purple">*protocol* level activity</span> with purple arrows.
@@ -167,8 +167,7 @@ The following animation shows what happens when we start the simulation.
 At the beginning of the video, `person1` sends a `VideoStrmReq` packet, 
 requesting the video stream.
 In response to this, `videoServer` sends `VideoStrmPk-frag` packet fragments to `person1`.
-The video stream is fragmented because the size of the packets is greater 
-than the Maximum Transmission Unit. 
+The packets are fragmented because their size is greater than the Maximum Transmission Unit. 
 The first packet fragment, `VideoStrmPk-frag0` causes data link activity only 
 at *protocol* level and at *peer* level, because other packet fragments are required
 to allow the packet to be forwarded to higher layers.
