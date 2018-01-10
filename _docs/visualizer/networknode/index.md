@@ -6,14 +6,12 @@ hidden: true
 
 ## Goals
 
-In network simulations, it is essential to visualize the participants of
-communication. Customizing nodes' appearance may also be important, for
+In network simulations, it is essential to visualize the participants of the
+communication. Customizing appearance of the nodes may also be important, for
 example to highlight nodes or to distinguish nodes based on location or function.
-In complex networks with many nodes, it also can be useful to visualize only the
-nodes we are interested in.
 
-This showcase demonstrates how network nodes are visualized in INET
-simulations.
+This showcase demonstrates how network nodes are visualized how their appearance
+can be customized in INET simulations.
 
 INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/visualizer/networknode" target="_blank">`inet/showcases/visualizer/networknode`</a>
@@ -22,7 +20,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 In INET simulations, `NetworkNodeVisualizer` module (included in the
 network as part of `IntegratedVisualizer`) is responsible for visualizing
-network nodes. `NetworkNodeVisualizer` includes two submodules: 
+network nodes. `NetworkNodeVisualizer` includes two submodules:
 `NetworkNodeCanvasVisualizer` and `NetworkNodeOsgVisualizer`.
 
 All nodes can be visualized on a 2D canvas by `NetworkNodeCanvasVisualizer` 
@@ -38,7 +36,7 @@ On the 2D canvas, each node is represented by an icon. The icon of the node can 
 customized  by setting the display string of the node in the network description file (NED). 
 The display string can be set by tags. The icon can be customized
 by specifying the `i` display string tag. It has three arguments:
-- The first argument specifies the icon to be used. It is used 
+- The first argument specifies the icon to be used. This argument is used 
 to find the image, just like the OMNeT++ image path or the `cIconFigure` class.
 - The second argument specifies the color of the icon. It accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.

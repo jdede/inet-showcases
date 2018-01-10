@@ -32,7 +32,7 @@ network NetworkNodeVisualizerShowcase
             @display("p=168,117;i=misc/car2");
         }
         pedestrian: AdhocHost {
-            @display("p=113,156;i=misc/person3");
+            @display("p=113,156;i=misc/person");
         }
 }
 
