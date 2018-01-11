@@ -113,6 +113,104 @@ network ManetprotocolsShowcaseB
         }
 }
 
+network ManetprotocolsShowcaseMoreNodes
+{
+    parameters:
+        @display("bgb=400,400");
+    submodules:
+        source: ManetRouter {
+            @display("p=104,335");
+        }
+        node1: ManetRouter {
+            @display("p=104,226");
+        }
+        node2: ManetRouter {
+            @display("p=175,140");
+        }
+        node3: ManetRouter {
+            @display("p=238,276");
+        }
+        node4: ManetRouter {
+            @display("p=312,196");
+        }
+        node6: ManetRouter {
+            @display("p=147,67");
+        }
+        node7: ManetRouter {
+            @display("p=60,125");
+        }
+        destination: ManetRouter {
+            @display("p=292,80");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=38,28");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=33,78");
+        }
+        visualizer: IntegratedMultiVisualizer {
+            @display("p=28,127");
+        }
+        node5: ManetRouter {
+            @display("p=175,252");
+        }
+        node8: ManetRouter {
+            @display("p=251,187");
+        }
+        node9: ManetRouter {
+            @display("p=322,325");
+        }
+        node10: ManetRouter {
+            @display("p=218,57");
+        }
+        node11: ManetRouter {
+            @display("p=38,213");
+        }
+        node12: ManetRouter {
+            @display("p=49,308");
+        }
+}
+
+network ManetprotocolsShowcaseSmallerPlayground
+{
+    parameters:
+        @display("bgb=320,304");
+    submodules:
+        source: ManetRouter {
+            @display("p=124,261");
+        }
+        node1: ManetRouter {
+            @display("p=104,172");
+        }
+        node2: ManetRouter {
+            @display("p=175,86");
+        }
+        node3: ManetRouter {
+            @display("p=217,211");
+        }
+        node4: ManetRouter {
+            @display("p=272,149");
+        }
+        node6: ManetRouter {
+            @display("p=144,32");
+        }
+        node7: ManetRouter {
+            @display("p=84,86");
+        }
+        destination: ManetRouter {
+            @display("p=262,55");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=38,28");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=33,78");
+        }
+        visualizer: IntegratedMultiVisualizer {
+            @display("p=28,127");
+        }
+}
+
 
 //network ManetProtocolsShowcase
 //{
