@@ -7,8 +7,8 @@ hidden: true
 ## Goals
 
 In network simulations, it is essential to visualize the participants of the
-communication. Customizing appearance of the nodes may also be important, for
-example to highlight nodes or to distinguish nodes based on location or function.
+communication. Customizing the appearance of nodes may also be important, for
+example, to highlight nodes or to distinguish nodes based on location or function.
 
 This showcase demonstrates how network nodes are visualized how their appearance
 can be customized in INET simulations.
@@ -23,25 +23,26 @@ network as part of `IntegratedVisualizer`) is responsible for visualizing
 network nodes. `NetworkNodeVisualizer` includes two submodules:
 `NetworkNodeCanvasVisualizer` and `NetworkNodeOsgVisualizer`.
 
-All nodes can be visualized on a 2D canvas by `NetworkNodeCanvasVisualizer` 
-and on a 3D scene by `NetworkNodeOsgVisualizer`. We can narrow the list of nodes 
+All nodes can be visualized on a 2D canvas by the `NetworkNodeCanvasVisualizer` module
+and on a 3D scene by the `NetworkNodeOsgVisualizer` module. We can narrow the list of nodes 
 to be displayed by using the `nodeFilter` parameter.
-The name of the node is displayed by default, but it can be hide by setting the
+The name of the node is displayed by default, but it can be hidden by setting the
 `displayModuleName` parameter to `false`.
 
 ### Visualization on a 2D canvas
 
-`NetworkNodeCanvasVisualizer` is responsible for displaying nodes on a 2D canvas. 
+`NetworkNodeCanvasVisualizer` is responsible for displaying nodes on a 2D canvas.
 On the 2D canvas, each node is represented by an icon. The icon of the node can be 
 customized  by setting the display string of the node in the network description file (NED). 
 The display string can be set by tags. The icon can be customized
 by specifying the `i` display string tag. It has three arguments:
+
 - The first argument specifies the icon to be used. This argument is used 
 to find the image, just like the OMNeT++ image path or the `cIconFigure` class.
 - The second argument specifies the color of the icon. It accepts English color names 
 (more precisely, SVG color names) and HTML-style RGB values.
-- The third argument defines the colorization amount of the icon. It can be set 
-between zero and one. If the parameter value is one, it means full colorization.
+- The third argument defines the amount of colorization in percent. 
+If the parameter value is 100, it means full colorization.
 
 We can set the size of the icon by using the `is` display string tag. The size can be 
 `vs` (very small), `s` (small), `n` (normal), `l` (large) and `vl` (very large).
@@ -63,7 +64,7 @@ in the <a href="https://inet.omnetpp.org/inet-showcases//visualizer/earth/" targ
 
 By default, each node is represented by a 2D icon on the 3D osg scene which is set 
 in the display string of the node. If we want to replace the 2D icon, 
-we need to load external resources, for example images or 3D models.
+we need to load external resources, for example, images or 3D models.
 The resource we want to load is specified in the `osgModel` parameter of the node.
 By default, the `OMNeT++` image path is used to find the image.
 
@@ -72,12 +73,10 @@ By default, the `OMNeT++` image path is used to find the image.
 - image file formats: bmp, gif, jpeg, rgb, tga, tif.
 
 By using the `osgModel` parameter, we can scale, rotate and translate the external model.
-The `osgModel` parameter is used as follows:
-
 We have to set the external model's file name that will represent the network node.
 After the model's name, we can use the `scale`, `trans` and `rot` keywords to transform the model.
-These keywords can be used in any order and they must be separated by dots. The model's size 
-will be multiplied with the number before the `scale` keyword. If a decimal fraction is used,
+These keywords can be used in any order and they must be separated by dots. The size of the model 
+will be multiplied by the number before the `scale` keyword. If a decimal fraction is used,
 it must be written in parentheses, e.g `(0.8).scale`.
 By using `trans` keyword, the model can be translated by a certain value along 
 the X, Y and Z axes. The values of the axes are separated by commas.
@@ -103,21 +102,19 @@ and HTML-style RGB values.
 
 **NOTE:** Further information about `OpenSceneGraph` can be found on the 
 <a href="http://www.openscenegraph.org" target="_blank">OpenSceneGraph web site</a> 
-and in dedicated `OpenSceneGraph` books.
+and in dedicated <a href="http://www.openscenegraph.org/index.php/documentation/books" target="_blank">OpenSceneGraph books</a>.
 
 ## Customizing Appearance of Network Nodes
 
-This example shows how the nodes' look can be customized. A simulation is created
+This example demonstrates how the nodes' look can be customized. A simulation is created
 for this example, it can be run by selecting the `VisualizingNodes`
 configuration from the ini file.
 
 The network contains two `AdhocHost` nodes, `pedestrian` and
-`car`. We change the default icon of nodes by
-modifying their display string in the
-`NetworkNodeVisualizerShowcase.ned` file. (Note, that the default icon also
-can be modified in the node's *Properties* on the *Appearance* tab.)
-
-**NOTE:** You can find new icons in the *inet/images/misc/* folder.
+`car`. The default icon of nodes is changed by modifying their 
+display string in the `NetworkNodeVisualizerShowcase.ned` file.
+(The default icon also can be modified in the node's 
+*Properties* on the *Appearance* tab.)
 
 ``` {.snippet}
 car: AdhocHost {
@@ -128,21 +125,21 @@ pedestrian: AdhocHost {
     }
 ```
 
-On the 2D canvas, a car and a person with a smartphone can be seen, 
-representing `car` and `pedestrian`. The `p` display string tag defines 
-the position of the nodes. The (0,0) position is in the upper left corner 
-of the playground in the 2D canvas.
+<img src="IconsOnCanvas_v0111.png" class="screen" />
 
-<img src="VisualizingNodes_v1019.png" class="screen" />
+On the 2D canvas, a car and a man can be seen, 
+representing the nodes. The `p` display string tag defines 
+the position of the nodes. On the 2D canvas, the (0,0) position is
+in the upper left corner of the playground.
 
-On the 3D osg scene, you can see the same icons as on the 2D canvas.
-The icons are automatically rotating towards the camera. The playground axes
-are also displayed.
+<img src="IconsOnOsgscene_v0111.png" class="screen" />
 
-<img src="IconsOnOsgscene_v0110.png" class="screen" />
+By default, the icons on the 3D scene are the same as on the 2D canvas.
+The icons are automatically rotating towards the camera.
+The playground axes are also displayed.
 
 In our next experiment, we replace the icon of the nodes with external 3D models. 
-The models are scaled in order to have the right size.
+The models will be scaled in order to be proportionate to each other.
 
 ``` {.snippet}
 *.pedestrian.osgModel = "boxman.osgb.(0.3).scale"
@@ -151,15 +148,14 @@ The models are scaled in order to have the right size.
 
 The `boxman.osgb` and the `car.osgb` files are loaded and scaled.
 This configuration affects only 3D visualization. The following animation shows
-how the nodes look like after we have replaced their icon.
+how the nodes look like after we have replaced their icon with 3D models.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="656" height="404" src="ModelsLoaded.mp4"> </video></p>
 
 The `pedestrian` node is represented by an animated walking
-boxman and the `car` node is represented by a car model instead of 2D
-icons.
+boxman and the `car` node is represented by a car model instead of 2D icons.
 
-The orientation of network nodes is updated by the mobility submodule of nodes.
+The orientation of network nodes is updated by their own mobility submodule.
 It is possible that orientation of the 3D model does not match 
 with the orientation of the node, i.e. the `pedestrian` 3D model is moving sideways.
 
@@ -168,7 +164,7 @@ with the orientation of the node, i.e. the `pedestrian` 3D model is moving sidew
 The orientation of the 3D model can be initialized by the `rot` keyword.
 If the node is a mobile node, then the mobility submodule of the node
 will manage future rotations of the node during the simulation.
-To achieve the correct orientation, the pedestrian 3D model should be rotated 
+To achieve the correct orientation, the `pedestrian` 3D model should be rotated 
 90 degrees counterclockwise around the Z axis.
 
 ``` {.snippet}
@@ -183,7 +179,7 @@ by the mobility model of the network node.
 
 ## More Information
 
-This example only demonstrated the key features of network node visualization.
+This example only demonstrates the key features of network node visualization.
 For more information, refer to the `NetworkNodeVisualizer`, `NetworkNodeCanvasVisualizer` 
 and `NetworkNodeOsgVisualizer` NED documentations.
 
