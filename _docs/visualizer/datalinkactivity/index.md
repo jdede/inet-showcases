@@ -33,11 +33,12 @@ The level where packets are observed can be set by the `activityLevel` parameter
 
 - At *service* level, those packets are displayed which pass through the data link layer 
 (i.e. carry data from/to higher layers).
-- At *peer* level, the visualization is triggered by those packets which are internal 
-to the operation of the data link layer protocol.
+- At *peer* level, the visualization is triggered by those packets
+which are processed inside the link layer in the source node and 
+processed inside the link layer in the destination node.
 - At *protocol* level, `DataLinkVisualizer` displays those packets 
-which leave the data link layer in the source node and reach the data link layer 
-in the destination node.
+which are going out at the bottom of link layer in the source node and 
+going in at the bottom of the link layer in the destination node.
 
 The activity between two nodes is represented visually by an arrow that points
 from the sender node to the receiver node. The arrow appears after the first
@@ -101,84 +102,6 @@ blue dotted line which can be ignored, as it is also part of the standard OMNeT+
 packet animation.) Note, however, that the ACK frame does not activate the
 visualization, because ACK frames do not pass through data link layer.
 
-## Displaying Data Link Activity at Different Levels
-
-The following example demonstrates, how to visualize data link activity at *protocol*,
-*peer* and *service* level.
-This simulation can be run by selecting the `ActivityLevel` configuration from the ini file.
-
-We use the following wireless network for this example.
-
-<img src="ActivityLevel_v1206.png" class="screen" />
-
-The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
-`VideoServer` will be streaming a video to `person1`.
-`Person2` will be inactive in this example.
-
-The type of the visualizer module is `IntegratedMultiVisualizer`.
-Multi-visualizers are compound visualizer modules containing submodule vectors 
-of visualizer simple modules. By default, the multi-visualizers contain 
-one submodule of each visualizer simple module.
-The number of submodules can be specified with parameters for each visualizer submodule.
-
-In this example, data link activity will be displayed at three different levels.
-To achieve this, three `DataLinkVisualizer` will be configured, observing packets at *service*, 
-*peer* and *protocol* level. They are marked with different colors.
-The `visualizer` module is configured as follows.
-
-``` {.snippet}
-*.visualizer.*.numDataLinkVisualizers = 3
-*.visualizer.*.dataLinkVisualizer[*].displayLinks = true
-*.visualizer.*.dataLinkVisualizer[*].packetFilter = "*Video*"
-*.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
-*.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
-*.visualizer.*.dataLinkVisualizer[0].activityLevel = "protocol"
-*.visualizer.*.dataLinkVisualizer[0].lineColor = "purple"
-*.visualizer.*.dataLinkVisualizer[0].labelColor = "purple"
-*.visualizer.*.dataLinkVisualizer[1].activityLevel = "peer"
-*.visualizer.*.dataLinkVisualizer[1].lineColor = "blue"
-*.visualizer.*.dataLinkVisualizer[1].labelColor = "blue"
-*.visualizer.*.dataLinkVisualizer[2].activityLevel = "service"
-*.visualizer.*.dataLinkVisualizer[2].lineColor = "green"
-*.visualizer.*.dataLinkVisualizer[2].labelColor = "green"
-```
-
-By using the `numDataLinkVisualizers` parameter, we set three `DataLinkVisualizer` modules.
-In this example, we are interested in *video* packets. We use the `packetFilter` parameter 
-to highlight that packets.
-The `fadeOutMode` parameter specifies that inactive links fade out in animation time.
-The `holdAnimationTime` parameter stops the animation for a while,
-delaying the fading of the data link activity arrows.
-The `activityLevel`, `lineColor` and `labelColor` parameters are different
-at each `DataLinkVisualizer` to make data link activity levels easy to distinguish:
-
-- `dataLinkVisualizer[0]` is configured to display 
-<span style="color:purple">*protocol* level activity</span> with purple arrows.
-- `dataLinkVisualizer[1]` is configured to display 
-<span style="color:blue">*peer* level activity</span> with blue arrows,
-- `dataLinkVisualizer[2]` is configured to display 
-<span style="color:green">*service* level activity</span> with green arrows,
-
-The following animation shows what happens when we start the simulation.
-
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v0104.mp4"></video></p>
-
-At the beginning of the video, `person1` sends a `VideoStrmReq` packet, 
-requesting the video stream.
-In response to this, `videoServer` starts to send video stream packet fragments to `person1`.
-The packets are fragmented because their size is greater than the Maximum Transmission Unit. 
-The first packet fragment, `VideoStrmPk-frag0` causes data link activity only 
-at *protocol* level and at *peer* level, because other packet fragments are required
-to allow the packet to be forwarded to higher layers.
-When `VideoStrmPk-frag1` is received by `person1`, the packet is reassembled 
-and is sent to the upper layers. As a result of this, a green arrow is displayed 
-between `videoServer` and `person1`, representing data link activity at *service* level.
-
-An other phenomenon can also be observed in the video.
-There is *protocol* level data link activity between `person2` and the other nodes.
-This is, because frames are also received in the physical layer of `person2`, 
-but they are dropped at data link layer level because they are not addressed to `person2`.
-
 ## Filtering Data Link Activity
 
 In complex networks with many nodes and several protocols in use, it is often
@@ -239,6 +162,84 @@ As you can see, visualization allows us to follow the ping packets between
 `source1` and `destination1`. Note, however, that ping traffic
 between the two other hosts, `source2` and `destination2`, also activates 
 the visualization on the link between `etherSwitch1` and `etherSwitch4`.
+
+## Displaying Data Link Activity at Different Levels
+
+The following example demonstrates, how to visualize data link activity at *protocol*,
+*peer* and *service* level.
+This simulation can be run by selecting the `ActivityLevel` configuration from the ini file.
+
+We use the following wireless network for this example.
+
+<img src="ActivityLevel_v1206.png" class="screen" />
+
+The network consists three `AdhocHost` nodes, `person1`, `person2` and `videoServer`.
+`VideoServer` will be streaming a video to `person1`.
+`Person2` will be inactive in this example.
+
+The type of the visualizer module is `IntegratedMultiVisualizer`.
+Multi-visualizers are compound visualizer modules containing submodule vectors 
+of visualizer simple modules. By default, the multi-visualizers contain 
+one submodule of each visualizer simple module.
+The number of submodules can be specified with parameters for each visualizer submodule.
+
+In this example, data link activity will be displayed at three different levels.
+To achieve this, three `DataLinkVisualizer` will be configured, observing packets at *service*, 
+*peer* and *protocol* level. They are marked with different colors.
+The `visualizer` module is configured as follows.
+
+``` {.snippet}
+*.visualizer.*.numDataLinkVisualizers = 3
+*.visualizer.*.dataLinkVisualizer[*].displayLinks = true
+*.visualizer.*.dataLinkVisualizer[*].packetFilter = "*Video*"
+*.visualizer.*.dataLinkVisualizer[*].fadeOutMode = "animationTime"
+*.visualizer.*.dataLinkVisualizer[*].holdAnimationTime = 1s
+*.visualizer.*.dataLinkVisualizer[0].activityLevel = "protocol"
+*.visualizer.*.dataLinkVisualizer[0].lineColor = "purple"
+*.visualizer.*.dataLinkVisualizer[0].labelColor = "purple"
+*.visualizer.*.dataLinkVisualizer[1].activityLevel = "peer"
+*.visualizer.*.dataLinkVisualizer[1].lineColor = "blue"
+*.visualizer.*.dataLinkVisualizer[1].labelColor = "blue"
+*.visualizer.*.dataLinkVisualizer[2].activityLevel = "service"
+*.visualizer.*.dataLinkVisualizer[2].lineColor = "green"
+*.visualizer.*.dataLinkVisualizer[2].labelColor = "green"
+```
+
+By using the `numDataLinkVisualizers` parameter, we set three `DataLinkVisualizer` modules.
+In this example, we are interested in *video* packets. To highlight them, 
+we use the `packetFilter` parameter.
+The `fadeOutMode` parameter specifies that inactive links fade out in animation time.
+The `holdAnimationTime` parameter stops the animation for a while,
+delaying the fading of the data link activity arrows.
+The `activityLevel`, `lineColor` and `labelColor` parameters are different
+at each `DataLinkVisualizer` to make data link activity levels easy to distinguish:
+
+- `dataLinkVisualizer[0]` is configured to display 
+<span style="color:purple">*protocol* level activity</span> with purple arrows.
+- `dataLinkVisualizer[1]` is configured to display 
+<span style="color:blue">*peer* level activity</span> with blue arrows,
+- `dataLinkVisualizer[2]` is configured to display 
+<span style="color:green">*service* level activity</span> with green arrows,
+
+The following video shows what happens when the simulation is running.
+
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="900" height="651" src="ActivityLevel_v0104.mp4"></video></p>
+
+At the beginning of the video, `person1` sends a `VideoStrmReq` packet, 
+requesting the video stream.
+In response to this, `videoServer` starts to send video stream packet fragments to `person1`.
+The packets are fragmented because their size is greater than the Maximum Transmission Unit. 
+The first packet fragment, `VideoStrmPk-frag0` causes data link activity only 
+at *protocol* level and at *peer* level, because other packet fragments are required
+to allow the packet to be forwarded to higher layers.
+When `VideoStrmPk-frag1` is received by `person1`, the packet is reassembled in 
+and is sent to the upper layers. As a result of this, a green arrow is displayed 
+between `videoServer` and `person1`, representing data link activity at *service* level.
+
+An other phenomenon can also be observed in the video.
+There is *protocol* level data link activity between `person2` and the other nodes.
+This is, because frames are also received in the physical layer of `person2`, 
+but they are dropped at data link layer level because they are not addressed to `person2`.
 
 ## Visualizing Data Link Activity in a Mobile Ad-Hoc Network
 
