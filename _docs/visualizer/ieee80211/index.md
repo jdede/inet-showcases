@@ -76,7 +76,7 @@ will see the icons being color-coded. When the association processes
 take place, the network will look like the following. Note the different
 SSIDs (`alpha`, `bravo`) and the colors.
 
-<img class="screen" src="advanced.png"> <!--
+<img class="screen" src="advanced2.png"> <!--
 TODO
 There are 2 wireless networks, with different colors.
 The icon indicates signal strength. The node close to access point alpha has the strongest signal,
