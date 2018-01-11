@@ -7,97 +7,17 @@
   <datasets>
     <datasets name="rcvdPk:count ManetprotocolsShowcaseMoreNodes.destination.udp">
       <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
-      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.udp) AND name(rcvdPk:count)"/>
       <items xsi:type="scave:BarChart" name="rcvdPk:count ManetprotocolsShowcaseMoreNodes.destination.udp"/>
     </datasets>
+    <datasets name="throughput">
+      <items xsi:type="scave:Add" filterPattern="name(throughput:vector) " type="VECTOR"/>
+      <items xsi:type="scave:Apply" operation="mean"/>
+      <items xsi:type="scave:LineChart" name="" lineNameFormat="">
+        <properties name="Line.Type" value="Dots"/>
+      </items>
+    </datasets>
   </datasets>
-  <chartSheets/>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.1/@items.2"/>
+  </chartSheets>
 </scave:Analysis>
