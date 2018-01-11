@@ -103,8 +103,9 @@ circles. The following animation shows what happens when the simulation
 is run. Note how the indicator above the host changes after each
 handover.
 
-<video controls loop autoplay src="handover9.mp4" width="580" height="500" onclick="this.paused ? this.play() : this.pause();">
+<video controls loop autoplay src="handover10.mp4" width="580" height="500" onclick="this.paused ? this.play() : this.pause();">
 </video>
+<!--internal video recording, animation speed node, run in fast mode-->
 
 ## Further information
 
@@ -115,4 +116,3 @@ For more information on IEEE 802.11 visualization, see the
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/4" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-
