@@ -65,24 +65,26 @@ in the <a href="https://inet.omnetpp.org/inet-showcases//visualizer/earth/" targ
 By default, each node is represented by a 2D icon on the 3D osg scene which is set 
 in the display string of the node. If we want to replace the 2D icon, 
 we need to load external resources, for example, images or 3D models.
-The resource we want to load is specified in the `osgModel` parameter of the node.
+The resource we want to load is specified in the `osgModel` parameter.
 By default, the `OMNeT++` image path is used to find the image.
 
 **NOTE:** Here are some supported file formats:
 - geometric file formats: 3dc, 3ds, flt, geo, iv, ive, lwo, md2, obj, osg, osgb,
 - image file formats: bmp, gif, jpeg, rgb, tga, tif.
 
-By using the `osgModel` parameter, we can scale, rotate and translate the external model.
-We have to set the external model's file name that will represent the network node.
-After the model's name, we can use the `scale`, `trans` and `rot` keywords to transform the model.
-These keywords can be used in any order and they must be separated by dots. The size of the model 
-will be multiplied by the number before the `scale` keyword. If a decimal fraction is used,
-it must be written in parentheses, e.g `(0.8).scale`.
-By using `trans` keyword, the model can be translated by a certain value along 
-the X, Y and Z axes. The values of the axes are separated by commas.
-The format of the `trans` keyword is `X,Y,Z.trans`. 
-By using the `rot` keyword the model can be rotated by a certain degree
-around the X, Y and Z axes. The format of the `rot` keyword is `X,Y,Z.rot`.
+There is support for so-called "pseudo loaders" in osg, which provide additional 
+options for loading 3D models. Pseudo loaders are able to perform some basic operations
+on the 3D model, after it is loaded. To use pseudo loaders, append the parameters
+for the modifier followed by the name of it to the end of the file name upon loading the model.
+The pseudo loaders are able to use in any order and they are separated by dots.
+
+- The `scale` pseudo loader can multiply the size of the model by a certain value.
+If decimal fraction is used, it must be written in parentheses, e.g `(0.8).scale`.
+- The `trans` pseudo loader can translate the model by a certain value along 
+the X, Y and Z axes. The values are separated by commas.
+The format of the `trans` pseudo loader is `X,Y,Z.trans`. 
+- The `rot` pseudo loader can rotate the model by a certain degree
+around the X, Y and Z axes. The format of the `rot` pseudo loader is `X,Y,Z.rot`.
 
 Examine the following example.
 
@@ -127,7 +129,7 @@ pedestrian: AdhocHost {
 
 <img src="IconsOnCanvas_v0111.png" class="screen" />
 
-On the 2D canvas, a car and a man can be seen, 
+On the 2D canvas, a car and a man appears, 
 representing the nodes. The `p` display string tag defines 
 the position of the nodes. On the 2D canvas, the (0,0) position is
 in the upper left corner of the playground.
@@ -147,7 +149,7 @@ The models will be scaled in order to be proportionate to each other.
 ```
 
 The `boxman.osgb` and the `car.osgb` files are loaded and scaled.
-This configuration affects only 3D visualization. The following animation shows
+This configuration affects only 3D models. The following animation shows
 how the nodes look like after we have replaced their icon with 3D models.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="656" height="404" src="ModelsLoaded.mp4"> </video></p>
@@ -161,8 +163,8 @@ with the orientation of the node, i.e. the `pedestrian` 3D model is moving sidew
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="626" height="390" src="PedestrianMovesSideways.mp4"> </video></p>
 
-The orientation of the 3D model can be initialized by the `rot` keyword.
-If the node is a mobile node, then the mobility submodule of the node
+The orientation of the 3D model can be initialized by the `rot` pseudo loader.
+If the node is a mobile node then the mobility submodule of the node
 will manage future rotations of the node during the simulation.
 To achieve the correct orientation, the `pedestrian` 3D model should be rotated 
 90 degrees counterclockwise around the Z axis.
@@ -174,7 +176,7 @@ To achieve the correct orientation, the `pedestrian` 3D model should be rotated
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" width="626" height="390" src="NodesOrientationIsRight.mp4"> </video></p>
 
 The above animation shows that both 3D model's orientation is correct.
-They are initialized by the `osgModel` parameter and updated
+They are initialized by pseudo loaders and updated
 by the mobility model of the network node.
 
 ## More Information
