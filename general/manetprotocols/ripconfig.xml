@@ -1,3 +1,0 @@
-<RIPConfig>
-	<interface names="wlan[0]" mode="SplitHorizonPoisonedReverse" metric="1"/>
-</RIPConfig>

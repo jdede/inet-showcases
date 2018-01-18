@@ -1,5 +1,0 @@
-#!/bin/bash
-
-inet -u Cmdenv -c StatisticAodv &
-inet -u Cmdenv -c StatisticDsdv &
-inet -u Cmdenv -c StatisticGpsr &

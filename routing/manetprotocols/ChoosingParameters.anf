@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="results/StatisticDsdv*.vec"/>
+    <inputs name="results/StatisticDsdv*.sca"/>
+    <inputs name="results/StatisticGpsr*.vec"/>
+    <inputs name="results/StatisticGpsr*.sca"/>
+    <inputs name="results/StatisticAodv-#*.vec"/>
+    <inputs name="results/StatisticAodv-#*.sca"/>
+  </inputs>
+  <datasets>
+    <datasets name="rcvdPk:count Aodv">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count) AND file(/inet/showcases/general/manetprotocols/results/StatisticAodv-#*.sca) "/>
+      <items xsi:type="scave:BarChart" name="rcvdPk:count ManetprotocolsShowcaseMoreNodes.destination.app[0]">
+        <barFields>replication</barFields>
+      </items>
+    </datasets>
+    <datasets name="rcvdPk:count Dsdv">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count) AND file(/inet/showcases/general/manetprotocols/results/StatisticDsdv-#*.sca) "/>
+      <items xsi:type="scave:BarChart" name="rcvdPk:count Dsdv">
+        <barFields>replication</barFields>
+      </items>
+    </datasets>
+    <datasets name="rcvdPk:count Gpsr">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count) AND file(/inet/showcases/general/manetprotocols/results/StatisticGpsr-#*.sca) "/>
+      <items xsi:type="scave:BarChart" name="rcvdPk:count Gpsr">
+        <barFields>replication</barFields>
+      </items>
+    </datasets>
+  </datasets>
+  <chartSheets/>
+</scave:Analysis>

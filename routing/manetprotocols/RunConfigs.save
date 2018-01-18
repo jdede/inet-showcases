@@ -1,0 +1,5 @@
+#!/bin/bash
+
+inet -u Cmdenv -c Aodv &
+inet -u Cmdenv -c Dsdv &
+inet -u Cmdenv -c theBestVoid &

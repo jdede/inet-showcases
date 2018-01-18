@@ -1,5 +1,0 @@
-#!/bin/bash
-
-inet -u Cmdenv -c Aodv --sim-time-limit=30s &
-inet -u Cmdenv -c Dsdv --sim-time-limit=30s &
-inet -u Cmdenv -c theBestVoid --sim-time-limit=30s &

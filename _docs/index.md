@@ -20,4 +20,5 @@ The following groups of showcases are available:
 
 * [Visualization Showcases](visualizer)
 * [Wireless Showcases](wireless)
+* [Routing Showcases](routing)
 * [General Showcases](general)

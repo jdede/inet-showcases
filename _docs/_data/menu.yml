@@ -42,6 +42,10 @@
      - page: _docs/wireless/crosstalk/index.md
      - page: _docs/wireless/infrastructure/index.md
      - page: _docs/wireless/multiradio/index.md
+- name: Routing Showcases
+  link: /inet-showcases/routing
+  submenu:
+     - page: _docs/routing/manetprotocols/index.md
 - name: General Showcases
   link: /inet-showcases/general
   submenu:
