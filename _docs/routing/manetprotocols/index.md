@@ -20,6 +20,11 @@ TODO: it demonstrates how to configure it ?
 INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/routing/manetprotocols" target="_blank">`inet/showcases/routing/manetprotocols`</a>
 
+## About MANETs
+
+manets are mobile so there is no infrastructure and it is dynamic so we need protocols that can
+work in the environment. reaction time and scalability.
+
 <pre>
 
 About manets and routing protocols in general
