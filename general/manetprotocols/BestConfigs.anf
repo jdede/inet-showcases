@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet/showcases/general/manetprotocols/results/Best*"/>
+  </inputs>
+  <datasets>
+    <datasets name="rcvdPk:count">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count)"/>
+      <items xsi:type="scave:BarChart" name="rcvdPk:count"/>
+    </datasets>
+    <datasets name="endToEndDelay:histogram">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(endToEndDelay:histogram) AND (run(BestAodv-0-20180118-12:51:08-727) OR run(BestDsdv-0-20180118-12:51:11-601) OR run(BestGpsr-0-20180118-12:51:14-558) )" type="HISTOGRAM"/>
+      <items xsi:type="scave:HistogramChart" name="endToEndDelay:histogram">
+        <properties name="Legend.Display" value="true"/>
+        <properties name="Hist.Bar" value="Outline"/>
+      </items>
+    </datasets>
+    <datasets name="throughput:vector">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(throughput:vector) AND file(/inet/showcases/general/manetprotocols/results/BestAodv*.vec) " type="VECTOR"/>
+      <items xsi:type="scave:ComputeScalar" scalarName="throughput_scalar" valueExpr="mean('throughput:vector') " moduleExpr="" groupByExpr=""/>
+      <items xsi:type="scave:BarChart"/>
+      <items xsi:type="scave:Group" name="throughput:vector ManetprotocolsShowcaseMoreNodes.destination.app[0]">
+        <items xsi:type="scave:LineChart" name="throughput:vector"/>
+      </items>
+      <items xsi:type="scave:BarChart"/>
+    </datasets>
+    <datasets name="endToEndDelay">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(endToEndDelay:histogram)" type="HISTOGRAM"/>
+      <items xsi:type="scave:ComputeScalar" scalarName="average" valueExpr="mean('endToEndDelay:histogram')" moduleExpr="" groupByExpr="configname"/>
+      <items xsi:type="scave:HistogramChart"/>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.2/@items.4 //@datasets/@datasets.2/@items.2 //@datasets/@datasets.3/@items.2"/>
+  </chartSheets>
+</scave:Analysis>
