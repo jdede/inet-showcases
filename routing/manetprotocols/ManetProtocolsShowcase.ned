@@ -106,10 +106,10 @@ network ManetprotocolsShowcaseB
             @display("p=38,28");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=33,78");
+            @display("p=38.461544,66.863914");
         }
         visualizer: IntegratedMultiVisualizer {
-            @display("p=28,127");
+            @display("p=38.461544,106.50889");
         }
 }
 
