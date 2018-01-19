@@ -56,6 +56,32 @@ AODV has less overhead, but reacts to changes in network topology slower than th
 
 ### About DSDV
 
+
+V1
+
+DSDV is a proactive (or table driven) MANET routing protocol, so makes sure routing information in the network is up-to-date. It maintains a table with the best routes to each destination. The table contains all other nodes a node knows about either directly because it's a neighbor, or indirectly through neighbors. The table contains nodes' IP addresses, last known sequence number and hop count required to reach it, and the next hop. Routing information is frequently updated, so all nodes have the best routes in the network.
+Routing information is updated in two ways:
+
+- Nodes broadcast their entire routing tables periodically
+- Nodes broadcast small updates when a change in their routing table occurs
+
+A node updates a routing table entry if it receives a better route. A better route is one that has a higher sequence number, or a lower hop count if the sequence number is the same.
+TODO: this detail is probably not needed.
+
+V2
+
+DSDV is a proactive (or table-driven) MANET routing protocol, where nodes maintain a routing table of the best distances for destinations in the network. The routing tables are updated periodically, and when there is a change in a node's routing table (a better route becomes available.)
+TODO: about performance
+
+<pre>
+
+The most important is:
+
+all nodes maintain the best routes to destinations. they are frequently updated. they periodically
+broadcast their entire routing tables, and send smaller updates when a change occurs in their routing tables.
+
+</pre>
+
 ### About GPSR
 
 
