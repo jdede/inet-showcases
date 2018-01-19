@@ -39,6 +39,21 @@ and the geo routing protocol `Greedy Perimeter Stateless Routing` (GPSR). The fo
 
 ### About AODV
 
+AODV is a reactive (or on-demand) MANET routing protocol, and as such, it maintains routes
+for which there is a demand in the network (i.e. packets are frequently sent on the route.)
+AODV uses IP addresses to address packets, and maintains a routing table with the next hop for reaching destinations. Routes time out after a while if not used. AODV features the following routing message types:
+- RREQ: Route request
+- RREP: Route reply
+- RERR: Route error
+
+TODO: there is another kind, hello messages
+TODO: actually, AODV is both reactive and proactive, but hello messages are disabled by default in INET
+
+When a node wants to send a packet, and it doesn't know the route to the destination, it initiates route discovery. It sends an RREQ multicast message. The neighboring nodes where the message came from, and forward it to their neighbors, until the message gets to the destination node. It replies with an RREP, which travels back to the source on the reverse path (along which the RREQ came.) <!--The intermediate nodes record the route towards the destination, as the RREP gets back to the source.-->
+Forward routes are set up when the RREP travels back to the source.
+An intermediate node can also send an RREP in reply to a received RREQ, if it knows the route to the destination, thus nodes can join an existing route. When the RREP arrives at the source, and the route is created, communication can being between the source and the destination. If a route no longer works, i.e. messages are not forwarded, RERR messages are broadcast, and this triggers route discovery.
+AODV has less overhead, but reacts to changes in network topology slower than the others.
+
 ### About DSDV
 
 ### About GPSR
@@ -49,6 +64,8 @@ GPSR is a geographic location based routing protocol. Each node maintains the ad
 Destination selection for packets is not address based, but packets addressed to a location specified with co-ordinates. The protocol operates in one of two modes:
 - In greedy routing mode, the node closest to the location will be the destination. The next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.
 - In perimeter routing mode, nodes create a graph of their neighboring nodes, and send the packet to the first node to the right, compared to the path the packet arrived. Each node does this, until the packet arrives at its destination, or at an intermediate node which can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.) If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?
+
+TODO: some properties of the protocol...its not very good for fast moving nodes
 
 TODO: about this much is enough about each protocol. Should be BRIEF.
 
@@ -61,6 +78,10 @@ Then the results
 
 then the statistic results ? or thats for later
 
+Maybe something like Part I: demonstrating the protocols
+                     Part II: comparing the protocols based on statistics, and how to do a parameter
+                              study
 
+The part II would involve: selecting a network, and mobility scenario. Making sure the results are seed independent. Then should run a study which selects the best performing parameter settings for each protocol. Then comparing the three protocols. Can you use the results from the study which looks for the best parameter values as the final results ?
 
 </pre>
