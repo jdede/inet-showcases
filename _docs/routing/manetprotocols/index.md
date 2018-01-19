@@ -43,6 +43,15 @@ and the geo routing protocol `Greedy Perimeter Stateless Routing` (GPSR). The fo
 
 ### About GPSR
 
+
+TODO: about ability to circumvent voids.
+GPSR is a geographic location based routing protocol. Each node maintains the addresses and geographical co-ordinates of its neighbors, i.e. other nodes in its communication range.
+Destination selection for packets is not address based, but packets addressed to a location specified with co-ordinates. The protocol operates in one of two modes:
+- In greedy routing mode, the node closest to the location will be the destination. The next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.
+- In perimeter routing mode, nodes create a graph of their neighboring nodes, and send the packet to the first node to the right, compared to the path the packet arrived. Each node does this, until the packet arrives at its destination, or at an intermediate node which can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.) If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?
+
+TODO: about this much is enough about each protocol. Should be BRIEF.
+
 <pre>
 
 About manets and routing protocols in general
