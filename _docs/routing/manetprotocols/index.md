@@ -54,6 +54,9 @@ Forward routes are set up when the RREP travels back to the source.
 An intermediate node can also send an RREP in reply to a received RREQ, if it knows the route to the destination, thus nodes can join an existing route. When the RREP arrives at the source, and the route is created, communication can being between the source and the destination. If a route no longer works, i.e. messages are not forwarded, RERR messages are broadcast, and this triggers route discovery.
 AODV has less overhead, but reacts to changes in network topology slower than the others.
 
+<p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
+<!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
+
 ### About DSDV
 
 
