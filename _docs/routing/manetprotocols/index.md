@@ -101,6 +101,11 @@ Destination selection for packets is not address based, but packets addressed to
 - In greedy routing mode, the next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. <!--If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.--> If a node should forward a packet, but it is closer to the destination than any of its neighbors, it switches the packet to perimeter mode.
 - In perimeter routing mode, nodes create a graph of their neighboring nodes based on their location, and send the packet to the first node to the right, compared to the path the packet arrived. Each node does this, until the packet arrives at its destination, or at an intermediate node which can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.) If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?
 
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
+<!--simple screen recorder, 10 fps, normal run-->
+
+TODO: this seems too big
+
 TODO: some properties of the protocol...its not very good for fast moving nodes
 
 TODO: sometimes the node doesnt know the location of all its neighbors (if they havent yet received a beacon from them)
