@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet/showcases/routing/manetprotocols/results/UniformDsdv-*.sca"/>
+  </inputs>
+  <datasets>
+    <datasets name="rcvdPk:count dsdv">
+      <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count)"/>
+      <items xsi:type="scave:BarChart" name="rcvdPk:count dsdv"/>
+      <items xsi:type="scave:Add" filterPattern="helloInterval OR routeLifetime"/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(helloInterval)"/>
+      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(routeLifetime)"/>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4"/>
+  </chartSheets>
+</scave:Analysis>
