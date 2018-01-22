@@ -11,16 +11,19 @@
       <items xsi:type="scave:LineChart">
         <filters xsi:type="scave:Select" filterPattern="itervar:helloInterval(0.2) OR itervar:routeLifetime(*) "/>
       </items>
+      <items xsi:type="scave:ComputeScalar"/>
       <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count)" averageReplications="false">
         <filters xsi:type="scave:Select" filterPattern="itervar:helloInterval(0.2) AND itervar:routeLifetime(*) "/>
         <isoDataPattern>attr:iterationvars(*)</isoDataPattern>
       </items>
+      <items xsi:type="scave:ComputeScalar"/>
       <items xsi:type="scave:BarChart">
         <filters xsi:type="scave:Select" filterPattern="itervar:helloInterval(0.2) "/>
       </items>
+      <items xsi:type="scave:Add" filterPattern="itervar:routeLifetime(*) " type="STATISTICS"/>
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.0/@items.4 //@datasets/@datasets.0/@items.6"/>
   </chartSheets>
 </scave:Analysis>
