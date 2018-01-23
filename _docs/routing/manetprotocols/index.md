@@ -96,10 +96,21 @@ broadcast their entire routing tables, and send smaller updates when a change oc
 
 
 TODO: about ability to circumvent voids.
+TODO: greedy is used whenever possible, perimeter is used whenever greedy cannot be.
+TODO: keywords: locally optimal greedy choice in next hop...successively closer geographic hops
+periodically broadcast its IP and position (x and y coordinates)
+if no beacon is received after some time from a known neighbor, the entry is deleted,
+and the neighbor is assumed to have gone out of range. also, 802.11 mac retransmission
+failures cause the entry to be deleted (it is interpreted the same way)
+A node has only information of the nodes in its vicinity/immediate neighbors
+the beaconing proactive behavior...position is attached to all packets...thus all packets
+serve as beacons (the inter beacon timer is resetted at every packet send...recuding time between beacons at parts of the network with active traffic)
+
 GPSR is a geographic location based routing protocol. Each node maintains the addresses and geographical co-ordinates of its neighbors, i.e. other nodes in its communication range.
-Destination selection for packets is not address based, but packets addressed to a location specified with co-ordinates. The destination node is actually the one which is the closest to the destination co-ordinates. The protocol operates in one of two modes:
+Destination selection for packets is not address based, but packets are addressed to a location specified with co-ordinates. The destination node is actually the one which is the closest to the destination co-ordinates. The protocol operates in one of two modes:
 - In greedy routing mode, the next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. <!--If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.--> If a node should forward a packet, but it is closer to the destination than any of its neighbors, it switches the packet to perimeter mode.
-- In perimeter routing mode, nodes create a graph of their neighboring nodes based on their location, and send the packet to the first node to the right, compared to the path the packet arrived. Each node does this, until the packet arrives at its destination, or at an intermediate node which can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.) If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?
+- In greedy mode, a node forwards a packet to its neighbor which is geographically closest to the destination node. Thus the packet gets gradually closer to its destination with every hop. If a forwarding node is closer to the destination than any of its neighbors. The packet must take a route that takes it farther from its destination temporarily. The node switches the packet to perimeter mode.
+- In perimeter routing mode, the packet can circumnavigate a void (a region without any nodes to route to.) In perimeter mode, nodes create a planar graph of their neighboring nodes based on their location, where vertices represent nodes and edges represent possible paths between nodes. Nodes forward the packet on the first edge to the right, compared to the edge the packet arrived from. Each node does this, until the packet arrives at its destination, or at an intermediate node which is closer to the destination that the one at which the packet was switched to perimeter mode. In the latter case, the packet is switched to greedy mode. If the packet is in perimeter mode and would be forwarded on an edge that it has been forwarded on previously, it is discarded (there is no route to the destination.) <!--can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.)--> <!--If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?-->
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
 <!--simple screen recorder, 10 fps, normal run-->
