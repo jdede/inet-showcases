@@ -8,11 +8,36 @@
       <items xsi:type="scave:Add" filterPattern="module(ManetprotocolsShowcaseMoreNodes.destination.app[0]) AND name(rcvdPk:count)"/>
       <items xsi:type="scave:BarChart" name="rcvdPk:count dsdv"/>
       <items xsi:type="scave:Add" filterPattern="helloInterval OR routeLifetime"/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(helloInterval)"/>
-      <items xsi:type="scave:ScatterChart" name="" xDataPattern="module(_runattrs_) AND name(routeLifetime)"/>
+      <items xsi:type="scave:ScatterChart" name="rcvdPk(routeLifetime) at helloInterval=0.2" xDataPattern="module(_runattrs_) AND name(routeLifetime)">
+        <filters xsi:type="scave:Select" filterPattern=" itervar:helloInterval(0.2) "/>
+        <properties name="Graph.Title" value="rcvdPk(routeLifetime) at helloInterval=0.2"/>
+      </items>
+      <items xsi:type="scave:Group" name="rcvdPk(routeLifetime) all helloIntervals">
+        <items xsi:type="scave:ScatterChart" name="rcvdPk(routeLifetime) all helloIntervals" xDataPattern="module(_runattrs_) AND name(routeLifetime)">
+          <properties name="Graph.Title" value="rcvdPk(routeLifetime) all helloIntervals"/>
+          <properties name="X.Axis.Title" value="routeLifetime"/>
+          <properties name="Y.Axis.Title" value="rcvdPk"/>
+          <properties name="Legend.Display" value="true"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=0.2" value="0.2"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=0.4" value="0.4"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=0.6" value="0.6"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=0.8" value="0.8"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=1.0" value="1.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=2.0" value="2.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=3.0" value="3.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=4.0" value="4.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=5.0" value="5.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=6.0" value="6.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=7.0" value="7.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=8.0" value="8.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=9.0" value="9.0"/>
+          <properties name="Line.Name/ManetprotocolsShowcaseMoreNodes.destination.app[0] rcvdPk:count - _runattrs_ helloInterval=10.0" value="10.0"/>
+          <isoDataPattern>module(_runattrs_) AND name(helloInterval)</isoDataPattern>
+        </items>
+      </items>
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.3 //@datasets/@datasets.0/@items.4/@items.0"/>
   </chartSheets>
 </scave:Analysis>
