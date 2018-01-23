@@ -6,11 +6,13 @@ hidden: true
 
 ## Goals
 
-Routing protocols for mobile adhoc networks (MANETs) often fall into two major categories: reactive and proactive. INET contains various routing protocols for MANETs from both categories.
+Routing protocols for mobile adhoc networks (MANETs) often fall into two major categories: reactive and proactive. INET contains various routing protocols for MANETs from both categories, and other categories as well.
 
-This showcase demonstrates three manet routing protocols with three example simulations. There is a simulation demonstrating manet routing with a reactive protocol (Aodv), a proactive protocol (Dsdv), and a manet routing protocol that is neither reactive nor proactive (Gpsr).
+<!-- This showcase demonstrates three manet routing protocols with three example simulations. There is a simulation demonstrating manet routing with a reactive protocol (Aodv), a proactive protocol (Dsdv), and a manet routing protocol that is neither reactive nor proactive (Gpsr). -->
 
-This showcase demonstrates three manet routing protocols with three example simulations, using a reactive (aodv), a proactive (dsdv), and a location based (gpsr) routing protocol.
+<!-- This showcase demonstrates three manet routing protocols with three example simulations, using a reactive (aodv), a proactive (dsdv), and a location based (gpsr) routing protocol. -->
+
+This showcase demonstrates the configuration, operation and comparison of three manet routing protocols with three example simulations, using a reactive (aodv), a proactive (dsdv), and a location based (gpsr) routing protocol.
 
 <!-- INET contains various routing protocols for simulating mobile adhoc networks (manets). Routing protocols for manets often fall into
 on of two major categories: proactive and reactive. This showcase demonstrates
@@ -60,6 +62,8 @@ When a node wants to send a packet, and it doesn't know the route to the destina
 Forward routes are set up when the `RREP` travels back to the source.
 An intermediate node can also send an `RREP` in reply to a received `RREQ`, if it knows the route to the destination, thus nodes can join an existing route. When the `RREP` arrives at the source, and the route is created, communication can being between the source and the destination. If a route no longer works, i.e. messages are not forwarded, `RERR` messages are broadcast, and this triggers route discovery.
 As a reactive protocol, AODV has less overhead than proactive ones, but reacts to changes in network topology slower.
+
+TODO: these videos dont belong here.
 
 <p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
 <!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
@@ -111,6 +115,8 @@ Destination selection for packets is not address based, but packets are addresse
 - In greedy routing mode, the next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. <!--If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.--> If a node should forward a packet, but it is closer to the destination than any of its neighbors, it switches the packet to perimeter mode.
 - In greedy mode, a node forwards a packet to its neighbor which is geographically closest to the destination node. Thus the packet gets gradually closer to its destination with every hop. If a forwarding node is closer to the destination than any of its neighbors. The packet must take a route that takes it farther from its destination temporarily. The node switches the packet to perimeter mode.
 - In perimeter routing mode, the packet can circumnavigate a void (a region without any nodes to route to.) In perimeter mode, nodes create a planar graph of their neighboring nodes based on their location, where vertices represent nodes and edges represent possible paths between nodes. Nodes forward the packet on the first edge to the right, compared to the edge the packet arrived from. Each node does this, until the packet arrives at its destination, or at an intermediate node which is closer to the destination that the one at which the packet was switched to perimeter mode. In the latter case, the packet is switched to greedy mode. If the packet is in perimeter mode and would be forwarded on an edge that it has been forwarded on previously, it is discarded (there is no route to the destination.) <!--can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.)--> <!--If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?-->
+
+TODO: parameters can be according to the mobility rate and the communication ranges in the network.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
 <!--simple screen recorder, 10 fps, normal run-->
