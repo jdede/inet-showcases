@@ -148,3 +148,18 @@ Maybe something like Part I: demonstrating the protocols
 The part II would involve: selecting a network, and mobility scenario. Making sure the results are seed independent. Then should run a study which selects the best performing parameter settings for each protocol. Then comparing the three protocols. Can you use the results from the study which looks for the best parameter values as the final results ?
 
 </pre>
+
+## Configuration and Results
+
+The this section contains the configuration and results for the three simulations.
+The three simulations will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
+They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain mobile nodes of the type `ManetRouter`, whose routing module type is configurable. There is a source node named `source`, a destination node named `destination`, and a number of other nodes, which are named `node`. In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
+
+In all three simulations, the source node pinging the destination node.
+Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses). The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
+
+<p>
+<pre class="snippet" src="omnetpp.ini" from="configurator" upto="netmaskRoutes"></pre>
+</p>
+
+### AODV
