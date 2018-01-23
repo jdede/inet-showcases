@@ -19,8 +19,8 @@ on of two major categories: proactive and reactive. This showcase demonstrates
 three manet routing protocols with three example simulations. It demonstrates a reactive (Aodv) and a proactive (Dsdv)
 routing protocol, as well as one that is neither reactive nor proactive, but geographic location based (Gpsr). -->
 
-TODO: it demonstrates how to configure it ?
-TODO: comparison
+<!-- TODO: it demonstrates how to configure it ?
+TODO: comparison -->
 
 INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/routing/manetprotocols" target="_blank">`inet/showcases/routing/manetprotocols`</a>
@@ -30,9 +30,9 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 <!-- manets are mobile so there is no infrastructure and it is dynamic so we need protocols that can
 work in the environment. reaction time and scalability. -->
 
-MANETs are ad hoc networks comprised of wireless mobile nodes. Given the mobile nature of the nodes, the network topology changes dynamically. The nodes create their own network infrastructure, and each node also acts as a router, forwaring traffic in the network. MANET routing protocols need to adapt to changes in the network topology and continuously maintain routing information to be able to forward packets to their destinations.
+MANETs are ad hoc networks comprised of wireless mobile nodes. Given the mobile nature of the nodes, the network topology can change dynamically. The nodes create their own network infrastructure, and each node also acts as a router, forwarding traffic in the network. MANET routing protocols need to adapt to changes in the network topology and continuously maintain routing information to be able to forward packets to their destinations.
 
-TODO: keywords: autonomous, wireless, self-configuring, continuously maintain information to properly route. each node is a router, forwarding traffic not mean for him. transport layer ?
+<!-- TODO: keywords: autonomous, wireless, self-configuring, continuously maintain information to properly route. each node is a router, forwarding traffic not mean for him. transport layer ? -->
 
 <!-- MANETs operate without any existing infrastructure. Only the nodes create the network. Each node acts as a router, and the topology of the network is continuously changing. MANET routing protocols need to adapt to these changes in the network to be able to forward packets to their destinations. -->
 
@@ -58,8 +58,8 @@ AODV uses IP addresses to address packets, and maintains a routing table with th
 TODO: there is another kind, hello messages
 TODO: actually, AODV is both reactive and proactive, but hello messages are disabled by default in INET
 
-When a node wants to send a packet, and it doesn't know the route to the destination, it initiates route discovery. It sends an `RREQ` multicast message. The neighboring nodes record where the message came from, and forward it to their neighbors, until the message gets to the destination node. The destination node replies with an `RREP`, which travels back to the source on the reverse path along which the `RREQ` came. <!--The intermediate nodes record the route towards the destination, as the RREP gets back to the source.-->
-Forward routes are set up when the `RREP` travels back to the source.
+When a node wants to send a packet, and it doesn't know the route to the destination, it initiates route discovery, by sending an `RREQ` multicast message. The neighboring nodes record where the message came from, and forward it to their neighbors, until the message gets to the destination node. The destination node replies with an `RREP`, which gets back to the source on the reverse path along which the `RREQ` came. <!--The intermediate nodes record the route towards the destination, as the RREP gets back to the source.-->
+Forward routes are set up as the `RREP` travels back to the source.
 An intermediate node can also send an `RREP` in reply to a received `RREQ`, if it knows the route to the destination, thus nodes can join an existing route. When the `RREP` arrives at the source, and the route is created, communication can being between the source and the destination. If a route no longer works, i.e. messages are not forwarded, `RERR` messages are broadcast, and this triggers route discovery.
 As a reactive protocol, AODV has less overhead than proactive ones, but reacts to changes in network topology slower.
 
@@ -73,7 +73,7 @@ TODO: these videos dont belong here.
 
 V1
 
-DSDV is a proactive (or table driven) MANET routing protocol, so makes sure routing information in the network is always up-to-date. It maintains a table with the best routes to each destination. The table contains all other nodes a node knows about either directly because it's a neighbor, or indirectly through neighbors. The table contains nodes' IP addresses, last known sequence number and hop count required to reach it, and the next hop. Routing information is frequently updated, so all nodes have the best routes in the network.
+DSDV is a proactive (or table driven) MANET routing protocol, so it makes sure routing information in the network is always up-to-date. It maintains a table with the best routes to each destination. The table contains all other nodes a node knows about either directly because it's a neighbor, or indirectly through neighbors. The table contains nodes' IP addresses, last known sequence number and hop count required to reach it, and the next hop. Routing information is frequently updated, so all nodes have the best routes in the network.
 Routing information is updated in two ways:
 
 - Nodes broadcast their entire routing tables periodically
@@ -110,13 +110,16 @@ A node has only information of the nodes in its vicinity/immediate neighbors
 the beaconing proactive behavior...position is attached to all packets...thus all packets
 serve as beacons (the inter beacon timer is resetted at every packet send...recuding time between beacons at parts of the network with active traffic)
 
-GPSR is a geographic location based routing protocol. Each node maintains the addresses and geographical co-ordinates of its neighbors, i.e. other nodes in its communication range.
+GPSR is a geographic location based routing protocol. Each node maintains the addresses and geographical co-ordinates of its neighbors, i.e. other nodes in its communication range. Nodes advertise their locations periodically by sending beacons. When no beacons are received from a neighboring node for some time, the node is assumed to have gone out of range, and its table entry is deleted. A table entry for a node is also deleted after 802.11 MAC retransmission failures.
+Nodes attach their location data on all sent and forwarded packets as well. Each packet tranmission resets the inter beacon timer, reducing the required protocol overhead in parts of the network with frequent packet traffic.
+
 Destination selection for packets is not address based, but packets are addressed to a location specified with co-ordinates. The destination node is actually the one which is the closest to the destination co-ordinates. The protocol operates in one of two modes:
 - In greedy routing mode, the next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. <!--If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.--> If a node should forward a packet, but it is closer to the destination than any of its neighbors, it switches the packet to perimeter mode.
-- In greedy mode, a node forwards a packet to its neighbor which is geographically closest to the destination node. Thus the packet gets gradually closer to its destination with every hop. If a forwarding node is closer to the destination than any of its neighbors. The packet must take a route that takes it farther from its destination temporarily. The node switches the packet to perimeter mode.
-- In perimeter routing mode, the packet can circumnavigate a void (a region without any nodes to route to.) In perimeter mode, nodes create a planar graph of their neighboring nodes based on their location, where vertices represent nodes and edges represent possible paths between nodes. Nodes forward the packet on the first edge to the right, compared to the edge the packet arrived from. Each node does this, until the packet arrives at its destination, or at an intermediate node which is closer to the destination that the one at which the packet was switched to perimeter mode. In the latter case, the packet is switched to greedy mode. If the packet is in perimeter mode and would be forwarded on an edge that it has been forwarded on previously, it is discarded (there is no route to the destination.) <!--can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.)--> <!--If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?-->
+- In greedy mode, a node forwards a packet to its neighbor which is geographically closest to the destination node. Thus the packet gets gradually closer to its destination with every hop. If a forwarding node is closer to the destination than any of its neighbors, the packet must take a route that takes it farther from its destination temporarily - it routes around a void, a region without any nodes to route to. The node switches the packet to perimeter mode.
+- In perimeter routing mode, the packet can circumnavigate a void. When the packet is in this mode, nodes create a planar graph of their neighboring nodes based on their location, where vertices represent nodes and edges represent possible paths between nodes. Nodes use the right hand rule for forwarding packets, i.e. they forward the packet on the first edge to the right, compared to the edge the packet arrived from. Each node does this, until the packet arrives at its destination, or at an intermediate node which is closer to the destination that the one at which the packet was switched to perimeter mode. In the latter case, the packet is switched to greedy mode. If the packet is in perimeter mode and would be forwarded on an edge that it has been forwarded on previously, it is discarded (there is no route to the destination.) <!--can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.)--> <!--If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?-->
 
 TODO: parameters can be according to the mobility rate and the communication ranges in the network.
+or maybe this belongs in the configuration section.
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
 <!--simple screen recorder, 10 fps, normal run-->
