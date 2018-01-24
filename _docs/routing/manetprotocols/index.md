@@ -183,9 +183,11 @@ In INET, AODV is implemented by the `Aodv` module. This is configured in omnetpp
 *.*.routingProtocolType = "Aodv"
 </pre>
 
-The `Aodv` module has many parameters for tweaking the operation of the protocol, we set just two of them. The `activeRouteTimeout` parameter sets the timeout for the existing routes. If the routes are not used for this period, they are deleted. The `deletePeriod` parameter...does the same? how does this work?
+The `Aodv` module has many parameters for tweaking the operation of the protocol. All of the parameters have default values, and `Aodv` works without setting any of the parameters. We set two of the parameters:
 
-- the two parameters are set so the protocol is more responsive to changes
+<pre class="snippet" src="omnetpp.ini" from="activeRouteTimeout" upto="deletePeriod"></pre>
+
+The `activeRouteTimeout` parameter sets the timeout for the active routes. If the routes are not used for this period, they become inactive. The `deletePeriod` parameter sets the period after which the inactive routes are deleted. The `activeRouteTimeout` parameter is lowered from the default 3s to 1s, the `deletePeriod` parameter is lowered from the default 15s in order to make the protocol react better to the rapidly changing network topology. WHY IS THIS GOOD FOR THAT PURPOSE?
 
 - results
 
