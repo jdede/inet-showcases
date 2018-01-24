@@ -168,7 +168,26 @@ TODO: mobility
 
 ### AODV
 
-In INET, AODV is implemented by the `Aodv` module. This is configured as the routing protocol type in `ManetRouter`: 
+The example simulation featuring AODV is defined in the `Aodv` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/>. This configuration uses the `ManetProtocolShowcaseA` network. The network looks like the following:
+
+TODO: network image
+
+- nodes are scattered
+- the source and the destination are stationary
+- the other nodes move linearly in random directions
+- they relay the ping packets between source and destination
+
+In INET, AODV is implemented by the `Aodv` module. This is configured in omnetpp.ini as the routing protocol type in `ManetRouter`:
+
+<pre class="snippet">
+*.*.routingProtocolType = "Aodv"
+</pre>
+
+The `Aodv` module has many parameters for tweaking the operation of the protocol, we set just two of them. The `activeRouteTimeout` parameter sets the timeout for the existing routes. If the routes are not used for this period, they are deleted. The `deletePeriod` parameter...does the same? how does this work?
+
+- the two parameters are set so the protocol is more responsive to changes
+
+- results
 
 <pre>
 
