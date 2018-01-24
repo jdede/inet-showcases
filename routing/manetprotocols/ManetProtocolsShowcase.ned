@@ -45,30 +45,30 @@ network ManetprotocolsShowcaseA
             @display("p=940,718;i=misc/solarpanel");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
-            @display("p=92,312");
+            @display("p=100,100");
         }
         visualizer: IntegratedMultiVisualizer {
-            @display("p=204,312");
+            @display("p=100,200");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=291.6,312.255");
+            @display("p=100,300");
         }
-        node7: GpsrRouter {
+        node7: ManetRouter {
             @display("p=1046,112;i=misc/solarpanel");
         }
-        node8: GpsrRouter {
+        node8: ManetRouter {
             @display("p=901,157;i=misc/solarpanel");
         }
-        node9: GpsrRouter {
+        node9: ManetRouter {
             @display("p=862,286;i=misc/solarpanel");
         }
-        node10: GpsrRouter {
+        node10: ManetRouter {
             @display("p=1200,156;i=misc/solarpanel");
         }
-        node11: GpsrRouter {
+        node11: ManetRouter {
             @display("p=701,373;i=misc/solarpanel");
         }
-        node12: GpsrRouter {
+        node12: ManetRouter {
             @display("p=529,286;i=misc/solarpanel");
         }
 }
