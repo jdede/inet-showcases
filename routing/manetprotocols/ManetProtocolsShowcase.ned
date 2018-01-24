@@ -44,15 +44,6 @@ network ManetprotocolsShowcaseA
         node2: ManetRouter {
             @display("p=940,718;i=misc/solarpanel");
         }
-        radioMedium: Ieee80211ScalarRadioMedium {
-            @display("p=100,100");
-        }
-        visualizer: IntegratedMultiVisualizer {
-            @display("p=100,200");
-        }
-        configurator: Ipv4NetworkConfigurator {
-            @display("p=100,300");
-        }
         node7: ManetRouter {
             @display("p=1046,112;i=misc/solarpanel");
         }
@@ -70,6 +61,15 @@ network ManetprotocolsShowcaseA
         }
         node12: ManetRouter {
             @display("p=529,286;i=misc/solarpanel");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=100,100");
+        }
+        visualizer: IntegratedMultiVisualizer {
+            @display("p=100,200");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=100,300");
         }
 }
 
