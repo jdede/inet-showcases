@@ -6,10 +6,46 @@ import inet.node.inet.StandardHost;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
+import inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
-network SensorNetworkShowcase
+network SensorNetworkShowcaseA
+{
+    @display("bgb=40,40");
+    submodules:
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=4.0722203,4.0722203");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=4.0722203,9.346079");
+        }
+        radioMedium: Ieee802154NarrowbandScalarRadioMedium {
+            @display("p=4.0054626,14.219392");
+        }
+        sensor4: WirelessHost {
+            @display("p=17.290247,6.6757708;i=misc/sensor2");
+        }
+        sensor1: WirelessHost {
+            @display("p=11.482326,21.696255;i=misc/sensor2");
+        }
+        sensor2: WirelessHost {
+            @display("p=28.772572,30.775303;i=misc/sensor2");
+        }
+        sensor3: WirelessHost {
+            @display("p=32.978306,6.6757708;i=misc/sensor2");
+        }
+        gateway: WirelessHost {
+            @display("p=23.89926,17.557278;i=misc/sensor2");
+        }
+        server: StandardHost {
+            @display("p=35.381584,17.557278");
+        }
+    connections:
+        gateway.ethg++ <--> Eth100M <--> server.ethg++;
+}
+
+network SensorNetworkShowcaseB
 {
     @display("bgb=40,40");
     submodules:
@@ -44,7 +80,7 @@ network SensorNetworkShowcase
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
 }
 
-network testingIcons extends SensorNetworkShowcase
+network testingIcons extends SensorNetworkShowcaseA
 {
     @display("bgb=124.81333,39.893333");
     submodules:
