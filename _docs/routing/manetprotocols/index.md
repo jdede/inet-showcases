@@ -132,6 +132,7 @@ TODO: sometimes the node doesnt know the location of all its neighbors (if they 
 
 TODO: about this much is enough about each protocol. Should be BRIEF.
 
+<p>
 <pre>
 
 About manets and routing protocols in general
@@ -148,18 +149,31 @@ Maybe something like Part I: demonstrating the protocols
 The part II would involve: selecting a network, and mobility scenario. Making sure the results are seed independent. Then should run a study which selects the best performing parameter settings for each protocol. Then comparing the three protocols. Can you use the results from the study which looks for the best parameter values as the final results ?
 
 </pre>
+</p>
 
 ## Configuration and Results
 
-The this section contains the configuration and results for the three simulations.
+This section contains the configuration and results for the three simulations.
 The three simulations will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
-They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain mobile nodes of the type `ManetRouter`, whose routing module type is configurable. There is a source node named `source`, a destination node named `destination`, and a number of other nodes, which are named `node`. In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
+They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain  hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10`. In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
 
 In all three simulations, the source node pinging the destination node.
-Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses). The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
+Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses). The netmask routes added by the interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
 
 <p>
 <pre class="snippet" src="omnetpp.ini" from="configurator" upto="netmaskRoutes"></pre>
 </p>
 
+TODO: mobility
+
 ### AODV
+
+In INET, AODV is implemented by the `Aodv` module. This is configured as the routing protocol type in `ManetRouter`: 
+
+<pre>
+
+aodv is done by the aodv module. it can be set in the manetrouter. it has a lot of parameters,
+but we leave them at their defaults, only set two of them, to tweak the protocol for the mobility
+in the network. Essentially, it makes the protocol react to changes faster.
+
+</pre>
