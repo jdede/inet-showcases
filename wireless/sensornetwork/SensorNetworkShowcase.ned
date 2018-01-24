@@ -1,5 +1,6 @@
 package inet.showcases.wireless.sensornetwork;
 
+import inet.common.lifecycle.LifecycleController;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.StandardHost;
@@ -78,6 +79,14 @@ network SensorNetworkShowcaseB
         }
     connections:
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
+}
+
+network SensorNetworkShowcaseC extends SensorNetworkShowcaseB
+{
+    submodules:
+        lifecycleController: LifecycleController {
+            @display("p=4.1066666,20.826666");
+        }
 }
 
 network testingIcons extends SensorNetworkShowcaseA
