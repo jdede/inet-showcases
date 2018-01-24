@@ -29,7 +29,7 @@ management module type by default.
 A node's operating mode (infrastructure or adhoc) is determined by the type of its management module.
 The management module type can be set from the ini or NED files, or by choosing one of INET's host types which have the desired management module by default.
 
-In INET, the management module is a submodule of `Ieee80211Nic`. It connects to the MAC module, and it is responsible for handling management frames, such as beacon frames, probe request and response frames, and association and authentication frames. The management module is also responsible for scanning channels and switching between them. Several types of management modules are available:
+In INET, the management module is a submodule of `Ieee80211Interface`. It connects to the MAC module, and it is responsible for handling management frames, such as beacon frames, probe request and response frames, and association and authentication frames. The management module is also responsible for scanning channels and switching between them. Several types of management modules are available:
 
 - `Ieee80211MgmtSta`: management module for stations (nodes that join wireless networks) in infrastructure mode
 - `Ieee80211MgmtAp`: management module for access points in infrastructure mode
@@ -49,9 +49,9 @@ they only send and receive data frames and treats all stations as if they were a
 There are also simplified versions of the infrastructure mode management modules: `Ieee80211MgmtStaSimplified` and `Ieee80211MgmtApSimplified`.
 They only send and receive data frames, and they don't simulate the association and authentication process, but assume that stations are always associated with the access point. They also cannot simulate handovers.
 
-The agent module (`Ieee80211AgentSta`) is the submodule of `Ieee80211Nic` in devices that act as stations (nodes with `Ieee80211MgmtSta` management module types.) It connects to the management module, and it is responsible for initiating channel scanning, associations and handovers. It controls these by sending commands to the management module (which turn sends commands to the MAC.) TODO: is this correct?
+The agent module (`Ieee80211AgentSta`) is the submodule of `Ieee80211Interface` in devices that act as stations (nodes with `Ieee80211MgmtSta` management module types.) It connects to the management module, and it is responsible for initiating channel scanning, associations and handovers. It controls these by sending commands to the management module (which turn sends commands to the MAC.) TODO: is this correct?
 It basically simulates user actions, such as the user instructing the device to connect to a Wifi network.
-The topology of connected modules in `Ieee80211Nic` is displayed on the following image:
+The topology of connected modules in `Ieee80211Interface` is displayed on the following image:
 
 <img class="screen" src="submodules.png">
 
