@@ -200,7 +200,9 @@ in the network. Essentially, it makes the protocol react to changes faster.
 
 </pre>
 
-### Dsdv
+### DSDV
+
+TODO: there is no periodic updates -> full routing table dumps (incomplete implementation)
 
 The example simulation featuring DSDV is defined in the `Dsdv` configuration in omnetpp.ini. Just like the AODV configuration, this one uses the `ManetRoutingProtocolsShowcaseB` network as well.
 
@@ -208,8 +210,23 @@ The DSDV protocol is implemented in the `Dsdv` module. The routing protocol type
 
 <pre class="snippet" src="omnetpp.ini" from='"Dsdv"' until=" "></pre>
 
-Like `Aodv` (and most routing protocol modules), `Dsdv` has many parameters with default values that yield a working simulation without any configuration. In this simulation, we set two parameters of `Dsdv`:
+Like `Aodv` (and most routing protocol modules), `Dsdv` has many parameters with default values that yield a working simulation without any configuration. In this simulation, similarly to the previous one, we set two parameters of the protocol:
 
 <pre class="snippet" src="omnetpp.ini" from="helloInterval" upto="routeLifetime"></pre>
 
-what they TODO
+The `helloInterval` parameter controls the frequency of the periodic updates, or hello messages. Setting this parameter to longer decreases the protocol overhead, but the network will react more slowly to changes in topology. We lower it to make the network more adaptive to rapid changes.
+The `routeLifetime` parameter sets after how long the routes expire. TODO: more on this?
+
+-results
+
+### GPSR
+
+The example simulation featuring GPSR is defined in the `Gpsr` configuration in omnetpp.ini. It uses the `ManetRoutingProtocolsShowcaseB` network. The network looks like the following:
+
+<img class="screen" src="networkB.png">
+
+The nodes are laid out along a chain. There is forest, which represents a void that Gpsr can route around. In this example simulation, the nodes will be static (though Gpsr is suitable for scenarios with moving nodes.) Source will ping destination, which is on the other side of the void.
+
+- configuration for gpsr
+
+- results
