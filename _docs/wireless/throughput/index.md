@@ -61,8 +61,6 @@ simulation for all bitrates and both packet sizes:
 
 <img src="throughput3.png" class="screen" />
 
-<a href="throughput3.svg" target="_blank"><img src="throughput3.png" class="screen" /></a>
-
 The two curves match almost exactly. The curves are not linear: throughput doesn't
 increase in a linear way with the bitrate, especially at higher bitrates.
 The curve for the 2268-byte packets is nearly linear, while the curve for the 100-byte
