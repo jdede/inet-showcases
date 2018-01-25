@@ -50,8 +50,7 @@ module Ieee802154SensorNode extends WirelessHost
 {
     parameters:
         wlan[0].typename = "WirelessInterface";
-		wlan[0].radioType = "Ieee802154NarrowbandScalarRadio";
-//		wlan[0].macType = "Ieee802154Mac";
+        wlan[0].radioType = "Ieee802154NarrowbandScalarRadio";
 }
 
 network SensorNetworkShowcaseB
@@ -130,4 +129,12 @@ network SensorNetworkShowcaseD
         }
     connections:
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
+}
+
+network SensorNetworkShowcaseE extends SensorNetworkShowcaseD
+{
+    submodules:
+        lifecycleController: LifecycleController {
+            @display("p=4.4,20.973333");
+        }
 }
