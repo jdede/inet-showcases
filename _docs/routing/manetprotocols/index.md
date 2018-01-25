@@ -219,6 +219,14 @@ The nodes are laid out along a chain. There is forest, which represents a void t
 
 - configuration for gpsr
 
+The hosts' routing protocol type is set to `Gpsr`:
+
+<pre class="snippet" src="omnetpp.ini" from='"Gpsr"' until=" "></pre>
+
+All other protocol parameters are left at their defaults.
+
+TODO: some examples of parameters? link to documentation?
+
 - results
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
 <!--simple screen recorder, 10 fps, normal run-->
