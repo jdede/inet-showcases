@@ -182,9 +182,7 @@ TODO: network image
 
 In INET, AODV is implemented by the `Aodv` module. This is configured in omnetpp.ini as the routing protocol type in `ManetRouter`:
 
-<pre class="snippet">
-*.*.routingProtocolType = "Aodv"
-</pre>
+<pre class="snippet" src="omnetpp.ini" from='"Aodv"' until=" "></pre>
 
 The `Aodv` module has many parameters for tweaking the operation of the protocol. All of the parameters have default values, and `Aodv` works without setting any of the parameters. We set two of the parameters:
 
@@ -201,3 +199,17 @@ but we leave them at their defaults, only set two of them, to tweak the protocol
 in the network. Essentially, it makes the protocol react to changes faster.
 
 </pre>
+
+### Dsdv
+
+The example simulation featuring DSDV is defined in the `Dsdv` configuration in omnetpp.ini. Just like the AODV configuration, this one uses the `ManetRoutingProtocolsShowcaseB` network as well.
+
+The DSDV protocol is implemented in the `Dsdv` module. The routing protocol type in all hosts is set to use DSDV:
+
+<pre class="snippet" src="omnetpp.ini" from='"Dsdv"' until=" "></pre>
+
+Like `Aodv` (and most routing protocol modules), `Dsdv` has many parameters with default values that yield a working simulation without any configuration. In this simulation, we set two parameters of `Dsdv`:
+
+<pre class="snippet" src="omnetpp.ini" from="helloInterval" upto="routeLifetime"></pre>
+
+what they TODO
