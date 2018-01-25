@@ -51,7 +51,7 @@ module Ieee802154SensorNode extends WirelessHost
     parameters:
         wlan[0].typename = "WirelessInterface";
 		wlan[0].radioType = "Ieee802154NarrowbandScalarRadio";
-		wlan[0].macType = "Ieee802154Mac";
+//		wlan[0].macType = "Ieee802154Mac";
 }
 
 network SensorNetworkShowcaseB
@@ -130,94 +130,4 @@ network SensorNetworkShowcaseD
         }
     connections:
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
-}
-
-network testingIcons extends SensorNetworkShowcaseA
-{
-    @display("bgb=124.81333,39.893333");
-    submodules:
-        wirelessHost: WirelessHost {
-            @display("p=57.493332,14.813333;i=misc/aircraft");
-        }
-        wirelessHost1: WirelessHost {
-            @display("p=71.28,7.48;i=misc/battery");
-        }
-        wirelessHost2: WirelessHost {
-            @display("p=84.04,9.533333;i=misc/car2");
-        }
-        wirelessHost3: WirelessHost {
-            @display("p=69.96,22.88;i=misc/highvoltage");
-        }
-        wirelessHost4: WirelessHost {
-            @display("p=90.78667,17.746666;i=misc/helicopter");
-        }
-        wirelessHost5: WirelessHost {
-            @display("p=99.439995,7.1866665;i=misc/chargingstation");
-        }
-        wirelessHost6: WirelessHost {
-            @display("p=109.56,18.48;i=misc/satellite2");
-        }
-        wirelessHost7: WirelessHost {
-            @display("p=105.6,29.626665;i=misc/drone");
-        }
-        wirelessHost8: WirelessHost {
-            @display("p=89.46667,30.653332;i=misc/smartphone");
-        }
-        wirelessHost9: WirelessHost {
-            @display("p=50.16,30.359999;i=misc/thermometer");
-        }
-}
-
-network testingIcons2
-{
-    @display("bgb=940,400");
-    submodules:
-        wirelessHost: WirelessHost {
-            @display("p=197,111;i=misc/aircraft");
-        }
-        standardHost: StandardHost {
-            @display("p=243,200;i=misc/sensor");
-        }
-        wirelessHost1: WirelessHost {
-            @display("p=427,154;i=misc/satellite2");
-        }
-        wirelessHost2: WirelessHost {
-            @display("p=311,82;i=misc/battery");
-        }
-        wirelessHost3: WirelessHost {
-            @display("p=466,258;i=misc/helicopter");
-        }
-        wirelessHost4: WirelessHost {
-            @display("p=583,152;i=misc/car2");
-        }
-        wirelessHost5: WirelessHost {
-            @display("p=744,115;i=misc/drone");
-        }
-        wirelessHost6: WirelessHost {
-            @display("p=495,76;i=misc/chargingstation");
-        }
-        wirelessHost7: WirelessHost {
-            @display("p=694,241;i=misc/highvoltage");
-        }
-        wirelessHost8: WirelessHost {
-            @display("p=536,315;i=misc/thermometer");
-        }
-        wirelessHost9: WirelessHost {
-            @display("p=294,298;i=misc/smartphone");
-        }
-        wirelessHost10: WirelessHost {
-            @display("p=115,274;i=misc/securitycamera");
-        }
-        configurator: Ipv4NetworkConfigurator {
-            @display("p=42,57");
-        }
-        radioMedium: Ieee80211ScalarRadioMedium {
-            @display("p=51,137");
-        }
-        standardHost1: StandardHost {
-            @display("p=364,251;i=misc/smartphone");
-        }
-        standardHost2: StandardHost {
-            @display("p=591,246;i=misc/drone");
-        }
 }
