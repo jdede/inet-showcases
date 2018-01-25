@@ -66,11 +66,6 @@ Forward routes are set up in the intermediate node as the `RREP` travels back to
 An intermediate node can also send an `RREP` in reply to a received `RREQ`, if it knows the route to the destination, thus nodes can join an existing route. When the `RREP` arrives at the source, and the route is created, communication can being between the source and the destination. If a route no longer works, i.e. messages cannot be forwarded on it, `RERR` messages are broadcast, and this triggers route discovery.
 As a reactive protocol, AODV has less overhead than proactive ones, but reacts to changes in network topology slower.
 
-TODO: these videos dont belong here.
-
-<p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
-<!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
-
 ### About DSDV
 
 
@@ -90,14 +85,11 @@ V2
 DSDV is a proactive (or table-driven) MANET routing protocol, where nodes maintain a routing table of the best distances for destinations in the network. The routing tables are updated periodically, and when there is a change in a node's routing table (a better route becomes available.)
 TODO: about performance
 
-<pre>
-
+<!-- TODO
 The most important is:
 
 all nodes maintain the best routes to destinations. they are frequently updated. they periodically
-broadcast their entire routing tables, and send smaller updates when a change occurs in their routing tables.
-
-</pre>
+broadcast their entire routing tables, and send smaller updates when a change occurs in their routing tables. -->
 
 ### About GPSR
 
@@ -124,9 +116,6 @@ Destination selection for packets is not address based, but packets are addresse
 TODO: parameters can be according to the mobility rate and the communication ranges in the network.
 or maybe this belongs in the configuration section.
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
-<!--simple screen recorder, 10 fps, normal run-->
-
 TODO: this seems too big
 
 TODO: some properties of the protocol...its not very good for fast moving nodes
@@ -135,9 +124,7 @@ TODO: sometimes the node doesnt know the location of all its neighbors (if they 
 
 TODO: about this much is enough about each protocol. Should be BRIEF.
 
-<p>
-<pre>
-
+<!-- TODO
 About manets and routing protocols in general
 About the three routing protocols briefly
 Then about the configuration and networks
@@ -149,10 +136,7 @@ Maybe something like Part I: demonstrating the protocols
                      Part II: comparing the protocols based on statistics, and how to do a parameter
                               study
 
-The part II would involve: selecting a network, and mobility scenario. Making sure the results are seed independent. Then should run a study which selects the best performing parameter settings for each protocol. Then comparing the three protocols. Can you use the results from the study which looks for the best parameter values as the final results ?
-
-</pre>
-</p>
+The part II would involve: selecting a network, and mobility scenario. Making sure the results are seed independent. Then should run a study which selects the best performing parameter settings for each protocol. Then comparing the three protocols. Can you use the results from the study which looks for the best parameter values as the final results ? -->
 
 ## Configuration and Results
 
@@ -192,17 +176,18 @@ The `activeRouteTimeout` parameter sets the timeout for the active routes. If th
 
 - results
 
-<pre>
+<p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
+<!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
 
+<!-- TODO
 aodv is done by the aodv module. it can be set in the manetrouter. it has a lot of parameters,
 but we leave them at their defaults, only set two of them, to tweak the protocol for the mobility
-in the network. Essentially, it makes the protocol react to changes faster.
-
-</pre>
+in the network. Essentially, it makes the protocol react to changes faster. -->
 
 ### DSDV
 
 TODO: there is no periodic updates -> full routing table dumps (incomplete implementation)
+still seems they send hello message periodically
 
 The example simulation featuring DSDV is defined in the `Dsdv` configuration in omnetpp.ini. Just like the AODV configuration, this one uses the `ManetRoutingProtocolsShowcaseB` network as well.
 
@@ -230,3 +215,5 @@ The nodes are laid out along a chain. There is forest, which represents a void t
 - configuration for gpsr
 
 - results
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
+<!--simple screen recorder, 10 fps, normal run-->
