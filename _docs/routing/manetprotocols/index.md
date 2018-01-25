@@ -164,6 +164,11 @@ TODO: network image
 - the other nodes move linearly in random directions
 - they relay the ping packets between source and destination
 
+The nodes are scattered on the playground. The source and destination nodes are stationary, the other nodes will be moving in random directions. The communication ranges are set up so that `source` cannot reach `destination` directly. The intermediate nodes will forward `source`'s ping packets to `destination`.
+The topology will change fast, and the routing protocols will find routes from the source to the destination. TODO: rewrite
+
+TODO: mobility config
+
 In INET, AODV is implemented by the `Aodv` module. This is configured in omnetpp.ini as the routing protocol type in `ManetRouter`:
 
 <pre class="snippet" src="omnetpp.ini" from='"Aodv"' until=" "></pre>
