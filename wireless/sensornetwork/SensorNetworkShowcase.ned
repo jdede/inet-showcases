@@ -101,13 +101,13 @@ network SensorNetworkShowcaseD
     @display("bgb=40,40");
     submodules:
         configurator: Ipv4NetworkConfigurator {
-            @display("p=4.0722203,4.0722203");
+            @display("p=5,3");
         }
         visualizer: IntegratedVisualizer {
-            @display("p=4.0722203,9.346079");
+            @display("p=5,7");
         }
         radioMedium: Ieee802154NarrowbandScalarRadioMedium {
-            @display("p=4.0054626,14.219392");
+            @display("p=5,11");
         }
         sensor4: Ieee802154SensorNode {
             @display("p=17.290247,6.6757708;i=misc/sensor2");
@@ -135,7 +135,7 @@ network SensorNetworkShowcaseE extends SensorNetworkShowcaseD
 {
     submodules:
         lifecycleController: LifecycleController {
-            @display("p=4.4,20.973333");
+            @display("p=5,15");
         }
 }
 
