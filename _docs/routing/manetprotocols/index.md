@@ -168,7 +168,9 @@ The nodes are scattered on the playground. The source and destination nodes are 
 <!-- The topology will change fast, and the routing protocols will find routes from the source to the destination. TODO: rewrite -->
 The routing protocols will adapt the routes to the changing network topology.
 
-TODO: mobility config
+The mobility settings in omnetpp.ini are the following:
+
+<pre class="snippet" src="omnetpp.ini" from="LinearMobility" upto="MinY"></pre>
 
 In INET, AODV is implemented by the `Aodv` module. This is configured in omnetpp.ini as the routing protocol type in `ManetRouter`:
 
@@ -181,6 +183,8 @@ The `Aodv` module has many parameters for tweaking the operation of the protocol
 The `activeRouteTimeout` parameter sets the timeout for the active routes. If the routes are not used for this period, they become inactive. The `deletePeriod` parameter sets the period after which the inactive routes are deleted. The `activeRouteTimeout` parameter is lowered from the default 3s to 1s, the `deletePeriod` parameter is lowered from the default 15s to 0.5s in order to make the protocol react better to the rapidly changing network topology. WHY IS THIS GOOD FOR THAT PURPOSE?
 
 - results
+
+<img class="screen" src="aodvlog.png">
 
 <p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
 <!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
