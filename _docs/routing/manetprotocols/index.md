@@ -189,8 +189,8 @@ The `activeRouteTimeout` parameter sets the timeout for the active routes. If th
 <p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
 <!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
 
-<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv4.mp4"></video></p>
-<!--internal video recording, release mode (does it matter?), normal run, animation speed none, zoom 2, fadeOutMode = animationTime in datalink and networkroute visualizers-->
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv4_s.mp4"></video></p>
+<!--internal video recording, release mode (does it matter?), normal run, animation speed none, zoom 2 (or 1.54 if smaller), fadeOutMode = animationTime in datalink and networkroute visualizers-->
 
 <!-- TODO
 aodv is done by the aodv module. it can be set in the manetrouter. it has a lot of parameters,
