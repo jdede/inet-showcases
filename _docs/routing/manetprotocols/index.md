@@ -12,7 +12,7 @@ Routing protocols for mobile adhoc networks (MANETs) often fall into two major c
 
 <!-- This showcase demonstrates three manet routing protocols with three example simulations, using a reactive (aodv), a proactive (dsdv), and a location based (gpsr) routing protocol. -->
 
-This showcase demonstrates the configuration, operation and comparison of three manet routing protocols with three example simulations, using a reactive (aodv), a proactive (dsdv), and a location based (gpsr) routing protocol.
+This showcase demonstrates the configuration and operation of three manet routing protocols with three example simulations, using a reactive (aodv), a proactive (dsdv), and a location based (gpsr) routing protocol.
 
 <!-- INET contains various routing protocols for simulating mobile adhoc networks (manets). Routing protocols for manets often fall into
 on of two major categories: proactive and reactive. This showcase demonstrates
@@ -30,7 +30,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 <!-- manets are mobile so there is no infrastructure and it is dynamic so we need protocols that can
 work in the environment. reaction time and scalability. -->
 
-MANETs are ad hoc networks comprised of wireless nodes, which are often mobile. Given the mobile nature of the nodes, the network topology can change dynamically. The nodes create their own network infrastructure, and each node also acts as a router, forwarding traffic in the network. MANET routing protocols need to adapt to changes in the network topology and continuously maintain routing information to be able to forward packets to their destinations.
+MANETs are ad hoc networks comprised of wireless nodes, which are often mobile. Given the mobile nature of the nodes, the network topology can change dynamically. The nodes create their own network infrastructure, and each node also acts as a router, forwarding traffic in the network. MANET routing protocols need to adapt to changes in the network topology and <!--continuously--> maintain routing information to be able to forward packets to their destinations.
 
 <!-- TODO: keywords: autonomous, wireless, self-configuring, continuously maintain information to properly route. each node is a router, forwarding traffic not mean for him. transport layer ? -->
 
@@ -144,8 +144,8 @@ This section contains the configuration and results for the three simulations.
 The three simulations will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
 They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain  hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10`. In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
 
-In all three simulations, the source node pinging the destination node.
-Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses). The netmask routes added by the interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
+In all three simulations, the source node pings the destination node.
+Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses.) The netmask routes added by the interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
 
 <p>
 <pre class="snippet" src="omnetpp.ini" from="configurator" upto="netmaskRoutes"></pre>
@@ -164,8 +164,9 @@ TODO: network image
 - the other nodes move linearly in random directions
 - they relay the ping packets between source and destination
 
-The nodes are scattered on the playground. The source and destination nodes are stationary, the other nodes will be moving in random directions. The communication ranges are set up so that `source` cannot reach `destination` directly. The intermediate nodes will forward `source`'s ping packets to `destination`.
-The topology will change fast, and the routing protocols will find routes from the source to the destination. TODO: rewrite
+The nodes are scattered on the playground. The source and destination nodes are stationary, the other nodes will be moving in random directions. The communication ranges are set up so that `source` cannot reach `destination` directly, but through the intermediate nodes.
+<!-- The topology will change fast, and the routing protocols will find routes from the source to the destination. TODO: rewrite -->
+The routing protocols will adapt the routes to the changing network topology.
 
 TODO: mobility config
 
