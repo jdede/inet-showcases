@@ -37,7 +37,7 @@ network SensorNetworkShowcaseA
             @display("p=32.978306,6.6757708;i=misc/sensor2");
         }
         gateway: WirelessHost {
-            @display("p=23.89926,17.557278;i=misc/sensor2");
+            @display("p=23.89926,17.557278;i=misc/sensorgateway");
         }
         server: StandardHost {
             @display("p=35.381584,17.557278");
@@ -79,7 +79,7 @@ network SensorNetworkShowcaseB
             @display("p=32.978306,6.6757708;i=misc/sensor2");
         }
         gateway: WirelessHost {
-            @display("p=23.89926,17.557278;i=misc/sensor2");
+            @display("p=23.89926,17.557278;i=misc/sensorgateway");
         }
         server: StandardHost {
             @display("p=35.381584,17.557278");
@@ -122,7 +122,7 @@ network SensorNetworkShowcaseD
             @display("p=32.978306,6.6757708;i=misc/sensor2");
         }
         gateway: Ieee802154SensorNode {
-            @display("p=23.89926,17.557278;i=misc/sensor2");
+            @display("p=23.89926,17.557278;i=misc/sensorgateway");
         }
         server: StandardHost {
             @display("p=35.381584,17.557278");
@@ -165,7 +165,7 @@ network SensorNetworkShowcaseF
             @display("p=32.978306,6.6757708;i=misc/sensor2");
         }
         gateway: WirelessHost {
-            @display("p=23.89926,17.557278;i=misc/sensor2");
+            @display("p=23.89926,17.557278;i=misc/sensorgateway");
         }
         server: StandardHost {
             @display("p=35.381584,17.557278");
