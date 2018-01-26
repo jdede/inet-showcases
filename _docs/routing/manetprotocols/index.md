@@ -186,7 +186,7 @@ The `activeRouteTimeout` parameter sets the timeout for the active routes. If th
 
 <img class="screen" src="aodvlog.png">
 
-<p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>
+<!--<p><video autplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv1.mp4"></video></p>-->
 <!--internal video recording, debug mode, normal run, animation speed none, zoom 1.54-->
 
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Aodv4_s.mp4"></video></p>
