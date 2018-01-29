@@ -139,58 +139,58 @@ network Ieee802154ShowcaseD
         tower: WirelessHost {
             @display("p=603.9006,326.8363;i=misc/sun");
         }
-        host0: WirelessHost {
+        mirror0: WirelessHost {
             @display("p=504.35654,326.8363;i=misc/solarpanel");
         }
-        host1: WirelessHost {
+        mirror1: WirelessHost {
             @display("p=554.12854,413.10782;i=misc/solarpanel");
         }
-        host2: WirelessHost {
+        mirror2: WirelessHost {
             @display("p=653.6726,413.10782;i=misc/solarpanel");
         }
-        host3: WirelessHost {
+        mirror3: WirelessHost {
             @display("p=705.1037,326.8363;i=misc/solarpanel");
         }
-        host4: WirelessHost {
+        mirror4: WirelessHost {
             @display("p=653.6726,240.56479;i=misc/solarpanel");
         }
-        host5: WirelessHost {
+        mirror5: WirelessHost {
             @display("p=554.12854,240.56479;i=misc/solarpanel");
         }
-        host6: WirelessHost {
+        mirror6: WirelessHost {
             @display("p=404.81247,326.8363;i=misc/solarpanel");
         }
-        host7: WirelessHost {
+        mirror7: WirelessHost {
             @display("p=431.35757,428.03943;i=misc/solarpanel");
         }
-        host8: WirelessHost {
+        mirror8: WirelessHost {
             @display("p=504.35654,501.0384;i=misc/solarpanel");
         }
-        host9: WirelessHost {
+        mirror9: WirelessHost {
             @display("p=603.9006,527.5835;i=misc/solarpanel");
         }
-        host10: WirelessHost {
+        mirror10: WirelessHost {
             @display("p=705.1037,501.0384;i=misc/solarpanel");
         }
-        host11: WirelessHost {
+        mirror11: WirelessHost {
             @display("p=778.10266,428.03943;i=misc/solarpanel");
         }
-        host12: WirelessHost {
+        mirror12: WirelessHost {
             @display("p=804.64777,326.8363;i=misc/solarpanel");
         }
-        host13: WirelessHost {
+        mirror13: WirelessHost {
             @display("p=778.10266,227.29225;i=misc/solarpanel");
         }
-        host14: WirelessHost {
+        mirror14: WirelessHost {
             @display("p=705.1037,154.29327;i=misc/solarpanel");
         }
-        host15: WirelessHost {
+        mirror15: WirelessHost {
             @display("p=603.9006,127.7482;i=misc/solarpanel");
         }
-        host16: WirelessHost {
+        mirror16: WirelessHost {
             @display("p=504.35654,154.29327;i=misc/solarpanel");
         }
-        host17: WirelessHost {
+        mirror17: WirelessHost {
             @display("p=431.35757,227.29225;i=misc/solarpanel");
         }
 }
