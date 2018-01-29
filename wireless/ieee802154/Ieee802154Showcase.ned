@@ -125,73 +125,73 @@ network Ieee802154ShowcaseC
 
 network Ieee802154ShowcaseD
 {
-    @display("bgb=2000,2000");
+    @display("bgb=1076.7349,781.42084");
     submodules:
         configurator: Ipv4NetworkConfigurator {
-            @display("p=390.97147,275.12808");
+            @display("p=121.11193,91.24872");
         }
         radioMedium: Ieee802154NarrowbandScalarRadioMedium {
-            @display("p=386.14468,685.4068");
+            @display("p=119.452866,228.95132");
         }
         visualizer: IntegratedVisualizer {
-            @display("p=390.97147,1177.7412");
+            @display("p=121.11193,389.88086");
         }
         tower: WirelessHost {
-            @display("p=1000,1000;i=misc/sun");
+            @display("p=603.9006,326.8363;i=misc/sun");
         }
         host0: WirelessHost {
-            @display("p=900.0,1000.0;i=misc/solarpanel");
+            @display("p=504.35654,326.8363;i=misc/solarpanel");
         }
         host1: WirelessHost {
-            @display("p=950.0,1086.6;i=misc/solarpanel");
+            @display("p=554.12854,413.10782;i=misc/solarpanel");
         }
         host2: WirelessHost {
-            @display("p=1050.0,1086.6;i=misc/solarpanel");
+            @display("p=653.6726,413.10782;i=misc/solarpanel");
         }
         host3: WirelessHost {
-            @display("p=1100.0,1000.0;i=misc/solarpanel");
+            @display("p=705.1037,326.8363;i=misc/solarpanel");
         }
         host4: WirelessHost {
-            @display("p=1050.0,913.4;i=misc/solarpanel");
+            @display("p=653.6726,240.56479;i=misc/solarpanel");
         }
         host5: WirelessHost {
-            @display("p=950.0,913.4;i=misc/solarpanel");
+            @display("p=554.12854,240.56479;i=misc/solarpanel");
         }
         host6: WirelessHost {
-            @display("p=800.0,1000.0;i=misc/solarpanel");
+            @display("p=404.81247,326.8363;i=misc/solarpanel");
         }
         host7: WirelessHost {
-            @display("p=826.8,1100.0;i=misc/solarpanel");
+            @display("p=431.35757,428.03943;i=misc/solarpanel");
         }
         host8: WirelessHost {
-            @display("p=900.0,1173.2;i=misc/solarpanel");
+            @display("p=504.35654,501.0384;i=misc/solarpanel");
         }
         host9: WirelessHost {
-            @display("p=1000.0,1200.0;i=misc/solarpanel");
+            @display("p=603.9006,527.5835;i=misc/solarpanel");
         }
         host10: WirelessHost {
-            @display("p=1100.0,1173.2;i=misc/solarpanel");
+            @display("p=705.1037,501.0384;i=misc/solarpanel");
         }
         host11: WirelessHost {
-            @display("p=1173.2,1100.0;i=misc/solarpanel");
+            @display("p=778.10266,428.03943;i=misc/solarpanel");
         }
         host12: WirelessHost {
-            @display("p=1200.0,1000.0;i=misc/solarpanel");
+            @display("p=804.64777,326.8363;i=misc/solarpanel");
         }
         host13: WirelessHost {
-            @display("p=1173.2,900.0;i=misc/solarpanel");
+            @display("p=778.10266,227.29225;i=misc/solarpanel");
         }
         host14: WirelessHost {
-            @display("p=1100.0,826.8;i=misc/solarpanel");
+            @display("p=705.1037,154.29327;i=misc/solarpanel");
         }
         host15: WirelessHost {
-            @display("p=1000.0,800.0;i=misc/solarpanel");
+            @display("p=603.9006,127.7482;i=misc/solarpanel");
         }
         host16: WirelessHost {
-            @display("p=900.0,826.8;i=misc/solarpanel");
+            @display("p=504.35654,154.29327;i=misc/solarpanel");
         }
         host17: WirelessHost {
-            @display("p=826.8,900.0;i=misc/solarpanel");
+            @display("p=431.35757,227.29225;i=misc/solarpanel");
         }
 }
 
