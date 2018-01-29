@@ -195,5 +195,74 @@ network Ieee802154ShowcaseD
         }
 }
 
-
-
+network Ieee802154ShowcaseE
+{
+    @display("bgb=1571.57,1114.7");
+    submodules:
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=100,100");
+        }
+        radioMedium: Ieee802154NarrowbandScalarRadioMedium {
+            @display("p=100,200");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=100,300");
+        }
+        mirror0: WirelessHost {
+            @display("p=558.92,472.57;i=misc/solarpanel");
+        }
+        mirror1: WirelessHost {
+            @display("p=632.70996,602.88;i=misc/solarpanel");
+        }
+        mirror2: WirelessHost {
+            @display("p=783.43,602.88;i=misc/solarpanel");
+        }
+        mirror3: WirelessHost {
+            @display("p=858.79,472.57;i=misc/solarpanel");
+        }
+        mirror4: WirelessHost {
+            @display("p=783.43,342.26;i=misc/solarpanel");
+        }
+        mirror5: WirelessHost {
+            @display("p=632.70996,342.26;i=misc/solarpanel");
+        }
+        mirror6: WirelessHost {
+            @display("p=508.68,472.57;i=misc/solarpanel");
+        }
+        mirror7: WirelessHost {
+            @display("p=535.37,573.05;i=misc/solarpanel");
+        }
+        mirror8: WirelessHost {
+            @display("p=607.58997,645.27;i=misc/solarpanel");
+        }
+        mirror9: WirelessHost {
+            @display("p=708.07,671.95996;i=misc/solarpanel");
+        }
+        mirror10: WirelessHost {
+            @display("p=808.55,645.27;i=misc/solarpanel");
+        }
+        mirror11: WirelessHost {
+            @display("p=880.76996,573.05;i=misc/solarpanel");
+        }
+        mirror12: WirelessHost {
+            @display("p=907.45996,472.57;i=misc/solarpanel");
+        }
+        mirror13: WirelessHost {
+            @display("p=880.76996,372.09;i=misc/solarpanel");
+        }
+        mirror14: WirelessHost {
+            @display("p=808.55,299.87;i=misc/solarpanel");
+        }
+        mirror15: WirelessHost {
+            @display("p=708.07,273.18;i=misc/solarpanel");
+        }
+        mirror16: WirelessHost {
+            @display("p=607.58997,299.87;i=misc/solarpanel");
+        }
+        mirror17: WirelessHost {
+            @display("p=535.37,372.09;i=misc/solarpanel");
+        }
+        tower: WirelessHost {
+            @display("p=708.07,472.57;i=misc/sun");
+        }
+}
