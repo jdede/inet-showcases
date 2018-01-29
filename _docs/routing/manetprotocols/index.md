@@ -140,9 +140,8 @@ The part II would involve: selecting a network, and mobility scenario. Making su
 
 ## Configuration and Results
 
-This section contains the configuration and results for the three simulations.
-The three simulations will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
-They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain  hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10`. In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
+This section contains the configuration and results for the three simulations, which will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
+They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain  hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10` (their numbers vary in the different simulations.) In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
 
 In all three simulations, the source node pings the destination node.
 Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses.) The netmask routes added by the interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
@@ -152,6 +151,8 @@ Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4N
 </p>
 
 TODO: mobility
+
+In the simulations for AODV and DSDV, `source` and `destination` will be static nodes out of communication range from each other. All other nodes will be moving around randomly, while taking part in routing the packets between the source and the destination nodes. In the GPSR simulation, all nodes will be stationary. TODO: is this necessary ?
 
 ### AODV
 
@@ -208,6 +209,8 @@ The DSDV protocol is implemented in the `Dsdv` module. The routing protocol type
 
 <pre class="snippet" src="omnetpp.ini" from='"Dsdv"' until=" "></pre>
 
+TODO: same mobility settings? mobility base config? or thats just a technical detail, and here it is enough that they use the same network, and the same mobility settings (so basically its the same scenario).
+
 Like `Aodv` (and most routing protocol modules), `Dsdv` has many parameters with default values that yield a working simulation without any configuration. In this simulation, similarly to the previous one, we set two parameters of the protocol:
 
 <pre class="snippet" src="omnetpp.ini" from="helloInterval" upto="routeLifetime"></pre>
@@ -216,6 +219,9 @@ The `helloInterval` parameter controls the frequency of the periodic updates, or
 The `routeLifetime` parameter sets after how long the routes expire. TODO: more on this?
 
 -results
+
+<p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Dsdv1.mp4"></video></p>
+<!--internal video recording, animation speed none, data link visualizers fadeOutMode set to animation time, zoom 1.54-->
 
 ### GPSR
 
@@ -238,3 +244,6 @@ TODO: some examples of parameters? link to documentation?
 - results
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
 <!--simple screen recorder, 10 fps, normal run-->
+
+TODO: maybe there should be another gpsr config, where it is apparent that nodes forward packets
+to the node which is the farthest away from them in the direction of the destination
