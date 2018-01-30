@@ -160,7 +160,7 @@ Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4N
 
 The example simulation featuring AODV is defined in the `Aodv` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/>. This configuration uses the `ManetProtocolShowcaseA` network. The network looks like the following:
 
-TODO: network image
+<img class="screen" src="networkA.png">
 
 - nodes are scattered
 - the source and the destination are stationary
