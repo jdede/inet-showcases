@@ -84,6 +84,9 @@ V2
 DSDV is a proactive (or table-driven) MANET routing protocol, where nodes maintain a routing table of the best distances for destinations in the network. The routing tables are updated periodically, and when there is a change in a node's routing table (a better route becomes available.)
 TODO: about performance
 
+Note that INET's DSDV implementation only features the smaller periodic updates (hello messages.)
+TODO: is this needed ?
+
 <!-- TODO
 The most important is:
 
@@ -105,19 +108,19 @@ the beaconing proactive behavior...position is attached to all packets...thus al
 serve as beacons (the inter beacon timer is resetted at every packet send...recuding time between beacons at parts of the network with active traffic) -->
 
 GPSR is a geographic location based routing protocol. Each node maintains the addresses and geographical co-ordinates of its neighbors, i.e. other nodes in its communication range. Nodes advertise their locations periodically by sending beacons. When no beacons are received from a neighboring node for some time, the node is assumed to have gone out of range, and its table entry is deleted. A table entry for a node is also deleted after 802.11 MAC retransmission failures.
-Nodes attach their location data on all sent and forwarded packets as well. Each packet tranmission resets the inter beacon timer, reducing the required protocol overhead in parts of the network with frequent packet traffic.
+Nodes attach their location data on all sent and forwarded packets as well. Each packet transmission resets the inter beacon timer, reducing the required protocol overhead in parts of the network with frequent packet traffic.
 
 Destination selection for packets is not address based, but packets are addressed to a location specified with co-ordinates. The destination node is actually the one which is the closest to the destination co-ordinates. The protocol operates in one of two modes:
 <!--- In greedy routing mode, the next hop is the neighboring node which is geographically closest to the destination's location. Eventually, the packet reaches the destination. /* If a node should forward a packet, but doesn't know about any nodes that are closer to the destination than itself, it switches the packet to perimeter routing mode.*/ If a node should forward a packet, but it is closer to the destination than any of its neighbors, it switches the packet to perimeter mode.-->
 - In greedy mode, a node forwards a packet to its neighbor which is geographically closest to the destination node. Thus the packet gets gradually closer to its destination with every hop. If a forwarding node is closer to the destination than any of its neighbors, the node switches the packet to perimeter mode. In this case, the packet must take a route that takes it farther from its destination temporarily - it routes around a void, a region without any nodes to route to.
 - In perimeter routing mode, the packet can circumnavigate a void. When the packet is in this mode, nodes create a planar graph of their neighboring nodes based on their location, where vertices represent nodes and edges represent possible paths between nodes. Nodes use the right hand rule for forwarding packets, i.e. they forward the packet on the first edge to the right, compared to the edge the packet arrived from. Each node does this, until the packet arrives at its destination, or at an intermediate node which is closer to the destination than the one at which the packet was switched to perimeter mode. In the latter case, the packet is switched to greedy mode. If the packet is in perimeter mode and would be forwarded on an edge that it has been forwarded on previously, it is discarded (there is no route to the destination.) <!--can forward the packet to another node which is closer to the destination (in which case the packet is switched to greedy mode.)--> <!--If a packet is in perimeter mode and arrives at node it has been at previously, then it is discarded. TODO: how does this work?-->
 
-TODO: parameters can be according to the mobility rate and the communication ranges in the network.
-or maybe this belongs in the configuration section.
+<!-- TODO: parameters can be according to the mobility rate and the communication ranges in the network.
+or maybe this belongs in the configuration section. -->
+
+Several parameters of the protocol can be set according to the mobility rate and transmission ranges in the network, such as interval of beacons and timeout of neighbor location data.
 
 TODO: this seems too big
-
-TODO: some properties of the protocol...its not very good for fast moving nodes
 
 TODO: sometimes the node doesnt know the location of all its neighbors (if they havent yet received a beacon from them)
 
@@ -142,16 +145,16 @@ The part II would involve: selecting a network, and mobility scenario. Making su
 This section contains the configuration and results for the three simulations, which will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
 They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain  hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10` (their numbers vary in the different simulations.) In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
 
-In all three simulations, the source node pings the destination node.
+In all three simulations, the source node pings the destination node. The two nodes are out of communication range of each other, and the other nodes are responsible to forward packets between the two.
 Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses.) The netmask routes added by the interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
 
 <p>
 <pre class="snippet" src="omnetpp.ini" from="configurator" upto="netmaskRoutes"></pre>
 </p>
 
-TODO: mobility
+<!-- TODO: mobility -->
 
-In the simulations for AODV and DSDV, `source` and `destination` will be static nodes out of communication range from each other. All other nodes will be moving around randomly, while taking part in routing the packets between the source and the destination nodes. In the GPSR simulation, all nodes will be stationary. TODO: is this necessary ?
+<!-- In the simulations for AODV and DSDV (using the `ManetRoutingProtocolsShowcaseA` network), `source` and `destination` will be static nodes out of communication range from each other. All other nodes will be moving around randomly, while taking part in routing the packets between the source and the destination nodes. In the GPSR simulation, all nodes will be stationary. TODO: is this necessary ? -->
 
 ### AODV
 
