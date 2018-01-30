@@ -6,7 +6,7 @@ hidden: true
 
 ## Goals
 
-Routing protocols for mobile adhoc networks (MANETs) often fall into two major categories: reactive and proactive. INET contains various routing protocols for MANETs from both categories, and other categories as well.
+Routing protocols for mobile adhoc networks (MANETs) often fall into two major categories: reactive and proactive. INET contains various routing protocols for MANETs from both categories, and from other categories as well.
 
 <!-- This showcase demonstrates three manet routing protocols with three example simulations. There is a simulation demonstrating manet routing with a reactive protocol (Aodv), a proactive protocol (Dsdv), and a manet routing protocol that is neither reactive nor proactive (Gpsr). -->
 
@@ -30,7 +30,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 <!-- manets are mobile so there is no infrastructure and it is dynamic so we need protocols that can
 work in the environment. reaction time and scalability. -->
 
-MANETs are ad hoc networks comprised of wireless nodes, which are often mobile. Given the mobile nature of the nodes, the network topology can change dynamically. The nodes create their own network infrastructure, and each node also acts as a router, forwarding traffic in the network. MANET routing protocols need to adapt to changes in the network topology and <!--continuously--> maintain routing information to be able to forward packets to their destinations.
+MANETs are ad hoc networks comprised of wireless nodes, which are often mobile. Given the mobile nature of the nodes, the network topology can change dynamically. The nodes create their own network infrastructure: each node also acts as a router, forwarding traffic in the network. MANET routing protocols need to adapt to changes in the network topology and <!--continuously--> maintain routing information to be able to forward packets to their destinations.
 
 <!-- TODO: keywords: autonomous, wireless, self-configuring, continuously maintain information to properly route. each node is a router, forwarding traffic not mean for him. transport layer ? -->
 
@@ -58,13 +58,12 @@ AODV uses IP addresses to address packets, and maintains a routing table with th
 - `RREP`: Route reply
 - `RERR`: Route error
 
-TODO: there is another kind, hello messages
-TODO: actually, AODV is both reactive and proactive, but hello messages are disabled by default in INET
-
 When a node wants to send a packet, and it doesn't know the route to the destination, it initiates route discovery, by sending an `RREQ` multicast message. The neighboring nodes record where the message came from, and forward it to their neighbors, until the message gets to the destination node. The destination node replies with an `RREP`, which gets back to the source on the reverse path along which the `RREQ` came. <!--The intermediate nodes record the route towards the destination, as the RREP gets back to the source.-->
 Forward routes are set up in the intermediate node as the `RREP` travels back to the source.
 An intermediate node can also send an `RREP` in reply to a received `RREQ`, if it knows the route to the destination, thus nodes can join an existing route. When the `RREP` arrives at the source, and the route is created, communication can being between the source and the destination. If a route no longer works, i.e. messages cannot be forwarded on it, `RERR` messages are broadcast, and this triggers route discovery.
 As a reactive protocol, AODV has less overhead than proactive ones, but reacts to changes in network topology slower.
+
+Additionally, even though AODV is a reactive protocol, nodes can send periodic hello messages to discover links to neighbors and update the status of these links. This mechanism is local (hello messages are only sent to neighbors, and not forwarded), and it can make the network more responsive to local topology changes. By default, hello messages are turned off in INET's AODV implementation.
 
 ### About DSDV
 
