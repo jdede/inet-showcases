@@ -5,6 +5,13 @@ import inet.node.inet.WirelessHost;
 import inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
+module Ieee802154Node extends WirelessHost
+{
+    parameters:
+        wlan[0].typename = "WirelessInterface";
+        wlan[0].radioType = "Ieee802154NarrowbandScalarRadio";
+        forwarding = true;
+}
 
 network Ieee802154ShowcaseA
 {
@@ -21,7 +28,7 @@ network Ieee802154ShowcaseA
         visualizer: IntegratedVisualizer {
             @display("p=67,146");
         }
-        tower: WirelessHost {
+        powerplant: WirelessHost {
             @display("p=200,200");
         }
         //        host1: WirelessHost;
@@ -103,22 +110,22 @@ network Ieee802154ShowcaseC
         visualizer: IntegratedVisualizer {
             @display("p=390.97147,1177.7412");
         }
-        host0: WirelessHost {
+        host0: Ieee802154Node {
             @display("p=100.0,250.0");
         }
-        host1: WirelessHost {
+        host1: Ieee802154Node {
             @display("p=150.0,336.6");
         }
-        host2: WirelessHost {
+        host2: Ieee802154Node {
             @display("p=250.0,336.6");
         }
-        host3: WirelessHost {
+        host3: Ieee802154Node {
             @display("p=300.0,250.0");
         }
-        host4: WirelessHost {
+        host4: Ieee802154Node {
             @display("p=250.0,163.4");
         }
-        host5: WirelessHost {
+        host5: Ieee802154Node {
             @display("p=150.0,163.4");
         }
 }
@@ -136,61 +143,61 @@ network Ieee802154ShowcaseD
         visualizer: IntegratedVisualizer {
             @display("p=121.11193,389.88086");
         }
-        tower: WirelessHost {
+        powerplant: Ieee802154Node {
             @display("p=603.9006,326.8363;i=misc/sun");
         }
-        mirror0: WirelessHost {
+        mirror0: Ieee802154Node {
             @display("p=504.35654,326.8363;i=misc/solarpanel");
         }
-        mirror1: WirelessHost {
+        mirror1: Ieee802154Node {
             @display("p=554.12854,413.10782;i=misc/solarpanel");
         }
-        mirror2: WirelessHost {
+        mirror2: Ieee802154Node {
             @display("p=653.6726,413.10782;i=misc/solarpanel");
         }
-        mirror3: WirelessHost {
+        mirror3: Ieee802154Node {
             @display("p=705.1037,326.8363;i=misc/solarpanel");
         }
-        mirror4: WirelessHost {
+        mirror4: Ieee802154Node {
             @display("p=653.6726,240.56479;i=misc/solarpanel");
         }
-        mirror5: WirelessHost {
+        mirror5: Ieee802154Node {
             @display("p=554.12854,240.56479;i=misc/solarpanel");
         }
-        mirror6: WirelessHost {
+        mirror6: Ieee802154Node {
             @display("p=404.81247,326.8363;i=misc/solarpanel");
         }
-        mirror7: WirelessHost {
+        mirror7: Ieee802154Node {
             @display("p=431.35757,428.03943;i=misc/solarpanel");
         }
-        mirror8: WirelessHost {
+        mirror8: Ieee802154Node {
             @display("p=504.35654,501.0384;i=misc/solarpanel");
         }
-        mirror9: WirelessHost {
+        mirror9: Ieee802154Node {
             @display("p=603.9006,527.5835;i=misc/solarpanel");
         }
-        mirror10: WirelessHost {
+        mirror10: Ieee802154Node {
             @display("p=705.1037,501.0384;i=misc/solarpanel");
         }
-        mirror11: WirelessHost {
+        mirror11: Ieee802154Node {
             @display("p=778.10266,428.03943;i=misc/solarpanel");
         }
-        mirror12: WirelessHost {
+        mirror12: Ieee802154Node {
             @display("p=804.64777,326.8363;i=misc/solarpanel");
         }
-        mirror13: WirelessHost {
+        mirror13: Ieee802154Node {
             @display("p=778.10266,227.29225;i=misc/solarpanel");
         }
-        mirror14: WirelessHost {
+        mirror14: Ieee802154Node {
             @display("p=705.1037,154.29327;i=misc/solarpanel");
         }
-        mirror15: WirelessHost {
+        mirror15: Ieee802154Node {
             @display("p=603.9006,127.7482;i=misc/solarpanel");
         }
-        mirror16: WirelessHost {
+        mirror16: Ieee802154Node {
             @display("p=504.35654,154.29327;i=misc/solarpanel");
         }
-        mirror17: WirelessHost {
+        mirror17: Ieee802154Node {
             @display("p=431.35757,227.29225;i=misc/solarpanel");
         }
 }
@@ -208,61 +215,61 @@ network Ieee802154ShowcaseE
         visualizer: IntegratedVisualizer {
             @display("p=100,300");
         }
-        mirror0: WirelessHost {
+        mirror0: Ieee802154Node {
             @display("p=558.92,472.57;i=misc/solarpanel");
         }
-        mirror1: WirelessHost {
+        mirror1: Ieee802154Node {
             @display("p=632.70996,602.88;i=misc/solarpanel");
         }
-        mirror2: WirelessHost {
+        mirror2: Ieee802154Node {
             @display("p=783.43,602.88;i=misc/solarpanel");
         }
-        mirror3: WirelessHost {
+        mirror3: Ieee802154Node {
             @display("p=858.79,472.57;i=misc/solarpanel");
         }
-        mirror4: WirelessHost {
+        mirror4: Ieee802154Node {
             @display("p=783.43,342.26;i=misc/solarpanel");
         }
-        mirror5: WirelessHost {
+        mirror5: Ieee802154Node {
             @display("p=632.70996,342.26;i=misc/solarpanel");
         }
-        mirror6: WirelessHost {
+        mirror6: Ieee802154Node {
             @display("p=508.68,472.57;i=misc/solarpanel");
         }
-        mirror7: WirelessHost {
+        mirror7: Ieee802154Node {
             @display("p=535.37,573.05;i=misc/solarpanel");
         }
-        mirror8: WirelessHost {
+        mirror8: Ieee802154Node {
             @display("p=607.58997,645.27;i=misc/solarpanel");
         }
-        mirror9: WirelessHost {
+        mirror9: Ieee802154Node {
             @display("p=708.07,671.95996;i=misc/solarpanel");
         }
-        mirror10: WirelessHost {
+        mirror10: Ieee802154Node {
             @display("p=808.55,645.27;i=misc/solarpanel");
         }
-        mirror11: WirelessHost {
+        mirror11: Ieee802154Node {
             @display("p=880.76996,573.05;i=misc/solarpanel");
         }
-        mirror12: WirelessHost {
+        mirror12: Ieee802154Node {
             @display("p=907.45996,472.57;i=misc/solarpanel");
         }
-        mirror13: WirelessHost {
+        mirror13: Ieee802154Node {
             @display("p=880.76996,372.09;i=misc/solarpanel");
         }
-        mirror14: WirelessHost {
+        mirror14: Ieee802154Node {
             @display("p=808.55,299.87;i=misc/solarpanel");
         }
-        mirror15: WirelessHost {
+        mirror15: Ieee802154Node {
             @display("p=708.07,273.18;i=misc/solarpanel");
         }
-        mirror16: WirelessHost {
+        mirror16: Ieee802154Node {
             @display("p=607.58997,299.87;i=misc/solarpanel");
         }
-        mirror17: WirelessHost {
+        mirror17: Ieee802154Node {
             @display("p=535.37,372.09;i=misc/solarpanel");
         }
-        tower: WirelessHost {
+        powerplant: Ieee802154Node {
             @display("p=708.07,472.57;i=misc/sun");
         }
 }
@@ -280,61 +287,61 @@ network Ieee802154ShowcaseF
         visualizer: IntegratedVisualizer {
             @display("p=100,300");
         }
-        mirror0: WirelessHost {
+        mirror0: Ieee802154Node {
             @display("p=574,517;i=misc/solarpanel");
         }
-        mirror1: WirelessHost {
+        mirror1: Ieee802154Node {
             @display("p=671,622;i=misc/solarpanel");
         }
-        mirror2: WirelessHost {
+        mirror2: Ieee802154Node {
             @display("p=819,573;i=misc/solarpanel");
         }
-        mirror3: WirelessHost {
+        mirror3: Ieee802154Node {
             @display("p=847,427;i=misc/solarpanel");
         }
-        mirror4: WirelessHost {
+        mirror4: Ieee802154Node {
             @display("p=744,332;i=misc/solarpanel");
         }
-        mirror5: WirelessHost {
+        mirror5: Ieee802154Node {
             @display("p=598,380;i=misc/solarpanel");
         }
-        mirror6: WirelessHost {
+        mirror6: Ieee802154Node {
             @display("p=508.68,472.57;i=misc/solarpanel");
         }
-        mirror7: WirelessHost {
+        mirror7: Ieee802154Node {
             @display("p=535.37,573.05;i=misc/solarpanel");
         }
-        mirror8: WirelessHost {
+        mirror8: Ieee802154Node {
             @display("p=607.58997,645.27;i=misc/solarpanel");
         }
-        mirror9: WirelessHost {
+        mirror9: Ieee802154Node {
             @display("p=708.07,671.95996;i=misc/solarpanel");
         }
-        mirror10: WirelessHost {
+        mirror10: Ieee802154Node {
             @display("p=808.55,645.27;i=misc/solarpanel");
         }
-        mirror11: WirelessHost {
+        mirror11: Ieee802154Node {
             @display("p=880.76996,573.05;i=misc/solarpanel");
         }
-        mirror12: WirelessHost {
+        mirror12: Ieee802154Node {
             @display("p=907.45996,472.57;i=misc/solarpanel");
         }
-        mirror13: WirelessHost {
+        mirror13: Ieee802154Node {
             @display("p=880.76996,372.09;i=misc/solarpanel");
         }
-        mirror14: WirelessHost {
+        mirror14: Ieee802154Node {
             @display("p=808.55,299.87;i=misc/solarpanel");
         }
-        mirror15: WirelessHost {
+        mirror15: Ieee802154Node {
             @display("p=708.07,273.18;i=misc/solarpanel");
         }
-        mirror16: WirelessHost {
+        mirror16: Ieee802154Node {
             @display("p=607.58997,299.87;i=misc/solarpanel");
         }
-        mirror17: WirelessHost {
+        mirror17: Ieee802154Node {
             @display("p=535.37,372.09;i=misc/solarpanel");
         }
-        tower: WirelessHost {
+        powerplant: Ieee802154Node {
             @display("p=708.07,472.57;i=misc/sun");
         }
 }
