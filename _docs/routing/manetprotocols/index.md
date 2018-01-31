@@ -85,7 +85,7 @@ DSDV is a proactive (or table-driven) MANET routing protocol, where nodes mainta
 TODO: about performance
 
 Note that INET's DSDV implementation only features the smaller periodic updates (hello messages.)
-TODO: is this needed ?
+TODO: is this needed ? -> not here -> config section
 
 <!-- TODO
 The most important is:
@@ -122,7 +122,7 @@ Several parameters of the protocol can be set according to the mobility rate and
 
 TODO: this seems too big
 
-TODO: sometimes the node doesnt know the location of all its neighbors (if they havent yet received a beacon from them)
+TODO: sometimes the node doesnt know the location of all its neighbors (if they havent yet received a beacon from them) -> config section
 
 TODO: about this much is enough about each protocol. Should be BRIEF.
 
@@ -246,6 +246,14 @@ TODO: some examples of parameters? link to documentation?
 - results
 <p><video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="Gpsr1.mp4"></video></p>
 <!--simple screen recorder, 10 fps, normal run-->
+
+- First, there are beacons, then source sends a ping. it sends it along the chain, until it gets to node9. node9 sends it to node5 because it is closer. node5 realizes it is the closes to the destination of all the neighbors, but it cant reach it. thus it switches the packet to perimeter mode.
+it sends the packet to the right, to node6. node6 passes it along the chain, until it arrives at node1. node1 sends it back to node2, as it is the node on the right (actually, the only neighbor).
+The packet travels up the chain, and nodes always send it to the right...it routes around the void.
+It arrives at node10, which is closer to the destination than node5, where the packet was switched to perimeter mode (so there is information in the packet on where it was switched to perimeter mode). Node10 switches it back to greedy mode, and it can get to the destination from here in greedy mode.
+
+- It might happen that backward reply packets dont take the same route as forward packets.
+It might also happen that a node hasn't sent a beacon yet, so its neighbors have no knowledge of it...thus they wont route the packet to it.
 
 TODO: maybe there should be another gpsr config, where it is apparent that nodes forward packets
 to the node which is the farthest away from them in the direction of the destination
