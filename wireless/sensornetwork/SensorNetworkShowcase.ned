@@ -176,7 +176,6 @@ network SensorNetworkShowcaseF
 
 network SensorNetworkG
 {
-    
     // this should be simpler
     @display("bgb=400,400;bgi=background/floorplan4_75,s;bgg=50,5");
     submodules:
@@ -242,5 +241,8 @@ network SensorNetworkShowcaseH
         }
         lamp3: WirelessHost {
             @display("p=27,17;i=status/bulb");
+        }
+        controller: WirelessHost {
+            @display("p=13,21;i=misc/sensorgateway");
         }
 }
