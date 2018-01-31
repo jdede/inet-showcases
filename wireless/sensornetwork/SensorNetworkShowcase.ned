@@ -173,3 +173,74 @@ network SensorNetworkShowcaseF
     connections:
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
 }
+
+network SensorNetworkG
+{
+    
+    // this should be simpler
+    @display("bgb=400,400;bgi=background/floorplan4_75,s;bgg=50,5");
+    submodules:
+        sensor1: WirelessHost {
+            @display("p=190,220;i=misc/sensor");
+        }
+        sensor2: WirelessHost {
+            @display("p=70,230;i=misc/sensor");
+        }
+        sensor3: WirelessHost {
+            @display("p=340,140;i=misc/sensor");
+        }
+        sensor4: WirelessHost {
+            @display("p=120,210;i=misc/sensor");
+        }
+        sensor5: WirelessHost {
+            @display("p=80,120;i=misc/sensor");
+        }
+        sensor6: WirelessHost {
+            @display("p=210,100;i=misc/sensor");
+        }
+        sensor7: WirelessHost {
+            @display("p=260,40;i=misc/sensor");
+        }
+        sensor8: WirelessHost {
+            @display("p=190,40;i=misc/sensor");
+        }
+        lamp1: WirelessHost {
+            @display("p=90,80;i=status/bulb");
+        }
+        lamp2: WirelessHost {
+            @display("p=180,80;i=status/bulb");
+        }
+        lamp3: WirelessHost {
+            @display("p=230,80;i=status/bulb");
+        }
+        lamp4: WirelessHost {
+            @display("p=310,80;i=status/bulb");
+        }
+}
+
+network SensorNetworkShowcaseH
+{
+    @display("bgb=40,40;bgi=background/floorplan_2_50,s");
+    submodules:
+        sensor1: WirelessHost {
+            @display("p=19,7;i=misc/sensor");
+        }
+        sensor3: WirelessHost {
+            @display("p=21.5,21.5;i=misc/sensor");
+        }
+        sensor2: WirelessHost {
+            @display("p=19,33;i=misc/sensor");
+        }
+        lamp2: WirelessHost {
+            @display("p=17.5,27;i=status/bulb");
+        }
+        lamp1: WirelessHost {
+            @display("p=16,10;i=status/bulb");
+        }
+        lamp4: WirelessHost {
+            @display("p=27,28;i=status/bulb");
+        }
+        lamp3: WirelessHost {
+            @display("p=27,17;i=status/bulb");
+        }
+}
