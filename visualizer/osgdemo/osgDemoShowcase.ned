@@ -15,6 +15,7 @@
 
 package inet.showcases.visualizer.osgdemo;
 import inet.common.geometry.common.OsgGeographicCoordinateSystem;
+import inet.environment.ground.OsgEarthGround;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
 import inet.physicallayer.ieee80211.packetlevel.Ieee80211ScalarRadioMedium;
@@ -44,6 +45,9 @@ network osgDemoNetworkShowcase
         }
         man[5]: AdhocHost {
             @display("p=456.365,219.9225;i=misc/person3");
+        }
+        ground: OsgEarthGround {
+            @display("p=100.399994,477.904");
         }
 }
 
