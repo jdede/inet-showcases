@@ -230,19 +230,28 @@ network SensorNetworkShowcaseH
         sensor2: WirelessHost {
             @display("p=19,33;i=misc/sensor");
         }
-        lamp2: WirelessHost {
-            @display("p=17.5,27;i=status/bulb");
-        }
         lamp1: WirelessHost {
             @display("p=16,10;i=status/bulb");
         }
-        lamp4: WirelessHost {
-            @display("p=27,28;i=status/bulb");
+        lamp2: WirelessHost {
+            @display("p=17.5,27;i=status/bulb");
         }
         lamp3: WirelessHost {
             @display("p=27,17;i=status/bulb");
         }
+        lamp4: WirelessHost {
+            @display("p=27,28;i=status/bulb");
+        }
         controller: WirelessHost {
             @display("p=13,21;i=misc/sensorgateway");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=36,1.5");
+        }
+        radioMedium: ApskScalarRadioMedium {
+            @display("p=36,4.5");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=36,7.5");
         }
 }
