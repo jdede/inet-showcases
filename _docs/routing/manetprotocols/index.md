@@ -143,10 +143,10 @@ The part II would involve: selecting a network, and mobility scenario. Making su
 ## Configuration and Results
 
 This section contains the configuration and results for the three simulations, which will demonstrate the MANET routing protocols `AODV`, `DSDV` and `GPSR`.
-They will use two networks, `ManetRoutingProtocolsShowcaseA` and `ManetRoutingProtocolsShowcaseB`, defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain  hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10` (their numbers vary in the different simulations.) In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
+The AODV and DSDV simulations will use the `ManetRoutingProtocolsShowcaseA` network, which will feature moving hosts. The GPSR simulation will use the `ManetRoutingProtocolsShowcaseB` network, featuring stationary hosts. The networks are defined in <a srcfile="routing/manetprotocols/ManetProtocolsShowcase.ned"/>. Both networks contain hosts of the type `ManetRouter`, whose routing module type is configurable. There is a source host named `source`, a destination host named `destination`, and a number of other hosts, which are named `node1` up to `node10` (their numbers vary in the different networks.) In addition to mobile nodes, both networks contain an `Ieee80211ScalarRadioMedium`, an `Ipv4NetworkConfigurator`, and an `IntegratedMultiVisualizer` module.
 
 In all three simulations, the source node pings the destination node. The two nodes are out of communication range of each other, and the other nodes are responsible to forward packets between the two.
-Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses.) The netmask routes added by the interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
+Since routes are managed dynamically by the MANET routing algorithms, the `Ipv4NetworkConfigurator` module is instructed not to add any routes (it will only assign IP addresses.) The netmask routes added by network interfaces are disabled as well. The following keys in the `General` configuration in <a srcfile="routing/manetprotocols/omnetpp.ini"/> achieve this:
 
 <p>
 <pre class="snippet" src="omnetpp.ini" from="configurator" upto="netmaskRoutes"></pre>
@@ -179,7 +179,7 @@ In INET, AODV is implemented by the `Aodv` module. This is configured in omnetpp
 
 <pre class="snippet" src="omnetpp.ini" from='"Aodv"' until=" "></pre>
 
-The `Aodv` module has many parameters for tweaking the operation of the protocol. All of the parameters have default values, and `Aodv` works without setting any of the parameters. We set two of the parameters:
+The `Aodv` module has many parameters for tweaking the operation of the protocol. The parameters can be set according to the number of nodes in a network, the nodes' mobility levels, traffic, and radio transmission power levels/communication ranges. All of the parameters have default values, and `Aodv` works out of the box, without setting any of the parameters. We will fine tune the protocol's behavior in our scenario by setting two of the parameters: <!--We set two of the parameters:-->
 
 <pre class="snippet" src="omnetpp.ini" from="activeRouteTimeout" upto="deletePeriod"></pre>
 
