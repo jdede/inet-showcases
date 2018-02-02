@@ -207,7 +207,7 @@ still seems they send hello message periodically
 
 The example simulation featuring DSDV is defined in the `Dsdv` configuration in omnetpp.ini. Just like the AODV configuration, this one uses the `ManetRoutingProtocolsShowcaseB` network as well.
 
-The DSDV protocol is implemented in the `Dsdv` module. The routing protocol type in all hosts is set to use DSDV:
+The DSDV protocol is implemented in the `Dsdv` module. The routing protocol type in all hosts is set to `Dsdv`:
 
 <pre class="snippet" src="omnetpp.ini" from='"Dsdv"' until=" "></pre>
 
@@ -229,7 +229,7 @@ The `routeLifetime` parameter sets after how long the routes expire. TODO: more 
 
 The example simulation featuring GPSR is defined in the `Gpsr` configuration in omnetpp.ini. It uses the `ManetRoutingProtocolsShowcaseB` network. The network looks like the following:
 
-<img class="screen" src="networkB.png">
+<img class="screen" src="networkB.png" style="max-width: 90%">
 
 The nodes are laid out along a chain. There is forest, which represents a void that Gpsr can route around. In this example simulation, the nodes will be static (though Gpsr is suitable for scenarios with moving nodes.) Source will ping destination, which is on the other side of the void.
 
