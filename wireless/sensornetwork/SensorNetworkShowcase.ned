@@ -219,39 +219,39 @@ network SensorNetworkG
 
 network SensorNetworkShowcaseH
 {
-    @display("bgb=40,40;bgi=background/floorplan_2_50,s");
+    @display("bgb=20,20;bgi=background/floorplan_2_50,s");
     submodules:
         sensor1: WirelessHost {
-            @display("p=19,7;i=misc/sensor");
+            @display("p=9.5,3.5;i=misc/sensor");
         }
         sensor3: WirelessHost {
-            @display("p=21.5,21.5;i=misc/sensor");
+            @display("p=10.75,10.75;i=misc/sensor");
         }
         sensor2: WirelessHost {
-            @display("p=19,33;i=misc/sensor");
+            @display("p=9.5,16.5;i=misc/sensor");
         }
         lamp1: WirelessHost {
-            @display("p=16,10;i=status/bulb");
+            @display("p=8,5;i=status/bulb");
         }
         lamp2: WirelessHost {
-            @display("p=17.5,27;i=status/bulb");
+            @display("p=8.75,13.5;i=status/bulb");
         }
         lamp3: WirelessHost {
-            @display("p=27,17;i=status/bulb");
+            @display("p=13.5,8.5;i=status/bulb");
         }
         lamp4: WirelessHost {
-            @display("p=27,28;i=status/bulb");
+            @display("p=13.5,14;i=status/bulb");
         }
         controller: WirelessHost {
-            @display("p=13,21;i=misc/sensorgateway");
+            @display("p=6.5,10.5;i=misc/sensorgateway");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=36,1.5");
+            @display("p=18,0.75");
         }
         radioMedium: ApskScalarRadioMedium {
-            @display("p=36,4.5");
+            @display("p=18,2.25");
         }
         visualizer: IntegratedVisualizer {
-            @display("p=36,7.5");
+            @display("p=18,3.75");
         }
 }
