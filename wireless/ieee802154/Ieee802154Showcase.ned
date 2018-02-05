@@ -2,14 +2,17 @@ package inet.showcases.wireless.ieee802154;
 
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
+import inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium;
 import inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
+
 
 module Ieee802154Node extends WirelessHost
 {
     parameters:
         wlan[0].typename = "WirelessInterface";
         wlan[0].radioType = "Ieee802154NarrowbandScalarRadio";
+        wlan[0].macType = "Ieee802154Mac";
         forwarding = true;
 }
 
@@ -343,5 +346,44 @@ network Ieee802154ShowcaseF
         }
         powerplant: Ieee802154Node {
             @display("p=708.07,472.57;i=misc/sun");
+        }
+}
+
+network Ieee802154ShowcaseLamps
+{
+    @display("bgb=20,20;bgi=background/floorplan_2_50,s");
+    submodules:
+        sensor1: Ieee802154Node {
+            @display("p=9.5,3.5;i=misc/sensor");
+        }
+        sensor3: Ieee802154Node {
+            @display("p=10.75,10.75;i=misc/sensor");
+        }
+        sensor2: Ieee802154Node {
+            @display("p=9.5,16.5;i=misc/sensor");
+        }
+        lamp1: Ieee802154Node {
+            @display("p=8,5;i=status/bulb");
+        }
+        lamp2: Ieee802154Node {
+            @display("p=8.75,13.5;i=status/bulb");
+        }
+        lamp3: Ieee802154Node {
+            @display("p=13.5,8.5;i=status/bulb");
+        }
+        lamp4: Ieee802154Node {
+            @display("p=13.5,14;i=status/bulb");
+        }
+        controller: Ieee802154Node {
+            @display("p=6.5,10.5;i=misc/sensorgateway");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=18,0.75");
+        }
+        radioMedium: ApskScalarRadioMedium {
+            @display("p=18,2.25");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=18,3.75");
         }
 }
