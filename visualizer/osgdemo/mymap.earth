@@ -2,7 +2,8 @@
      
 <!-- Offline map: Readymap image and elevation
     <options lighting="true">
-		<terrain lighting="false"/>
+		<terrain lighting="true"/>
+		<normalize_edges="true"/>
 	</options>
 	
     <image name="mymap_imagery" driver="xyz">
@@ -17,7 +18,7 @@
 <!-- Offline map: OSM image and Readymap elevation
 -->
     <options lighting="true">
-		<terrain lighting="false"/>
+		<terrain lighting="true"/>
 	</options>
 	
     <image name="mymap_imagery" driver="tms">
