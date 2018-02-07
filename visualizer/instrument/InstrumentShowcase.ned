@@ -38,17 +38,17 @@ network InstrumentShowcase
     @statistic[numRcvdPk](source=count(client.app[0].packetReceived); record=figure; targetFigure=numRcvdPkCounter);
 
     @figure[perThermometer](type=thermometer; pos=710,45; size=30,180; minValue=0; maxValue=1; tickSize=0.2; label="Packet error rate");
-    @statistic[per1](source=client.wlan[0].radio.packetErrorRate; record=figure; targetFigure=perThermometer);
+    @statistic[per1](source=packetErrorRate(client.wlan[0].radio.packetSentToUpper); record=figure; targetFigure=perThermometer);
 
     @figure[ctnIndexedImage](type=indexedImage; pos=570,338; size=32,32; images=misc/idle,misc/listen,misc/clock; label="contention state"; labelOffset=0,25; interpolation=best);
     @statistic[ctn](source=server.wlan[0].mac.dcf.channelAccess.contention.stateChanged; record=figure; targetFigure=ctnIndexedImage); // note: indexedImage takes the value modulo the number of images
-    
+
     @figure[perPlot](type=plot; pos=647,260; size=150,90; timeWindow=3; maxValue=1; valueTickSize=1; label="Packet Error Rate");
-    @statistic[per2](source=client.wlan[0].radio.packetErrorRate; record=figure; targetFigure=perPlot);
-    
+    @statistic[per2](source=packetErrorRate(client.wlan[0].radio.packetSentToUpper); record=figure; targetFigure=perPlot);
+
     @figure[bitratePlot](type=plot; pos=385,25; size=250,40; timeWindow=3; maxValue=55; valueTickSize=54; label="Wifi bit rate [Mbps]"; numberSizeFactor=2.5);
     @statistic[bitrate2](source=server.wlan[0].mac.dcf.rateControl.datarate/1000000; record=figure; targetFigure=bitratePlot);
-    
+
     submodules:
         configurator: Ipv4NetworkConfigurator {
             @display("p=62,41");
