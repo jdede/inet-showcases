@@ -113,7 +113,7 @@ TCP ACK, in `router1`'s ppp interface (sent from `ethHost1` to `ethHost2`):
 
 UDP data packet, in `host1`'s wlan interface (sent from `host1` to `host2`):
 
-<img class="screen" src="wifi4.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
+<img class="screen" src="wifi5.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 
