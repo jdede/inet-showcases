@@ -351,7 +351,7 @@ network Ieee802154ShowcaseF
 
 network Ieee802154ShowcaseLamps
 {
-    @display("bgb=20,20;bgi=background/floorplan_2_50,s;bgg=5,5");
+    @display("bgb=20,20;bgi=background/floorplan_2_50,s");
     submodules:
         sensor1: Ieee802154Node {
             @display("p=9.5,3.5;i=misc/sensor");
@@ -361,6 +361,46 @@ network Ieee802154ShowcaseLamps
         }
         sensor2: Ieee802154Node {
             @display("p=9.5,16.5;i=misc/sensor");
+        }
+        lamp1: Ieee802154Node {
+            @display("p=8,5;i=status/bulb");
+        }
+        lamp2: Ieee802154Node {
+            @display("p=8.75,13.5;i=status/bulb");
+        }
+        lamp3: Ieee802154Node {
+            @display("p=13.5,8.5;i=status/bulb");
+        }
+        lamp4: Ieee802154Node {
+            @display("p=13.5,14;i=status/bulb");
+        }
+        controller: Ieee802154Node {
+            @display("p=6.5,10.5;i=misc/sensorgateway");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=18,0.75");
+        }
+        radioMedium: ApskScalarRadioMedium {
+            @display("p=18,2.25");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=18,3.75");
+        }
+}
+
+network Ieee802154ShowcaseMoreLamps
+{
+    // TODO remove: insert this for positioning grid: ;bgg=5,5
+    @display("bgb=20,20;bgi=background/floorplan_2_50,s");
+    submodules:
+        sensor1: Ieee802154Node {
+            @display("p=9.5,3.5;i=misc/sensor");
+        }
+        sensor2: Ieee802154Node {
+            @display("p=9.5,16.5;i=misc/sensor");
+        }
+        sensor3: Ieee802154Node {
+            @display("p=10.75,10.75;i=misc/sensor");
         }
         sensor4: Ieee802154Node {
             @display("p=2.5,17.5;i=misc/sensor");
@@ -377,19 +417,19 @@ network Ieee802154ShowcaseLamps
         lamp3: Ieee802154Node {
             @display("p=13.5,8.5;i=status/bulb");
         }
-        lamp3_2: Ieee802154Node {
+        lamp4: Ieee802154Node {
             @display("p=16.5,9.5;i=status/bulb");
         }
-        lamp4: Ieee802154Node {
+        lamp5: Ieee802154Node {
             @display("p=13.5,14;i=status/bulb");
         }
-        lamp5: Ieee802154Node {
+        lamp6: Ieee802154Node {
             @display("p=4,13;i=status/bulb");
         }
-        lamp6: Ieee802154Node {
+        lamp7: Ieee802154Node {
             @display("p=4,10.5;i=status/bulb");
         }
-        lamp7: Ieee802154Node {
+        lamp8: Ieee802154Node {
             @display("p=4,5;i=status/bulb");
         }
         controller: Ieee802154Node {
