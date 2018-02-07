@@ -275,7 +275,7 @@ received TCP data.
 *.visualizer1.statisticVisualizer.format = "UDP packets received: %v"
 
 *.visualizer2.statisticVisualizer.displayStatistics = true
-*.visualizer2.statisticVisualizer.signalName = "rcvdPk"
+*.visualizer2.statisticVisualizer.signalName = "packetReceived"
 *.visualizer2.statisticVisualizer.statisticName = "rcvdBytes"
 *.visualizer2.statisticVisualizer.unit = "KiB"
 *.visualizer2.statisticVisualizer.sourceFilter = "**.tcpApp[*]"
