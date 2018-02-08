@@ -8,7 +8,12 @@ LinkVisualizer:
 - nyil a node kozepeig megy, nem a szeleig
 
 PathVisualizer:
-- NetworkPathVisualizer showcase: Enabling Visualization configuration: nyil egyaltalan nem latszik
-- nyilhegy nem latszik
+- NetworkPathVisualizer showcase: EnablingVisualization configuration: nyil egyaltalan nem latszik
 - NetworkPathVisualizer showcase: Mobile configuration: nyil egyaltalan nem latszik
 - NetworkPathVisualizer showcase: Mobile configuration: a routereket kihagyja a path-bol a visualizer
+- TransportPathVisualizer showcase: Filtering configuration: routereket kihagyja a path-bol
+- TransportPathVisualizer showcase: EnablingVisualizationWired & Wireless configuration: nyilat egyaltalan nem vizualizalja
+
+MobilityVisualizer:
+- Velocity-t es orientation-t nem mutatja a 3D vizualizacio
+- trail nem fade-el, hanem vagy van vagy nincs (2d-ben fade-el)
