@@ -1,8 +1,14 @@
 NetworkConnectionVisualizer:
 - kabelek nincsenek megjelenitve a node-ok kozott
 
-DataLinkVisualizer:
+LinkVisualizer:
 - nincs label a nyilon
 - feher szinbe fade-el atlatszo helyett
 - nyilhegy nem koveti a node-ok mozgasat
 - nyil a node kozepeig megy, nem a szeleig
+
+PathVisualizer:
+- NetworkPathVisualizer showcase: Enabling Visualization configuration: nyil egyaltalan nem latszik
+- nyilhegy nem latszik
+- NetworkPathVisualizer showcase: Mobile configuration: nyil egyaltalan nem latszik
+- NetworkPathVisualizer showcase: Mobile configuration: a routereket kihagyja a path-bol a visualizer
