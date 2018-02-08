@@ -1,0 +1,8 @@
+NetworkConnectionVisualizer:
+- kabelek nincsenek megjelenitve a node-ok kozott
+
+DataLinkVisualizer:
+- nincs label a nyilon
+- feher szinbe fade-el atlatszo helyett
+- nyilhegy nem koveti a kamera mozgasat
+- nyil a node kozepeig megy, nem a szeleig
