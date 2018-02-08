@@ -4,5 +4,5 @@ NetworkConnectionVisualizer:
 DataLinkVisualizer:
 - nincs label a nyilon
 - feher szinbe fade-el atlatszo helyett
-- nyilhegy nem koveti a kamera mozgasat
+- nyilhegy nem koveti a node-ok mozgasat
 - nyil a node kozepeig megy, nem a szeleig
