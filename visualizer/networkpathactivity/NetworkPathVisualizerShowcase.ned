@@ -36,6 +36,10 @@ network NetworkPathSimpleShowcase
 {
     @display("bgb=600,250");
     submodules:
+        visualizer: IntegratedVisualizer {
+            parameters:
+                @display("p=100,10");
+        }
         pathVisualizer: NetworkRouteVisualizer {
             parameters:
                 @display("p=100,50");

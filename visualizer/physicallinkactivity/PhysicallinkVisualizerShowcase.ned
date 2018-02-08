@@ -31,6 +31,10 @@ network PhysicalLinkVisualizerEnablingShowcase
 {
     @display("bgb=600,300");
     submodules:
+        visualizer: IntegratedVisualizer {
+            parameters:
+                @display("p=100,10");
+        }
         linkVisualizer: PhysicalLinkVisualizer {
             parameters:
                 @display("p=100,50");

@@ -32,6 +32,10 @@ network TransportPathVisualizerSimpleWiredShowcase
 {
     @display("bgb=500,250");
     submodules:
+        visualizer: IntegratedVisualizer {
+            parameters:
+                @display("p=80,10");
+        }
         pathVisualizer: TransportRouteVisualizer {
             @display("p=80,80");
         }
@@ -56,6 +60,10 @@ network TransportPathVisualizerSimpleWirelessShowcase
 {
     @display("bgb=500,250");
     submodules:
+        visualizer: IntegratedVisualizer {
+            parameters:
+                @display("p=80,10");
+        }
         pathVisualizer: TransportRouteVisualizer {
             @display("p=80,50");
         }

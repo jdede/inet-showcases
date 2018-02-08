@@ -48,6 +48,9 @@ network DataLinkVisualizerEnablingWiredShowcase
         wiredDestination: StandardHost {
             @display("p=600,110");
         }
+        visualizer: IntegratedVisualizer {
+            @display("p=100,10");
+        }
     connections:
         wiredSource.ethg++ <--> Eth100M <--> wiredDestination.ethg++;
 }
@@ -77,6 +80,9 @@ network DataLinkVisualizerEnablingWirelessShowcase
         }
         wirelessDestination: AdhocHost {
             @display("p=600,110");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=100,10");
         }
 }
 
@@ -182,12 +188,12 @@ network DataLinkVisualizerMobileShowcase
         radioMedium: Ieee80211ScalarRadioMedium {
             @display("p=70,250");
         }
-//        rreqVisualizer: DataLinkVisualizer {
-//        	@display("p=70,350");
-//        }
-//        rrepVisualizer: DataLinkVisualizer {
-//            @display("p=70,450");
-//        }
+        //        rreqVisualizer: DataLinkVisualizer {
+        //        	@display("p=70,350");
+        //        }
+        //        rrepVisualizer: DataLinkVisualizer {
+        //            @display("p=70,450");
+        //        }
         destination: AodvRouter {
             @display("p=512.272,249.796");
         }
