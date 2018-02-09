@@ -37,9 +37,11 @@ The complete list of link layer header type codes can be found <a href="http://w
 
 <!-- The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
 a space separated list of module names.  -->
-The `moduleNamePatterns` parameter specifies which modules' traffic should be recorded. It takes a space separated list of module names. TODO: which modules' output ?
-For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present interfaces. Thus by default it records L1 frames, but setting the `moduleNamePatterns` to `Ipv4`, for example, lets one record L3 frames.
+The `moduleNamePatterns` parameter specifies which modules' traffic should be recorded. It takes a space separated list of module names. `TODO: which modules' output ?`
+For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present L2 interfaces. `TODO: is it L2 interfaces?` Thus by default it records L1 frames, but setting the `moduleNamePatterns` to `ipv4`, for example, lets one record L3 frames (note that the parameter's value is lowercase, because it refers to the actual `ipv4` module in the host, not the module type.)
 The `dumpProtocols` parameter selects which protocols to include in the capture. The parameter's default is `"ethernet ppp ieee80211"`.
+
+`TODO: should have a separate paragraph describing how to set it to L3. "to record L3 frames, ..."`
 
 When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the link layer header type specified by the `pcapNetwork` parameter. It is needed because traffic for all interfaces are included in the trace by default.
 Multiple PCAP recorder modules need to be included in the network to record packets with different link layer headers. One PCAP recorder module can only record traces with one link layer header type, thus the packets with the other header types would not be recognized by PCAP programs.
