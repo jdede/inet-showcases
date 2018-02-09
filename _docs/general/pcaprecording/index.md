@@ -40,7 +40,7 @@ a space separated list of module names.  -->
 The `moduleNamePatterns` parameter specifies which modules' traffic should be recorded. It takes a space separated list of module names. `TODO: which modules' output ?`
 For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present L2 interfaces. `TODO: is it L2 interfaces?` <!--Thus by default it records L1 frames, but setting the `moduleNamePatterns` to `ipv4`, for example, lets one record L3 frames (note that the parameter's value is lowercase, because it refers to the actual `ipv4` module in the host, not the module type.)-->
 The `dumpProtocols` parameter is a filter, and selects which protocols to include in the capture.
-It matches packets which are of the specified protocol type, but not the protocol type of encapsulated packets at the level of capture. The parameter takes protocol names registered in INET (see Protocol.cc) TODO: rewrite TODO: what can you write here?
+It matches packets which are of the specified protocol type, but not the protocol type of encapsulated packets at the level of capture. The parameter takes protocol names registered in INET (see <a href="https://github.com/inet-framework/inet/blob/master/src/inet/common/Protocol.cc" target="_blank">/inet/scr/inet/common/Protocol.cc</a>) `TODO: rewrite` 
 The parameter's default value is `"ethernet ppp ieee80211"`.
 
 <!-- By default, the PCAP recorder module records L2 interfaces, but it can be set to record L3 as well. -->
