@@ -90,7 +90,8 @@ network SensorNetworkShowcaseB
 
 network SensorNetworkShowcaseB_2
 {
-    @display("bgb=50,25;bgi=background/warehouse5_50,s;bgg=5,5");
+    // ;bgg=5,5
+    @display("bgb=50,25;bgi=background/warehouse5_50,s");
     submodules:
         configurator: Ipv4NetworkConfigurator {
             @display("p=4.0722203,4.0722203");
