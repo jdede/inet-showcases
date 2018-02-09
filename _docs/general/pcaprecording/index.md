@@ -21,7 +21,7 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 In order to record PCAP traces in a node, a `PcapRecorder` module needs to be included in it.
 Pcap recorder modules can be easily included in hosts and routers by specifying their `numPcapRecorders` parameter (available in modules that extend `LinkLayerNodeBase`, such as  `StandardHost` and derivatives, and router modules.)
 
-The PCAP recorder module records sent to and from modules that are in the same host as the PCAP recorder module. By default, it records L1 (physical layer) frames, but can be set to record frames at any level. It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
+The PCAP recorder module records packets sent to and from modules that are in the same host as the PCAP recorder module. By default, it records L2 (link layer) frames (frames going in and out of the L2 layer.) It can also be set to record frames at any level. It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
 This parameter acts as the main switch for recording, thus specifying this parameter enables packet capture. <!--The pcap recorder module also creates TCPDump-like output on the module log, if the `verbose` parameter is set to `true`. TODO: enable when its working-->
 The PCAP file's link layer header type needs to be set with the `pcapNetwork` parameter, so PCAP programs interpret the traces correctly. The most important type codes are the following:
 
@@ -86,6 +86,20 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 We configure `host1`'s PCAP recorder to use the 802.11 link layer headers, and `ethHost1`'s PCAP recorder to use ethernet link layer headers. There are two PCAP recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
 <!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: not needed-->
 
+By default, INET doesn't compute CRC and FCS in L2 and L3 frames, but assumes they are correct (declared correct mode.) In order to include the CRC and FCS values in the capture file, L2 and L3 modules need to be set to compute CRC and FCS:
+
+<p>
+<pre class="include" src="omnetpp.ini" from="crcMode" upto="fcsMode"></pre>
+</p>
+
+Note that these settings are required, otherwise an error is returned.
+
+The `alwaysFlush` parameter controls whether to write packets to the pcap file as they are recorded, or after the simulation has concluded. It is `false` by default, but it's set to `true` in all PCAP recorders to make sure there are recorded packets even if the simulation crashes:
+
+<p>
+<pre class="include" src="omnetpp.ini" from="alwaysFlush" until=" "></pre>
+</p>
+
 ## Results
 
 The following video shows the traffic in the network:
@@ -95,7 +109,7 @@ The following video shows the traffic in the network:
 <!--internal video recording, playback speed 1, no animation speed, run until first sendTimer (t=0.002), step, stop at about 10.5 seconds simulation time-->
 </p>
 
-The following images show the same packets viewed in qtenv's packet mode inspector panel and in the PCAP trace opened with Wireshark. Both display the same data about the same packet (with the same data, sequence number, crc, etc. Click to zoom.)
+The following images show the same packets viewed in Qtenv's packet mode inspector panel and in the PCAP trace opened with Wireshark. Both display the same data about the same packet (with the same data, sequence number, crc, etc. Click to zoom.)
 
 TCP data, in `ethHost1` (sent from `ethHost1` to `ethHost2`):
 
