@@ -88,6 +88,41 @@ network SensorNetworkShowcaseB
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
 }
 
+network SensorNetworkShowcaseB_2
+{
+    @display("bgb=50,25;bgi=background/warehouse5_50,s;bgg=5,5");
+    submodules:
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=4.0722203,4.0722203");
+        }
+        visualizer: IntegratedVisualizer {
+            @display("p=4.0722203,9.346079");
+        }
+        radioMedium: ApskScalarRadioMedium {
+            @display("p=4.0054626,14.219392");
+        }
+        sensor4: WirelessHost {
+            @display("p=17,4;i=misc/sensor2");
+        }
+        sensor1: WirelessHost {
+            @display("p=11.482326,17.696255;i=misc/sensor2");
+        }
+        sensor2: WirelessHost {
+            @display("p=28.772572,13.775303;i=misc/sensor2");
+        }
+        sensor3: WirelessHost {
+            @display("p=30,4;i=misc/sensor2");
+        }
+        gateway: WirelessHost {
+            @display("p=23.5,10.5;i=misc/sensorgateway");
+        }
+        server: StandardHost {
+            @display("p=33.35591,10.46182");
+        }
+    connections:
+        gateway.ethg++ <--> Eth100M <--> server.ethg++;
+}
+
 network SensorNetworkShowcaseC extends SensorNetworkShowcaseB
 {
     submodules:
