@@ -50,6 +50,9 @@ By default the PCAP recorder module records L2 frames, but setting the `moduleNa
 When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the link layer header type specified by the `pcapNetwork` parameter. It is needed because traffic for all interfaces are included in the trace by default.
 Multiple PCAP recorder modules need to be included in the network to record packets with different link layer headers. One PCAP recorder module can only record traces with one link layer header type, thus the packets with the other header types would not be recognized by PCAP programs.
 
+To summerize: the `moduleNamePatterns` parameter specifies which modules' outputs should be captured.
+The `pcapNetwork` parameter sets the link layer header type according to the captured module outputs, so PCAP programs can interpret the PCAP file correctly. The `dumpProtocols` parameter can narrow the set of recorded protocols at the level of capture. TODO: not sure this is needed
+
 ### The configuration
 
 The example simulation for this showcase contains wired and wireless hosts, and routers.
