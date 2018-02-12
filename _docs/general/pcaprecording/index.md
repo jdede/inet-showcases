@@ -148,6 +148,6 @@ The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
-TODO: RawIP
+TCP data, in `ethHost2` (sent from `ethHost1` to `ethHost2`):
 
 <img class="screen" src="rawip.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
