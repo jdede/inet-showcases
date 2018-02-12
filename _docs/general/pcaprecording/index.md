@@ -23,6 +23,8 @@ Pcap recorder modules can be easily included in hosts and routers by specifying 
 
 The PCAP recorder module records packets sent to and from modules that are in the same host as the PCAP recorder module. By default, it records L2 (link layer) frames (frames going in and out of the L2 layer.) It can also be set to record frames at any level. It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
 This parameter acts as the main switch for recording, thus specifying this parameter enables packet capture. <!--The pcap recorder module also creates TCPDump-like output on the module log, if the `verbose` parameter is set to `true`. TODO: enable when its working-->
+<!-- TODO: there can be only one PCAP link layer header type, this is a limitation of the PCAP file. -->
+There can be packets with only one link layer header type in the PCAP file (this is a limitation of the PCAP file format.)
 The PCAP file's link layer header type needs to be set with the `pcapNetwork` parameter, so PCAP programs interpret the traces correctly. The most important type codes are the following:
 
 - ethernet: 1
