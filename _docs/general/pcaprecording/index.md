@@ -23,7 +23,6 @@ Pcap recorder modules can be easily included in hosts and routers by specifying 
 
 The PCAP recorder module records packets sent to and from modules that are in the same host as the PCAP recorder module. By default, it records L2 (link layer) frames (frames going in and out of the L2 layer.) It can also be set to record frames L3. It writes traces in a PCAP file, which has to be specified by the `pcapFile` parameter.
 This parameter acts as the main switch for recording, thus specifying this parameter enables packet capture. <!--The pcap recorder module also creates TCPDump-like output on the module log, if the `verbose` parameter is set to `true`. TODO: enable when its working-->
-<!-- TODO: there can be only one PCAP link layer header type, this is a limitation of the PCAP file. -->
 The PCAP recorder writes traces in the original PCAP format, not the next generation (PcapNg.)
 There can be packets with only one link layer header type in the PCAP file (this is a limitation of the original PCAP file format.)
 The PCAP file's link layer header type needs to be set with the `pcapNetwork` parameter, so PCAP programs interpret the traces correctly. The most important type codes are the following:
@@ -32,21 +31,13 @@ The PCAP file's link layer header type needs to be set with the `pcapNetwork` pa
 - 802.11: 105
 - ppp: 204
 
-<!-- TODO: where to check other ones -->
-
 The complete list of link layer header type codes can be found <a href="http://www.tcpdump.org/linktypes.html" target="_blank">here</a>.
 
-<!-- TODO: how to record other level frames, like IPv4 -->
-
-<!-- The modules to record can be specified by the `moduleNamePatterns` parameter, which takes
-a space separated list of module names.  -->
 The `moduleNamePatterns` parameter specifies which modules' traffic should be recorded. It takes a space separated list of module names. `TODO: which modules' output ?`
-For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present L2 interfaces. `TODO: is it L2 interfaces?` <!--Thus by default it records L1 frames, but setting the `moduleNamePatterns` to `ipv4`, for example, lets one record L3 frames (note that the parameter's value is lowercase, because it refers to the actual `ipv4` module in the host, not the module type.)-->
+For selecting a module vector, `[*]` can be used. The recorded modules are on the same level in the hierarchy as the PCAP recorder module. The default value for the `moduleNamePatterns` parameter is `wlan[*] eth[*] ppp[*] ext[*]`, so it records the most commonly present L2 interfaces.
 The `dumpProtocols` parameter is a filter, and selects which protocols to include in the capture.
 It matches packets which are of the specified protocol type at the level of capture, but not the protocol type of encapsulated packets. The parameter takes protocol names registered in INET (see <a href="https://github.com/inet-framework/inet/blob/master/src/inet/common/Protocol.cc" target="_blank">/inet/scr/inet/common/Protocol.cc</a>) `TODO: rewrite`
 The parameter's default value is `"ethernet ppp ieee80211"`.
-
-<!-- By default, the PCAP recorder module records L2 interfaces, but it can be set to record L3 as well. -->
 
 By default the PCAP recorder module records L2 frames, but setting the `moduleNamePatterns` to `ipv4`, for example, lets one record L3 frames (note that the parameter's value is lowercase, because it refers to the actual `ipv4` module in the host, not the module type.) In order to record IP frames, the `pcapNetwork` parameter also needs to be set to the proper link layer header type (101 - raw IP), and the `dumpProtocols` parameter to `ipv4`.
 
@@ -73,33 +64,12 @@ Traffic generation is set up the following way: `host1` is configured to send a 
 
 There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. The keys in the ini file pertaining to PCAP recording configuration are the following:
 
-<!--
-```
-*.host1.numPcapRecorders = 1
-*.host1.pcapRecorder[*].pcapNetwork = 105	# 802.11
-*.host1.pcapRecorder[*].pcapFile = "results/host1.pcap"
-
-*.ethHost1.numPcapRecorders = 1
-*.ethHost1.pcapRecorder[*].pcapNetwork = 1	# ethernet
-*.ethHost1.pcapRecorder[*].pcapFile = "results/ethHost1.pcap"
-
-*.router1.numPcapRecorders = 2
-*.router1.pcapRecorder[0].pcapNetwork = 204	# ppp
-*.router1.pcapRecorder[0].moduleNamePatterns = "ppp[*]"
-*.router1.pcapRecorder[0].pcapFile = "results/router1.ppp.pcap"
-*.router1.pcapRecorder[1].pcapNetwork = 1	# ethernet
-*.router1.pcapRecorder[1].pcapFile = "results/router1.eth.pcap"
-*.router1.pcapRecorder[1].moduleNamePatterns = "eth[*]"
-```
--->
-
 <p>
 <pre class="include" src="omnetpp.ini" from="host1.numPcapRecorders" until="verbose"></pre>
 </p>
 
 We configure `host1`'s PCAP recorder to use the 802.11 link layer headers, and `ethHost1`'s PCAP recorder to use ethernet link layer headers. There are two PCAP recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
 Additionally, there is a PCAP recorder in `ethHost2`, which is set to record IP traffic.
-<!--Since `router1` has two different kinds of interfaces (eth and ppp), both of them can only be recorded using two pcap recorder modules, each set to the appropriate link layer header type. The `moduleNamePatterns` parameter is set to match the link layer header type, so only those packets are recorded. Otherwise, there would be packets that cant be made sense of by the pcap progams. TODO: not needed-->
 
 By default, modules like `Ipv4` and `EthernetInterface` don't compute CRC and FCS frames, but assumes they are correct ("declared correct" mode.) In order to include the CRC and FCS values in the capture file, L2 and L3 modules need to be set to compute CRC and FCS:
 
@@ -133,8 +103,6 @@ TCP data, in `ethHost1` (sent from `ethHost1` to `ethHost2`):
 Ping request, in `router1`'s eth interface (sent from `ethHost1` to `router1`):
 
 <img class="screen" src="routerEth2_2.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
-
-<!--TODO: include packet list in on of the screenshot -> so you can click on a packet to see the details-->
 
 TCP ACK, in `router1`'s ppp interface (sent from `ethHost1` to `ethHost2`):
 
