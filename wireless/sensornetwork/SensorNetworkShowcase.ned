@@ -91,7 +91,7 @@ network SensorNetworkShowcaseB
 network SensorNetworkShowcaseB_2
 {
     // ;bgg=5,5
-    @display("bgb=50,25;bgi=background/warehouse5_50,s");
+    @display("bgb=60,30;bgi=background/warehouse5_50_7,s");
     submodules:
         configurator: Ipv4NetworkConfigurator {
             @display("p=4.0722203,4.0722203");
@@ -103,22 +103,22 @@ network SensorNetworkShowcaseB_2
             @display("p=4.0054626,14.219392");
         }
         sensor4: WirelessHost {
-            @display("p=17,4;i=misc/sensor2");
+            @display("p=22,6.5;i=misc/sensor2");
         }
         sensor1: WirelessHost {
-            @display("p=11.482326,17.696255;i=misc/sensor2");
+            @display("p=16.482326,20.196255;i=misc/sensor2");
         }
         sensor2: WirelessHost {
-            @display("p=28.772572,13.775303;i=misc/sensor2");
+            @display("p=33.772572,16.275303;i=misc/sensor2");
         }
         sensor3: WirelessHost {
-            @display("p=30,4;i=misc/sensor2");
+            @display("p=35,6.5;i=misc/sensor2");
         }
         gateway: WirelessHost {
-            @display("p=23.5,10.5;i=misc/sensorgateway");
+            @display("p=28.5,13;i=misc/sensorgateway");
         }
         server: StandardHost {
-            @display("p=33.35591,10.46182");
+            @display("p=38.35591,12.96182");
         }
     connections:
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
