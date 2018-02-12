@@ -149,3 +149,5 @@ The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
 TODO: RawIP
+
+<img class="screen" src="rawip.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
