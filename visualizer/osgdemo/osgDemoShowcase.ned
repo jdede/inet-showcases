@@ -27,6 +27,8 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 //
 network osgDemoNetworkShowcase
 {
+    parameters:
+        int hosts;
     @display("bgb=800,800");
     submodules:
         visualizer: IntegratedVisualizer {
@@ -43,7 +45,7 @@ network osgDemoNetworkShowcase
         configurator: Ipv4NetworkConfigurator {
             @display("p=100,350");
         }
-        man[8]: AdhocHost {
+        man[hosts]: AdhocHost {
             @display("p=456.365,219.9225;i=misc/person3");
         }
         ground: OsgEarthGround {
