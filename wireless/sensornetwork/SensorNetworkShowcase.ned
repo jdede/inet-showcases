@@ -94,13 +94,13 @@ network SensorNetworkShowcaseB_2
     @display("bgb=60,30;bgi=background/warehouse5_50_7,s");
     submodules:
         configurator: Ipv4NetworkConfigurator {
-            @display("p=4.0722203,4.0722203");
+            @display("p=3.4662657,4.033473");
         }
         visualizer: IntegratedVisualizer {
-            @display("p=4.0722203,9.346079");
+            @display("p=3.4662657,9.264383");
         }
         radioMedium: ApskScalarRadioMedium {
-            @display("p=4.0054626,14.219392");
+            @display("p=3.4032426,14.0541315");
         }
         sensor4: WirelessHost {
             @display("p=22,6.5;i=misc/sensor2");
