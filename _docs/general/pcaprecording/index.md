@@ -39,7 +39,7 @@ The `dumpProtocols` parameter is a filter, and selects which protocols to includ
 It matches packets which are of the specified protocol type at the level of capture, but not the protocol type of encapsulated packets. The parameter takes protocol names registered in INET (see <a href="https://github.com/inet-framework/inet/blob/master/src/inet/common/Protocol.cc" target="_blank">/inet/scr/inet/common/Protocol.cc</a>) `TODO: rewrite`
 The parameter's default value is `"ethernet ppp ieee80211"`.
 
-By default the PCAP recorder module records L2 frames, but setting the `moduleNamePatterns` to `ipv4`, for example, lets one record L3 frames (note that the parameter's value is lowercase, because it refers to the actual `ipv4` module in the host, not the module type.) In order to record IP frames, the `pcapNetwork` parameter also needs to be set to the proper link layer header type (101 - raw IP), and the `dumpProtocols` parameter to `ipv4`.
+By default the PCAP recorder module records L2 frames, but setting the `moduleNamePatterns` to `ipv4`, for example, lets one record L3 frames (note that the parameter's value is lowercase, because it refers to the actual `ipv4` module in the host, not the module type.) In order to record IP frames, the `pcapNetwork` parameter also needs to be set to the proper link layer header type (101 - raw IP), and the `dumpProtocols` parameter to `ipv4` (see the configuration section below.)
 
 When a node connects to the network via just one kind of interface, specifying the link layer header type is sufficient for capturing a proper trace. However, if there are multiple kinds of interfaces the node connects with, the set of captured interfaces or physical layer protocols should be narrowed to the ones with the link layer header type specified by the `pcapNetwork` parameter. It is needed because traffic for all interfaces are included in the trace by default.
 Multiple PCAP recorder modules need to be included in the network to record packets with different link layer headers. One PCAP recorder module should only record traces with one link layer header type, because the packets with the other header types would not be recognized by PCAP programs.
@@ -69,7 +69,7 @@ There are `PcapRecorder` modules added to `host1`, `ethHost1`, and `router1`. Th
 </p>
 
 We configure `host1`'s PCAP recorder to use the 802.11 link layer headers, and `ethHost1`'s PCAP recorder to use ethernet link layer headers. There are two PCAP recorder modules in `router1`, with one of them recording ethernet traffic on `eth0` and the other ppp traffic on `ppp0`.
-Additionally, there is a PCAP recorder in `ethHost2`, which is set to record IP traffic.
+Additionally, there is a PCAP recorder in `ethHost2`, which is set to record traffic of the `ipv4` module.
 
 By default, modules like `Ipv4` and `EthernetInterface` don't compute CRC and FCS frames, but assumes they are correct ("declared correct" mode.) In order to include the CRC and FCS values in the capture file, L2 and L3 modules need to be set to compute CRC and FCS:
 
@@ -116,6 +116,6 @@ The following screenshot shows `ethHost1.pcap` opened with TCPDump:
 
 <img class="screen" src="tcpdump.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
 
-TCP data, in `ethHost2` (sent from `ethHost1` to `ethHost2`):
+TCP data packet, in `ethHost2`, recorded at the IPv4 module (sent from `ethHost1` to `ethHost2`):
 
 <img class="screen" src="rawip.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in">
