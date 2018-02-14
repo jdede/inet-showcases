@@ -25,11 +25,11 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 //
 // TODO documentation
 //
-network osgDemoNetworkShowcase
+network osgDemoHumveeShowcase
 {
     parameters:
         int hosts;
-    @display("bgb=800,800");
+        @display("bgb=800,800");
     submodules:
         visualizer: IntegratedVisualizer {
             parameters:
@@ -45,8 +45,8 @@ network osgDemoNetworkShowcase
         configurator: Ipv4NetworkConfigurator {
             @display("p=100,350");
         }
-        man[hosts]: AdhocHost {
-            @display("p=456.365,219.9225;i=misc/person3");
+        humvee[hosts]: AdhocHost {
+            @display("p=456.365,219.9225;i=misc/truck2");
         }
         ground: OsgEarthGround {
             @display("p=100.399994,477.904");
