@@ -9,7 +9,7 @@ const controlsHeight = 39; // in pixels
 
 function wrapVideoElement(element) {
 
-  let videoWidthPercent = 95; // percent of the viewport, does not stretch, only makes smaller
+  let videoWidthPercent = 95; // percent of the container, does not stretch, only makes smaller
 
   // the default videoWidthPercent value can be overriden by the max-width-percent attribute
   // in the video tag
