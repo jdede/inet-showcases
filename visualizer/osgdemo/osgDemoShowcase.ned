@@ -53,3 +53,34 @@ network osgDemoHumveeShowcase
         }
 }
 
+//
+// TODO documentation
+//
+network osgDemoDroneShowcase
+{
+    parameters:
+        int hosts;
+        @display("bgb=800,800");
+    submodules:
+        visualizer: IntegratedVisualizer {
+            parameters:
+                @display("p=100,50");
+        }
+        coordinateSystem: OsgGeographicCoordinateSystem {
+            parameters:
+                @display("p=100,150");
+        }
+        radioMedium: Ieee80211ScalarRadioMedium {
+            @display("p=100,250");
+        }
+        configurator: Ipv4NetworkConfigurator {
+            @display("p=100,350");
+        }
+        drone[hosts]: AdhocHost {
+            @display("p=456.365,219.9225;i=misc/drone");
+        }
+        ground: OsgEarthGround {
+            @display("p=100.399994,477.904");
+        }
+}
+
