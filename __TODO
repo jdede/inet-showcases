@@ -11,3 +11,4 @@
 check_and_cast(): Cannot cast (inet::Packet*)ICMP-error-#1-type11-code0 to type 'inet::IcmpHeader *' -- in module (inet::aodv::Aodv) ManetprotocolsShowcaseMoreNodes.node11.routing (id=1130), at t=36.108710008528s, event #1718648
 - Wireless tutorial, Sensornetwork/PowerBMac config: energyBalance is always nan
 - Sensornetwork: aaabba0 ("_config.yml: exclude results folder", 2018-02-15): SensorNetwork2BMacWarehouse config: handlePacket(): Unknown protocol: id = 9, name = gnp -- in module (inet::MessageDispatcher) SensorNetworkShowcaseB_2.sensor3.tn (id=162), at t=0.058384669093s, event #29
+- Ieee802154 showcase: 560afd8 ("TODO: removed items.", 2018-02-15): MoreLamps config: when useMACAcks = true: Unknown protocol: number = -1 -- in module (inet::Ieee802154Mac) Ieee802154ShowcaseMoreLamps.sensor4.wlan[0].mac (id=145), at t=0.061584722879s, event #118 
