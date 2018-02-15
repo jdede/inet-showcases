@@ -33,7 +33,8 @@
      - page: _docs/wireless/scaling/index.md
      - page: _docs/wireless/power/index.md
      - page: _docs/wireless/pathloss/index.md
-#     - separator: true
+     - page: _docs/wireless/ieee802154/index.md
+     - separator: true
      - page: _docs/wireless/throughput/index.md
      - page: _docs/wireless/errorrate/index.md
      - page: _docs/wireless/hiddennode/index.md

@@ -13,6 +13,7 @@ General Wireless:
   {%include link.i page='_docs/wireless/scaling/index.md' %}
   {%include link.i page='_docs/wireless/power/index.md' %}
   {%include link.i page='_docs/wireless/pathloss/index.md' %}
+  {%include link.i page='_docs/wireless/ieee802154/index.md' %}
 </ul>
 
 IEEE 802.11:
@@ -24,7 +25,6 @@ IEEE 802.11:
   {%include link.i page='_docs/wireless/handover/index.md' %}
   {%include link.i page='_docs/wireless/ratecontrol/index.md' %}
   {%include link.i page='_docs/wireless/crosstalk/index.md' %}
-  {%include link.i page='_docs/wireless/pcaprecording/index.md' %}
   {%include link.i page='_docs/wireless/infrastructure/index.md' %}
   {%include link.i page='_docs/wireless/multiradio/index.md' %}
 </ul>
