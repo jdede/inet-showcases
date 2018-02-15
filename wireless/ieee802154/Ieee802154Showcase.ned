@@ -4,6 +4,7 @@ import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium;
 import inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium;
+import inet.visualizer.integrated.IntegratedMultiVisualizer;
 import inet.visualizer.integrated.IntegratedVisualizer;
 
 
@@ -383,7 +384,7 @@ network Ieee802154ShowcaseLamps
         radioMedium: ApskScalarRadioMedium {
             @display("p=18,2.25");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=18,3.75");
         }
 }
@@ -441,7 +442,7 @@ network Ieee802154ShowcaseMoreLamps
         radioMedium: ApskScalarRadioMedium {
             @display("p=18,2.25");
         }
-        visualizer: IntegratedVisualizer {
+        visualizer: IntegratedMultiVisualizer {
             @display("p=18,3.75");
         }
 }
