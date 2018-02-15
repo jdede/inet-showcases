@@ -124,6 +124,14 @@ network SensorNetworkShowcaseB_2
         gateway.ethg++ <--> Eth100M <--> server.ethg++;
 }
 
+network SensorNetworkShowcaseB_3 extends SensorNetworkShowcaseB
+{
+    submodules:
+        lifecycleController: LifecycleController {
+            @display("p=3.8133333,21.119999");
+        }
+}
+
 network SensorNetworkShowcaseC extends SensorNetworkShowcaseB
 {
     submodules:
