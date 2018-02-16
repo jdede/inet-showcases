@@ -13,3 +13,6 @@ check_and_cast(): Cannot cast (inet::Packet*)ICMP-error-#1-type11-code0 to type 
 - Sensornetwork: aaabba0 ("_config.yml: exclude results folder", 2018-02-15): SensorNetwork2BMacWarehouse config: handlePacket(): Unknown protocol: id = 9, name = gnp -- in module (inet::MessageDispatcher) SensorNetworkShowcaseB_2.sensor3.tn (id=162), at t=0.058384669093s, event #29
 - Ieee802154 showcase: 560afd8 ("TODO: removed items.", 2018-02-15): MoreLamps config: when useMACAcks = true: Unknown protocol: number = -1 -- in module (inet::Ieee802154Mac) Ieee802154ShowcaseMoreLamps.sensor4.wlan[0].mac (id=145), at t=0.061584722879s, event #118 
 - Sensornetwork and Ieee802154 showcase: communication ranges not displayed
+- ManetProtocols showcase: 2375584 ("manetprotocols", 2018-02-16): StatisticDymo config: 
+Cannot serialize Udp header without turned off or properly computed CRC, try changing the value of crcMode parameter for Udp -- in module (inet::ieee80211::Tx) ManetprotocolsShowcaseMoreNodes.source.wlan[0].mac.tx (id=47), at t=0.010319113618s, event #24
+(It doesn't throw error in Qtenv)
