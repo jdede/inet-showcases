@@ -3,16 +3,16 @@ NetworkConnectionVisualizer:
 
 LinkVisualizer:
 - nincs label a nyilon
-- feher szinbe fade-el atlatszo helyett
++ feher szinbe fade-el atlatszo helyett
 + nyilhegy nem koveti a node-ok mozgasat
 + nyil a node kozepeig megy, nem a szeleig
 
 PathVisualizer:
 - NetworkPathVisualizer showcase: EnablingVisualization configuration: nyil egyaltalan nem latszik
+- NetworkPathVisualizer showcase: Static configuration: Ket nyil megy ugyanazon a vonalon, ezeket egymasra rajzolja --> csak az egyik latszik
 - NetworkPathVisualizer showcase: Mobile configuration: nyil egyaltalan nem latszik
-- NetworkPathVisualizer showcase: ChangingPath configuration: a routereket kihagyja a path-bol a visualizer
-- NetworkPathVisualizer showcase: ChangingPath configuration: a path utolsó szegmense nincs vizualizálva
-- TransportPathVisualizer showcase: Filtering configuration: routereket kihagyja a path-bol
+- NetworkPathVisualizer showcase: a path utolsó szegmense nincs vizualizálva
+- routerek kimaradnak a vizualizalt path-bol
 - TransportPathVisualizer showcase: EnablingVisualizationWired & Wireless configuration: nyilat egyaltalan nem vizualizalja
 
 MobilityVisualizer:
