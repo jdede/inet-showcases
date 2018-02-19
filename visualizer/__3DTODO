@@ -6,6 +6,7 @@ LinkVisualizer:
 + feher szinbe fade-el atlatszo helyett
 + nyilhegy nem koveti a node-ok mozgasat
 + nyil a node kozepeig megy, nem a szeleig
+- DataLinkActivity showcase, ActivityLevel configuration: ha tobb level-en is van data link activity, akkor a nyilvegeket nem rajzolja ki
 
 PathVisualizer:
 - NetworkPathVisualizer showcase: EnablingVisualization configuration: nyil egyaltalan nem latszik
