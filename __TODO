@@ -15,3 +15,5 @@ check_and_cast(): Cannot cast (inet::Packet*)ICMP-error-#1-type11-code0 to type 
 - ManetProtocols showcase: 2375584 ("manetprotocols", 2018-02-16): StatisticDymo config: 
 Cannot serialize Udp header without turned off or properly computed CRC, try changing the value of crcMode parameter for Udp -- in module (inet::ieee80211::Tx) ManetprotocolsShowcaseMoreNodes.source.wlan[0].mac.tx (id=47), at t=0.010319113618s, event #24
 (It doesn't throw error in Qtenv)
+- apps use ModuleIdAddress if the network interface doesn't have an IP address configured, and UDP uses GNP which results in a weird error in MessageDispatcher
+
