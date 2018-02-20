@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scave:Analysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scave="http://www.omnetpp.org/omnetpp/scave">
+  <inputs>
+    <inputs name="/inet/showcases/wireless/sensornetwork/results/Power*Mac-*.vec"/>
+    <inputs name="/inet/showcases/wireless/sensornetwork/results/Power*Mac-*.sca"/>
+  </inputs>
+  <datasets>
+    <datasets name="sumPower">
+      <items xsi:type="scave:Add" filterPattern="name(residualEnergyCapacity:last) "/>
+      <items xsi:type="scave:ComputeScalar" scalarName="sumResidualCapacity" valueExpr="sum(SensorNetworkShowcaseB_2.sensor*.energyStorage.'residualEnergyCapacity:last')*-1+sum(SensorNetworkShowcaseB_2.gateway.energyStorage.'residualEnergyCapacity:last')*-1" moduleExpr="*.server" groupByExpr=""/>
+      <items xsi:type="scave:BarChart" name="Network total power consumption">
+        <filters xsi:type="scave:Select" filterPattern="module(*.server) "/>
+        <properties name="Graph.Title" value="Network total power consumption"/>
+      </items>
+    </datasets>
+    <datasets name="sumPowerVector">
+      <items xsi:type="scave:Add" filterPattern="name(residualEnergyCapacity:vector) " type="VECTOR"/>
+      <items xsi:type="scave:LineChart"/>
+    </datasets>
+  </datasets>
+  <chartSheets>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1"/>
+  </chartSheets>
+</scave:Analysis>
