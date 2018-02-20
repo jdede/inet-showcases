@@ -11,6 +11,7 @@ This mechanism is called rate control, and the INET framework implements several
 variants. This showcase demonstrates the 802.11 rate control mechanism in INET,
 and examines how rate control can improve application level throughput.
 
+INET version: `3.6`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/ratecontrol" target="_blank">`inet/showcases/wireless/ratecontrol`</a>
 <br/>You can discuss this showcase <a href="https://github.com/inet-framework/inet-showcases/issues/9" target="_blank">on GitHub</a>.
 
@@ -127,4 +128,3 @@ More information can be found in the <a href="https://omnetpp.org/doc/inet/api-c
 
 Use <a href="https://github.com/inet-framework/inet-showcases/issues/9" target="_blank">this page</a>
 in the GitHub issue tracker for commenting on this showcase.
-
