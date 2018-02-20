@@ -23,7 +23,25 @@ A brief overview of the standard follows. `TODO: if it turns out to be short, th
 
 The IEEE 802.15.4 standard defines multiple physical layer specifications (PHYs), based on different modulations, such as Direct Sequence Spread Spectrum (DSSS), Chirp Spread Spectrum (CSS), Ultra-wideband (UWB). It defines a CSMA-CA or ALOHA MAC-layer protocol as well.
 
-TODO
+<!-- INET has two IEEE 802.15.4 PHY models, a narrow band version and an ultra-wideband version: `Ieee802154NarrowBandScalarRadio` and `Ieee802154UwbIrRadio`.
+The narrow band version uses DSSS-OQPSK modulation, the ultra wide-band version NOPE -->
+
+### About the INET implementation
+
+INET has two IEEE 802.15.4 models:
+
+- `Ieee802154NarrowBandScalarRadio`: A narrow band IEEE 802.15.4 PHY model using DSSS-OQPSK modulation (scalar)
+- `Ieee802154UwbIrRadio`: An ultra-wideband IEEE 802.15.4 PHY model (dimensional)
+
+This showcase demonstrates the narrow band version.
+
+The `Ieee802154NarrowBandScalarRadio` is a scalar model. It uses DSSS-OQPSK modulation, and operates at 2450 MHz. By default, the transmissions have a 2.8 MHz bandwidth and 250 kbps data rate, and 2.24 mW transmission power.
+
+`or maybe should start with the interface?`
+
+`more details on the narrow band...defaults, etc...`
+
+<!-- TODO
 Frequency bands, topologies, ffd's and rfd's...is that needed here?
 Also, the available inet implementations...maybe that shouldnt be here
 
@@ -36,4 +54,39 @@ they have sensible defaults, by default operating on 2.45 GHz, 2.8 MHz bandwidth
 The narrowband version is scalar, the uwbir version is dimensional -> actually, it makes sense,
 because the uwbir version occupies a lot of the spectrum
 
- 
+UPDATE:
+this showcase only contains the narrow band version -->
+
+<!-- So the structure should be something like this:
+
+- About Ieee 802154
+- About the inet implementation...the narrowband, just mention there is an uwbir
+some details about them...and more details about the narrowband
+- the configuration and the screnario
+- results -->
+
+
+
+
+
+
+
+
+### The INET implementation
+
+INET features a narrow band and an ultra-wideband IEEE 802.15.4 PHY model:
+
+- `Ieee802154NarrowBandScalarRadio`
+- `Ieee802154UwbIrRadio`
+
+This showcase demonstrates the narrow band model. `Ieee802154NarrowbandScalarRadio` uses DSSS-OQPSK modulation, and operates at 2.45 GHz. By default, the transmissions have a bandwidth of 2.8 MHz, and 2.24 mW transmission power. `TODO: its scalar`
+
+The `Ieee802154NarrowbandInterface` module contains a `Ieee802154NarrowbandScalarRadio` and the corresponsing `Ieee802154NarrowbandMac`. The radio should be used with `Ieee802154NarrowbandRadioMedium`. `TODO: some defaults...path loss type, etc`
+
+`They have sensible defaults? so no configuration is needed/works out of the box`
+
+### The model
+
+The showcase contains an example simulation, which demonstrates the operation of INET's IEEE 802.15.4 model. The scenario is that there wireless 802.15.4 sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They transmit the temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection. The simulation can be run by selecting the `TODO` configuration from omnetpp.ini.
+
+"The nodes are placed against the backdrop of a warehouse floorplan"
