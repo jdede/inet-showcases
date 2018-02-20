@@ -26,7 +26,7 @@ The IEEE 802.15.4 standard defines multiple physical layer specifications (PHYs)
 <!-- INET has two IEEE 802.15.4 PHY models, a narrow band version and an ultra-wideband version: `Ieee802154NarrowBandScalarRadio` and `Ieee802154UwbIrRadio`.
 The narrow band version uses DSSS-OQPSK modulation, the ultra wide-band version NOPE -->
 
-### About the INET implementation
+<!-- ### About the INET implementation
 
 INET has two IEEE 802.15.4 models:
 
@@ -39,7 +39,7 @@ The `Ieee802154NarrowBandScalarRadio` is a scalar model. It uses DSSS-OQPSK modu
 
 `or maybe should start with the interface?`
 
-`more details on the narrow band...defaults, etc...`
+`more details on the narrow band...defaults, etc...` -->
 
 <!-- TODO
 Frequency bands, topologies, ffd's and rfd's...is that needed here?
@@ -91,11 +91,11 @@ The showcase contains an example simulation, which demonstrates the operation of
 They periodically send sensor data to a controller node, which decides adjust the lighting conditions in different rooms. The controller sends control packets to the lamps in the rooms to set their brightness or turn them on and off. All nodes use IEEE 802.15.4 to communicate.
 Note that this is not a working simulation of the light control and presence detection, just a mockup based on that scenario.
 
-The simulation can be run by choosing the `TODO` configuration from omnetpp.ini. It uses the following network:
+The simulation can be run by choosing the `TODO` configuration from <a srcFile="wireless/ieee802154/omnetpp.ini"/>. It uses the following network:
 
 <img class="screen" src="network.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="max-width: 60%;">
 
-The network contains a number of wireless nodes of the host type `Ieee802154Node`, which is defined in <a srcFile="wireless/ieee802154/Ieee802154Showcase.ned">:
+The network contains a number of wireless nodes of the host type `Ieee802154Node`, which is defined in <a srcFile="wireless/ieee802154/Ieee802154Showcase.ned"/>:
 
 <p>
 <pre class="include" src="Ieee802154Showcase.ned" from="Ieee802154Node" upto="}"></pre>
