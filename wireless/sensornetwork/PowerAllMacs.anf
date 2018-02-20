@@ -20,8 +20,8 @@
     <datasets name="powerperpacket">
       <items xsi:type="scave:Add" filterPattern="module(*.server.app[0]) AND name(packetReceived:count)  "/>
       <items xsi:type="scave:Add" filterPattern="name(residualEnergyCapacity:last) "/>
-      <items xsi:type="scave:Add"/>
       <items xsi:type="scave:Add" filterPattern="name(residualEnergyCapacity:vector) " type="VECTOR"/>
+      <items xsi:type="scave:Add" filterPattern="name(packetSent:count) "/>
       <items xsi:type="scave:ComputeScalar" scalarName="sumResidualCapacity" valueExpr="sum(SensorNetworkShowcaseB_2.sensor*.energyStorage.'residualEnergyCapacity:last')*-1+sum(SensorNetworkShowcaseB_2.gateway.energyStorage.'residualEnergyCapacity:last')*-1" moduleExpr="*.server" groupByExpr=""/>
       <items xsi:type="scave:BarChart" name="Network total power consumption">
         <filters xsi:type="scave:Select" filterPattern="module(*.server) "/>
@@ -37,10 +37,20 @@
         <filters xsi:type="scave:Select" filterPattern="name(relativePowerConsumption) "/>
         <properties name="Graph.Title" value="Power consumption per packet"/>
       </items>
+      <items xsi:type="scave:ComputeScalar" scalarName="sumPacketsSent" valueExpr="sum(*.sensor*.app[0].'packetSent:count') " moduleExpr="*.server" groupByExpr=""/>
+      <items xsi:type="scave:BarChart">
+        <filters xsi:type="scave:Select" filterPattern="name(sumPacketsSent) "/>
+      </items>
+      <items xsi:type="scave:ComputeScalar" scalarName="sumPacketReceived" valueExpr="sum('packetReceived:count') " moduleExpr="*.server" groupByExpr=""/>
+      <items xsi:type="scave:ComputeScalar" scalarName="thePacketLoss" valueExpr="'sumPacketReceived'/'sumPacketsSent'" moduleExpr="*.server" groupByExpr=""/>
+      <items xsi:type="scave:BarChart" name="Packet loss">
+        <filters xsi:type="scave:Select" filterPattern="name(thePacketLoss) "/>
+        <properties name="Graph.Title" value="Packet loss"/>
+      </items>
     </datasets>
   </datasets>
   <chartSheets>
-    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.5 //@datasets/@datasets.2/@items.6 //@datasets/@datasets.2/@items.7 //@datasets/@datasets.2/@items.9"/>
-    <chartSheets name="Charts" charts="//@datasets/@datasets.2/@items.7 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.2/@items.9"/>
+    <chartSheets name="default" charts="//@datasets/@datasets.0/@items.2 //@datasets/@datasets.1/@items.1 //@datasets/@datasets.2/@items.5 //@datasets/@datasets.2/@items.6 //@datasets/@datasets.2/@items.7 //@datasets/@datasets.2/@items.9 //@datasets/@datasets.2/@items.11 //@datasets/@datasets.2/@items.14"/>
+    <chartSheets name="Charts" charts="//@datasets/@datasets.2/@items.7 //@datasets/@datasets.0/@items.2 //@datasets/@datasets.2/@items.9 //@datasets/@datasets.2/@items.14"/>
   </chartSheets>
 </scave:Analysis>
