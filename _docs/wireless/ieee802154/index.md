@@ -87,6 +87,17 @@ The `Ieee802154NarrowbandInterface` module contains a `Ieee802154NarrowbandScala
 
 ### The model
 
-The showcase contains an example simulation, which demonstrates the operation of INET's IEEE 802.15.4 model. The scenario is that there wireless 802.15.4 sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They transmit the temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection. The simulation can be run by selecting the `TODO` configuration from omnetpp.ini.
+The showcase contains an example simulation, which demonstrates the operation of INET's IEEE 802.15.4 model. The scenario is that wireless nodes are used to control lighting in an appartment. There are sensor nodes in the rooms working as presence sensors, detecting when people are in a room.
+They periodically send sensor data to a controller node, which decides adjust the lighting conditions in different rooms. The controller sends control packets to the lamps in the rooms to set their brightness or turn them on and off. All nodes use IEEE 802.15.4 to communicate.
+Note that this is not a working simulation of the light control and presence detection, just a mockup based on that scenario.
 
-"The nodes are placed against the backdrop of a warehouse floorplan"
+<!--
+
+- using 802.15.4 wireless nodes to control lighting in an appartment
+- there are sensor nodes that work as human presence sensors and periodically send data
+to a controller
+- the controller decides when to adjust the lighting in the different rooms
+- sends control data to the lamps in order to switch them on or off or set the brightness
+- they use ieee 802154 to communicate
+
+-->
