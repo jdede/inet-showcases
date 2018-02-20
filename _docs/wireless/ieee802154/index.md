@@ -85,19 +85,22 @@ The `Ieee802154NarrowbandInterface` module contains a `Ieee802154NarrowbandScala
 
 `They have sensible defaults? so no configuration is needed/works out of the box`
 
-### The model
+### The configuration
 
 The showcase contains an example simulation, which demonstrates the operation of INET's IEEE 802.15.4 model. The scenario is that wireless nodes are used to control lighting in an appartment. There are sensor nodes in the rooms working as presence sensors, detecting when people are in a room.
 They periodically send sensor data to a controller node, which decides adjust the lighting conditions in different rooms. The controller sends control packets to the lamps in the rooms to set their brightness or turn them on and off. All nodes use IEEE 802.15.4 to communicate.
 Note that this is not a working simulation of the light control and presence detection, just a mockup based on that scenario.
 
-<!--
+The simulation can be run by choosing the `TODO` configuration from omnetpp.ini. It uses the following network:
 
-- using 802.15.4 wireless nodes to control lighting in an appartment
-- there are sensor nodes that work as human presence sensors and periodically send data
-to a controller
-- the controller decides when to adjust the lighting in the different rooms
-- sends control data to the lamps in order to switch them on or off or set the brightness
-- they use ieee 802154 to communicate
+<img class="screen" src="network.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="max-width: 60%;">
 
--->
+The network contains a number of wireless nodes of the host type `Ieee802154Node`, which is defined in <a srcFile="wireless/ieee802154/Ieee802154Showcase.ned">:
+
+<p>
+<pre class="include" src="Ieee802154Showcase.ned" from="Ieee802154Node" upto="}"></pre>
+</p>
+
+`TODO: description`
+
+The network also contains an `Ipv4NetworkConfigurator`, an `Ieee802154NarrowbandScalarRadioMedium`, and an `IntegratedVisualizer` module.

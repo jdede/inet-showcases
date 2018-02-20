@@ -20,6 +20,18 @@ module Ieee802154Node extends WirelessHost
         forwarding = true;
 }
 
+module Ieee802154Host extends WirelessHost
+{
+    // should use this eventually
+    // doesnt work now, because it uses Ieee802154NarrowbandMac
+    // which is the extension of Ieee802154Mac
+    // but it has useMACAcks = true which cannot be overriden (?)
+    // and the whole thing doesn't work with ACKs
+    parameters:
+        wlan[0].typename = "Ieee802154NarrowbandInterface";
+        forwarding = true;
+}
+
 network Ieee802154ShowcaseLamps
 {
     @display("bgb=20,20;bgi=background/floorplan_2_50,s");
@@ -109,7 +121,7 @@ network Ieee802154ShowcaseMoreLamps
         configurator: Ipv4NetworkConfigurator {
             @display("p=18,0.75");
         }
-        radioMedium: ApskScalarRadioMedium {
+        radioMedium: Ieee802154NarrowbandScalarRadioMedium {
             @display("p=18,2.25");
         }
         visualizer: IntegratedMultiVisualizer {
