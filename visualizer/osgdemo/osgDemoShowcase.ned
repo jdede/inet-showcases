@@ -15,6 +15,7 @@
 
 package inet.showcases.visualizer.osgdemo;
 import inet.common.geometry.common.OsgGeographicCoordinateSystem;
+import inet.environment.common.PhysicalEnvironment;
 import inet.environment.ground.OsgEarthGround;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.inet.AdhocHost;
@@ -29,27 +30,30 @@ network osgDemoHumveeShowcase
 {
     parameters:
         int hosts;
-        @display("bgb=800,800");
+        @display("bgb=5000,5000");
     submodules:
         visualizer: IntegratedVisualizer {
             parameters:
-                @display("p=100,50");
+                @display("p=120,50");
         }
         coordinateSystem: OsgGeographicCoordinateSystem {
             parameters:
-                @display("p=100,150");
+                @display("p=120,150");
         }
         radioMedium: Ieee80211ScalarRadioMedium {
-            @display("p=100,250");
+            @display("p=120,250");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=100,350");
+            @display("p=120,350");
+        }
+        ground: OsgEarthGround {
+            @display("p=120,450");
+        }
+        physicalEnvironment: PhysicalEnvironment {
+            @display("p=120,550");
         }
         humvee[hosts]: AdhocHost {
             @display("p=456.365,219.9225;i=misc/truck2");
-        }
-        ground: OsgEarthGround {
-            @display("p=100.399994,477.904");
         }
 }
 
@@ -60,7 +64,7 @@ network osgDemoDroneShowcase
 {
     parameters:
         int hosts;
-        @display("bgb=800,800");
+        @display("bgb=5000,5000");
     submodules:
         visualizer: IntegratedVisualizer {
             parameters:
