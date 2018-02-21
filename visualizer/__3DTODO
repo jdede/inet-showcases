@@ -19,3 +19,16 @@ PathVisualizer:
 MobilityVisualizer:
 - Velocity-t es orientation-t nem mutatja a 3D vizualizacio
 - trail nem fade-el, hanem vagy van vagy nincs (2d-ben fade-el)
+
+PacketDropVisualizer:
+- nincs label
+
+RoutingTableVisualizer:
+- ha wired halozat van, nem vizualizal semmit
+- ha wireless halozat van, 
+	- ha a next hop node mozog, csak vonalat vizualizal, nyilhegyet nem es a vonal nem koveti a mozgast
+	- ha a next hop node mozog, akkor jol rajzolja meg a nyilat a visualizer
+- label nincs
+
+
+
