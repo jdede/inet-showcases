@@ -36,4 +36,8 @@ Ieee80211Visualizer:
 - Unknown parameter 'receptionImage' 
 	-- in module (inet::visualizer::MediumOsgVisualizer) Ieee80211VisualizationSignalLevelsShowcase.visualizer.osgVisualizer.mediumVisualizer (id=44),
 	during network initialization
+	
+TransportConnectionVisualizer:
+- a connection markereket egymasra rajzolja a visualizer. (2D-ben egymas fole/ala rajzolja)
+
 
