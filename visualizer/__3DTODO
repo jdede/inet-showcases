@@ -30,5 +30,10 @@ RoutingTableVisualizer:
 	- ha a next hop node mozog, akkor jol rajzolja meg a nyilat a visualizer
 - label nincs
 
-
+Ieee80211Visualizer:
+- nincs label
+- Handover configuration: a mozgo node-nal az association icon nem mutatja a jelerosseg valtozasat, nem valtozik az icon
+- Unknown parameter 'receptionImage' 
+	-- in module (inet::visualizer::MediumOsgVisualizer) Ieee80211VisualizationSignalLevelsShowcase.visualizer.osgVisualizer.mediumVisualizer (id=44),
+	during network initialization
 
