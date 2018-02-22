@@ -40,4 +40,14 @@ Ieee80211Visualizer:
 TransportConnectionVisualizer:
 - a connection markereket egymasra rajzolja a visualizer. (2D-ben egymas fole/ala rajzolja)
 
+InfoVisualizer:
+- egymasra irja az infokat a visualizer.  (2D-ben egymas fole/ala irja)
+
+ObstacleLossVisualizer:
+- nincs label, amin a dB van
+- nehezen lathato 3D-ben a visualizer.
+
+
+
+
 
