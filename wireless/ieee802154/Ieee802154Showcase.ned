@@ -14,20 +14,6 @@ import inet.visualizer.integrated.IntegratedVisualizer;
 module Ieee802154Node extends WirelessHost
 {
     parameters:
-        wlan[0].typename = "WirelessInterface";
-        wlan[0].radioType = "Ieee802154NarrowbandScalarRadio";
-        wlan[0].macType = "Ieee802154Mac";
-        forwarding = true;
-}
-
-module Ieee802154Host extends WirelessHost
-{
-    // should use this eventually
-    // doesnt work now, because it uses Ieee802154NarrowbandMac
-    // which is the extension of Ieee802154Mac
-    // but it has useMACAcks = true which cannot be overriden (?)
-    // and the whole thing doesn't work with ACKs
-    parameters:
         wlan[0].typename = "Ieee802154NarrowbandInterface";
         forwarding = true;
 }

@@ -102,5 +102,23 @@ The network contains a number of wireless nodes of the host type `Ieee802154Node
 </p>
 
 `TODO: description`
+`this is custom host type defined to ... actually, it would be maybe easier to just use an adhocHost
+and set wlan type to Ieee802154NarrowbandInterface? which is more concise ?`
 
 The network also contains an `Ipv4NetworkConfigurator`, an `Ieee802154NarrowbandScalarRadioMedium`, and an `IntegratedVisualizer` module.
+
+<pre>
+- routes config -> star topology
+- app config
+- ieee802154 config? if there is any
+
+- results
+
+some power statistics ? maybe compare to the case if it was done with wifi?
+</pre>
+
+Routes are set up according to a star topology, with the controller at the center:
+
+<img class="screen" src="routes.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="max-width: 60%;">
+
+All sensors will send packets to the controller, and the controller will send packets to the lamps.
