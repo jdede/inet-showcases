@@ -6,19 +6,19 @@ hidden: true
 
 ## Goals
 
-IEEE 802.15.4 is a widely used standard for wireless sensor networks (WSNs.) INET has support for simulating various IEEE 802.15.4 physical and MAC layers. This showcase demonstrates the available IEEE 802.15.4 models available in INET. It contains one/two example simulation/s which feature wireless sensor networks.
+IEEE 802.15.4 is a widely used standard for wireless sensor networks. INET has support for simulating various IEEE 802.15.4 physical and MAC layers. This showcase demonstrates the narrow band IEEE 802.15.4 model available in INET. It contains one example simulation which features a wireless sensor network.
 
 INET version: `4.0`<br>
 Source files location: <a href="https://github.com/inet-framework/inet-showcases/tree/master/wireless/ieee802154" target="_blank">`inet/showcases/wireless/ieee802154`</a>
 
 ## The model
 
-- about ieee 802154 modes, topology, fdds and rdds
+- about ieee 802154 modes, topology, ffds and rfds
 - about the inet implementation
 - the scenario
 - the configuration
 
-IEEE 802.15.4 is a standard that defines the physical layer and MAC layer of low-rate wireless personal area networks (LR-WPANs). LR-WPANs are low power, low throughput communication networks, which can be used for creating wireless sensor networks (WSNs), Internet-of-things applications, etc.
+IEEE 802.15.4 is a standard that defines the physical layer and media access control (MAC) layer of low-rate wireless personal area networks (LR-WPANs). LR-WPANs are low power, low throughput communication networks, which can be used for creating wireless sensor networks (WSNs), Internet-of-things applications, etc.
 A brief overview of the standard follows. `TODO: if it turns out to be short, this is not needed`
 
 The IEEE 802.15.4 standard defines multiple physical layer specifications (PHYs), based on different modulations, such as Direct Sequence Spread Spectrum (DSSS), Chirp Spread Spectrum (CSS), Ultra-wideband (UWB). It defines a CSMA-CA or ALOHA MAC-layer protocol as well.
@@ -88,10 +88,10 @@ The `Ieee802154NarrowbandInterface` module contains a `Ieee802154NarrowbandScala
 ### The configuration
 
 The showcase contains an example simulation, which demonstrates the operation of INET's IEEE 802.15.4 model. The scenario is that wireless nodes are used to control lighting in an appartment. There are sensor nodes in the rooms working as presence sensors, detecting when people are in a room.
-They periodically send sensor data to a controller node, which decides adjust the lighting conditions in different rooms. The controller sends control packets to the lamps in the rooms to set their brightness or turn them on and off. All nodes use IEEE 802.15.4 to communicate.
+They periodically send sensor data to a controller node, which decides how to adjust the lighting conditions in different rooms. The controller sends control packets to the lamps in the rooms to set their brightness or turn them on and off. All nodes use the IEEE 802.15.4 standard to communicate.
 Note that this is not a working simulation of the light control and presence detection, just a mockup based on that scenario.
 
-The simulation can be run by choosing the `TODO` configuration from <a srcFile="wireless/ieee802154/omnetpp.ini"/>. It uses the following network:
+The simulation can be run by choosing the `Ieee802154` configuration from <a srcFile="wireless/ieee802154/omnetpp.ini"/>. It uses the following network:
 
 <img class="screen" src="network.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="max-width: 60%;">
 
