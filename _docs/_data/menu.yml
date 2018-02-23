@@ -34,6 +34,7 @@
      - page: _docs/wireless/power/index.md
      - page: _docs/wireless/pathloss/index.md
      - page: _docs/wireless/ieee802154/index.md
+     - page: _docs/wireless/sensornetwork/index.md
      - separator: true
      - page: _docs/wireless/throughput/index.md
      - page: _docs/wireless/errorrate/index.md
