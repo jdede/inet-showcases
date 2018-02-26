@@ -130,3 +130,7 @@ Routes are set up according to a star topology, with the controller at the cente
 
 All sensors will send packets to the controller, and the controller will send packets to the lamps.
 `more detailed description including the app configs`
+
+<p>
+<pre class="include" src="omnetpp.ini" from="numApps" until="routing table visualization"></pre>
+</p>
