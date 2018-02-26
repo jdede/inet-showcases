@@ -124,13 +124,27 @@ Routes are set up according to a star topology, with the controller at the cente
 
 V2
 
-Routes are set up according to a star topology, with the controller at the center. This is achieved by dumping the full configuration of `Ipv4NetworkConfigurator` (which was generated with the configurator's default settings), and then modifying it. The modified configuration is in the `TODO.xml` file. The following image shows the routes:
+Routes are set up according to a star topology, with the controller at the center. This is achieved with the following configuration of `Ipv4NetworkConfigurator` defined in the `startopology.xml` file:
+
+<p>
+<pre class="include" src="startopology.xml"></pre>
+</p>
+
+ The following image shows the routes:
 
 <img class="screen" src="routes.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="max-width: 60%;">
 
 All sensors will send packets to the controller, and the controller will send packets to the lamps.
-`more detailed description including the app configs`
+<!-- `more detailed description including the app configs` -->
+
+Here is the app configuration from <a srcFile="wireless/ieee802154/omnetpp.ini"/>:
 
 <p>
 <pre class="include" src="omnetpp.ini" from="numApps" until="routing table visualization"></pre>
 </p>
+
+All sensors will send one 10-byte UDP packet to the controller each second, with randomized start times. The controller will send one 10-byte UDP packet per second as well. The controller's app is an `UdpBasicApp`, and all lamp nodes are specified in its `destination` parameter. If multiple destinations are specified in `UdpBasicApp`, a random destination is chosen for each packet. Thus each packet will be destined to a different lamp.
+
+`There is no need for 802.15.4 configuration, it works out of the box`
+
+## Results
