@@ -22,6 +22,7 @@ IEEE 802.15.4 is a standard that defines the physical layer and media access con
 A brief overview of the standard follows. `TODO: if it turns out to be short, this is not needed`
 
 The IEEE 802.15.4 standard defines multiple physical layer specifications (PHYs), based on different modulations, such as Direct Sequence Spread Spectrum (DSSS), Chirp Spread Spectrum (CSS), Ultra-wideband (UWB). It defines a CSMA-CA or ALOHA MAC-layer protocol as well.
+`merge these two?`
 
 <!-- INET has two IEEE 802.15.4 PHY models, a narrow band version and an ultra-wideband version: `Ieee802154NarrowBandScalarRadio` and `Ieee802154UwbIrRadio`.
 The narrow band version uses DSSS-OQPSK modulation, the ultra wide-band version NOPE -->
@@ -87,9 +88,9 @@ The `Ieee802154NarrowbandInterface` module contains a `Ieee802154NarrowbandScala
 
 ### The configuration
 
-The showcase contains an example simulation, which demonstrates the operation of INET's IEEE 802.15.4 model. The scenario is that wireless nodes are used to control lighting in an appartment. There are sensor nodes in the rooms working as presence sensors, detecting when people are in a room.
+The showcase contains an example simulation, which demonstrates the operation of INET's narrow band IEEE 802.15.4 model. The scenario is that wireless nodes are used to control lighting in an apartment. There are sensor nodes in the rooms working as presence sensors, detecting when people are in a room.
 They periodically send sensor data to a controller node, which decides how to adjust the lighting conditions in different rooms. The controller sends control packets to the lamps in the rooms to set their brightness or turn them on and off. All nodes use the IEEE 802.15.4 standard to communicate.
-Note that this is not a working simulation of the light control and presence detection, just a mockup based on that scenario.
+Note that this is not a working simulation of the light control and presence detection, just a mockup based on that scenario - only the periodic communication of the nodes are simulated.
 
 The simulation can be run by choosing the `Ieee802154` configuration from <a srcFile="wireless/ieee802154/omnetpp.ini"/>. It uses the following network:
 
@@ -103,7 +104,7 @@ The network contains a number of wireless nodes of the host type `Ieee802154Node
 
 `TODO: description`
 `this is custom host type defined to ... actually, it would be maybe easier to just use an adhocHost
-and set wlan type to Ieee802154NarrowbandInterface? which is more concise ?`
+and set wlan type to Ieee802154NarrowbandInterface? which is more concise ?` `nope this one shows that it can be done this way which might be more helpful`
 
 The network also contains an `Ipv4NetworkConfigurator`, an `Ieee802154NarrowbandScalarRadioMedium`, and an `IntegratedVisualizer` module.
 
@@ -117,8 +118,15 @@ The network also contains an `Ipv4NetworkConfigurator`, an `Ieee802154Narrowband
 some power statistics ? maybe compare to the case if it was done with wifi?
 </pre>
 
+V1
+
 Routes are set up according to a star topology, with the controller at the center:
+
+V2
+
+Routes are set up according to a star topology, with the controller at the center. This is achieved by dumping the full configuration of `Ipv4NetworkConfigurator` (which was generated with the configurator's default settings), and then modifying it. The modified configuration is in the `TODO.xml` file. The following image shows the routes:
 
 <img class="screen" src="routes.png" onclick="imageFullSizeZoom(this);" style="cursor:zoom-in" style="max-width: 60%;">
 
 All sensors will send packets to the controller, and the controller will send packets to the lamps.
+`more detailed description including the app configs`
