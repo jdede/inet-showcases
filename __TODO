@@ -14,4 +14,8 @@ check_and_cast(): Cannot cast (inet::Packet*)ICMP-error-#1-type11-code0 to type 
 Cannot serialize Udp header without turned off or properly computed CRC, try changing the value of crcMode parameter for Udp -- in module (inet::ieee80211::Tx) ManetprotocolsShowcaseMoreNodes.source.wlan[0].mac.tx (id=47), at t=0.010319113618s, event #24
 (It doesn't throw error in Qtenv)
 - apps use ModuleIdAddress if the network interface doesn't have an IP address configured, and UDP uses GNP which results in a weird error in MessageDispatcher
+- XMac / sensornetwork showcase: at some slotTime values, the number of successfully sent packets drop. 
+A sensor sends preambles -> the gateway wakes up and sends ack -> the sensor node would send the data but another sensor node 
+starts sending preambles and the original sensor node's mac is stuck in SEND mode and doesnt do anything from this point. 
+Eventually all sensor nodes get into this state and the number of successfully sent packets is low ~5 packets
 
