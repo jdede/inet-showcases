@@ -44,7 +44,13 @@ This showcase demonstrates the WSN MAC protocols available in INET: BMAC, LMAC a
 
 How does it work?
 
+BMAC (short for Berkeley MAC) is a widely used WSN MAC protocol, it is part of TinyOS. It employs low-power listening (LPL) to minimize power consumption due to idle listening. Nodes have a sleep period, after which they awaken and sense the medium for preambles. If none is detected, the nodes go back to sleep. If there is a preamle, the nodes stay awake and receive the data packet after the preamle. If a node wants to send a message, it first sends a preamle for at least the sleep period in order for all nodes to detect it.
+After the preable, it sends the data packet. There is optional acknowledgements as well. When the data packet (or data packet + ACK) is sent/received, the nodes go back to sleep. Note that all nodes receive the preamle and data packet in the communication range of the sender, not just the intended recipient of the data packet.
+
 ### XMAC
+
+XMAC is a development of and aims to improve on some of BMAC's problems. In BMAC, the entire preamle is transmitted, regardless of whether the destination node awoke at the beginning of the preamle or at the end. Furthermore, with BMAC, all nodes are receiving both the preamble and the data packet. XMAC employs a strobed preamble, i.e. sending the same lenght preamle as BMAC, but in shorter bursts, with pauses in between. The pauses are long enough that the destination node can send an acknowledgement if it is already awake.
+When the senser receives the acknowledgement, it stops the preamble and sends the data packet. Also, the preamle contains the address of the destination node. Other nodes can awaken, receive the preamble, and go back to sleep as the packet is not addressed to them.
 
 ### LMAC
 
