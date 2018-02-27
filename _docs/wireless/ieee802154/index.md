@@ -118,12 +118,6 @@ The network also contains an `Ipv4NetworkConfigurator`, an `Ieee802154Narrowband
 some power statistics ? maybe compare to the case if it was done with wifi?
 </pre>
 
-V1
-
-Routes are set up according to a star topology, with the controller at the center:
-
-V2
-
 Routes are set up according to a star topology, with the controller at the center. This is achieved with the following configuration of `Ipv4NetworkConfigurator` defined in the `startopology.xml` file:
 
 <p>
@@ -145,6 +139,11 @@ Here is the app configuration from <a srcFile="wireless/ieee802154/omnetpp.ini"/
 
 All sensors will send one 10-byte UDP packet to the controller each second, with randomized start times. The controller will send one 10-byte UDP packet per second as well. The controller's app is an `UdpBasicApp`, and all lamp nodes are specified in its `destination` parameter. If multiple destinations are specified in `UdpBasicApp`, a random destination is chosen for each packet. Thus each packet will be destined to a different lamp.
 
-`There is no need for 802.15.4 configuration, it works out of the box`
+`There is no need for 802.15.4 configuration, it works out of the box...some values of the 802154 model`
 
 ## Results
+
+`some details of the 802.15.4, for example in the packet inspector
+some details in the config section? power statistics without comparison`
+
+<video autoplay loop controls max-width-percent="60" onclick="this.paused ? this.play() : this.pause();" src="Ieee802154_1.mp4"></video>
