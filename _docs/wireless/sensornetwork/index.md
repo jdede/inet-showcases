@@ -96,3 +96,18 @@ We are using `ApskScalarRadio` here, because it is relatively simple, uses an am
 `appsettings routes mactype`
 
 `ini cleanup`
+
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
+</p>
+<!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
+
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="BMac2.mp4"></video>
+</p>
+<!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
+
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="LMac3.mp4"></video>
+</p>
+<!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
