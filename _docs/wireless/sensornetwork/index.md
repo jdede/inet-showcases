@@ -54,4 +54,6 @@ When the senser receives the acknowledgement, it stops the preamble and sends th
 
 ### LMAC
 
+LMAC (short for lightweight MAC) is a TDMA-based MAC protocol. There are data transfer frames, which are divided into time-slots. Each node has its own time slot, in which only it can transmit. A transmission consist of a control message and a data unit. The control message contains which node is the destination of the data, and the length of the data unit. All nodes wake up at the beginning of each time-slot. If there are no transmissions, the time-slot is assumed to be empty (not owned by any nodes), and the nodes go back to sleep. If there is a transmission, after receiving the control message, nodes that are not the recipient go back to sleep. The recipient node and the sender node goes back to sleep after receiving/sending the transmission. 
+
 the order should be bmac,xmac,lmac
