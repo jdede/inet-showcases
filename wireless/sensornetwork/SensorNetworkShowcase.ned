@@ -1,14 +1,12 @@
 package inet.showcases.wireless.sensornetwork;
 
-import inet.common.lifecycle.LifecycleController;
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.ethernet.Eth100M;
 import inet.node.inet.StandardHost;
 import inet.node.inet.WirelessHost;
 import inet.physicallayer.apskradio.packetlevel.ApskScalarRadioMedium;
-import inet.physicallayer.ieee802154.bitlevel.Ieee802154UwbIrRadioMedium;
-import inet.physicallayer.ieee802154.packetlevel.Ieee802154NarrowbandScalarRadioMedium;
 import inet.visualizer.integrated.IntegratedVisualizer;
+
 
 network SensorNetworkShowcaseB
 {

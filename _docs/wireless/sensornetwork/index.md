@@ -72,7 +72,7 @@ the order should be bmac,xmac,lmac
 
 ### Configuration
 
-The showcase contains three example simulations, which demonstrate the three MACs in a wireless sensor network. The scenario is that there wireless sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They transmit the temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection.
+The showcase contains three example simulations, which demonstrate the three MACs in a wireless sensor network. The scenario is that there wireless sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They periodically transmit temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection.
 `TODO: to run the simulation choose todo config...`. All three simulations will use the same network, `TODO`, defined in <a srcFile="wireless/sensornetwork/SensorNetworkShowcase.ned"/>:
 
 <img class="screen" src="network.png">
