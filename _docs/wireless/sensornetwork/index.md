@@ -88,6 +88,7 @@ apskscalarradio is a simple generic radio...the parameters need to be set...the 
 
 We are using `ApskScalarRadio` here, because it is relatively simple, uses an amplitude and phase-shift keying modulation (BPSK, QAM-16 or QAM-64, BPSK by default), without additional features such as forward error correction, interleaving or spreading. We set some parameters of the radio in <a srcFile="wireless/sensornetwork/omnetpp.ini"/>:
 
+`TODO: why apskradio? -because its the one compatible with the macs - because we want to concentrate on the macs not the accuracy of the physical layer simulation`
 `TODO: why these values?`
 
 <pre class="include" src="omnetpp.ini" from="carrierFrequency" upto="snirThreshold"></pre>
