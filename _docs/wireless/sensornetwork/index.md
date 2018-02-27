@@ -51,6 +51,7 @@ After the preable, it sends the data packet. There is optional acknowledgements 
 
 XMAC is a development of and aims to improve on some of BMAC's problems. In BMAC, the entire preamle is transmitted, regardless of whether the destination node awoke at the beginning of the preamle or at the end. Furthermore, with BMAC, all nodes are receiving both the preamble and the data packet. XMAC employs a strobed preamble, i.e. sending the same lenght preamle as BMAC, but in shorter bursts, with pauses in between. The pauses are long enough that the destination node can send an acknowledgement if it is already awake.
 When the senser receives the acknowledgement, it stops the preamble and sends the data packet. Also, the preamle contains the address of the destination node. Other nodes can awaken, receive the preamble, and go back to sleep as the packet is not addressed to them.
+`How does this improve BMAC?`
 
 ### LMAC
 
@@ -60,3 +61,37 @@ In the first 5 frames, the network is set up and no data packets are sent. The n
 `all control messages contain the reserved timeslots?`
 
 the order should be bmac,xmac,lmac
+
+<pre>
+- the scenario
+- the configuration
+- the configuration and parameters of each mac
+- results
+- statistics
+</pre>
+
+### Configuration
+
+The showcase contains three example simulations, which demonstrate the three MACs in a wireless sensor network. The scenario is that there wireless sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They transmit the temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection.
+`TODO: to run the simulation choose todo config...`. All three simulations will use the same network, `TODO`, defined in <a srcFile="wireless/sensornetwork/SensorNetworkShowcase.ned"/>:
+
+<img class="screen" src="network.png">
+
+In the network, the wireless sensor nodes are `WirelessHost`s, named `sensor1` up to `sensor4`, and `gateway`. The node named `server` is a `StandardHost`. The network also contains an `Ipv4NetworkConfigurator`, an `IntegratedVisualizer`, and an `ApskScalarRadioMedium` module. The nodes are placed against the backdrop of a warehouse floorplan. The playground size is 60x30 meters. The warehouse is just a background image providing context, obstacle loss is not modelled.
+
+The wireless interface in the sensor nodes and the gateway is specified in <a srcFile="wireless/sensornetwork/omnetpp.ini"/> to be the generic `WirelessInterface` (instead of the Wifi specific `Ieee80211Interface`, which is the default wlan interface in `WirelessHost`). The radio type is set to `ApskScalarRadio`:
+
+<pre class="include" src="omnetpp.ini" from="typename" upto="radioType"></pre>
+
+`TODO: about why using ApskScalarRadio...its a simple radio, these macs work with apskscalarradio
+apskscalarradio is a simple generic radio...the parameters need to be set...the parameters themselves`
+
+We are using `ApskScalarRadio` here, because it is relatively simple, uses an amplitude and phase-shift keying modulation (BPSK, QAM-16 or QAM-64, BPSK by default), without additional features such as forward error correction, interleaving or spreading. We set some parameters of the radio in <a srcFile="wireless/sensornetwork/omnetpp.ini"/>:
+
+`TODO: why these values?`
+
+<pre class="include" src="omnetpp.ini" from="carrierFrequency" upto="snirThreshold"></pre>
+
+`appsettings routes mactype`
+
+`ini cleanup`
