@@ -156,7 +156,7 @@ The following video shows sensor nodes sending data to the server:
 </p>
 <!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
 
-`sensor3` starts sending preambles, while the other nodes are asleep. All of them wake up before the end of the preamble transmission. (note that the preamle is transmitted in chunks ?). When the nodes are awake, they receive the preamble, and receive the data packet as well at the physical layer (the mac discards it if it is not for them). Then the gateway sends it to the server.
+`sensor3` starts sending preambles, while the other nodes are asleep. All of them wake up before the end of the preamble transmission. (note that the preamle is transmitted in chunks ?). When the nodes are awake, they receive the preamble, and receive the data packet as well at the physical layer (the mac discards it if it is not for them). Then the gateway sends it to the server. Note that all nodes receive the preables and the data packet as well.
 
 ### X-MAC
 
@@ -166,6 +166,8 @@ The same thing happens as in the previous video, just with X-MAC this time:
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
 </p>
 <!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
+
+`sensor3` start sending preambles. `sensor4` wakes up and receives one of the preambles (hence the dotted arrow representing a successful physical layer transmission), and goes back to sleep, as the transmission is addressed to the gateway. Then the gateway wakes up, and sends an acknowledgement after receiving on of the preambles. `sensor3` sends the data packet, and the gateway forwards it to the server. 
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="LMac5.mp4"></video>
