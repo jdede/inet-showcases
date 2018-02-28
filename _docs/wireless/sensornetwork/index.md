@@ -66,6 +66,14 @@ In the first 5 frames, the network is set up and no data packets are sent. The n
 
 the order should be bmac,xmac,lmac
 
+`TODO
+the inet implementation
+it works with apsk scalar radio
+there are defaults, by default all of them transmit with 19200 bps
+there are some main parameters that can be set to tweak it -> actually, its not tweaking
+it is just configuring it according to the use case
+more on this at the configuration`
+
 <pre>
 - the scenario
 - the configuration
@@ -120,7 +128,7 @@ with a random start time around 1s. The packets will be routed through the gatew
 
 `most of the configuration is done in the General config, the mac type is selected in the individual configs for the macs`
 
-The MAC-specific settings are set in the configs for the individual MACs. Here are the configurations:
+The MAC-specific settings are set in the configs for the individual MACs:
 
 <pre class="include" src="omnetpp.ini" from="SensorNetwork2BMacWarehouse" upto="reservedMobileSlots"></pre>
 
@@ -128,6 +136,12 @@ The MAC-specific settings are set in the configs for the individual MACs. Here a
 - For the configuration of BMac, the slot duration parameter is set for all nodes
 - For the configuration of XMac, the slot duration parameter is set asymetrically for the sensors and the gateway. This can be done, because XMac can work asymetrically (is that so ?)(the statistic runs show that it performs better if it is asymetric)
 - The LMAC. you can set various parameters.
+
+NOPE...this should be separate for the three macs
+
+TODO: they work with the default settings
+TODO: slotDuration, numSlots, bitrate default, frame length = slotDuration * numSlots -> thats why they dont start transmitting data until 2s
+TODO: all of them transmit at 19200 bps data rate by default -> inet implementation section?
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
