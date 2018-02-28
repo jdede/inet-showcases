@@ -19,3 +19,4 @@ A sensor sends preambles -> the gateway wakes up and sends ack -> the sensor nod
 starts sending preambles and the original sensor node's mac is stuck in SEND mode and doesnt do anything from this point. 
 Eventually all sensor nodes get into this state and the number of successfully sent packets is low ~5 packets
 - Ieee802154 showcase / StatisticVisualizer: 7594a70 ("sensornetwork", 2018-02-28): the statistic visualizer displays '-' as the number of received packets when there is one received packet
+- Ieee802154 showcase: e56ef18 ("ieee802154", 2018-02-28): Module not found on path '' defined by par 'Ieee802154ShowcaseMoreLamps.sensor1.wlan[0].radio.energyConsumer.energySourceModule' -- in module (inet::physicallayer::StateBasedEpEnergyConsumer) Ieee802154ShowcaseMoreLamps.sensor1.wlan[0].radio.energyConsumer (id=42), during network initialization
