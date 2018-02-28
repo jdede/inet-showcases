@@ -18,4 +18,4 @@ Cannot serialize Udp header without turned off or properly computed CRC, try cha
 A sensor sends preambles -> the gateway wakes up and sends ack -> the sensor node would send the data but another sensor node 
 starts sending preambles and the original sensor node's mac is stuck in SEND mode and doesnt do anything from this point. 
 Eventually all sensor nodes get into this state and the number of successfully sent packets is low ~5 packets
-
+- Ieee802154 showcase / StatisticVisualizer: 7594a70 ("sensornetwork", 2018-02-28): the statistic visualizer displays '-' as the number of received packets when there is one received packet
