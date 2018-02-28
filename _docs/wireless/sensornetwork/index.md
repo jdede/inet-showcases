@@ -29,32 +29,32 @@ Source files location: <a href="https://github.com/inet-framework/inet-showcases
 
 V1
 
-The devices that make up wireless sensor networks (WSNs) are often power constrained, and the networks have high latency and low throughput, as compared to WLANs, for example. There are two main categories of MAC protocols for WSNs: time-division multiple access based (TDMA), such as LMAC, and carrier-sense multiple access (CSMA) based, such as BMAC and XMAC.
+The devices that make up wireless sensor networks (WSNs) are often power constrained, and the networks have high latency and low throughput, as compared to WLANs, for example. There are two main categories of MAC protocols for WSNs: time-division multiple access based (TDMA), such as LMAC, and carrier-sense multiple access (CSMA) based, such as B-MAC and X-MAC.
 
 V2
 
 There are two main categories of MAC protocols for WSNs, according to how the MAC manages when certain nodes can communicate on the channel:
 
 - `Time-division multiple access (TDMA) based`: These protocols assign different time slots to nodes. Nodes can send messages only in their time slot, thus eliminating contention. Examples of these kind of MAC protocols include LMAC, TRAMA, etc.
-- `Carrier-sense multiple access (CSMA) based`: These protocols use carrier sensing and backoffs to avoid collisions, similarly to IEEE 802.11. Examples include BMAC, SMAC, TMAC, XMAC.
+- `Carrier-sense multiple access (CSMA) based`: These protocols use carrier sensing and backoffs to avoid collisions, similarly to IEEE 802.11. Examples include B-MAC, SMAC, TMAC, X-MAC.
 
-This showcase demonstrates the WSN MAC protocols available in INET: BMAC, LMAC and XMAC. The following sections detail these protocols briefly.
+This showcase demonstrates the WSN MAC protocols available in INET: B-MAC, LMAC and X-MAC. The following sections detail these protocols briefly.
 
-### BMAC
+### B-MAC
 
 How does it work?
 
 How about the inet implementation ? -> in the config section
 
-BMAC (short for Berkeley MAC) is a widely used WSN MAC protocol, it is part of TinyOS. It employs low-power listening (LPL) to minimize power consumption due to idle listening. Nodes have a sleep period, after which they awaken and sense the medium for preambles. If none is detected, the nodes go back to sleep. If there is a preamle, the nodes stay awake and receive the data packet after the preamle. If a node wants to send a message, it first sends a preamle for at least the sleep period in order for all nodes to detect it.
+B-MAC (short for Berkeley MAC) is a widely used WSN MAC protocol, it is part of TinyOS. It employs low-power listening (LPL) to minimize power consumption due to idle listening. Nodes have a sleep period, after which they awaken and sense the medium for preambles. If none is detected, the nodes go back to sleep. If there is a preamle, the nodes stay awake and receive the data packet after the preamle. If a node wants to send a message, it first sends a preamle for at least the sleep period in order for all nodes to detect it.
 After the preable, it sends the data packet. There is optional acknowledgements as well. After the data packet (or data packet + ACK) is sent/received, the nodes go back to sleep. Note that all nodes receive the preamle and data packet in the communication range of the sender, not just the intended recipient of the data packet.
 
-### XMAC
+### X-MAC
 
-XMAC is a development of and aims to improve on some of BMAC's problems. In BMAC, the entire preamle is transmitted, regardless of whether the destination node awoke at the beginning of the preamle or at the end. Furthermore, with BMAC, all nodes are receiving both the preamble and the data packet. XMAC employs a strobed preamble, i.e. sending the same lenght preamle as BMAC, but in shorter bursts, with pauses in between. The pauses are long enough that the destination node can send an acknowledgement if it is already awake.
+X-MAC is a development of and aims to improve on some of B-MAC's problems. In B-MAC, the entire preamle is transmitted, regardless of whether the destination node awoke at the beginning of the preamle or at the end. Furthermore, with B-MAC, all nodes are receiving both the preamble and the data packet. X-MAC employs a strobed preamble, i.e. sending the same lenght preamle as B-MAC, but in shorter bursts, with pauses in between. The pauses are long enough that the destination node can send an acknowledgement if it is already awake.
 When the senser receives the acknowledgement, it stops the preamble and sends the data packet. Also, the preamle contains the address of the destination node. Nodes can awaken, receive the preamble, and go back to sleep if the packet is not addressed to them.
-These features improve BMAC's power efficiency by decreasing nodes' time spent in idle listening.
-`How does this improve BMAC?`
+These features improve B-MAC's power efficiency by decreasing nodes' time spent in idle listening.
+`How does this improve B-MAC?`
 
 ### LMAC
 
@@ -65,6 +65,8 @@ In the first 5 frames, the network is set up and no data packets are sent. The n
 `only one message can be sent in a slot`
 
 the order should be bmac,xmac,lmac
+
+### The INET implementations
 
 `TODO
 the inet implementation
@@ -143,13 +145,25 @@ TODO: they work with the default settings
 TODO: slotDuration, numSlots, bitrate default, frame length = slotDuration * numSlots -> thats why they dont start transmitting data until 2s
 TODO: all of them transmit at 19200 bps data rate by default -> inet implementation section?
 
-<p>
-<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
-</p>
-<!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
+## Results
+
+### B-MAC
+
+The following video shows sensor nodes sending data to the server:
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="BMac2.mp4"></video>
+</p>
+<!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
+
+`sensor3` starts sending preambles, while the other nodes are asleep. All of them wake up before the end of the preamble transmission. (note that the preamle is transmitted in chunks ?). When the nodes are awake, they receive the preamble, and receive the data packet as well at the physical layer (the mac discards it if it is not for them). Then the gateway sends it to the server.
+
+### X-MAC
+
+The same thing happens as in the previous video, just with X-MAC this time:
+
+<p>
+<video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
 </p>
 <!--internal video recording, zoom 20.28, animation speed none, playback speed 1.698, normal run, crop 50 50 130 130-->
 
