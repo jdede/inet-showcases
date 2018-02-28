@@ -35,7 +35,7 @@ V2
 
 There are two main categories of MAC protocols for WSNs, according to how the MAC manages when certain nodes can communicate on the channel:
 
-- `Time-division multiple access (TDMA) based`: These protocols assign different time-slots to nodes. Nodes can send messages only in their time slot, thus eliminating contention. Examples of these kind of MAC protocols include example LMAC.
+- `Time-division multiple access (TDMA) based`: These protocols assign different time slots to nodes. Nodes can send messages only in their time slot, thus eliminating contention. Examples of these kind of MAC protocols include LMAC, TRAMA, etc.
 - `Carrier-sense multiple access (CSMA) based`: These protocols use carrier sensing and backoffs to avoid collisions, similarly to IEEE 802.11. Examples include BMAC, SMAC, TMAC, XMAC.
 
 This showcase demonstrates the WSN MAC protocols available in INET: BMAC, LMAC and XMAC. The following sections detail these protocols briefly.
@@ -44,21 +44,25 @@ This showcase demonstrates the WSN MAC protocols available in INET: BMAC, LMAC a
 
 How does it work?
 
+How about the inet implementation ? -> in the config section
+
 BMAC (short for Berkeley MAC) is a widely used WSN MAC protocol, it is part of TinyOS. It employs low-power listening (LPL) to minimize power consumption due to idle listening. Nodes have a sleep period, after which they awaken and sense the medium for preambles. If none is detected, the nodes go back to sleep. If there is a preamle, the nodes stay awake and receive the data packet after the preamle. If a node wants to send a message, it first sends a preamle for at least the sleep period in order for all nodes to detect it.
-After the preable, it sends the data packet. There is optional acknowledgements as well. When the data packet (or data packet + ACK) is sent/received, the nodes go back to sleep. Note that all nodes receive the preamle and data packet in the communication range of the sender, not just the intended recipient of the data packet.
+After the preable, it sends the data packet. There is optional acknowledgements as well. After the data packet (or data packet + ACK) is sent/received, the nodes go back to sleep. Note that all nodes receive the preamle and data packet in the communication range of the sender, not just the intended recipient of the data packet.
 
 ### XMAC
 
 XMAC is a development of and aims to improve on some of BMAC's problems. In BMAC, the entire preamle is transmitted, regardless of whether the destination node awoke at the beginning of the preamle or at the end. Furthermore, with BMAC, all nodes are receiving both the preamble and the data packet. XMAC employs a strobed preamble, i.e. sending the same lenght preamle as BMAC, but in shorter bursts, with pauses in between. The pauses are long enough that the destination node can send an acknowledgement if it is already awake.
-When the senser receives the acknowledgement, it stops the preamble and sends the data packet. Also, the preamle contains the address of the destination node. Other nodes can awaken, receive the preamble, and go back to sleep as the packet is not addressed to them.
+When the senser receives the acknowledgement, it stops the preamble and sends the data packet. Also, the preamle contains the address of the destination node. Nodes can awaken, receive the preamble, and go back to sleep if the packet is not addressed to them.
+These features improve BMAC's power efficiency by decreasing nodes' time spent in idle listening.
 `How does this improve BMAC?`
 
 ### LMAC
 
-LMAC (short for lightweight MAC) is a TDMA-based MAC protocol. There are data transfer frames, which are divided into time-slots. Each node has its own time slot, in which only it can transmit. A transmission consist of a control message and a data unit. The control message contains which node is the destination of the data, and the length of the data unit. All nodes wake up at the beginning of each time-slot. If there are no transmissions, the time-slot is assumed to be empty (not owned by any nodes), and the nodes go back to sleep. If there is a transmission, after receiving the control message, nodes that are not the recipient go back to sleep. The recipient node and the sender node goes back to sleep after receiving/sending the transmission.
+LMAC (short for lightweight MAC) is a TDMA-based MAC protocol. There are data transfer frames, which are divided into time slots. Each node has its own time slot, in which only that node can transmit. A transmission consist of a control message and a data unit. The control message contains which node is the destination of the data, the length of the data unit, and the occupied time slots. All nodes wake up at the beginning of each time slot. If there are no transmissions, the time slot is assumed to be empty (not owned by any nodes), and the nodes go back to sleep. If there is a transmission, after receiving the control message, nodes that are not the recipient go back to sleep. The recipient node and the sender node goes back to sleep after receiving/sending the transmission.
 
-In the first 5 frames, the network is set up and no data packets are sent. The network is set up by nodes claiming a time-slot to own. They send a message in the time-slot they want to reserve. If there are no collisions, nodes note that the time-slot is claimed. If there are two nodes trying to claim the time-slot, and there is a collision, they randomly choose another unclaimed time-slot.
+In the first 5 frames, the network is set up and no data packets are sent. The network is set up by nodes claiming a time slot to own. They send a message in the time slot they want to reserve. If there are no collisions, nodes note that the time slot is claimed. If there are two nodes trying to claim the time slot, and there is a collision, they randomly choose another unclaimed time slot.
 `all control messages contain the reserved timeslots?`
+`only one message can be sent in a slot`
 
 the order should be bmac,xmac,lmac
 
@@ -72,14 +76,15 @@ the order should be bmac,xmac,lmac
 
 ### Configuration
 
-The showcase contains three example simulations, which demonstrate the three MACs in a wireless sensor network. The scenario is that there wireless sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They periodically transmit temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection.
-To run the example simulations, choose the `BMac`, `LMac` and `XMac` configurations from omnetpp.ini.
-Most of the configuration is shared between the three simulations (defined in the General configuration), except for the MAC protocol specific settings.
-`TODO: to run the simulation choose todo config...`. All three simulations will use the same network, `TODO`, defined in <a srcFile="wireless/sensornetwork/SensorNetworkShowcase.ned"/>:
+The showcase contains three example simulations, which demonstrate the three MACs in a wireless sensor network. The scenario is that there are wireless sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They periodically transmit temperature data wirelessly to a gateway node, which forwards the data to a server via a wired connection.
+To run the example simulations, choose the `BMac`, `LMac` and `XMac` configurations from <a srcFile="wireless/sensornetwork/omnetpp.ini"/>.
+Most of the configuration is shared between the three simulations (defined in the `General` configuration), except for the MAC protocol specific settings.
+All three simulations will use the same network, `TODO`, defined in <a srcFile="wireless/sensornetwork/SensorNetworkShowcase.ned"/>:
 
 <img class="screen" src="network.png">
 
 In the network, the wireless sensor nodes are `WirelessHost`s, named `sensor1` up to `sensor4`, and `gateway`. The node named `server` is a `StandardHost`. The network also contains an `Ipv4NetworkConfigurator`, an `IntegratedVisualizer`, and an `ApskScalarRadioMedium` module. The nodes are placed against the backdrop of a warehouse floorplan. The playground size is 60x30 meters. The warehouse is just a background image providing context, obstacle loss is not modelled.
+`so it doesnt affect the simulation`
 
 The wireless interface in the sensor nodes and the gateway is specified in <a srcFile="wireless/sensornetwork/omnetpp.ini"/> to be the generic `WirelessInterface` (instead of the Wifi specific `Ieee80211Interface`, which is the default wlan interface in `WirelessHost`). The radio type is set to `ApskScalarRadio`:
 
@@ -114,6 +119,15 @@ with a random start time around 1s. The packets will be routed through the gatew
 `ini cleanup`
 
 `most of the configuration is done in the General config, the mac type is selected in the individual configs for the macs`
+
+The MAC-specific settings are set in the configs for the individual MACs. Here are the configurations:
+
+<pre class="include" src="omnetpp.ini" from="SensorNetwork2BMacWarehouse" upto="reservedMobileSlots"></pre>
+
+- In each configuration, the `macType` parameter of the wireless interface is set.
+- For the configuration of BMac, the slot duration parameter is set for all nodes
+- For the configuration of XMac, the slot duration parameter is set asymetrically for the sensors and the gateway. This can be done, because XMac can work asymetrically (is that so ?)(the statistic runs show that it performs better if it is asymetric)
+- The LMAC. you can set various parameters.
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
