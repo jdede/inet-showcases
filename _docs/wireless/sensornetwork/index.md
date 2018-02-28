@@ -73,6 +73,8 @@ the order should be bmac,xmac,lmac
 ### Configuration
 
 The showcase contains three example simulations, which demonstrate the three MACs in a wireless sensor network. The scenario is that there wireless sensor nodes in a refridgerated warehouse, monitoring the temperature at their location. They periodically transmit temperature data wirelessly to a gateway node, which forwards the data to a server via a wired ethernet connection.
+To run the example simulations, choose the `BMac`, `LMac` and `XMac` configurations from omnetpp.ini.
+Most of the configuration is shared between the three simulations (defined in the General configuration), except for the MAC protocol specific settings.
 `TODO: to run the simulation choose todo config...`. All three simulations will use the same network, `TODO`, defined in <a srcFile="wireless/sensornetwork/SensorNetworkShowcase.ned"/>:
 
 <img class="screen" src="network.png">
@@ -95,7 +97,23 @@ We are using `ApskScalarRadio` here, because it is relatively simple, uses an am
 
 `appsettings routes mactype`
 
+Routes are set up according to a star topology, with the gateway at the center. This is achieved by dumping the full configuration of `Ipv4NetworkConfigurator` (which was generated with the configurator's default settings), and then modifying it. The modified configuration is in the `TODO.xml` file. The following image shows the routes:
+
+<img class="screen" src="routes.png" style="max-width: 80%;">
+
+<img class="screen" src="routes2.png">
+
+`Which one?`
+
+Each sensor node will send a 10-byte UDP packet ("temperature data") every second to the server,
+with a random start time around 1s. The packets will be routed through the gateway. Here are the application settings in <a srcFile="wireless/sensornetwork/omnetpp.ini"/>:
+
+<pre class="include" src="omnetpp.ini" from="numApps" upto="localPort"></pre>
+
+
 `ini cleanup`
+
+`most of the configuration is done in the General config, the mac type is selected in the individual configs for the macs`
 
 <p>
 <video autoplay loop controls onclick="this.paused ? this.play() : this.pause();" src="XMac2.mp4"></video>
